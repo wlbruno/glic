@@ -49,6 +49,10 @@ class AtasController extends Controller
     {
         $ata = $this->repository->create($request->all());
 
+
+        if($ata->tipo == 'ITEM'){
+            return redirect()->route('item.item', $ata->id);
+        }
         return redirect()->route('lotes.create', $ata->id);
     }
 
@@ -152,5 +156,16 @@ class AtasController extends Controller
                                     ->paginate();
 
         return view('admin.pages.atas.index', compact('atas', 'filters'));
+    }
+
+    /**
+    *   Finalizar Ata
+    *
+    */
+    public function finish($id)
+    {
+        $atas = Ata::find($id);
+
+        return view('admin.pages.atas.finish', compact('atas'));
     }
 }

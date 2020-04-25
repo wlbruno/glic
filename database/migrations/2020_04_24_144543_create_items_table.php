@@ -20,7 +20,7 @@ class CreateItemsTable extends Migration
             $table->foreign('objetos_id')->references('id')->on('objetos');
             
             $table->bigInteger('fornecedores_id')->unsigned();
-            $table->foreign('fornecedores_id')->references('id')->on('fornecedors');
+            $table->foreign('fornecedores_id')->references('id')->on('fornecedores');
 
             $table->string('medida');
             $table->integer('quantidade');

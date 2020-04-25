@@ -3,11 +3,20 @@
 @section('title', 'Lotes')
 
 @section('content_header')
+    @if($atas->tipo == 'LOTE')
     <h1>	Lotes
     	 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal-lg">
             Criar Lote
         </button>
+    <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-success">FINALIZAR ATA</a>
     </h1>
+    @else
+    <h1>  Itens
+           <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-success">FINALIZAR ATA</a>
+      </h1>
+      @endif
+
+
 @stop
 
 @section('content')
@@ -23,9 +32,11 @@
 		              <div class="card-header border-transparent">
 		                <h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
 							<div class="card-tools">
-								<a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-info" ><i class="fas fa-plus"></i> ITENS</a>
-		                		<a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-warning">EDITAR</a>
+								        <a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-info" ><i class="fas fa-plus"></i> ITENS</a>
+                        @if($atas->tipo == 'LOTE')
+		                		<a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-warning ">EDITAR</a>
 		                 		<a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-danger" >DELETAR</a>
+                        @endif
 		                 		
 		                	</div>
                         </div>
@@ -45,6 +56,7 @@
         									   <th>Unidade de medida</th>
         										<th>Valor unitário</th>
         										<th>Valor total</th>
+                            <th>Ações</th>
 				                    </tr>
                     			</thead>
                     		<tbody>
@@ -57,7 +69,12 @@
                                 <td>{{$lote_item->item->teto}}</td>
                                 <td>{{$lote_item->item->medida}}</td>
                                 <td>{{$lote_item->item->vunitario}}</td>
-                                <td>{{$lote_item->item->vtotal}}</td>               
+                                <td>{{$lote_item->item->vtotal}}</td>           
+                                <td>
+                                  <a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-outline-warning btn-sm">EDITAR</a>
+                                  <a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn  btn-outline-danger btn-sm" >DELETAR</a>
+                                  <a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-outline-dark btn-sm" >ÓRGÃO</a>
+                                </td>    
                   
 	               			    </tr>
                           @endforeach

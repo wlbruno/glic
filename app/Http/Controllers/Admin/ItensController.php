@@ -36,13 +36,10 @@ class ItensController extends Controller
 
     }
 
-   public function store(Request $request, $idAta, $idLote)
+   public function store(Request $request, $idAta)
     {
-        $ata = Ata::find($idAta);
-        $lote = Lote::where('id', $idLote)->first();   
-        
-        if (!$lote)
-            return redirect()->back();
+        $ata = Ata::find($idAta);  
+     
         
         $itens  = new Item();
         $itens->objetos_id = $request->input('objetos');
@@ -60,7 +57,7 @@ class ItensController extends Controller
 
         if(!isset($request->lotes_id)){
             $lotes = new lote();
-            $lotes->atas_id = $request->input('atas_id');
+            $lotes->atas_id = $ata->id;
             $lotes->descricao = $request->input('descricao');
             $lotes->save();
 
@@ -74,6 +71,18 @@ class ItensController extends Controller
 
         return redirect()->route('lotes.create', $ata->id);
 
+    }
 
+    /**
+    *   form ata tipo item
+    *
+    */
+    public function item($idAta)
+    {
+        $atas = Ata::find($idAta);
+        $objetos = Objeto::all(); 
+        $fornecedores = Fornecedor::all();   
+
+        return view('admin.pages.itens.item', compact('atas', 'objetos', 'fornecedores'));  
     }
 }

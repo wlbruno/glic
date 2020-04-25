@@ -19,6 +19,7 @@ Route::prefix('admin')
 	*/
 	Route::any('atas/search', 'AtasController@search')->name('atas.search');
 	Route::resource('atas', 'AtasController');
+	Route::get('atas/{id}/finalizar', 'AtasController@finish')->name('atas.finish');
 	
 	/**
 	*	Routes Lotes
@@ -35,6 +36,8 @@ Route::prefix('admin')
 	*
 	*/
 	Route::get('atas/{idAta}/lote/{idLote}/itens', 'ItensController@create')->name('itens.create');
-	Route::POST('atas/{idAta}/lote/{idLote}/itens', 'ItensController@store')->name('itens.store');
+	Route::POST('atas/{idAta}/lote/itens', 'ItensController@store')->name('itens.store');
+	Route::get('atas/{idAta}/item', 'ItensController@item')->name('item.item');
+	Route::POST('atas/{idAta}/item', 'ItensController@store')->name('item.item');
 
 });
