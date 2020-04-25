@@ -14,8 +14,9 @@ class Lote extends Model
     	return $this->belongsTo('App\Models\Ata', "atas_id");
     }
 
-  public function ItensLote(){
-      return $this->belongsTo(Item_lote::class, 'itens_id', 'id');
+	public function ItensLote()
+    {
+        return $this->hasMany(Item_lote::class, 'lotes_id', 'id');
     }
 }
 

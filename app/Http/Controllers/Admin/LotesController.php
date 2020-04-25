@@ -19,7 +19,8 @@ class LotesController extends Controller
     public function create($id)
     {
     	$atas = Ata::find($id);
-    	return view('admin.pages.lotes.index', compact('atas'));
+        
+            return view('admin.pages.lotes.index', compact('atas'));
     }
 
     public function store(Request $request, $id)

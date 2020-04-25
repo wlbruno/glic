@@ -13,25 +13,29 @@
 @section('content')
 <div class="row">
 	<div class="col-sm-12">
+
+
 		@foreach($atas->lotes as $lote)
+
 		    <div class="card">
 		    	<div class="card-body">
-					<div class="card">
+					   <div class="card">
 		              <div class="card-header border-transparent">
 		                <h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
 							<div class="card-tools">
 								<a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-info" ><i class="fas fa-plus"></i> ITENS</a>
 		                		<a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-warning">EDITAR</a>
-		                 		<a href="{{ route('lotes.destroy', [$atas->id, $lote->id]) }}" class="btn btn-danger" >DELETAR</a>
-		                 		<!-- <button type="button" class="btn btn-tool" data-card-widget="collapse">
-		                    		<i class="fas fa-minus"></i></button> -->
+		                 		<a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-danger" >DELETAR</a>
+		                 		
 		                	</div>
                         </div>
 		            <div class="card-body p-0">
                 		<div class="table-responsive">
+                              
                   			<table class="table m-0">
                     			<thead>
-				                    <tr>
+                            @foreach($lote->ItensLote as $lote_item)
+                            <tr>
 					                   <th>Objeto</th>
         									   <th>N° E-fisco</th>
         									   <th>Fornecedor</th>
@@ -45,10 +49,20 @@
                     			</thead>
                     		<tbody>
                     			<tr>
+                                <td>{{$lote_item->item->objetos->nome}}</td>
+                                <td>{{$lote_item->item->objetos->nefisco}}</td>
+                                <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
+                                <td>{{$lote_item->item->fornecedores->cnpj}}</td>
+                                <td>{{$lote_item->item->quantidade}}</td>
+                                <td>{{$lote_item->item->teto}}</td>
+                                <td>{{$lote_item->item->medida}}</td>
+                                <td>{{$lote_item->item->vunitario}}</td>
+                                <td>{{$lote_item->item->vtotal}}</td>               
                   
-	               			    </tr>           
+	               			    </tr>
+                          @endforeach
                     		</tbody>
-                  		</table>
+                  		</table>           
                 	</div>
               	</div>
             </div>

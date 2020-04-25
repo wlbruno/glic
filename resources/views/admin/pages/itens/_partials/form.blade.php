@@ -8,11 +8,10 @@
     <div class="form-group">
       <label for="objetos">Objetos</label>
         <select class="form-control" required name="objetos">
-          <option value="" disabled="" selected="">Selecione o objeto</option>
-          <option value="MEDICAMENTOS">MEDICAMENTOS</option>
-          <option value="PRODUTOS MEDICOS">PRODUTOS MÉDICOS</option>
-          <option value="AQUISIÇÕES EM GERAL">AQUISIÇÕES EM GERAL</option>
-          <option value="SERVIÇOS EM GERAL">SERVIÇOS EM GERAL</option>
+          <option value="" disabled="" selected="">Selecione o Objeto</option>
+                          @foreach($objetos as $objeto)
+                          <option value="{{$objeto->id}}">{{$objeto->nome}}</option>
+                          @endforeach
         </select>
       </div>
     </div>
@@ -21,11 +20,10 @@
     <div class="form-group">
       <label for="fornecedores">Fornecedores</label>
         <select class="form-control" required name="fornecedores">
-          <option value="" disabled="" selected="">Selecione o fornecedor</option>
-          <option value="MEDICAMENTOS">MEDICAMENTOS</option>
-          <option value="PRODUTOS MEDICOS">PRODUTOS MÉDICOS</option>
-          <option value="AQUISIÇÕES EM GERAL">AQUISIÇÕES EM GERAL</option>
-          <option value="SERVIÇOS EM GERAL">SERVIÇOS EM GERAL</option>
+            <option value="" disabled="" selected="">Selecione o fornecedor</option>
+                              @foreach($fornecedores as $fornecedor)
+                              <option value="{{$fornecedor->id}}">{{$fornecedor->fornecedor}}</option>
+                              @endforeach
         </select>
       </div>
     </div>
@@ -58,8 +56,8 @@
   
     <div class="col-md-6">
       <div class="form-group">
-        <label for="medica">Unidade de Medida</label>
-        <input type="text" class="form-control" name="medica" required placeholder="EX: AMPOLA" >
+        <label for="medida">Unidade de Medida</label>
+        <input type="text" class="form-control" name="medida" required placeholder="EX: AMPOLA" >
       </div>
     </div>
 

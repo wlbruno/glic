@@ -8,6 +8,8 @@ use App\Models\Item;
 use App\Models\Lote;
 use App\Models\Ata;
 use App\Models\Item_lote;
+use App\Models\Objeto;
+use App\Models\Fornecedor;
 
 
 class ItensController extends Controller
@@ -22,16 +24,19 @@ class ItensController extends Controller
     public function create($idAta, $idLote)
     {
     	$ata = Ata::find($idAta);
-        $lote = Lote::where('id', $idLote)->first();   
+        $lote = Lote::where('id', $idLote)->first();
+
+        $objetos = Objeto::all(); 
+        $fornecedores = Fornecedor::all();   
         
         if (!$lote)
             return redirect()->back();
 
-        return view ('admin.pages.itens.create', compact('ata', 'lote'));
+        return view ('admin.pages.itens.create', compact('ata', 'lote', 'objetos', 'fornecedores'));
 
     }
 
-   public function store($idAta, $idLote)
+   public function store(Request $request, $idAta, $idLote)
     {
         $ata = Ata::find($idAta);
         $lote = Lote::where('id', $idLote)->first();   
@@ -39,10 +44,9 @@ class ItensController extends Controller
         if (!$lote)
             return redirect()->back();
         
-
         $itens  = new Item();
-        $itens->objetos_id = $request->input('objetoid');
-        $itens->empresas_id = $request->input('empresaid');
+        $itens->objetos_id = $request->input('objetos');
+        $itens->fornecedores_id = $request->input('fornecedores');
         $itens->quantidade = $request->input('quantidade') / 2;
         $itens->teto = $request->input('quantidade') * 2;
         $itens->medida = $request->input('medida');

@@ -13,8 +13,19 @@ class Item extends Model
 
 
 
-    public function lotes()
+    public function ItensLote()
     {
-    	return $this->belongsToMany(Lote::class);
+      return $this->belongsTo(Item_lote::class, 'itens_id', 'id');
     }
+
+    public function objetos()
+    {
+    	return $this->belongsTo("App\Models\Objeto");
+    }
+
+    public function fornecedores()
+    {
+    	return $this->belongsTo("App\Models\Fornecedor");
+    }
+
 }
