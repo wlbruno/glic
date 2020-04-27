@@ -28,4 +28,10 @@ class Item extends Model
     	return $this->belongsTo("App\Models\Fornecedor");
     }
 
+     public function orgaos()
+    {
+        return $this->hasMany("App\Models\Orgao", "itens_id");
+    }
+
+    
 }

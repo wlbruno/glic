@@ -20,6 +20,9 @@ Route::prefix('admin')
 	Route::any('atas/search', 'AtasController@search')->name('atas.search');
 	Route::resource('atas', 'AtasController');
 	Route::get('atas/{id}/finalizar', 'AtasController@finish')->name('atas.finish');
+	Route::put('atas/{id}/salvar', 'AtasController@save')->name('atas.save');
+	Route::put('atas/{id}/publicar', 'AtasController@publicar')->name('atas.public');
+
 	
 	/**
 	*	Routes Lotes
@@ -40,4 +43,17 @@ Route::prefix('admin')
 	Route::get('atas/{idAta}/item', 'ItensController@item')->name('item.item');
 	Route::POST('atas/{idAta}/item', 'ItensController@store')->name('item.item');
 
+	/**
+	*	Routes Órgao
+	*
+	*/
+	Route::get('atas/{idAta}/lote/{idLote}/item/{idItem}/orgao', 'OrgaoController@create')->name('orgao.create');
+	Route::post('atas/{idAta}/lote/{idLote}/item/{idItem}', 'OrgaoController@store')->name('orgao.store');
+
+
+
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -73,7 +73,7 @@
                                 <td>
                                   <a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-outline-warning btn-sm">EDITAR</a>
                                   <a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn  btn-outline-danger btn-sm" >DELETAR</a>
-                                  <a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-outline-dark btn-sm" >ÓRGÃO</a>
+                                  <a href="{{ route('orgao.create', [$atas->id, $lote->id, $lote_item->item->id])}}" class="btn btn-outline-dark btn-sm" >ÓRGÃO</a>
                                 </td>    
                   
 	               			    </tr>

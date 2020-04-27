@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Objeto extends Model
 {
-     function item() {
+    public function item()
+    {
     	return $this->hasMany("App\Models\Item");
     }
 }

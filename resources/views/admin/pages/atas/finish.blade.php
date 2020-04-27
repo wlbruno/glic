@@ -48,15 +48,26 @@
                     </tbody>
                 </table>
               </div>
-            <div class="card-footer">
-           
-                <button type="submit" class="btn btn-info"></i>SALVAR</button>
-             	 <button type="submit" class="btn btn-info">SALVAR E PUBLICAR</button>
-              
-              </div>
+                  <div class="card-footer">
+                    <form action="{{ route('atas.save', $atas->id) }}" method="POST">
+                      @csrf
+                       @method('PUT')
+                        <input type="hidden" value="SAVE" name="status">
+                      <button type="submit" class="btn btn-info">SALVAR</button>
+                    </form>
+                  </div>
+                  <div class="card-footer">
+                    <form action="{{ route('atas.public', $atas->id) }}" method="POST">
+                        @csrf
+                       @method('PUT')
+                       <input type="hidden" value="PUBLIC" name="status">
+                      <button type="submit" class="btn btn-info ">SALVAR E PUBLICAR</button>
+                    </form>
+                  </div>
             </div>
           </div>
         </div>
+
 
 
    	<!-------------------------------ATA TIPO LOTE ABAIXO ----------------------------------------->

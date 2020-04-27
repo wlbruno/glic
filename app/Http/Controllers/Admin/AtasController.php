@@ -168,4 +168,22 @@ class AtasController extends Controller
 
         return view('admin.pages.atas.finish', compact('atas'));
     }
+
+    public function save(Request $request, $id)
+    {
+        $atas = Ata::find($id);
+        $atas->status = $request->input('status');
+        $atas->save();;
+
+        return redirect()->route('atas.index');
+    }
+
+    public function publicar(Request $request, $id)
+    {
+        $atas = Ata::find($id);
+        $atas->status = $request->input('status');
+        $atas->save();
+
+        return redirect()->route('atas.index');   
+    }
 }

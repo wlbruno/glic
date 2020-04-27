@@ -8,7 +8,8 @@ class Fornecedor extends Model
 {
 	protected $table = 'fornecedores';
 
-     function item() {
+    public  function item() 
+    {
     	return $this->hasMany("App\Models\Item");
     }
 }

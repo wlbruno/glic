@@ -69,6 +69,7 @@ class ItensController extends Controller
             $item_lote->save();
         } 
 
+      
         return redirect()->route('lotes.create', $ata->id);
 
     }

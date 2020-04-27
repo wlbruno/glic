@@ -28,7 +28,7 @@
 					      @if(count($ata->lotes) == 0)
 					        <div class="form-group"> 
 					          <label for="descricao">Descrição</label>
-					            <input type="text" name="descricao" required="">
+					            <input type="text" class="form-control" name="descricao" required="">
 					        </div>
 					      @else
 					        <input type="hidden" name="lotes_id" value="{{$lote->id}}">
