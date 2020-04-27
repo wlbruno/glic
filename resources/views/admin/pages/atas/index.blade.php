@@ -35,7 +35,7 @@
                         <th>Comissão</th>
                         
                         <th>Órgão</th>
-
+                        <th>Status</th>
                         <th width="150">Ações</th>
                     </tr>
                 </thead>
@@ -51,13 +51,17 @@
                             <td>{{ $ata->comissao }}</td>
                            
                             <td>{{ $ata->orgao }}</td>
-                            
-
-
+                            @if($ata->status == 'PUBLIC')
+                            <td><span class="badge badge-success">{{$ata->status}}</span></td>
+                            @elseif($ata->status == 'SAVE')
+                            <td><span class="badge badge-info">{{$ata->status}}</span></td>
+                            @else
+                            <td><span class="badge badge-warning">{{$ata->status}}</span></td>
+                            @endif
 
                             <td style="width: 10px;">
-                                <a href="{{ route('atas.edit', $ata->id) }}" class="btn btn-info">Editar</a>
-                                <a href="{{ route('atas.show', $ata->id) }}" class="btn btn-warning">VER</a>    
+                                <a href="{{ route('atas.edit', $ata->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('atas.show', $ata->id) }}" class="btn btn-info"><i class="fas fa-search"></i></a>    
                             </td>
                         </tr>
                     @endforeach    

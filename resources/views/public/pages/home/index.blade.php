@@ -17,14 +17,18 @@
           
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{$atasmedicamentos}}</h3>
 
-                <p>New Orders</p>
+                <p>Medicamentos</p>
               </div>
               <div class="icon">
               <i class="fas fa-syringe"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              @if($atasmedicamentos == '0') 
+                  <center class="small-box-footer">Sem atas vigentes</center>
+                @else()
+                  <a href="/ata/medicamentos" class="small-box-footer">Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
+                @endif
             </div>
           </div>
 
@@ -32,14 +36,18 @@
           
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{$atasprodutos}}</h3>
 
-                <p>New Orders</p>
+                <p>Produtos Médicos</p>
               </div>
               <div class="icon">
                 <i class="fas fa-capsules"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+               @if($atasprodutos == '0') 
+                    <center class="small-box-footer" >Sem atas vigentes</center>
+                  @else()
+                    <a href="/ata/produtos" class="small-box-footer" >Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
+                  @endif
             </div>
           </div>
 
@@ -47,14 +55,18 @@
           
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{$atasaquisicoes}}</h3>
 
-                <p>New Orders</p>
+                <p>Aquisições em Geral</p>
               </div>
               <div class="icon">
                 <i class="fas fa-capsules"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                  @if($atasaquisicoes == '0') 
+                      <center class="small-box-footer" >Sem atas vigentes</center>
+                    @else()
+                      <a href="/ata/aquisicao" class="small-box-footer" >Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
+                    @endif
             </div>
           </div>
 
@@ -62,14 +74,18 @@
           
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+                <h3>{{$atasservicos}}</h3>
 
-                <p>New Orders</p>
+                <p>Serviços em Geral</p>
               </div>
               <div class="icon">
              <i class="fas fa-capsules"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+             @if($atasservicos == '0') 
+                            <center class="small-box-footer" >Sem atas vigentes</center>
+                          @else()
+                            <a href="/ata/servicos" class="small-box-footer" >Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
+                          @endif
             </div>
           </div>
     
