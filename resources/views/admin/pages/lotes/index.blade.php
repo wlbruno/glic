@@ -3,6 +3,7 @@
 @section('title', 'Lotes')
 
 @section('content_header')
+  @if($atas->status == 'CRIACAO')
     @if($atas->tipo == 'LOTE')
     <h1>	Lotes
     	 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal-lg">
@@ -14,6 +15,14 @@
     <h1>  Itens
            <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-success">FINALIZAR ATA</a>
       </h1>
+      @endif
+
+      @else
+       <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item "><a href="{{ route('atas.index') }}">Atas</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('atas.show', $atas->id) }}">Ata {{$atas->nata}}</a></li>
+    </ol> 
       @endif
 
 

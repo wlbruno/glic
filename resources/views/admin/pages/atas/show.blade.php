@@ -57,14 +57,16 @@
                 <form action="{{ route('atas.destroy', $ata->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>   DELETAR A ATA</button>
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>   DELETAR A ATA</button>
+                            @if($ata->tipo == 'LOTE')
+                                <a href="{{ route('lotes.create', $ata->id) }}" class="btn btn-info float-right">LOTES</a>
+                            @else 
+                                <a href="{{ route('lotes.create', $ata->id) }}" class="btn btn-info float-right">ITENS</a>
+                            @endif
                 </form>
-                @if($ata->tipo == 'LOTE')
-                <a href="" class="btn btn-info">LOTES</a>
-                @else 
-                <a href="" class="btn btn-info">ITENS</a>
-                @endif
+              
               </div>
+
             </div>
           </div>
         </div>
