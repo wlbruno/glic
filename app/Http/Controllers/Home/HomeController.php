@@ -15,24 +15,24 @@ class HomeController extends Controller
   		     
   $atasmedicamentos = Ata::where([
             ['departamento', "MEDICAMENTOS"],
-            ['status', "PUBLICADA"],
+            ['status', "PUBLIC"],
         ])->count();
 
         $atasprodutos =  Ata::where([
             ['departamento', "PRODUTOS MÉDICOS"],
-            ['status', "PUBLICADA"],
+            ['status', "PUBLIC"],
         ])->count();
 
 
         $atasaquisicoes = Ata::where([
             ['departamento', "AQUISIÇÕES EM GERAL"],
-            ['status', "PUBLICADA"],
+            ['status', "PUBLIC"],
         ])->count();
         
 
         $atasservicos = Ata::where([
             ['departamento', "SERVIÇOS EM GERAL"],
-            ['status', "PUBLICADA"],
+            ['status', "PUBLIC"],
         ])->count();
 
         return view('public.pages.home.index', compact('atasmedicamentos', 'atasprodutos', 'atasaquisicoes', 'atasservicos'));

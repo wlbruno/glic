@@ -4,6 +4,7 @@
 
 @section('content_header')
     <h1>Cadastrar órgão ao item {{$itens->objetos->nome}} </h1>
+    <h3>Saldo do item {{$itens->orgao}}</h3>
 @stop
 
 @section('content')
@@ -34,8 +35,8 @@
                   @foreach($itens->orgaos as $orgao)
                     <tr>
                   		<td>{{$orgao->users->name}}</td>
-                      <td>3123</td>
-                      <td>123</td>
+                      <td>1234567</td>
+                      <td>123456</td>
                       <td>{{$orgao->saldo}}</td>
 							      </tr>       
                   @endforeach  
@@ -60,8 +61,8 @@
             <div class="modal-body">
               <form role="form" action="{{ route('orgao.store', [$atas->id, $lotes->id, $itens->id]) }}" method="POST">
               	@csrf
-              	<input type="hiddem" value="{{$atas->id}}" name="atas_id">
-              	<input type="hiddem" value="{{$itens->id}}" name="itens_id">
+              	<input type="hidden" value="{{$atas->id}}" name="atas_id">
+              	<input type="hidden" value="{{$itens->id}}" name="itens_id">
                   <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
@@ -69,7 +70,7 @@
 				        		<select class="form-control" required name="users_id">
 				          			<option value="" disabled="" selected="">Selecione o Órgão</option>
 				          			@foreach($users as $user)
-				          			<option value="{{$user->id}}">{{$user->email}} </option>
+				          			<option value="{{$user->id}}">{{$user->name}} </option>
 				          			@endforeach
 				                 </select>
 				     		 </div>

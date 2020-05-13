@@ -9,7 +9,7 @@ class Item extends Model
 {
     protected $table = 'itens';
 
-    protected $fillable = ['objetos_id', 'fornecedores_id', 'medida', 'quantidade', 'teto', 'vunitario', 'vtotal', 'marca'];
+    protected $fillable = ['objetos_id', 'fornecedores_id', 'medida', 'quantidade', 'max', 'vunitario', 'vtotal', 'marca', 'orgao'];
 
 
 

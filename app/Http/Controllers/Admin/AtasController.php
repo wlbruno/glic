@@ -15,6 +15,8 @@ class AtasController extends Controller
     public function __construct(Ata $atas)
     {
         $this->repository = $atas;
+
+        $this->middleware(['can:atas']);
     }
 
     /**
@@ -99,7 +101,7 @@ class AtasController extends Controller
      */
     public function update(AtaStoreUpdate $request, $id)
     {
-          $ata = $this->repository->where('id', $id)->first();   
+        $ata = $this->repository->where('id', $id)->first();   
 
         if (!$ata)
             return redirect()->back();

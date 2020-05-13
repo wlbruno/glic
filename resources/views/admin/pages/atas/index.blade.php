@@ -3,10 +3,12 @@
 @section('title', 'Atas')
 
 @section('content_header')
+<nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('atas.index') }}">Atas</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('atas.index') }}">Atas</a></li>
     </ol>
+</nav>
 
     <h1>Atas <a href="{{ route('atas.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a></h1>
 

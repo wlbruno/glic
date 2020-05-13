@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Services\SolicitanteService;
 
 class RegisterController extends Controller
 {
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -50,9 +51,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+           
         ]);
     }
 
@@ -64,10 +63,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        if(!$plan = session('plan')) {
+            return redirect()->route('home.index');
+        }
+
+       $users  = $plan->users()->create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+            'password' => bcrypt($data['password']),
+
+       ]);
+
+       $solicitante = $users->solicitante()->create([
+            'orgao' => $data['orgao'],
+            'ramal' => $data['ramal'],
+            'cnpj' => $data['cnpj'],
+            'estado' => $data['estado'],
+       ]);
+
+       return $users;
     }
 }

@@ -41,10 +41,10 @@
 		              <div class="card-header border-transparent">
 		                <h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
 							<div class="card-tools">
-								        <a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-info" ><i class="fas fa-plus"></i> ITENS</a>
+								        <a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-info" ><i class="fas fa-plus"></i> </a>
                         @if($atas->tipo == 'LOTE')
-		                		<a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-warning ">EDITAR</a>
-		                 		<a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-danger" >DELETAR</a>
+		                		<a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-warning "><i class="fas fa-edit"></i></a>
+		                 		<a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-danger" ><i class="fas fa-trash-alt"></i></a>
                         @endif
 		                 		
 		                	</div>

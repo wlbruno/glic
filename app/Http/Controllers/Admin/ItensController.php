@@ -45,11 +45,12 @@ class ItensController extends Controller
         $itens->objetos_id = $request->input('objetos');
         $itens->fornecedores_id = $request->input('fornecedores');
         $itens->quantidade = $request->input('quantidade') / 2;
-        $itens->teto = $request->input('quantidade') * 2;
+        $itens->max = $request->input('quantidade') * 2;
         $itens->medida = $request->input('medida');
         $itens->vunitario = $request->input('vunitario');
         $itens->marca = $request->input('marca');
         $itens->vtotal =  $request->input('quantidade') * $request->input('vunitario');
+        $itens->orgao = $request->input('quantidade');
         $itemDB = $itens->save();
 
         $item_lote = new Item_lote();

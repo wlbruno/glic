@@ -38,6 +38,10 @@ class OrgaoController extends Controller
 
         $orgaos = $this->repository->create($request->all());
 
+        $itens = Item::find($idItem);
+        $itens->orgao = $itens->orgao - $orgaos->saldo;
+        $itens->save();
+
         return redirect()->route('orgao.create', [$atas->id, $lotes->id, $itens->id]);
     }
 }

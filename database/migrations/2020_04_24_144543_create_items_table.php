@@ -24,9 +24,10 @@ class CreateItemsTable extends Migration
 
             $table->string('medida');
             $table->integer('quantidade');
-            $table->decimal('teto');
+            $table->decimal('max');
             $table->decimal('vunitario');
             $table->decimal('vtotal');
+            $table->integer('orgao');
             $table->string('marca')->nullable();
 
             $table->timestamps();

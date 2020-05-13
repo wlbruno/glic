@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => 'Glic',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => 'Licita',
+    'logo_img' => 'img/logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -208,17 +208,65 @@ return [
     */
 
    'menu' => [
+
+        [
+            'text' => 'Login',
+            'url'  => '/login',            
+        ],
+
+        [
+            'text' => 'Cadastro',
+            'url'  => '/create/user',
+        ],
+      
       
         [
             'text' => 'Home',
             'url'  => '/',
-            'icon' => 'fas fa-list-alt'
+            'icon' => 'fas fa-list-alt',
         ],
          [
             'text' => 'Atas',
             'url'  => 'admin/atas',
-            'icon' => 'fas fa-address-book'
+            'icon' => 'fas fa-database',
         ],
+         [
+            'text' => 'Objetos',
+            'url'  => 'admin/objetos',
+            'icon' => 'fas fa-file-medical',
+        ],
+
+        [
+            'text' => 'Fornecedores',
+            'url'  => 'admin/fornecedores',
+            'icon' => 'fas fa-building',
+        ],
+        [
+            'text' => 'Planos',
+            'url'  => 'admin/plans',
+            'icon' => 'fas fa-list-alt'
+        ],
+        [
+            'text' => 'Perfis',
+            'url'  => 'admin/profiles',
+            'icon' => 'fas fa-address-book',
+        ],
+         [
+            'text' => 'Permissões',
+            'url'  => 'admin/permissions',
+            'icon' => 'fas fa-lock',
+        ],
+         [
+            'text' => 'Cargos',
+            'url'  => 'admin/roles',
+            'icon' => 'fas fa-address-card',
+        ],
+        [
+            'text' => 'Usuários',
+            'url'  => 'admin/users',
+            'icon' => 'fas fa-users',
+        ],
+
         
     ],
 
