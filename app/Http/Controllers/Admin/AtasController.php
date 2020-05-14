@@ -16,7 +16,7 @@ class AtasController extends Controller
     {
         $this->repository = $atas;
 
-        $this->middleware(['can:atas']);
+        //$this->middleware(['can:atas']);
     }
 
     /**

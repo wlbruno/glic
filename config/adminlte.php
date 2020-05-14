@@ -211,12 +211,14 @@ return [
 
         [
             'text' => 'Login',
-            'url'  => '/login',            
+            'url'  => '/login',   
+            'icon' => 'fas fa-sign-in-alt'         
         ],
 
         [
             'text' => 'Cadastro',
             'url'  => '/create/user',
+            'icon' => 'fas fa-plus-circle'
         ],
       
       

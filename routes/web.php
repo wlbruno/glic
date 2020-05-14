@@ -107,7 +107,7 @@
 	*
 	*/
 	Route::any('atas/search', 'AtasController@search')->name('atas.search');
-	Route::resource('atas', 'AtasController')->middleware('can:atas');
+	Route::resource('atas', 'AtasController');
 	Route::get('atas/{id}/finalizar', 'AtasController@finish')->name('atas.finish');
 	Route::put('atas/{id}/salvar', 'AtasController@save')->name('atas.save');
 	Route::put('atas/{id}/publicar', 'AtasController@publicar')->name('atas.public');

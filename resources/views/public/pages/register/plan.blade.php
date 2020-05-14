@@ -8,7 +8,7 @@
 			<div class="card-body">
     			<h5 class="card-title">{{$plan->name}}</h5>
     			<p class="card-text">{{$plan->description}}</p>
-    			 <a href="{{ route('plan.subscription', $plan->url) }}">Registrar</a>
+    			 <a href="{{ route('plan.subscription', $plan->url) }}">Cadastro</a>
   			</div>
 		</div>
 	</div>
