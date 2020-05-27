@@ -209,18 +209,7 @@ return [
 
    'menu' => [
 
-        [
-            'text' => 'Login',
-            'url'  => '/login',   
-            'icon' => 'fas fa-sign-in-alt'         
-        ],
-
-        [
-            'text' => 'Cadastro',
-            'url'  => '/create/user',
-            'icon' => 'fas fa-plus-circle'
-        ],
-      
+        
       
         [
             'text' => 'Home',
@@ -231,42 +220,40 @@ return [
             'text' => 'Atas',
             'url'  => 'admin/atas',
             'icon' => 'fas fa-database',
+            'can' => 'atas'
         ],
          [
             'text' => 'Objetos',
             'url'  => 'admin/objetos',
             'icon' => 'fas fa-file-medical',
+            'can' => 'objetos'
         ],
 
         [
             'text' => 'Fornecedores',
             'url'  => 'admin/fornecedores',
             'icon' => 'fas fa-building',
+            'can' => 'fornecedores'
         ],
-        [
-            'text' => 'Planos',
-            'url'  => 'admin/plans',
-            'icon' => 'fas fa-list-alt'
-        ],
-        [
-            'text' => 'Perfis',
-            'url'  => 'admin/profiles',
-            'icon' => 'fas fa-address-book',
-        ],
-         [
-            'text' => 'Permissões',
-            'url'  => 'admin/permissions',
-            'icon' => 'fas fa-lock',
-        ],
+
+        
          [
             'text' => 'Cargos',
-            'url'  => 'admin/roles',
-            'icon' => 'fas fa-address-card',
+            'url'  => 'admin/permissions',
+            'icon' => 'fas fa-lock',
+            'can' => 'admin'
         ],
-        [
+         [
             'text' => 'Usuários',
             'url'  => 'admin/users',
             'icon' => 'fas fa-users',
+            'can' => 'usuarios'
+        ],
+         [
+            'text' => 'Permissões',
+            'url'  => 'admin/roles',
+            'icon' => 'fas fa-address-card',
+            'can' => 'permissao'
         ],
 
         

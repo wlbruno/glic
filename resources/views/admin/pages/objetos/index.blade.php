@@ -3,14 +3,18 @@
 @section('title', 'Objetos')
 
 @section('content_header')
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
+<nav aria-label="breadcrumb ">
+    <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('objetos.index') }}">Objetos</a></li>
     </ol>
 </nav>
 
-    <h1>Objetos <a href="{{ route('objetos.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a></h1>
+    <h1>Objetos 
+        @can('add_objetos')
+        <a href="{{ route('objetos.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a>
+        @endcan
+    </h1>
 
 @stop
 
@@ -42,7 +46,9 @@
                            
                            
                             <td style="width: 10px;">
+                                @can('edit_objetos')
                                 <a href="{{ route('objetos.edit', $objeto->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                @endcan
                                 <a href="{{ route('objetos.show', $objeto->id) }}" class="btn btn-info"><i class="fas fa-search"></i></a>    
                             </td>
                         </tr>

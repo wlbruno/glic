@@ -5,18 +5,30 @@
 	*	Routes public	
 	*
 	*/
-	Route::get('/', 'Home\HomeController@index')->name('home.index');
-
+	Route::get('/', 'Site\HomeController@index')->name('home.index');
 
 	/**
-	*	Routes create atas
+	*	Routes Register	
 	*
 	*/
-	Route::prefix('admin')
+	Auth::routes();
+	Route::get('/create/user', 'Site\RegisterController@index')->name('new.plan');
+	Route::get('/plan/{url}', 'Site\RegisterController@plan')->name('plan.subscription');
+	Route::get('/sair', 'Site\RegisterController@logout')->middleware('auth')->name('logout');
+
+
+
+Route::prefix('admin')
 		->namespace('admin')
 		->group(function() {
 
-	/**
+
+			Route::get('test-acl', function() {
+				dd(auth()->user()->permissions());
+			});
+
+
+    /**
      * Role x User
      */
     Route::get('users/{id}/role/{idRole}/detach', 'ACL\RoleUserController@detachRoleUser')->name('users.role.detach');
@@ -25,13 +37,7 @@
     Route::get('users/{id}/roles', 'ACL\RoleUserController@roles')->name('users.roles');
     Route::get('roles/{id}/users', 'ACL\RoleUserController@users')->name('roles.users');
 
-	 /**
-     * Routes Roles
-     */
-    Route::any('roles/search', 'ACL\RoleController@search')->name('roles.search');
-    Route::resource('roles', 'ACL\RoleController');
-
-/**
+    /**
      * Permission x Role
      */
     Route::get('roles/{id}/permission/{idPermission}/detach', 'ACL\PermissionRoleController@detachPermissionRole')->name('roles.permission.detach');
@@ -40,15 +46,18 @@
     Route::get('roles/{id}/permissions', 'ACL\PermissionRoleController@permissions')->name('roles.permissions');
     Route::get('permissions/{id}/role', 'ACL\PermissionRoleController@roles')->name('permissions.roles');
 
-	/**
-     * Plan x Profile
+     /**
+     * Routes Role
      */
-    Route::get('plans/{id}/profile/{idProfile}/detach', 'ACL\PlanProfileController@detachProfilePlan')->name('plans.profile.detach');
-    Route::post('plans/{id}/profiles', 'ACL\PlanProfileController@attachProfilesPlan')->name('plans.profiles.attach');
-    Route::any('plans/{id}/profiles/create', 'ACL\PlanProfileController@profilesAvailable')->name('plans.profiles.available');
-    Route::get('plans/{id}/profiles', 'ACL\PlanProfileController@profiles')->name('plans.profiles');
-    Route::get('profiles/{id}/plans', 'ACL\PlanProfileController@plans')->name('profiles.plans');
+    Route::any('roles/search', 'ACL\RoleController@search')->name('roles.search');
+    Route::resource('roles', 'ACL\RoleController');
 
+	/**
+     * Routes Users
+     */
+    Route::any('users/search', 'UserController@search')->name('users.search');
+    Route::resource('users', 'UserController');
+	
 
 	/**
 	* 	Permissions x Profiles
@@ -58,12 +67,7 @@
 	Route::any('profiles/{id}/permissions/create', 'ACL\PermissionProfileController@permissionsAvailable')->name('profiles.permissions.available');
 	Route::get('profiles/{id}/permissions', 'ACL\PermissionProfileController@permissions')->name('profiles.permissions');	
 	Route::get('permissions/{id}/profile', 'ACL\PermissionProfileController@profiles')->name('permissions.profiles');	
- 	
- 	 /**
-     * Routes Users
-     */
-    Route::any('users/search', 'UserController@search')->name('users.search');
-    Route::resource('users', 'UserController');
+
 
 	/**
 	* 	Routes Permissions
@@ -78,18 +82,6 @@
 	Route::any('profiles/search', 'ACL\ProfileController@search')->name('profiles.search');
 	Route::resource('profiles', 'ACL\ProfileController');
 
-
-	/**
-	*	Routes Plans
-	*/
-	Route::get('plans/create', 'PlanController@create')->name('plans.create');
-	Route::put('plans/{url}', 'PlanController@update')->name('plans.update');
-	Route::get('plans/{url}/edit', 'PlanController@edit')->name('plans.edit');
-	Route::any('plans/search', 'PlanController@search')->name('plans.search');
-	Route::delete('plans/{url}', 'PlanController@destroy')->name('plans.destroy');
-	Route::get('plans/{url}', 'PlanController@show')->name('plans.show');
-	Route::POST('plans', 'PlanController@store')->name('plans.store');
-	Route::get('plans', 'PlanController@index')->name('plans.index');
 
 	/**
 	*	Routes Fornecedores
@@ -140,12 +132,7 @@
 	Route::post('atas/{idAta}/lote/{idLote}/item/{idItem}', 'OrgaoController@store')->name('orgao.store');
 
 
-
 });
 
-Auth::routes();
 
-Route::get('/create/user', 'Site\SiteController@index')->name('new.plan');
-Route::get('/plan/{url}', 'Site\SiteController@plan')->name('plan.subscription');
-Route::get('/home', 'HomeController@index')->name('home');
 

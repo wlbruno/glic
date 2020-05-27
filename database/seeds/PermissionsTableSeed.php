@@ -13,23 +13,87 @@ class PermissionsTableSeed extends Seeder
     public function run()
     {
         Permission::create([
-        	'name' => 'add_atas',
-        	'description' => 'Criar ARPs',
+        	'name' => 'add_ata',
+        	'description' => 'Criar atas',
         ]);
 
         Permission::create([
-        	'name' => 'edit_atas',
-        	'description' => 'Editar ARPs',
+        	'name' => 'edit_ata',
+        	'description' => 'Editar atas',
         ]);
 
         Permission::create([
-        	'name' => 'show_atas',
-        	'description' => 'Visualizar ARPs',
+        	'name' => 'remover_ata',
+        	'description' => 'Remover atas',
         ]);
 
         Permission::create([
-        	'name' => 'remove_atas',
-        	'description' => 'Remover ARPs',
+            'name' => 'add_objetos',
+            'description' => 'adicionar objetos',
+        ]);
+
+        Permission::create([
+            'name' => 'edit_objetos',
+            'description' => 'editar objetos',
+        ]);
+
+        Permission::create([
+            'name' => 'remover_objetos',
+            'description' => 'remover objetos',
+        ]);
+
+        Permission::create([
+            'name' => 'add_fornecedores',
+            'description' => 'adicionar fornecedores',
+        ]);
+
+        Permission::create([
+            'name' => 'edit_fornecedores',
+            'description' => 'editar fornecedores',
+        ]);
+
+        Permission::create([
+            'name' => 'remover_fornecedores',
+            'description' => 'Remover fornecedores',
+        ]);
+
+        Permission::create([
+            'name' => 'atas',
+            'description' => 'atas',
+        ]);
+
+        Permission::create([
+            'name' => 'objetos',
+            'description' => 'objetos',
+        ]);
+
+        Permission::create([
+            'name' => 'fornecedores',
+            'description' => 'fornecedores',
+        ]);
+
+        Permission::create([
+            'name' => 'permissoes',
+            'description' => 'permissoes',
+        ]);
+            Permission::create([
+            'name' => 'add_permissoes',
+            'description' => 'adicionar permissoes',
+        ]);
+
+          Permission::create([
+            'name' => 'remover_permissoes',
+            'description' => 'remover permissoes',
+        ]);
+
+        Permission::create([
+            'name' => 'usuarios',
+            'description' => 'usuarios',
+        ]);
+
+        Permission::create([
+            'name' => 'admin',
+            'description' => 'admin',
         ]);
     }
 }

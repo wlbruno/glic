@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', "Cargos disponíveis cargo {$user->name}")
+@section('title', "Permissões disponíveis cargo {$user->name}")
 
 @section('content_header')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item active"><a href="{{ route('users.index') }}" class="active">Usuários</a></li>
     </ol>
 
-    <h1>Cargos disponíveis cargo <strong>{{ $user->name }}</strong></h1>
+    <h1>Permissões disponíveis cargo <strong>{{ $user->name }}</strong></h1>
 
 @stop
 

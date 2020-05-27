@@ -15,8 +15,6 @@ class AtasController extends Controller
     public function __construct(Ata $atas)
     {
         $this->repository = $atas;
-
-        //$this->middleware(['can:atas']);
     }
 
     /**

@@ -1,16 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', "Cargos do usuário {$user->name}")
+@section('title', "Permissões do usuário {$user->name}")
 
 @section('content_header')
-    <ol class="breadcrumb">
-         <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <ol class="breadcrumb float-sm-right">
+       <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item active"><a href="{{ route('users.index') }}" class="active">Users</a></li>
     </ol>
 
-    <h1>Cargos do usuário <strong>{{ $user->name }}</strong></h1>
-
-    <a href="{{ route('users.roles.available', $user->id) }}" class="btn btn-dark">ADD NOVO CARGO</a>
+    <h1>Permissões do usuário <strong>{{ $user->name }}</strong></h1>
+    @can('add_permissoes')
+    <a href="{{ route('users.roles.available', $user->id) }}" class="btn btn-dark">ADD NOVA PERMISSÃO</a>
+    @endcan
 
 @stop
 
@@ -31,7 +32,9 @@
                                 {{ $role->name }}
                             </td>
                             <td style="width=10px;">
+                                @can('remover_permissoes')
                                 <a href="{{ route('users.role.detach', [$user->id, $role->id]) }}" class="btn btn-danger">DESVINCULAR</a>
+                                @endcan
                             </td>
                         </tr>
                     @endforeach

@@ -4,13 +4,17 @@
 
 @section('content_header')
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('atas.index') }}">Atas</a></li>
     </ol>
 </nav>
 
-    <h1>Atas <a href="{{ route('atas.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a></h1>
+    <h1>Atas
+        @can('add_ata')
+    <a href="{{ route('atas.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a>
+    @endcan
+ </h1>
 
 @stop
 
@@ -62,7 +66,9 @@
                             @endif
 
                             <td style="width: 10px;">
+                                @can('edit_ata')
                                 <a href="{{ route('atas.edit', $ata->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                @endcan
                                 <a href="{{ route('atas.show', $ata->id) }}" class="btn btn-info"><i class="fas fa-search"></i></a>    
                             </td>
                         </tr>

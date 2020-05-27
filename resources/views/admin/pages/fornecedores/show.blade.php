@@ -3,7 +3,7 @@
 @section('title', "Detalhes do Fornecedor ")
 
 @section('content_header')
-  <ol class="breadcrumb">
+  <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item "><a href="{{ route('fornecedores.index') }}">Fornecedor</a></li>
          <li class="breadcrumb-item active"><a href="{{ route('fornecedores.show', $fornecedor->id) }}"> {{ $fornecedor->fornecedor }}</a></li>
@@ -34,6 +34,7 @@
                 </table>
                
               </div>
+              @can('remover_fornecedores')
             <div class="card-footer">
                 <form action="{{ route('fornecedores.destroy', $fornecedor->id) }}" method="POST">
                     @csrf
@@ -43,6 +44,7 @@
                 </form>
               
               </div>
+              @endcan
 
             </div>
           </div>

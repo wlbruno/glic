@@ -15,8 +15,10 @@ class DatabaseSeeder extends Seeder
             PlanosTableSeeder::class,
             UsuariosTableSeeder::class,
             SolicitantesTableSeed::class,
-            PerfisTableSeed::class,
             PermissionsTableSeed::class,
+            ObjetoTableSeed::class,
+            FornecedorTableSeed::class,
+            RolesTableSeed::class,
         ]);
      }
 

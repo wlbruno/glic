@@ -3,6 +3,7 @@
 @section('title', 'Finalizar ata')
 
 @section('content_header')
+
     <h1>Finalizar ata </h1>
 @stop
 

@@ -3,12 +3,16 @@
 @section('title', 'Usuários')
 
 @section('content_header')
-    <ol class="breadcrumb">
-         <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <ol class="breadcrumb float-sm-right">
+       <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item active"><a href="{{ route('users.index') }}" class="active">Usuários</a></li>
     </ol>
 
-    <h1>Usuários <a href="{{ route('users.create') }}" class="btn btn-dark">ADD</a></h1>
+    <h1>Usuários 
+        @can('admin')
+        <a href="{{ route('users.create') }}" class="btn btn-dark">ADD</a>
+        @endcan
+    </h1>
 @stop
 
 @section('content')
@@ -37,7 +41,7 @@
                             <td style="width=10px;">
                                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('users.show', $user->id) }}" class="btn btn-warning">VER</a>
-                                <a href="{{ route('users.roles', $user->id) }}" class="btn btn-info" title="Cargos"><i class="fas fa-address-card"></i> Cargos</a>
+                               <a href="{{ route('users.roles', $user->id) }}" class="btn btn-info" title="Cargos"><i class="fas fa-address-card"></i> Permissões</a>
                             </td>
                         </tr>
                     @endforeach

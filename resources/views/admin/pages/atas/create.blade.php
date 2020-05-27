@@ -3,6 +3,7 @@
 @section('title', 'Cadastrar nova Ata')
 
 @section('content_header')
+
     <h1>Cadastrar Nova Ata </h1>
 @stop
 

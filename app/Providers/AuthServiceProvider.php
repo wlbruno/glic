@@ -4,7 +4,8 @@ namespace App\Providers;
 
 use App\Models\{
     User,
-    Permission,
+    Product,
+    Permission
 };
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
@@ -37,8 +38,12 @@ class AuthServiceProvider extends ServiceProvider
             });
         }
 
+        Gate::define('owner', function(User $user, $object) {
+            return $user->id === $object->user_id;
+        });
+
         Gate::before(function (User $user) {
-            if ( $user->isAdmin()) {
+            if ($user->isAdmin()) {
                 return true;
             }
         });

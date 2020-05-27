@@ -3,7 +3,7 @@
 @section('title', "Detalhes da Ata ")
 
 @section('content_header')
-  <ol class="breadcrumb">
+  <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item "><a href="{{ route('atas.index') }}">Atas</a></li>
          <li class="breadcrumb-item active"><a href="{{ route('atas.show', $ata->id) }}">Nº Ata {{ $ata->nata }}</a></li>
@@ -57,7 +57,9 @@
                 <form action="{{ route('atas.destroy', $ata->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
+                    @can('remover_ata')
                         <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>   DELETAR A ATA</button>
+                        @endcan
                             @if($ata->tipo == 'LOTE')
                                 <a href="{{ route('lotes.create', $ata->id) }}" class="btn btn-info float-right">LOTES</a>
                             @else 

@@ -49,21 +49,15 @@ class User extends Authenticatable
         return $this->hasOne("App\Models\Solicitante", "user_id");
     }
 
-     public function plan()
-    {
-        return $this->belongsTo(Plan::class);
-    }
-
-     /**
-    *   Get Roles
-    *
-    */  
+    /**
+     * Get Roles
+     */
     public function roles()
     {
         return $this->belongsToMany(Role::class);
     }
 
-     /**
+    /**
      * Roles not linked with this user
      */
     public function rolesAvailable($filter = null)
@@ -81,5 +75,4 @@ class User extends Authenticatable
 
         return $roles;
     }
-
 }

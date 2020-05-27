@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $this->repository = $user;
 
-       // $this->middleware(['can:users']);
+        //$this->middleware(['can:users']);
     }
 
     /**
@@ -25,8 +25,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->repository->paginate();
-
+        $users = $this->repository->latest()->paginate();
+       
         return view('admin.pages.users.index', compact('users'));
     }
 
@@ -49,7 +49,7 @@ class UserController extends Controller
     public function store(StoreUpdateUser $request)
     {
         $data = $request->all();
-        $data['tenant_id'] = auth()->user()->tenant_id;
+        
         $data['password'] = bcrypt($data['password']); // encrypt password
 
         $this->repository->create($data);
@@ -65,7 +65,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        if (!$user = $this->repository->Solicitante()->find($id)) {
+        if (!$user = $this->repository->tenantUser()->find($id)) {
             return redirect()->back();
         }
 
@@ -80,7 +80,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        if (!$user = $this->repository->Solicitante()->find($id)) {
+        if (!$user = $this->repository->tenantUser()->find($id)) {
             return redirect()->back();
         }
 
@@ -96,7 +96,7 @@ class UserController extends Controller
      */
     public function update(StoreUpdateUser $request, $id)
     {
-        if (!$user = $this->repository->Solicitante()->find($id)) {
+        if (!$user = $this->repository->tenantUser()->find($id)) {
             return redirect()->back();
         }
 
@@ -119,7 +119,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        if (!$user = $this->repository->Solicitante()->find($id)) {
+        if (!$user = $this->repository->tenantUser()->find($id)) {
             return redirect()->back();
         }
 
@@ -146,7 +146,7 @@ class UserController extends Controller
                                 }
                             })
                             ->latest()
-                            ->Solicitante()
+                            ->tenantUser()
                             ->paginate();
 
         return view('admin.pages.users.index', compact('users', 'filters'));

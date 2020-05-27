@@ -3,7 +3,7 @@
 @section('title', "Detalhes do objeto ")
 
 @section('content_header')
-  <ol class="breadcrumb">
+  <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item "><a href="{{ route('objetos.index') }}">Objetos</a></li>
          <li class="breadcrumb-item active"><a href="{{ route('objetos.show', $objeto->id) }}">Objeto {{ $objeto->nome }}</a></li>
@@ -34,6 +34,7 @@
                 </table>
                
               </div>
+              @can('remover_objetos')
             <div class="card-footer">
                 <form action="{{ route('objetos.destroy', $objeto->id) }}" method="POST">
                     @csrf
@@ -43,6 +44,7 @@
                 </form>
               
               </div>
+              @endcan
 
             </div>
           </div>

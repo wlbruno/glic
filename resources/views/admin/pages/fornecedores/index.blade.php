@@ -4,13 +4,17 @@
 
 @section('content_header')
 <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
+    <ol class="breadcrumb float-sm-right">
         <li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('fornecedores.index') }}">Fornecedores</a></li>
     </ol>
 </nav>
 
-    <h1>Fornecedores <a href="{{ route('fornecedores.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a></h1>
+    <h1>Fornecedores 
+        @can('add_fornecedores')
+        <a href="{{ route('fornecedores.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a>
+        @endcan
+    </h1>
 
 @stop
 
@@ -42,7 +46,9 @@
                            
                            
                             <td style="width: 10px;">
+                                @can('edit_fornecedores')
                                 <a href="{{ route('fornecedores.edit', $fornecedor->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                @endcan
                                 <a href="{{ route('fornecedores.show', $fornecedor->id) }}" class="btn btn-info"><i class="fas fa-search"></i></a>    
                             </td>
                         </tr>

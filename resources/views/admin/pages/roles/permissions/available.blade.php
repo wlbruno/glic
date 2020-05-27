@@ -3,8 +3,7 @@
 @section('title', "Permissões disponíveis cargo {$role->name}")
 
 @section('content_header')
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <ol class="breadcrumb"><li class="breadcrumb-item"><a href="#">Home</a></li>
         <li class="breadcrumb-item active"><a href="{{ route('roles.index') }}" class="active">Cargos</a></li>
     </ol>
 
