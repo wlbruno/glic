@@ -28,7 +28,7 @@
               @if($atasmedicamentos == '0') 
                   <center class="small-box-footer">Sem atas vigentes</center>
                 @else()
-                  <a href="/ata/medicamentos" class="small-box-footer">Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="{{ route('atas.medicamentos') }}" class="small-box-footer">Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
                 @endif
             </div>
           </div>
@@ -45,7 +45,7 @@
                @if($atasprodutos == '0') 
                     <center class="small-box-footer" >Sem atas vigentes</center>
                   @else()
-                    <a href="/ata/produtos" class="small-box-footer" >Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('atas.produtos') }}" class="small-box-footer" >Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
                   @endif
             </div>
           </div>
@@ -62,7 +62,7 @@
                   @if($atasaquisicoes == '0') 
                       <center class="small-box-footer" >Sem atas vigentes</center>
                     @else()
-                      <a href="/ata/aquisicao" class="small-box-footer" >Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
+                      <a href="{{ route('atas.aquisicao') }}" class="small-box-footer" >Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
                     @endif
             </div>
           </div>
@@ -79,7 +79,7 @@
                     @if($atasservicos == '0') 
                       <center class="small-box-footer" >Sem atas vigentes</center>
                     @else()
-                      <a href="/ata/servicos" class="small-box-footer" >Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
+                      <a href="{{ route('atas.servicos') }}" class="small-box-footer" >Visualizar Atas  <i class="fa fa-arrow-circle-right"></i></a>
                     @endif
             </div>
           </div>

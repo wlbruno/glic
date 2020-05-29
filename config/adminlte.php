@@ -212,8 +212,8 @@ return [
         
       
         [
-            'text' => 'Home',
-            'url'  => '/',
+            'text' => 'Dashboard',
+            'url'  => '/admin/sistema',
             'icon' => 'fas fa-list-alt',
         ],
          [

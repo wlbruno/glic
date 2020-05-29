@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           @can('admin')
            <li class="nav-item">
-            <a href="index3.html" class="nav-link">Admin</a>
+            <a href="{{ route('admin.home') }}" class="nav-link">Admin</a>
           </li>
           @endcan    
           <li class="nav-item">

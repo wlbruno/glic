@@ -2,6 +2,21 @@
 
 
 	/**
+	*	Routes Menu Atas
+	*
+	*/
+	Route::prefix('atas')
+			->namespace('Site')
+			->group(function() {
+
+				Route::get('/medicamentos', 'AtasController@medicamentos')->name('atas.medicamentos');
+				Route::get('/produtos', 'AtasController@produtos')->name('atas.produtos');
+				Route::get('/aquisicao', 'AtasController@aquisicao')->name('atas.aquisicao');
+				Route::get('/servicos', 'AtasController@servicos')->name('atas.servicos');
+			});
+	
+
+	/**
 	*	Routes public	
 	*
 	*/
@@ -22,10 +37,11 @@ Route::prefix('admin')
 		->namespace('admin')
 		->group(function() {
 
+	/**
+	* Route DashBoard
+	*/
+	Route::get('/sistema', 'AdminController@index')->name('admin.home')->middleware('auth');
 
-			Route::get('test-acl', function() {
-				dd(auth()->user()->permissions());
-			});
 
 
     /**
