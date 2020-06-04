@@ -95,5 +95,11 @@ class PermissionsTableSeed extends Seeder
             'name' => 'admin',
             'description' => 'admin',
         ]);
+
+        Permission::create([
+            'name' => 'licita_carona',
+            'description' => 'solicita carona',
+        ]);
+
     }
 }

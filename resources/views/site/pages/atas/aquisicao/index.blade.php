@@ -33,10 +33,9 @@
                         <th>Vigencia</th>
                         <th>Tipo</th>
                         <th>Comissão</th>
-                        
-                        
-                       
-                        <th width="150">Ações</th>
+                        @can('licita_carona')
+                            <th width="150">Ações</th>
+                        @endcan
                     </tr>
                 </thead>
                 <tbody>
@@ -52,10 +51,13 @@
                           
                          
 
+                          
+                               @can('licita_carona')
                             <td style="width: 10px;">
                                
-                                <a href="{{ route('atas.show', $ata->id) }}" class="btn btn-info">Solicitar</a>    
+                                <a href="{{ route('licita.index', $ata->id) }}" class="btn btn-info">Solicitar</a>    
                             </td>
+                            @endcan       
                         </tr>
                     @endforeach    
                 </tbody>

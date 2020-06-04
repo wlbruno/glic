@@ -1,14 +1,14 @@
 @extends('site.layout.master')
 
 @section('title', 'GLIC')
-@section('titulo', "Nº Ata: $ata->nata ")
+@section('titulo', "Nº Ata: $atas->nata ")
 
 @section('content_header')
 
 <ol class="breadcrumb float-sm-right">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
     <li class="breadcrumb-item "><a href="{{ route('atas.medicamentos') }}">Atas Medicamentos</a></li>
-    <li class="breadcrumb-item active"><a href="{{ route('licita.index', $ata->id) }}">Nº Ata {{ $ata->nata }}</a></li>
+    <li class="breadcrumb-item active"><a href="{{ route('licita.index', $atas->id) }}">Nº Ata {{ $atas->nata }}</a></li>
  </ol>
 
 @stop
@@ -33,14 +33,14 @@
                </thead>
                <tbody>
                 <tr>
-                  <td>{{ $ata->departamento }}</td>
-                  <td>{{ $ata->nata }}</td>
-                  <td>{{ $ata->npregao }}</td>
-                  <td>{{ $ata->nprocesso }}</td>
-                  <td>{{ $ata->vigencia }}</td>
-                  <td>{{ $ata->tipo }}</td>
-                  <td>{{ $ata->comissao }}</td>
-                  <td>{{ $ata->orgao }}</td>
+                  <td>{{ $atas->departamento }}</td>
+                  <td>{{ $atas->nata }}</td>
+                  <td>{{ $atas->npregao }}</td>
+                  <td>{{ $atas->nprocesso }}</td>
+                  <td>{{ $atas->vigencia }}</td>
+                  <td>{{ $atas->tipo }}</td>
+                  <td>{{ $atas->comissao }}</td>
+                  <td>{{ $atas->orgao }}</td>
                  </tr>
                 </tbody>
               </table>
@@ -49,17 +49,17 @@
                    <th> Descrição</th>
                 </thead>
                 <tbody>
-                  <td>{{ $ata->descricao }}</td>
+                  <td>{{ $atas->descricao }}</td>
                 </tbody>
               </table>
             </div>
           </div>
-        @foreach($ata->lotes as $lote)
+        @foreach($atas->lotes as $lote)
           <div class="card">
             <div class="card-body">
-             <form action="{{ route('licita.carona', $ata->id) }}" class="form" method="POST">
+             <form action="{{ route('licita.carona', $atas->id) }}" class="form" method="POST">
               @csrf
-              <input type="hidden" name="atas" value="{{$ata->id}}">
+              <input type="hidden" name="atas" value="{{$atas->id}}">
               <div class="card">
                 <div class="card-header border-transparent">
                   <h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>

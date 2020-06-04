@@ -85,7 +85,7 @@
                 <select class="form-control" name="orgao" required="true"  value="{{ $ata->orgao ?? old('orgao') }}">
                   <option value="" disabled="" selected="">Adicionar órgãos?</option>
                   <option value="SIM">SIM</option>
-                  <option value="NÃO">NÃO</option>
+                  <option value="NAO">NÃO</option>
                 </select>
               </div>
             </div>

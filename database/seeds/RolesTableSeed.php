@@ -96,6 +96,11 @@ class RolesTableSeed extends Seeder
             'description' => 'admin',
         ]);
 
+         Role::create([
+            'name' => 'licita_carona',
+            'description' => 'solicita',
+        ]);
+
 
           DB::table('permission_role')->insert([
           
@@ -166,6 +171,13 @@ class RolesTableSeed extends Seeder
               'permission_id' => 17,
               'role_id' => 17,
           ]);
+
+          DB::table('permission_role')->insert([
+              'permission_id' => 18,
+              'role_id' => 18,
+          ]);
+
+    
 
           
 

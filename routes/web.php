@@ -4,8 +4,15 @@
 	*	Routes Licita Atas
 	*
 	*/
-	Route::get('ata/{idAta}/licita', 'Site\Licita\LicitaController@index')->name('licita.index')->middleware('auth');
+	Route::get('ata/{id}/licita', 'Site\Licita\LicitaController@index')->name('licita.index')->middleware('auth');
 	Route::POST('ata/carona', 'Site\Licita\LicitaController@carona')->name('licita.carona');
+	//ROUTE GERAR PDF
+	Route::get('ata/carona/{id}', 'Site\Licita\LicitaController@gerarPDF')->name('licita.pdf');
+
+	Route::get('test', function() {
+		$pdf = \PDF::LoadView('site.pages.atas.licita.pdf');
+        return $pdf->stream();
+	});
 
 
 	/**
