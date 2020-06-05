@@ -8,6 +8,8 @@ use App\Models\Ata;
 use App\Models\Carona;
 use App\Models\Carona_item;
 use App\Models\Item;
+use App\Models\Token;
+use Illuminate\Support\Str;
 use Auth;
 
 class LicitaController extends Controller
@@ -47,6 +49,10 @@ class LicitaController extends Controller
                 $itens->save();  
             }
         }
+          $token = new Token();
+                $token->token = Str::random(30);
+                $token->caronas_id = $caronas->id;               
+                $token->save();   
           
             return redirect()->route('licita.pdf', $caronas->id);
     }

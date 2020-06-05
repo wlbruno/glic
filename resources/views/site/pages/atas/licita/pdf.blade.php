@@ -98,7 +98,7 @@
             01/07/2019, publicada no Diário Oficial do Estado de Pernambuco, edição de  02/07/2019.
         </p>
         <p id="p2">
-            <strong>Código de Autenticação: </strong>
+            <strong>Código de Autenticação:{{$caronas->Token->token}} </strong>
         </p>
         <p id="p2">
             <strong>Emitida em:{{$caronas->created_at->format('d/m/Y')}} </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
