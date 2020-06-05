@@ -16,6 +16,8 @@
 @section('content')
     <div class="row">
       <div class="col-12">
+        <form action="{{ route('licita.carona', $atas->id) }}" class="form" method="POST">
+              @csrf
         <div class="card">
           <div class="card-body table-responsive p-0" style="height: 300px;">
             <table class="table table-head-fixed">
@@ -56,9 +58,8 @@
           </div>
         @foreach($atas->lotes as $lote)
           <div class="card">
+             
             <div class="card-body">
-             <form action="{{ route('licita.carona', $atas->id) }}" class="form" method="POST">
-              @csrf
               <input type="hidden" name="atas" value="{{$atas->id}}">
               <div class="card">
                 <div class="card-header border-transparent">
@@ -117,14 +118,14 @@
                     </table>           
                   </div>
                 </div>
+            </div>
+        </div>
+      @endforeach
+    </div>
               </div>
                   <div class="card-footer">
                   <button type="submit" class="btn btn-success pull-right">SOLICITAR</button>
               </div>
           </form>
-            </div>
-        </div>
-      @endforeach
-    </div>
   </div>
 @stop

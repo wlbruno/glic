@@ -4,11 +4,49 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>SESPE</title>
         <link rel="stylesheet" type="text/css" href="css/estilo.css">
-         <img src="img/sespe.png">
-    </head>
-    <body>
-        <p id="p2">
-            <h3><center>CERTIDÃO DE AUTORIZAÇÃO DE ADESÃO “CARONA”</center></h3>
+        <style type="text/css">
+        p {
+            text-align: justify;   
+          }
+        
+        p#p2 {
+            text-align: center;
+        }
+
+        img {
+            width: 20%;
+            height: 20%;
+            position: absolute;
+            left: 600px ;
+            top: 1px ;
+        }
+
+        table {
+            text-align: center;
+            width:100%;
+            font-size: 10;
+            border-spacing: 0;
+        }
+
+        tr#tt {
+            background-color: #cecece;
+        }
+
+
+        .footer {
+            position: absolute; bottom: 0; width: 100%; text-align: left; border-top: 1px solid gray; content: counter(page);
+        }
+
+        </style>
+        
+            <img src="img/pdf/sespe.png">
+        
+        </head>
+        
+        <body>
+
+            <p id="p2">
+                <h3><center>CERTIDÃO DE AUTORIZAÇÃO DE ADESÃO “CARONA”</center></h3>
         </p><br><br>
         <p>
             <strong>REQUISITANTE: </strong>{{auth()->user()->Solicitante->orgao}}
@@ -63,69 +101,9 @@
             <strong>Código de Autenticação: </strong>
         </p>
         <p id="p2">
-            <strong>Emitida em: </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Emitida em:{{$caronas->created_at->format('d/m/Y')}} </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <strong>Válida até:   </strong>
         </p><br>
-
-        @if($caronas->atas->tipo == 'LOTE')
-        <div class="row">
-                <div class="col-md-12">
-                    <div class="box box-default">
-                        <div class="box-header">
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                        </div>
-                            <div class="box-body" style="">
-                                <div class="card card-primary">
-                                    <div class="card-header">
-                                        <table border="1" class="table table-ordered table-hover">
-                                            <thead>
-                                                <tr id="tt">
-                                                    <th>{{$caronas->Atas->lotes[0]->descricao}}</th>
-                                                </tr>
-                                            </thead>
-                                            <thead>
-                                                <tr id="tt">
-                                                    <th>ITENS</th>
-                                                    <th>N° E-FISCO</th>
-                                                    <th>Empresa</th>
-                                                    <th>CNPJ</th>
-                                                    <th>Marca</th>
-                                                    <th>Unidade de medida</th>
-                                                    <th>Valor unitário</th>
-                                                    <th>Valor total</th>
-                                                    <th>Quantidade Solicitada</th>
-                                                </tr>
-                                            </thead>
-                                                   <tbody>
-                                                @foreach($caronas->Itens as $item)
-                                                    <tr>
-                                                        <td>{{$item->objetos->nome}}</td>
-                                                        <td>{{$item->objetos->nefisco}}</td>
-                                                        <td>{{$item->empresas->fornecedor}}</td>
-                                                        <td>{{$item->empresas->cnpj}}</td>
-                                                        <td>{{$item->marca}}</td>
-                                                        <td>{{$item->medida}}</td>
-                                                        <td>{{$item->vunitario}}</td>
-                                                        <td>{{$item->vtotal}}</td>
-                                                        @foreach($caronas->itens as $itemcarona)
-                                                            @if($itemcarona->id == $item->id)
-                                                              <td>{{$caronas->Carona_itens->getQTD($itemcarona->id)->quantidade}}</td>
-                                                            @endif
-                                                        @endforeach
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @else()
 
             <div class="row">
             	<div class="col-md-12">
@@ -179,7 +157,6 @@
         				</div>
         		    </div>
         		</div>
-                @endif
         		<br>
         			<div class="footer">
 		              Acompanhe as sessões públicas dos Pregões, Dispensas e Inexigibilidades de Licitação da SES/PE, selecionando as opções Negociação > Licitações ou Compras Diretas > Lista. O Edital e outros anexos estão disponíveis para download no PE-Integrado (www.peintegrado.pe.gov.br) e também no endereço www.licitacoes.pe.gov.br
