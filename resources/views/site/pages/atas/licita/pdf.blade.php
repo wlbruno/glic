@@ -102,7 +102,8 @@
         </p>
         <p id="p2">
             <strong>Emitida em:{{$caronas->created_at->format('d/m/Y')}} </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <strong>Válida até:   </strong>
+         
+            <strong>Válida até:{{ date('d/m/Y', strtotime($caronas->validade)) }}  </strong>
         </p><br>
 
             <div class="row">
