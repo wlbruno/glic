@@ -64,7 +64,7 @@
      <div class="col-md-6">
       <div class="form-group">
         <label for="vunitario">Valor unitário</label>
-        <input type="text" class="form-control" name="vunitario" required placeholder="Digite o valor unitário">
+        <input type="text" class="form-control dinheiro" name="vunitario" required placeholder="Digite o valor unitário">
       </div>
     </div>
 
@@ -78,3 +78,9 @@
     <button type="submit" class="btn btn-success">Salvar</button>
   </div>
 </div>
+
+
+@section('js')
+         <script src="{{asset('js/jquery.mask.js')}}"></script>
+      <script src="{{asset('js/mask.js')}}"></script>
+@stop

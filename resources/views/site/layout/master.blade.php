@@ -69,18 +69,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
         @guest
          <li class="nav-item dropdown">
-          <a href="{{route('new.plan')}}"  class="btn btn-sn btn-dark">CADASTRO</a>
+          <a href="{{route('new.plan')}}"  class="btn btn-sn btn-dark" >CADASTRO</a>
            
         </li>
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
-           <a href="/login" class="btn btn-sn btn-dark">LOGIN</a>
+           <a href="/login" class="btn btn-sn btn-dark"  style="position: absolute;  left: 20px ;">LOGIN</a>
                 
         </li>
         @endguest
          @if(!is_null(auth()->user()))
          <li class="nav-item dropdown">
-           <a href="{{url('/sair')}}" class="btn btn-sn btn-danger">Sair</a>
+           <a href="{{url('/sair')}}" class="btn btn-sn btn-danger"  style="position: absolute;  left: 20px ;">Sair</a>
                 
         </li>
           @endif

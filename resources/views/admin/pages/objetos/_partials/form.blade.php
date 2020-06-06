@@ -9,8 +9,8 @@
 
 <div class="col-md-6">
   <div class="form-group">
-    <label for="nefisco">Nº Pregão</label>
-    <input type="text" class="form-control" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{ $objeto->nefisco ?? old('nefisco') }}">
+    <label for="nefisco">Nº E-fisco</label>
+    <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{ $objeto->nefisco ?? old('nefisco') }}">
   </div>
 </div>
       
@@ -22,3 +22,8 @@
     <button type="submit" class="btn btn-dark">Enviar</button>
   </div>
 </div>
+
+@section('js')
+         <script src="{{asset('js/jquery.mask.js')}}"></script>
+      <script src="{{asset('js/mask.js')}}"></script>
+@stop

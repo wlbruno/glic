@@ -16,7 +16,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <label for="nata">Nº Ata</label>
-        <input type="text" class="form-control" name="nata" required placeholder="Digite o número da ata" value="{{ $ata->nata ?? old('nata') }}">
+      <input type="text" class="form-control nata" name="nata" required placeholder="Digite o número da ata" value="{{ $ata->nata ?? old('nata') }}">
       </div>
     </div>
   </div>
@@ -42,7 +42,7 @@
      <div class="col-md-6">
       <div class="form-group">
         <label for="nprocesso">Nº Processo</label>
-        <input type="text" class="form-control" name="nprocesso" placeholder="Digite o número do processo" required  value="{{ $ata->nprocesso ?? old('nprocesso') }}">
+        <input type="text" class="form-control nata" name="nprocesso" placeholder="Digite o número do processo" required  value="{{ $ata->nprocesso ?? old('nprocesso') }}">
       </div>
     </div>
   </div>  
@@ -55,7 +55,7 @@
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
           </div>
-            <input type="date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask="" im-insert="false" name="vigencia" required  value="{{ $ata->vigencia ?? old('vigencia') }}">
+            <input type="date" class="form-control"  name="vigencia" required  value="{{ $ata->vigencia ?? old('vigencia') }}">
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@
         <div class="col-md-3">
           <div class="form-group">
             <label for="npregao">Nº Pregão</label>
-              <input type="text" class="form-control" name="npregao" required placeholder="Digite o número do processo"  value="{{ $ata->npregao ?? old('npregao') }}">
+              <input type="text" class="form-control nata" name="npregao" required placeholder="Digite o número do processo"  value="{{ $ata->npregao ?? old('npregao') }}">
           </div>
         </div>
       
@@ -112,3 +112,8 @@
     <button type="submit" class="btn btn-dark">Enviar</button>
   </div>
 </div>
+
+@section('js')
+         <script src="{{asset('js/jquery.mask.js')}}"></script>
+      <script src="{{asset('js/mask.js')}}"></script>
+@stop

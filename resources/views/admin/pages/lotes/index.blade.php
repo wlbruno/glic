@@ -77,8 +77,10 @@
                                 <td>{{$lote_item->item->quantidade}}</td>
                                 <td>{{$lote_item->item->max}}</td>
                                 <td>{{$lote_item->item->medida}}</td>
-                                <td>{{$lote_item->item->vunitario}}</td>
-                                <td>{{$lote_item->item->vtotal}}</td>           
+                                <td>R$ {{$lote_item->item->vunitario}}</td>
+
+
+                                <td>{{  'R$ '.number_format($lote_item->item->vtotal, 2, ',', '.') }}</td>           
                                 <td>
                                   <a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-outline-warning btn-sm">EDITAR</a>
                                   <a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn  btn-outline-danger btn-sm" >DELETAR</a>
