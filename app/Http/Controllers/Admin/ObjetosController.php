@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Objeto;
+use App\Models\Ata;
+use App\Models\Lote;
 
 class ObjetosController extends Controller
 {
@@ -117,4 +119,32 @@ class ObjetosController extends Controller
 
         return redirect()->route('objetos.index');   
      }
+
+     /*
+     *  Adicionar Forncedor dentro da ata
+     *
+     */
+     public function ata(Request $request, $id)
+     {
+        $ata = Ata::find($id);
+        
+         $objetos = $this->repository->create($request->all());
+
+        return redirect()->route('item.item', $ata->id);
+     }
+
+     /*
+     *  Adicionar Forncedor dentro do lote
+     *
+     */
+     public function lote(Request $request, $idAta, $idLote)
+     {
+        $ata = Ata::find($idAta);   
+        $lote = Lote::find($idLote);
+        
+         $objetos = $this->repository->create($request->all());
+
+         return redirect()->route('itens.create', [$ata->id, $lote->id]);
+     }
+
 }

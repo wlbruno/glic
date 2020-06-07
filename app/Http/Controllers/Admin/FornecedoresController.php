@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Fornecedor;
-
+use App\Models\Ata;
+use App\Models\Lote;
 
 class FornecedoresController extends Controller
 {
@@ -117,5 +118,32 @@ class FornecedoresController extends Controller
         $fornecedor->delete();
 
         return redirect()->route('fornecedores.index');   
+     }
+
+     /*
+     *  Adicionar Forncedor dentro da ata
+     *
+     */
+     public function ata(Request $request, $id)
+     {
+        $ata = Ata::find($id);
+        
+        $fornecedores = $this->repository->create($request->all());
+
+         return redirect()->route('item.item', $ata->id);
+     }
+
+       /*
+     *  Adicionar Forncedor dentro do lote
+     *
+     */
+     public function lote(Request $request, $idAta, $idLote)
+     {
+        $ata = Ata::find($idAta);   
+        $lote = Lote::find($idLote);
+        
+        $fornecedores = $this->repository->create($request->all());
+
+         return redirect()->route('itens.create', [$ata->id, $lote->id]);
      }
 }

@@ -165,4 +165,17 @@ Route::prefix('admin')
 });
 
 
+/*
+*	Routes criar fornecedores e objetos dentro da ata
+*/
+Route::post('ata/{id}/fornecedor', 'Admin\FornecedoresController@ata')->name('fornecedor.ata')->middleware('auth');
+Route::post('ata/{id}/objeto', 'Admin\ObjetosController@ata')->name('objeto.ata')->middleware('auth');
+/*
+*	Routes criar fornecedores e objetos dentro do Lote
+*/
+Route::post('ata/{idAta}/lote/{idLote}/fornecedor', 'Admin\FornecedoresController@lote')->name('fornecedor.lote')->middleware('auth');
+Route::post('ata/{idAta}/lote/{idLote}/objeto', 'Admin\ObjetosController@lote')->name('objeto.lote')->middleware('auth');
+
+
+
 

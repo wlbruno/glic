@@ -1,35 +1,35 @@
 @include('admin.includes.alerts')
 
-
+@section('css')
+   <link rel="stylesheet" href="{{asset('css/select/select2.min.css')}}">
+   <link rel="stylesheet" href="{{asset('css/select/select2-bootstrap4.min.css')}}">
+  
+@endsection
 
 <div class="row">
+  <div class="col-md-6">
+     <div class="form-group">
+        <label>Objeto</label>
+          <select class="form-control select2 select2-hidden-accessible" name="objetos" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
+            @foreach($objetos as $objeto)
+              <option value="{{ $objeto->id }}">{{ $objeto->nome }}</option>
+            @endforeach
+          </select>
+      </div>
+  </div>
 
   <div class="col-md-6">
     <div class="form-group">
-      <label for="objetos">Objetos</label>
-        <select class="form-control" required name="objetos">
-          <option value="" disabled="" selected="">Selecione o Objeto</option>
-                          @foreach($objetos as $objeto)
-                          <option value="{{$objeto->id}}">{{$objeto->nome}}</option>
-                          @endforeach
-        </select>
+      <label>Fornecedores</label>
+        <select class="form-control select2 select2-hidden-accessible" name="fornecedores" style="width: 100%;" data-select2-id="9" tabindex="-1" aria-hidden="true">
+          @foreach($fornecedores as $fornecedor)
+            <option value="{{ $fornecedor->id }}">{{ $fornecedor->fornecedor }}</option>
+          @endforeach
+         </select>
       </div>
-    </div>
-
-    <div class="col-md-6">
-    <div class="form-group">
-      <label for="fornecedores">Fornecedores</label>
-        <select class="form-control" required name="fornecedores">
-            <option value="" disabled="" selected="">Selecione o fornecedor</option>
-                              @foreach($fornecedores as $fornecedor)
-                              <option value="{{$fornecedor->id}}">{{$fornecedor->fornecedor}}</option>
-                              @endforeach
-        </select>
-      </div>
-    </div>
 
   </div>
-
+</div>
 
 
 <div class="row">
@@ -83,4 +83,14 @@
 @section('js')
          <script src="{{asset('js/jquery.mask.js')}}"></script>
       <script src="{{asset('js/mask.js')}}"></script>
+      <script src="{{asset('js/select/select2.full.min.js')}}"></script>
+
+<script type="text/javascript">
+
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+  })
+
+</script>
 @stop

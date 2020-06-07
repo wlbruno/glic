@@ -80,7 +80,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         @endguest
          @if(!is_null(auth()->user()))
          <li class="nav-item dropdown">
-           <a href="{{url('/sair')}}" class="btn btn-sn btn-danger"  style="position: absolute;  left: 20px ;">Sair</a>
+           <a href="{{url('/sair')}}" class="btn btn-sn btn-danger" >Sair</a>
                 
         </li>
           @endif
