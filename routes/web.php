@@ -1,5 +1,12 @@
 <?php
 
+
+	/**
+	* Route Donwload PDF 
+	*/
+	Route::get('ata/{id}/pdf', 'Admin\AtasController@pdf')->name('download.pdf');
+
+
 	/**
 	*	Routes Licita Atas
 	*
@@ -50,6 +57,7 @@
 Route::prefix('admin')
 		->namespace('admin')
 		->group(function() {
+
 
 	/**
 	* Route DashBoard

@@ -25,6 +25,7 @@
 		                    <th>VIGÊNCIA</th>
 		                    <th>TIPO</th>
 		                    <th>COMISSÃO</th>
+                        <th>PDF</th>
 	                    </tr>
                   	</thead>
                   	<tbody>
@@ -37,6 +38,7 @@
 		                    <td>{{$atas->vigencia}}</td>
 		                    <td>{{$atas->tipo}}</td>
 		                    <td>{{$atas->comissao}}</td>
+                        <td width="40"><a href="{{ route('download.pdf', $atas->id) }}">{{ $atas->arquivo }}</a></td>
 		                </tr>
                     </tbody>
                 </table>

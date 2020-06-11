@@ -31,6 +31,8 @@
                   <th>Tipo</th>
                   <th>Comissão</th>
                   <th>Órgão</th>
+                   <th>PDF</th>
+
                 </tr>
                </thead>
                <tbody>
@@ -43,6 +45,7 @@
                   <td>{{ $atas->tipo }}</td>
                   <td>{{ $atas->comissao }}</td>
                   <td>{{ $atas->orgao }}</td>
+                    <td width="40"><a href="{{ route('download.pdf', $atas->id) }}">{{ $atas->arquivo }}</a></td>
                  </tr>
                 </tbody>
               </table>

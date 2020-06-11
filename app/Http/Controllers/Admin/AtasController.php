@@ -47,8 +47,13 @@ class AtasController extends Controller
      */
     public function store(AtaStoreUpdate $request)
     {
-        $ata = $this->repository->create($request->all());
+        $data = $request->all();
 
+        $name = $request->arquivo->getClientOriginalName();
+
+        $data['arquivo'] = $request->arquivo->storeAs('pdf' , $name);
+    
+        $ata = $this->repository->create($data);
 
         if($ata->tipo == 'ITEM'){
             return redirect()->route('item.item', $ata->id);
@@ -173,7 +178,7 @@ class AtasController extends Controller
     {
         $atas = Ata::find($id);
         $atas->status = $request->input('status');
-        $atas->save();;
+        $atas->save();
 
         return redirect()->route('atas.index');
     }
@@ -185,5 +190,17 @@ class AtasController extends Controller
         $atas->save();
 
         return redirect()->route('atas.index');   
+    }
+
+    /**
+    *   Baixar PDF da ata
+    *
+    */
+    public function pdf($id)
+    {
+        $atas = Ata::find($id);
+
+          return response()->download(storage_path()."\app/".$atas->arquivo);
+
     }
 }
