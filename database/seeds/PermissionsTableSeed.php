@@ -101,5 +101,10 @@ class PermissionsTableSeed extends Seeder
             'description' => 'solicita carona',
         ]);
 
+          Permission::create([
+            'name' => 'orgao_orgao',
+            'description' => 'orgao',
+        ]);
+
     }
 }

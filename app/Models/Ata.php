@@ -15,4 +15,9 @@ class Ata extends Model
     	return $this->hasMany("App\Models\Lote", "atas_id");
     }
 
+    public function ataorgao()
+    {
+        return $this->hasMany("App\Models\Ata_orgao", "atas_id");
+    }
+
 }

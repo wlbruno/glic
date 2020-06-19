@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Ata;
 use App\Models\Lote;
 use App\Models\Item;
+use App\Models\Ata_orgao;
 
 
 class OrgaoController extends Controller
@@ -37,6 +38,12 @@ class OrgaoController extends Controller
         $lotes = Lote::find($idLote);
 
         $orgaos = $this->repository->create($request->all());
+
+        $ataorgao = new Ata_orgao();
+        $ataorgao->atas_id = $request->input('atas_id');
+        $ataorgao->users_id = $request->input('users_id');
+        $ataorgao->save();
+
 
         $itens = Item::find($idItem);
         $itens->orgao = $itens->orgao - $orgaos->saldo;

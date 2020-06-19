@@ -45,7 +45,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
            <li class="nav-item">
             <a href="{{ route('admin.home') }}" class="nav-link">Admin</a>
           </li>
-          @endcan    
+          @endcan  
+         @can('orgao_orgao')
+          <li>
+            <a href="{{ route('orgao.index') }}" class="nav-link">Órgão</a>
+          </li>
+          @endcan
           <li class="nav-item">
             <a href="#" class="nav-link">Contato</a>
           </li>
@@ -64,28 +69,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
          
         </ul>
       
-       </div>
+    
       <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+
         @guest
          <li class="nav-item dropdown">
-          <a href="{{route('new.plan')}}"  class="btn btn-sn btn-dark" >CADASTRO</a>
+          <a href="{{route('new.plan')}}"  class="btn btn-sn btn-dark">CADASTRO</a>
            
         </li>
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown">
-           <a href="/login" class="btn btn-sn btn-dark"  style="position: absolute;  left: 20px ;">LOGIN</a>
+           <a href="/login" class="btn btn-sn btn-dark"  style="position: absolute;  left: 10px ;">LOGIN</a>
                 
         </li>
         @endguest
          @if(!is_null(auth()->user()))
+
+          <li class="nav-item dropdown">
+            <h4>Olá, {{auth()->user()->name}}</h4>
+        </li>
          <li class="nav-item dropdown">
-           <a href="{{url('/sair')}}" class="btn btn-sn btn-danger" >Sair</a>
+           <a href="{{url('/sair')}}" class="btn btn-sn btn-danger" style="position: absolute;  left: 10px ;">Sair</a>
                 
         </li>
           @endif
       </ul>
-     
+         </div>
     </div>
   </nav>
   <!-- /.navbar -->

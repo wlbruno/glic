@@ -18,5 +18,10 @@ class Orgao extends Model
     	return $this->belongsTo("App\Models\User");
     }
 
+     public function atas()
+    {
+    	return $this->belongsTo("App\Models\Ata");
+    }
+
     
 }

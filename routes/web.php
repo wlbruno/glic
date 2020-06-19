@@ -1,11 +1,18 @@
 <?php
 
+	
+	/**
+	* Route Órgão public
+	* 
+	*/
+	Route::get('/orgao/index', 'Site\Orgao\OrgaoController@index')->name('orgao.index');
+
+
 
 	/**
 	* Route Donwload PDF 
 	*/
 	Route::get('ata/{id}/pdf', 'Admin\AtasController@pdf')->name('download.pdf');
-
 
 	/**
 	*	Routes Licita Atas
@@ -15,12 +22,6 @@
 	Route::POST('ata/carona', 'Site\Licita\LicitaController@carona')->name('licita.carona');
 	//ROUTE GERAR PDF
 	Route::get('ata/carona/{id}', 'Site\Licita\LicitaController@gerarPDF')->name('licita.pdf');
-
-	Route::get('test', function() {
-		$pdf = \PDF::LoadView('site.pages.atas.licita.pdf');
-        return $pdf->stream();
-	});
-
 
 	/**
 	*	Routes Menu Atas
