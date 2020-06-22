@@ -10,6 +10,15 @@ use App\Models\Ata;
 
 class HomeController extends Controller
 {
+
+    private $repository;
+
+    public function __construct(Ata $atas)
+    {
+        $this->repository = $atas;
+    }
+
+
     public function index()
     {
   		$atasmedicamentos = Ata::where([
@@ -39,5 +48,22 @@ class HomeController extends Controller
         ])->count();
 
         return view('site.pages.home.index', compact('atasmedicamentos', 'atasprodutos', 'atasaquisicoes', 'atasservicos'));
+    }
+    
+
+      public function searchAta(Request $request)
+    {
+        $filters = $request->only('filter');
+
+         $atas = $this->repository
+                                    ->where(function($query) use ($request) {
+                                        if ($request->filter) {
+                                            $query->where('nata', $request->filter)
+                                                  ->orWhere('nprocesso', 'LIKE', "%{$request->filter}%");
+                                        }
+                                    })
+                                    ->paginate();
+
+        return view('site.pages.atas.busca', compact('atas', 'filters'));
     }
 }

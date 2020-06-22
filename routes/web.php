@@ -43,6 +43,7 @@
 	*
 	*/
 	Route::get('/', 'Site\HomeController@index')->name('home.index');
+	Route::any('atas/search', 'Site\HomeController@searchAta')->name('atas.search.index');
 
 	/**
 	*	Routes Register	

@@ -94,21 +94,14 @@
                 <h3 class="card-title">Pesquisa avançada</h3>
               </div>
               <!-- /.card-header -->
-              <!-- form start -->
-              <form role="form">
+              <form action="{{ route('atas.search.index') }}" method="POST" class="form form-inline">
+            @csrf
+            
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nº PREGÃO:</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="DIGITE O NÚMERO DO PREGÃO">
-                  </div>
-                 <div class="form-group">
-                    <label for="exampleInputEmail1">Nº ATA:</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="DIGITE O NÚMERO DA ATA">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputEmail1">Nº PROCESSO:</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="DIGITE O NUMERO DO PROCESSO">
-                  </div>
+                    <label for="exampleInputEmail1">Nº Ata ou Nº Processo </label>
+                     <input type="text" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control nata" value="{{ $filters['filter'] ?? ''  }}"></div>
+            
                  
                 </div>
                 <!-- /.card-body -->
@@ -145,4 +138,9 @@
             </div>
   </div>
 </div>
+@stop
+
+@section('js')
+         <script src="{{asset('js/jquery.mask.js')}}"></script>
+      <script src="{{asset('js/mask.js')}}"></script>
 @stop
