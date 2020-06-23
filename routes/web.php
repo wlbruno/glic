@@ -1,13 +1,10 @@
 <?php
 
-	
 	/**
 	* Route Órgão public
 	* 
 	*/
 	Route::get('/orgao/index', 'Site\Orgao\OrgaoController@index')->name('orgao.index');
-
-
 
 	/**
 	* Route Donwload PDF 
@@ -37,6 +34,13 @@
 				Route::get('/servicos', 'AtasController@servicos')->name('atas.servicos');
 			});
 	
+	/**
+	*	Routes User AUTH	
+	*
+	*/
+	Route::get('/perfil', 'Site\User\UserController@perfil')->name('user.perfil')->middleware('auth');;
+	Route::put('perfil/update', 'Site\User\UserController@perfilUpdate')->name('perfil.update')->middleware('auth');
+	Route::get('/historico', 'Site\HomeController@historico')->name('user.historico')->middleware('auth');;
 
 	/**
 	*	Routes public	
@@ -44,6 +48,8 @@
 	*/
 	Route::get('/', 'Site\HomeController@index')->name('home.index');
 	Route::any('atas/search', 'Site\HomeController@searchAta')->name('atas.search.index');
+	Route::any('/search/key', 'Site\HomeController@searchKey')->name('search.key');
+	Route::get('/contato', 'Site\HomeController@Contato')->name('user.contato');	
 
 	/**
 	*	Routes Register	

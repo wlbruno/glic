@@ -20,6 +20,7 @@ class LicitaController extends Controller
         $caronas = Carona::select('id')->where('atas_id', $atas->id)->where('users_id', Auth::user()->id)->get()->toArray();
            if(count($caronas) > 0){
                 $itens_solicitados = Carona_item::whereIn('caronas_id', $caronas)->get();
+                
             }else { 
                 $itens_solicitados = array();
             }if(isset($atas)) {

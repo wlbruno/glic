@@ -7,7 +7,6 @@
 
 <ol class="breadcrumb float-sm-right">
     <li class="breadcrumb-item"><a href="/">Home</a></li>
-    <li class="breadcrumb-item "><a href="{{ route('atas.medicamentos') }}">Atas Medicamentos</a></li>
     <li class="breadcrumb-item active"><a href="{{ route('licita.index', $atas->id) }}">Nº Ata {{ $atas->nata }}</a></li>
  </ol>
 
@@ -97,21 +96,24 @@
                             @php $soma = 0; @endphp
                                 @forelse($itens_solicitados as $item_solicitado)
                                     @if($item_solicitado->itens_id == $lote_item->item->id)
-                                        @php $soma = $soma + $item_solicitado->max; @endphp
+                                        @php $soma = $soma + $item_solicitado->quantidade; @endphp
+                                            
+
                                     @endif
                                 @empty
                             @endforelse
                                 <input type="hidden" name="itens[]" value="{{$lote_item->item->id}}">   
                                     @if($soma > 0)
                                         <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$lote_item->item->max - $soma}}" placeholder="Digite a quantidade" required>
+
                                     @else
                                         <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$lote_item->item->max}}" placeholder="Digite a quantidade" required>
                                     @endif
-                                        <div class="progress progress-xs" >
+                                    <div class="progress progress-xs" >
                                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$lote_item->item->max}}" style="width: {!! (100 * $soma)/ $lote_item->item->max !!}%">
+
                                         </div>
-                                    </div>
-                                <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $lote_item->item->max) !!}%</b> da quantidade total.</span>
+                                    </div>                                <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $lote_item->item->max) !!}%</b> da quantidade total.</span>
                             </td>     
                          </tr>
                         @endforeach

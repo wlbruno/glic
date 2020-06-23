@@ -118,13 +118,12 @@
               <div class="card-header">
                 <h3 class="card-title">VALIDAR KEY</h3>
               </div>
-              <!-- /.card-header -->
-              <!-- form start -->
-              <form role="form">
+              <form action="{{ route('search.key') }}" method="POST" class="form form-inline">
+                @csrf
                 <div class="card-body">
                   <div class="form-group">
                     
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="DIGITE O NÚMERO DA KEY">
+                    <input type="text" class="form-control" name="key" placeholder="DIGITE O NÚMERO DA KEY">
                   </div>
                 
                  

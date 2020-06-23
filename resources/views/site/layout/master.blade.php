@@ -25,7 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="index3.html" class="navbar-brand">
+      <a href="/" class="navbar-brand">
         <img src="{{asset('/img/logo-nova.png')}}" alt="AdminLTE Logo" class="brand-image  elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light"></span>
@@ -52,14 +52,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           @endcan
           <li class="nav-item">
-            <a href="#" class="nav-link">Contato</a>
+            <a href="/contato" class="nav-link">Contato</a>
           </li>
           @if(!is_null(auth()->user()))
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Gerenciar</a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              <li><a href="#" class="dropdown-item">Atas Solicitadas </a></li>
-              <li><a href="#" class="dropdown-item">Perfil</a></li>
+              <li><a href="{{ route('user.historico') }}" class="dropdown-item">Atas Solicitadas </a></li>
+              <li><a href="{{ route('user.perfil') }}" class="dropdown-item">Perfil</a></li>
 
               <li class="dropdown-divider"></li>
 

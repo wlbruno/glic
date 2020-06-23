@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Token;
 use App\Models\Ata;
+use App\Models\Carona;
 
 
 class HomeController extends Controller
@@ -49,21 +50,49 @@ class HomeController extends Controller
 
         return view('site.pages.home.index', compact('atasmedicamentos', 'atasprodutos', 'atasaquisicoes', 'atasservicos'));
     }
-    
 
-      public function searchAta(Request $request)
+    /**
+    *   Pesquisa por ATA e por KEY
+    *
+    */    
+
+    public function searchAta(Request $request)
     {
         $filters = $request->only('filter');
 
          $atas = $this->repository
-                                    ->where(function($query) use ($request) {
-                                        if ($request->filter) {
-                                            $query->where('nata', $request->filter)
-                                                  ->orWhere('nprocesso', 'LIKE', "%{$request->filter}%");
-                                        }
-                                    })
-                                    ->paginate();
+                    ->where(function($query) use ($request) {
+                        if ($request->filter) {
+                            $query->where('nata', $request->filter)
+                           ->orWhere('nprocesso', 'LIKE', "%{$request->filter}%");
+                        }
+                   })
+                    ->paginate();
 
         return view('site.pages.atas.busca', compact('atas', 'filters'));
+    }
+
+    public function searchKey(Request $request)
+    {
+        $tokens = Token::Where('token', $request->key)->get();
+            return view('site.pages.atas.key', compact('tokens'));
+    }
+
+    /**
+    *   Historico do User
+    *
+    */
+    public function historico()
+    {
+        $caronas = Carona::Where('users_id', auth()->user()->id)->get();
+            return view('site.pages.user.historico',  compact('caronas'));
+    }
+
+    /**
+    *   Contato
+    *
+    */
+    public function Contato(){
+        return view('site.pages.user.contato');
     }
 }
