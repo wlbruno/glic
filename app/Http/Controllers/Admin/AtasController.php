@@ -49,6 +49,7 @@ class AtasController extends Controller
     {
         $data = $request->all();
 
+
         $name = $request->arquivo->getClientOriginalName();
 
         $data['arquivo'] = $request->arquivo->storeAs('pdf' , $name);

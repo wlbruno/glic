@@ -18,7 +18,6 @@
                 <thead>
                     	<tr>
 		                    <th>DEPARTAMENTO</th>
-		                    <th>DESCRIÇÃO</th>
 		                    <th>N° ATA</th>
 		                    <th>N° PREGÃO</th>
 		                    <th>N° PROCESSO</th>
@@ -31,7 +30,7 @@
                   	<tbody>
 		                <tr>
 		                   	<td>{{$atas->departamento}}</td>
-		                    <td>{{$atas->descricao}}</td>
+		                  
 		                    <td>{{$atas->nata}}</td>
 		                    <td>{{$atas->npregao}}</td>
 		                    <td>{{$atas->nprocesso}}</td>
@@ -119,10 +118,12 @@
 		                                <td>{{$lote_item->item->vunitario}}</td>
 		                                <td>{{$lote_item->item->vtotal}}</td>           
 		                                <td>
-		                                  <a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-outline-warning btn-sm">EDITAR</a>
-		                                  <a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn  btn-outline-danger btn-sm" >DELETAR</a>
-		                                  <a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-outline-dark btn-sm" >ÓRGÃO</a>
-		                                </td>    
+		                                  <a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-warning btn-sm">EDITAR</a>
+		                                  <a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn  btn-danger btn-sm" >DELETAR</a>
+										  @if($atas->orgao == 'SIM')
+		                                  <a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-dark btn-sm" >ÓRGÃO</a>
+		                                  @endif
+										</td>    
 		               			    </tr>
     	                      	@endforeach
                     		</tbody>

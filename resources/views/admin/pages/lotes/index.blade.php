@@ -80,7 +80,7 @@
                                 <td>R$ {{$lote_item->item->vunitario}}</td>
 
 
-                                <td>{{  'R$ '.number_format($lote_item->item->vtotal, 2, ',', '.') }}</td>           
+                                <td>{{  'R$ '.number_format($lote_item->item->vtotal, 3, ',', '.') }}</td>           
                                 <td>
                                   <a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-outline-warning btn-sm">EDITAR</a>
                                   <a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn  btn-outline-danger btn-sm" >DELETAR</a>

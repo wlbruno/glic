@@ -46,7 +46,7 @@
      <div class="col-md-6">
       <div class="form-group">
         <label for="quantidade">Quantidadde</label>
-        <input type="text" class="form-control" name="quantidade" required placeholder="Digite a quantidade">
+        <input type="text" class="form-control quantidade" name="quantidade" required placeholder="Digite a quantidade">
       </div>
     </div>
 

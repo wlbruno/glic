@@ -3,7 +3,7 @@
 @section('title', 'Cadastrar órgão')
 
 @section('content_header')
-    <h1>Cadastrar órgão ao item {{$itens->objetos->nome}} </h1>
+    <h1>Cadastrar órgão  </h1>
     <h3>Saldo do item {{$itens->orgao}}</h3>
 @stop
 
@@ -16,7 +16,7 @@
     	<div class="card-body">
   			<div class="card-header border-transparent">
        		<div class="card-tools">
-            <a href="{{ route('lotes.create', $atas->id) }}" class="btn btn-success">Finalizar órgãos do item {{$itens->objetos->nome}}</a>
+            <a href="{{ route('lotes.create', $atas->id) }}" class="btn btn-success">Finalizar órgãos do item </a>
       			<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-orgao">Adicionar Órgão</button>
 					</div>
         </div>
