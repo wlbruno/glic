@@ -72,9 +72,7 @@ Route::prefix('admin')
 	*/
 	Route::get('/sistema', 'AdminController@index')->name('admin.home')->middleware('auth');
 
-
-
-    /**
+	/**
      * Role x User
      */
     Route::get('users/{id}/role/{idRole}/detach', 'ACL\RoleUserController@detachRoleUser')->name('users.role.detach');
@@ -106,28 +104,10 @@ Route::prefix('admin')
 	
 
 	/**
-	* 	Permissions x Profiles
-	*/
-	Route::get('profiles/{id}/permission/{idPermassion}/detach', 'ACL\PermissionProfileController@detachPermissionProfile')->name('profiles.permissions.detach');
-	Route::POST('profiles/{id}/permissions', 'ACL\PermissionProfileController@attachPermissionsProfile')->name('profiles.permissions.attache');
-	Route::any('profiles/{id}/permissions/create', 'ACL\PermissionProfileController@permissionsAvailable')->name('profiles.permissions.available');
-	Route::get('profiles/{id}/permissions', 'ACL\PermissionProfileController@permissions')->name('profiles.permissions');	
-	Route::get('permissions/{id}/profile', 'ACL\PermissionProfileController@profiles')->name('permissions.profiles');	
-
-
-	/**
 	* 	Routes Permissions
 	*/
 	Route::any('permissions/search', 'ACL\PermissionController@search')->name('permissions.search');
 	Route::resource('permissions', 'ACL\PermissionController');
-
-			
-	/**
-	* 	Routes Profiles
-	*/
-	Route::any('profiles/search', 'ACL\ProfileController@search')->name('profiles.search');
-	Route::resource('profiles', 'ACL\ProfileController');
-
 
 	/**
 	*	Routes Fornecedores
@@ -169,6 +149,9 @@ Route::prefix('admin')
 	Route::POST('atas/{idAta}/lote/itens', 'ItensController@store')->name('itens.store');
 	Route::get('atas/{idAta}/item', 'ItensController@item')->name('item.item');
 	Route::POST('atas/{idAta}/item', 'ItensController@store')->name('item.item');
+	Route::get('atas/{idAta}/lote/{idlote}/item/{idItem}', 'ItensController@edit')->name('item.edit');
+	Route::POST('atas/{idAta}/lote/{idlote}/item/{idItem}', 'ItensController@update')->name('item.update');
+	Route::get('atas/{idAta}/item/{idItem}', 'ItensController@destroy')->name('item.destroy');
 
 	/**
 	*	Routes Órgao

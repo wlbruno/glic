@@ -36,6 +36,16 @@ class ItensController extends Controller
 
     }
 
+    public function edit($idAta, $idLote, $idItem)
+    {
+        $ata = $idAta;
+        $lote = $idLote;
+        $item = Item::find($idItem);
+        $objetos = Objeto::all(); 
+        $fornecedores = Fornecedor::all();
+        return view('admin.pages.itens.edit', compact('ata', 'lote', 'item', 'objetos', 'fornecedores'));
+    }
+
    public function store(Request $request, $idAta)
     {
         $ata = Ata::find($idAta);  
@@ -75,6 +85,28 @@ class ItensController extends Controller
 
     }
 
+    public function update(Request $request, $idAta, $idLote, $idItem)
+    {
+        $ata = Ata::find($idAta);  
+        $lote = $idLote;
+        
+        $itens  = Item::find($idItem);
+        $itens->objetos_id = $request->input('objetos');
+        $itens->fornecedores_id = $request->input('fornecedores');
+        $itens->quantidade = $request->input('quantidade') / 2;
+        $itens->max = $request->input('quantidade') * 2;
+        $itens->medida = $request->input('medida');
+        $itens->vunitario = $request->input('vunitario');
+        $itens->marca = $request->input('marca');
+        $itens->vtotal =  $request->input('quantidade') * $request->input('vunitario');
+        $itens->orgao = $request->input('quantidade');
+        $itemDB = $itens->save();
+
+   
+      
+        return redirect()->route('lotes.create', $ata->id);
+    }
+
     /**
     *   form ata tipo item
     *
@@ -86,5 +118,20 @@ class ItensController extends Controller
         $fornecedores = Fornecedor::all();   
 
         return view('admin.pages.itens.item', compact('atas', 'objetos', 'fornecedores'));  
+    }
+
+    public function destroy($idAta, $idItem)
+    {
+        $ata = Ata::find($idAta);
+        
+        $item = $this->repository->where('id', $idItem)->first();
+        
+        if (!$item)
+        return redirect()->back();
+    
+        $item->delete();
+
+
+        return redirect()->route('lotes.create', $ata->id);
     }
 }

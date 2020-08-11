@@ -48,6 +48,7 @@
 	    </div>
 	 </div>
   </div>
+  
 
    <div class="modal fade" id="modal-orgao" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -74,9 +75,10 @@
 				          			@endforeach
 				                 </select>
 				     		 </div>
+                 
 				     	 <div class="form-group">
 				      		<label for="saldo">Saldo</label>
-				        		<input type="text" class="form-control" name="saldo">
+				        		<input type="text" class="form-control" min="0" required max="{{$itens->orgao}}" name="saldo">
 				     		 </div>
                     	</div>
                     </div>

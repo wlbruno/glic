@@ -106,6 +106,12 @@ class RolesTableSeed extends Seeder
             'description' => 'orgao',
         ]);
 
+        Role::create([
+            'name' => 'cargos',
+            'description' => 'cargos',
+        ]);
+
+
 
           DB::table('permission_role')->insert([
           
@@ -186,6 +192,12 @@ class RolesTableSeed extends Seeder
               'permission_id' => 19,
               'role_id' => 19,
           ]);
+
+          DB::table('permission_role')->insert([
+            'permission_id' => 20,
+            'role_id' => 20,
+        ]);
+
 
     
 

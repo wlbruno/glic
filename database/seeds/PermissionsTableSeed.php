@@ -106,5 +106,10 @@ class PermissionsTableSeed extends Seeder
             'description' => 'orgao',
         ]);
 
+        Permission::create([
+            'name' => 'cargos',
+            'description' => 'cargos',
+        ]);
+
     }
 }

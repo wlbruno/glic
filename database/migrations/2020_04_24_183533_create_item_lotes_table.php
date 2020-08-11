@@ -17,10 +17,10 @@ class CreateItemLotesTable extends Migration
             $table->bigIncrements('id');
 
             $table->unsignedBigInteger('itens_id');
-            $table->foreign('itens_id')->references('id')->on('itens');
+            $table->foreign('itens_id')->references('id')->on('itens')->onDelete('cascade');
             
             $table->unsignedBigInteger('lotes_id');
-            $table->foreign('lotes_id')->references('id')->on('lotes');
+            $table->foreign('lotes_id')->references('id')->on('lotes')->onDelete('cascade');
             
             $table->timestamps();
         });

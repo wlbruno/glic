@@ -12,7 +12,7 @@
     		<form action="{{ route('atas.update', $ata->id) }}" class="form" method="POST">
     			@csrf
                 @method('PUT')
-
+				<input type="hidden" value="{{ $ata->status }}"  name="status">
     			@include('admin.pages.atas._partials.form')
 	   		</form>
     	</div>

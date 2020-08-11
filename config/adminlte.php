@@ -241,7 +241,7 @@ return [
             'text' => 'Cargos',
             'url'  => 'admin/permissions',
             'icon' => 'fas fa-lock',
-            'can' => 'admin'
+            'can' => 'cargos'
         ],
          [
             'text' => 'Usuários',
