@@ -39,4 +39,13 @@ class AtaStoreUpdate extends FormRequest
             'arquivo' => 'required',
         ];
     }
+    /**
+     * Custon messages error
+     */
+    public function messages()
+        {
+            return [
+                'departamento.required' => 'Escolha o departamento',
+            ];
+        }
 }

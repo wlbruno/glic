@@ -107,7 +107,7 @@
                   <div class="col-sm-12">
                     <div class="form-group">
                       <label for="descricao">Descrição do lote</label>
-                        <textarea class="form-control" rows="4" name="descricao" placeholder="Descrição ..." required></textarea>
+                        <input class="form-control" required name="descricao" placeholder="Descrição...">  
                       </div>
                     </div>
                   </div>

@@ -3,7 +3,7 @@
 @section('title', "Editar Lote")
 
 @section('content_header')
-    <h1>Editar Lote  {{ $lote->descricao }}</h1>
+    <h1>Editar  {{ $lote->descricao }} </h1>
 @stop
 
 @section('content')
@@ -18,7 +18,7 @@
                     
                       <div class="form-group">
                         <label for="descricao">* Descrição do lote</label>
-                        <textarea class="form-control" rows="4" name="descricao" required placeholder="Descrição ..."></textarea>
+                        <input class="form-control" required name="descricao"  value="{{$lote->descricao}}">   
                       </div>
                     </div>
                     </div>
