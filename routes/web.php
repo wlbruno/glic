@@ -118,6 +118,7 @@ Route::prefix('admin')
 	*	Routes Objetos
 	*/
 	Route::resource('objetos', 'ObjetosController');
+	Route::any('objetos/search', 'ObjetosController@search')->name('objetos.search');
 
 
 	/**

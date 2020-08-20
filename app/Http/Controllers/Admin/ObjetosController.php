@@ -147,4 +147,25 @@ class ObjetosController extends Controller
          return redirect()->route('itens.create', [$ata->id, $lote->id]);
      }
 
+     /**
+      * Pesquisar por número de E-fisco do objeto 
+      *
+      */
+      public function search(Request $request)
+      {
+        $filters = $request->only('filter');
+
+        $objetos = $this->repository
+                                   ->where(function($query) use ($request) {
+                                       if ($request->filter) {
+                                           $query->where('nefisco', $request->filter)
+                                                 ->orWhere('nome', 'LIKE', "%{$request->filter}%");
+                                       }
+                                   })
+                                   ->paginate();
+
+       return view('admin.pages.objetos.index', compact('objetos', 'filters'));
+      }
+  
+
 }

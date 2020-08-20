@@ -53,10 +53,9 @@
                             <td>{{ $ata->nata }}</td>
                             <td>{{ $ata->npregao }}</td>
                             <td>{{ $ata->nprocesso }}</td>
-                            <td>{{ $ata->vigencia }}</td>
+                            <td>{{ date( 'd/m/Y', strtotime($ata->vigencia)) }}</td>
                             <td>{{ $ata->tipo }}</td>
                             <td>{{ $ata->comissao }}</td>
-                           
                             <td>{{ $ata->orgao }}</td>
                             @if($ata->status == 'PUBLICADA')
                             <td><span class="badge badge-success">{{$ata->status}}</span></td>

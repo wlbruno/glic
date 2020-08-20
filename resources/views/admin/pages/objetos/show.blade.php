@@ -39,8 +39,8 @@
                 <form action="{{ route('objetos.destroy', $objeto->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>  DELETAR O OBJETO</button>
-                        <a href="http://127.0.0.1:8000/admin/objetos" class="btn btn-dark">Voltar</a>
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> DELETAR O OBJETO</button>
+                        <a href="{{ route('objetos.index') }}" class="btn btn-dark">Voltar</a>
                           
                 </form>
               

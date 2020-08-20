@@ -32,11 +32,9 @@
                     <input type="email" class="form-control" required name="email" placeholder="E-mail">
                   </div>
 
-                  <div class="col-md-6">
                   <div class="form-group">
                     <label >Telefone:</label>
                     <input type="number" class="form-control" required name="email" min="0" max="11" placeholder="Telefone">
-                  </div>
 
                   </div>
                   
