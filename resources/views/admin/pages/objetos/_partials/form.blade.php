@@ -2,14 +2,14 @@
 
 <div class="col-md-6">
   <div class="form-group">
-    <label for="nome">Nome:</label>
-      <input type="text" class="form-control" name="nome"  placeholder="Digite o nome do objeto" value="{{ $objeto->nome ?? old('nome') }}">
+    <label for="nome">* Nome:</label>
+      <input type="text" class="form-control" name="nome" required  placeholder="Digite o nome do objeto" value="{{ $objeto->nome ?? old('nome') }}">
   </div>
 </div>
 
 <div class="col-md-6">
   <div class="form-group">
-    <label for="nefisco">Nº E-fisco</label>
+    <label for="nefisco">* Nº E-fisco</label>
     <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{ $objeto->nefisco ?? old('nefisco') }}">
   </div>
 </div>

@@ -113,6 +113,7 @@ Route::prefix('admin')
 	*	Routes Fornecedores
 	*/
 	Route::resource('fornecedores', 'FornecedoresController');
+	Route::any('fornecedores/search', 'FornecedoresController@search')->name('fornecedores.search');
 
 	/**
 	*	Routes Objetos

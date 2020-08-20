@@ -17,8 +17,8 @@
                     <div class="col-sm-12">
                     
                       <div class="form-group">
-                        <label for="descricao">Descrição do lote</label>
-                        <textarea class="form-control" rows="4" name="descricao" placeholder="Descrição ..."></textarea>
+                        <label for="descricao">* Descrição do lote</label>
+                        <textarea class="form-control" rows="4" name="descricao" required placeholder="Descrição ..."></textarea>
                       </div>
                     </div>
                     </div>

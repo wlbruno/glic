@@ -9,7 +9,7 @@
 <div class="row">
   <div class="col-md-6">
      <div class="form-group">
-        <label>Objeto</label>
+        <label>* Objeto</label>
           <select class="form-control select2 select2-hidden-accessible" required name="objetos" style="width: 100%;" data-select2-id="1" tabindex="-1" aria-hidden="true">
             <option value="" disabled="" selected="">Selecione o Objeto</option>
             @foreach($objetos as $objeto)
@@ -21,7 +21,7 @@
 
   <div class="col-md-6">
     <div class="form-group">
-      <label>Fornecedores</label>
+      <label>* Fornecedores</label>
         <select class="form-control select2 select2-hidden-accessible" required name="fornecedores" style="width: 100%;" data-select2-id="9" tabindex="-1" aria-hidden="true">
           <option value="" disabled="" selected="">Selecione o Fornecedor</option>
           @foreach($fornecedores as $fornecedor)
@@ -38,14 +38,14 @@
   
     <div class="col-md-6">
       <div class="form-group">
-        <label for="marca">Marca</label>
+        <label for="marca">* Marca</label>
         <input type="text" class="form-control" name="marca" required placeholder="Digite o nome da marca" value="{{ $item->marca ?? old('marca') }}">
       </div>
     </div>
 
      <div class="col-md-6">
       <div class="form-group">
-        <label for="quantidade">Quantidade</label>
+        <label for="quantidade">* Quantidade</label>
         <input type="text" class="form-control quantidade" name="quantidade" required placeholder="Digite a quantidade" value="{{ $item->quantidade ?? old('quantidade') }}">
       </div>
     </div>
@@ -58,14 +58,14 @@
   
     <div class="col-md-6">
       <div class="form-group">
-        <label for="medida">Unidade de Medida</label>
+        <label for="medida">* Unidade de Medida</label>
         <input type="text" class="form-control" name="medida" required placeholder="EX: AMPOLA" value="{{ $item->medida ?? old('medida') }}">
       </div>
     </div>
 
      <div class="col-md-6">
       <div class="form-group">
-        <label for="vunitario">Valor unitário</label>
+        <label for="vunitario">* Valor unitário</label>
         <input type="number" class="form-control" name="vunitario" required placeholder="Digite o valor unitário" value="{{ $item->vunitario ?? old('vunitario') }}">
       </div>
     </div>

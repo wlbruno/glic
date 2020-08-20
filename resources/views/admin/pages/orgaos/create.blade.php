@@ -67,7 +67,7 @@
                   <div class="row">
                     <div class="col-sm-12">
                         <div class="form-group">
-				      		<label for="users_id">Órgãos</label>
+				      		<label for="users_id">* Órgãos</label>
 				        		<select class="form-control" required name="users_id">
 				          			<option value="" disabled="" selected="">Selecione o Órgão</option>
 				          			@foreach($users as $user)
@@ -77,7 +77,7 @@
 				     		 </div>
                  
 				     	 <div class="form-group">
-				      		<label for="saldo">Saldo</label>
+				      		<label for="saldo">* Saldo</label>
 				        		<input type="text" class="form-control" min="0" required max="{{$itens->orgao}}" name="saldo">
 				     		 </div>
                     	</div>

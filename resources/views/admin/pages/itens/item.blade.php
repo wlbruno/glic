@@ -61,13 +61,13 @@
                     <div class="col-sm-12">
                     
                      <div class="form-group">
-						    <label for="fornecedor">Nome:</label>
-						      <input type="text" class="form-control" name="fornecedor"  placeholder="Digite o nome do fornecedor" value="{{ $fornecedor->fornecedor ?? old('nome') }}">
+						    <label for="fornecedor">* Nome:</label>
+						      <input type="text" class="form-control" name="fornecedor" required placeholder="Digite o nome do fornecedor" value="{{ $fornecedor->fornecedor ?? old('nome') }}">
 						  </div>
                     </div>
                     <div class="col-sm-12">
                     	<div class="form-group">
-						    <label for="cnpj">Nº CNPJ</label>
+						    <label for="cnpj">* Nº CNPJ</label>
 						    <input type="text" class="form-control cnpj" name="cnpj" required placeholder="Digite o número do CNPJ"  value="{{ $fornecedor->cnpj ?? old('cnpj') }}">
 						  </div>
                     </div>
@@ -99,13 +99,13 @@
                     <div class="col-sm-12">
                     
                     <div class="form-group">
-					    <label for="nome">Nome:</label>
-					      <input type="text" class="form-control" name="nome"  placeholder="Digite o nome do objeto" value="{{ $objeto->nome ?? old('nome') }}">
+					    <label for="nome">* Nome:</label>
+					      <input type="text" class="form-control" name="nome" required placeholder="Digite o nome do objeto" value="{{ $objeto->nome ?? old('nome') }}">
 					  </div>
                     </div>
                     <div class="col-sm-12">
                     	  <div class="form-group">
-						    <label for="nefisco">Nº E-fisco</label>
+						    <label for="nefisco">* Nº E-fisco</label>
 						    <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{ $objeto->nefisco ?? old('nefisco') }}">
 						  </div>
                     </div>

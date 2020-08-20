@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-md-6">
     <div class="form-group">
-      <label for="departamento">Departamento</label>
+      <label for="departamento">* Departamento</label>
         <select class="form-control" required name="departamento" value="{{ $ata->departamento ?? old('departamento') }}">
           <option value="" disabled="" selected="">Selecione o departamento</option>
           <option value="MEDICAMENTOS">MEDICAMENTOS</option>
@@ -15,7 +15,7 @@
 
     <div class="col-md-6">
       <div class="form-group">
-        <label for="nata">Nº Ata</label>
+        <label for="nata">* Nº Ata</label>
       <input type="text" class="form-control nata" name="nata" required placeholder="Digite o número da ata" value="{{ $ata->nata ?? old('nata') }}">
       </div>
     </div>
@@ -24,7 +24,7 @@
 <div class="row">
   <div class="col-md-6">
     <div class="form-group">
-      <label for="comissao">Comissão</label>
+      <label for="comissao">* Comissão</label>
         <select class="form-control" required name="comissao"  value="{{ $ata->comissao ?? old('comissao') }}">
           <option value="" disabled="" selected="">Selecione a Comissão</option>
           <option value="CPLC I">CPLC I</option>
@@ -41,7 +41,7 @@
 
      <div class="col-md-6">
       <div class="form-group">
-        <label for="nprocesso">Nº Processo</label>
+        <label for="nprocesso">* Nº Processo</label>
         <input type="text" class="form-control nata" name="nprocesso" placeholder="Digite o número do processo" required  value="{{ $ata->nprocesso ?? old('nprocesso') }}">
       </div>
     </div>
@@ -50,7 +50,7 @@
 <div class="row">
   <div class="col-md-3">
     <div class="form-group">
-      <label for="vigencia">Vigência</label>
+      <label for="vigencia">* Vigência</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -62,7 +62,7 @@
 
         <div class="col-md-3">
           <div class="form-group">
-            <label for="tipo">TIPO: </label>
+            <label for="tipo">* TIPO: </label>
               <select class="form-control" name="tipo" required  value="{{ $ata->tipo ?? old('tipo') }}">
                 <option value="" disabled="" selected="">Selecione o tipo</option>
                 <option value="LOTE">LOTE</option>
@@ -73,7 +73,7 @@
 
         <div class="col-md-3">
           <div class="form-group">
-            <label for="npregao">Nº Pregão</label>
+            <label for="npregao">* Nº Pregão</label>
               <input type="text" class="form-control nata" name="npregao" required placeholder="Digite o número do processo"  value="{{ $ata->npregao ?? old('npregao') }}">
           </div>
         </div>
@@ -81,7 +81,7 @@
       
           <div class="col-md-3">
             <div class="form-group">
-              <label for="orgao">ÓRGÃO:</label>
+              <label for="orgao">* ÓRGÃO:</label>
                 <select class="form-control" name="orgao" required="true"  value="{{ $ata->orgao ?? old('orgao') }}">
                   <option value="" disabled="" selected="">Adicionar órgãos?</option>
                   <option value="SIM">SIM</option>
@@ -94,7 +94,7 @@
         <div class="row">
           <div class="col-md-12">          
             <div class="form-group">
-              <label for="descricao">Descrição</label>
+              <label for="descricao">* Descrição</label>
                 <textarea class="form-control" rows="3" name="descricao" required placeholder="Descrição ..."  value="{{ $ata->descricao ?? old('descricao') }}"></textarea>
            </div>
         </div>
@@ -102,7 +102,7 @@
 
       <div class="row">
         <div class="col-md-6">
-          <label for="arquivo"> Arquivo</label>
+          <label for="arquivo">* Arquivo</label>
             <input type="file" class="form-control" required name="arquivo"  value="{{ $ata->arquivo ?? old('arquivo') }}">
         </div>
       </div>

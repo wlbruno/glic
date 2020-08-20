@@ -146,4 +146,24 @@ class FornecedoresController extends Controller
 
          return redirect()->route('itens.create', [$ata->id, $lote->id]);
      }
+
+        /**
+      * Pesquisar por número de E-fisco do objeto 
+      *
+      */
+      public function search(Request $request)
+      {
+        $filters = $request->only('filter');
+
+        $fornecedores = $this->repository
+                                   ->where(function($query) use ($request) {
+                                       if ($request->filter) {
+                                           $query->where('cnpj', $request->filter)
+                                                 ->orWhere('fornecedor', 'LIKE', "%{$request->filter}%");
+                                       }
+                                   })
+                                   ->paginate();
+
+       return view('admin.pages.fornecedores.index', compact('fornecedores', 'filters'));
+      }
 }
