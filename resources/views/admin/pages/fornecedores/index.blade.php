@@ -47,9 +47,9 @@
                            
                             <td style="width: 10px;">
                                 @can('edit_fornecedores')
-                                <a href="{{ route('fornecedores.edit', $fornecedor->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('fornecedores.edit', $fornecedor->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i> EDITAR</a>
                                 @endcan
-                                <a href="{{ route('fornecedores.show', $fornecedor->id) }}" class="btn btn-info"><i class="fas fa-search"></i></a>    
+                                <a href="{{ route('fornecedores.show', $fornecedor->id) }}" class="btn btn-info"><i class="fas fa-search"></i> DETALHAR</a>    
                             </td>
                         </tr>
                     @endforeach    

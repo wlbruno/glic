@@ -58,9 +58,9 @@
                             <td>{{ $ata->comissao }}</td>
                            
                             <td>{{ $ata->orgao }}</td>
-                            @if($ata->status == 'PUBLIC')
+                            @if($ata->status == 'PUBLICADA')
                             <td><span class="badge badge-success">{{$ata->status}}</span></td>
-                            @elseif($ata->status == 'SAVE')
+                            @elseif($ata->status == 'SALVA')
                             <td><span class="badge badge-info">{{$ata->status}}</span></td>
                             @else
                             <td><span class="badge badge-warning">{{$ata->status}}</span></td>
@@ -68,9 +68,9 @@
 
                             <td style="width: 10px;">
                                 @can('edit_ata')
-                                <a href="{{ route('atas.edit', $ata->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('atas.edit', $ata->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i> EDITAR</a>
                                 @endcan
-                                <a href="{{ route('atas.show', $ata->id) }}" class="btn btn-info"><i class="fas fa-search"></i></a>    
+                                <a href="{{ route('atas.show', $ata->id) }}" class="btn btn-info"><i class="fas fa-search"></i> DETALHAR</a>    
                             </td>
                         </tr>
                     @endforeach    

@@ -41,9 +41,10 @@
                             </td>
                             <td style="width=10px;">
                                 @can('admin')
-                                <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-info">EDITAR</a>
                                 @endcan
-                                <a href="{{ route('roles.show', $role->id) }}" class="btn btn-warning">VER</a>
+                                <hr>
+                                <a href="{{ route('roles.show', $role->id) }}" class="btn btn-warning">DETALHAR</a>
                                 @can('admin')
                                 <a href="{{ route('roles.permissions', $role->id) }}" class="btn btn-warning"><i class="fas fa-lock"></i></a>
                                 @endcan

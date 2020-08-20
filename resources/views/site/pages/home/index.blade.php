@@ -99,8 +99,8 @@
             
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nº Ata ou Nº Processo </label>
-                     <input type="text" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control nata" value="{{ $filters['filter'] ?? ''  }}"></div>
+                    <!-- <label for="exampleInputEmail1">Nº Ata ou Nº Processo </label> -->
+                     <input type="text"  style="width: 228px" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control nata" value="{{ $filters['filter'] ?? ''  }}"></div>
             
                  
                 </div>
@@ -116,14 +116,14 @@
     <div class="col-lg-3">
     <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">VALIDAR KEY</h3>
+                <h3 class="card-title">Validar Key</h3>
               </div>
               <form action="{{ route('search.key') }}" method="POST" class="form form-inline">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
                     
-                    <input type="text" class="form-control" name="key" placeholder="DIGITE O NÚMERO DA KEY">
+                    <input type="text" class="form-control" style="width: 228px" name="key" placeholder="Digite a chave de validação">
                   </div>
                 
                  

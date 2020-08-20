@@ -47,9 +47,9 @@
                            
                             <td style="width: 10px;">
                                 @can('edit_objetos')
-                                <a href="{{ route('objetos.edit', $objeto->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('objetos.edit', $objeto->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i> EDITAR</a>
                                 @endcan
-                                <a href="{{ route('objetos.show', $objeto->id) }}" class="btn btn-info"><i class="fas fa-search"></i></a>    
+                                <a href="{{ route('objetos.show', $objeto->id) }}" class="btn btn-info"><i class="fas fa-search"></i> DETALHAR</a>    
                             </td>
                         </tr>
                     @endforeach    

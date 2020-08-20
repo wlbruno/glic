@@ -9,5 +9,5 @@
     <input type="text" name="description" class="form-control" placeholder="Descrição:" value="{{ $permission->description ??  old('description') }}">
 </div>
 <div class="form-group">
-    <button type="submit" class="btn btn-dark">Enviar</button>
+    <button type="submit" class="btn btn-dark">Salvar</button>
 </div>

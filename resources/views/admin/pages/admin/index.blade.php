@@ -16,7 +16,7 @@
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">ÁREA ADMINISTRATIVA  DO GLIC</span>
+                <span class="info-box-text">ÁREA ADMINISTRATIVA  DA GLIC</span>
               </div>
             </div>
           </div>

@@ -50,7 +50,7 @@
 <div class="row">
   <div class="col-md-3">
     <div class="form-group">
-      <label for="vigencia">Vigencia</label>
+      <label for="vigencia">Vigência</label>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -109,7 +109,7 @@
 
 <div class="card-footer">
   <div class="form-group">
-    <button type="submit" class="btn btn-dark">Enviar</button>
+    <button type="submit" class="btn btn-dark">Salvar</button>
   </div>
 </div>
 
