@@ -34,7 +34,7 @@ class ObjetoStoreUpdate extends FormRequest
     /**
      * Custon messages error
      */
-    public function messages()
+    public function messages() 
         {
             return [
                 'nome.required' => 'Digite o nome do objeto',

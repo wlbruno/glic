@@ -91,39 +91,39 @@ Route::prefix('admin')
     Route::get('permissions/{id}/role', 'ACL\PermissionRoleController@roles')->name('permissions.roles');
 
      /**
-     * Routes Role
+     * Routes Role |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
      */
     Route::any('roles/search', 'ACL\RoleController@search')->name('roles.search');
     Route::resource('roles', 'ACL\RoleController');
 
 	/**
-     * Routes Users
+     * Routes Users |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
      */
     Route::any('users/search', 'UserController@search')->name('users.search');
     Route::resource('users', 'UserController');
 	
 
 	/**
-	* 	Routes Permissions
+	* 	Routes Permissions |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
 	*/
 	Route::any('permissions/search', 'ACL\PermissionController@search')->name('permissions.search');
 	Route::resource('permissions', 'ACL\PermissionController');
 
 	/**
-	*	Routes Fornecedores
+	*	Routes Fornecedores |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
 	*/
 	Route::resource('fornecedores', 'FornecedoresController');
 	Route::any('fornecedores/search', 'FornecedoresController@search')->name('fornecedores.search');
 
 	/**
-	*	Routes Objetos
+	*	Routes Objetos |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
 	*/
 	Route::resource('objetos', 'ObjetosController');
 	Route::any('objetos/search', 'ObjetosController@search')->name('objetos.search');
 
 
 	/**
-	*	Routes Atas
+	*	Routes Atas |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
 	*
 	*/
 	Route::any('atas/search', 'AtasController@search')->name('atas.search');
