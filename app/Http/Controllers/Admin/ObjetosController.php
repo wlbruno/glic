@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Objeto;
 use App\Models\Ata;
 use App\Models\Lote;
+use App\Http\Requests\ObjetoStoreUpdate;
 
 class ObjetosController extends Controller
 {
@@ -46,7 +47,7 @@ class ObjetosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ObjetoStoreUpdate $request)
     {
         $objetos = $this->repository->create($request->all());
 
@@ -91,7 +92,7 @@ class ObjetosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ObjetoStoreUpdate $request, $id)
     {
          if (!$objeto = $this->repository->find($id)) {
             return redirect()->back();
@@ -124,7 +125,7 @@ class ObjetosController extends Controller
      *  Adicionar Forncedor dentro da ata
      *
      */
-     public function ata(Request $request, $id)
+     public function ata(ObjetoStoreUpdate $request, $id)
      {
         $ata = Ata::find($id);
         
@@ -137,7 +138,7 @@ class ObjetosController extends Controller
      *  Adicionar Forncedor dentro do lote
      *
      */
-     public function lote(Request $request, $idAta, $idLote)
+     public function lote(ObjetoStoreUpdate $request, $idAta, $idLote)
      {
         $ata = Ata::find($idAta);   
         $lote = Lote::find($idLote);

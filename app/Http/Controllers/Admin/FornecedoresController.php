@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Fornecedor;
 use App\Models\Ata;
 use App\Models\Lote;
+use App\Http\Requests\FornecedoresStoreUpdate;
+
 
 class FornecedoresController extends Controller
 {
@@ -46,7 +48,7 @@ class FornecedoresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FornecedoresStoreUpdate $request)
     {
         $fornecedores = $this->repository->create($request->all());
 
@@ -91,7 +93,7 @@ class FornecedoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(FornecedoresStoreUpdate $request, $id)
     {
          if (!$fornecedor = $this->repository->find($id)) {
             return redirect()->back();
@@ -124,7 +126,7 @@ class FornecedoresController extends Controller
      *  Adicionar Forncedor dentro da ata
      *
      */
-     public function ata(Request $request, $id)
+     public function ata(FornecedoresStoreUpdate $request, $id)
      {
         $ata = Ata::find($id);
         
@@ -137,7 +139,7 @@ class FornecedoresController extends Controller
      *  Adicionar Forncedor dentro do lote
      *
      */
-     public function lote(Request $request, $idAta, $idLote)
+     public function lote(FornecedoresStoreUpdate $request, $idAta, $idLote)
      {
         $ata = Ata::find($idAta);   
         $lote = Lote::find($idLote);

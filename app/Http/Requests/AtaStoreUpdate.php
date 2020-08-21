@@ -27,7 +27,7 @@ class AtaStoreUpdate extends FormRequest
 
         return [
             'departamento' => 'required',
-            'descricao' => 'required|min:3|max:255',
+            'descricao' => 'required',
             'nata' => "required|min:3|max:15|unique:atas,nata,{$id},id",
             'nprocesso' => "required|min:3|max:15|unique:atas,nprocesso,{$id},id",
             'npregao' => "required|min:3|max:15|unique:atas,npregao,{$id},id",
@@ -46,6 +46,19 @@ class AtaStoreUpdate extends FormRequest
         {
             return [
                 'departamento.required' => 'Escolha o departamento',
+                'descricao.required' => 'A descrição é obrigatória',
+                'nata.required' => 'O número da ata é obrigatório',
+                'nata.unique' => 'Esse número da ata já existe no sistema',
+                'nprocesso.required' => 'O número do processo é obrigatório',
+                'nprocesso.unique' => 'O número do processo já existe no sistema',
+                'npregao.required' => 'O número do pregão é obrigatório',
+                'npregao.unique' => 'O número do pregão já existe no sistema',
+                'vigencia.required' => 'A vigencia é obrigadoria',
+                'tipo.required' => 'Selecione o tipo da ata',
+                'comissao.required' => 'Selecione a comissão da ata',
+                'orgao.required' => 'Selecione o campo Orgão',
+                'arquivo.required' => 'O arquivo é obrigatório',
+
             ];
         }
 }

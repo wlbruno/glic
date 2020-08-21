@@ -20,7 +20,7 @@
 <div class="card-footer">
   <div class="form-group">
     <button type="submit" class="btn btn-dark">Salvar</button>
-    <a href="http://127.0.0.1:8000/admin/fornecedores" class="btn btn-dark">Voltar</a>
+    <a href="{{ route('fornecedores.index') }}" class="btn btn-dark">Voltar</a>
   </div>
 </div>
 
