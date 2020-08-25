@@ -49,7 +49,10 @@ class AtasController extends Controller
     {
         $data = $request->all();
 
+        $data['data_vigencia'] = $data['data_assinatura'];
 
+        $data['data_vigencia'] = date( "Y-m-d", strtotime( "+".$request->vigencia." month" ) );
+        
         $name = $request->arquivo->getClientOriginalName();
 
         $data['arquivo'] = $request->arquivo->storeAs('pdf' , $name);

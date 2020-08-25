@@ -23,6 +23,8 @@ class CreateAtasTable extends Migration
             $table->string('npregao')->unique();
             $table->string('nprocesso')->unique();
             $table->string('vigencia');
+            $table->string('data_assinatura');
+            $table->string('data_vigencia');
             $table->string('tipo');
             $table->string('comissao');
             $table->string('status');

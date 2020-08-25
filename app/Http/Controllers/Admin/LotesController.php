@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Lote;
 use App\Models\Ata;
+use DB;
 
 class LotesController extends Controller
 {
@@ -18,9 +19,12 @@ class LotesController extends Controller
 
     public function create($id)
     {
-    	$atas = Ata::find($id);
+        $atas = Ata::find($id);
         
-            return view('admin.pages.lotes.index', compact('atas'));
+        //$ata = $atas->$this->repository->where('atas_id', $atas->id)->select('descricao', 'id')->orderBy('decricao', 'ASC')->paginate();
+        //$lotes = $this->repository->where('atas_id', $atas->id)->select('descricao')->orderBy('descricao', 'ASC')->paginate();
+        
+            return view('admin.pages.lotes.index', compact('atas', 'lotes'));
     }
 
     public function store(Request $request, $id)

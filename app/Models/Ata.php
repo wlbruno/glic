@@ -7,7 +7,7 @@ use Carbon\Carbon;
 
 class Ata extends Model
 {
-    protected $fillable = ['departamento', 'descricao', 'nata', 'npregao', 'nprocesso', 'vigencia', 'tipo', 'comissao', 'status', 'orgao', 'arquivo' ];
+    protected $fillable = ['departamento', 'descricao', 'nata', 'npregao', 'nprocesso', 'vigencia', 'tipo', 'comissao', 'status', 'orgao', 'arquivo', 'data_assinatura', 'data_vigencia'];
 
 
     public function lotes()

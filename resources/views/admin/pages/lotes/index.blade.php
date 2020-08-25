@@ -5,24 +5,22 @@
 @section('content_header')
   @if($atas->status == 'CRIACAO')
     @if($atas->tipo == 'LOTE')
-    <h1>	Lotes
+    <h1>	LOTES
     	 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal-lg">
             Criar Lote
         </button>
       <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-success">FINALIZAR ATA</a>
     </h1>
   @else
-    <h1>  Itens
+    <h1>  ITENS
       <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-success">FINALIZAR ATA</a>
     </h1>
   @endif
 
   @else
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-      <li class="breadcrumb-item "><a href="{{ route('atas.index') }}">Atas</a></li>
-      <li class="breadcrumb-item active"><a href="{{ route('atas.show', $atas->id) }}">Ata {{$atas->nata}}</a></li>
-    </ol> 
+  <a href="{{ route('atas.show', $atas->id) }}" class="btn btn-dark">Voltar</a>
+  
+   
   @endif
 @stop
 
@@ -34,7 +32,9 @@
 	    	<div class="card-body">
 				   <div class="card">
               <div class="card-header border-transparent">
+              @if($atas->tipo === 'LOTE')
                 <h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
+              @endif
 							<div class="card-tools">
 				        <a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-info" ><i class="fas fa-plus">Adicionar item</i> </a>
                   @if($atas->tipo == 'LOTE')
@@ -73,8 +73,8 @@
                           <td>R$ {{$lote_item->item->vunitario}}</td>
                           <td>{{  'R$ '.number_format($lote_item->item->vtotal, 3, ',', '.') }}</td>           
                           <td>
-                            <a href="{{ route('item.edit', [$atas->id, $lote->id, $lote_item->item->id]) }}" class="btn btn-warning btn-sm">EDITAR</a>
-                            <a href="{{ route('item.destroy', [$atas->id, $lote_item->item->id])}}" class="btn  btn-danger btn-sm" >DELETAR</a>
+                          <a href="" class="btn btn-info"><i class="fas fa-search"></i> DETALHES DO ITEM</a>    
+                           
                               @if($atas->orgao == 'SIM')
                                 <a href="{{ route('orgao.create', [$atas->id, $lote->id, $lote_item->item->id])}}" class="btn btn-dark btn-sm" >ÓRGÃO</a>
                               @endif

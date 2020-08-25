@@ -21,6 +21,7 @@
 		                    <th>N° ATA</th>
 		                    <th>N° PREGÃO</th>
 		                    <th>N° PROCESSO</th>
+							<th>DATA DA ASSINATURA</th>
 		                    <th>VIGÊNCIA</th>
 		                    <th>TIPO</th>
 		                    <th>COMISSÃO</th>
@@ -34,8 +35,8 @@
 		                    <td>{{$atas->nata}}</td>
 		                    <td>{{$atas->npregao}}</td>
 		                    <td>{{$atas->nprocesso}}</td>
-		                    
-							<td>{{ date( 'd/m/Y', strtotime($atas->vigencia)) }}</td>
+		                    <td>{{ date( 'd/m/Y', strtotime($atas->data_assinatura))}}</td>
+							<td>{{ date( 'd/m/Y', strtotime($atas->data_vigencia)) }}</td>
 		                    <td>{{$atas->tipo}}</td>
 		                    <td>{{$atas->comissao}}</td>
                         <td width="40"><a href="{{ route('download.pdf', $atas->id) }}">{{ $atas->arquivo }}</a></td>

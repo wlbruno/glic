@@ -55,20 +55,24 @@
                     </tbody>
                 </table>
               </div>
+
             <div class="card-footer">
-                <form action="{{ route('atas.destroy', $ata->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
+              <form action="{{ route('atas.destroy', $ata->id) }}" method="POST">
+                @csrf
+                  @method('DELETE')
                     @can('remover_ata')
-                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>   DELETAR A ATA</button>
+                      <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>   DELETAR A ATA</button>
+                    @endcan
+             
+                        @can('edit_ata')
+                          <a href="{{ route('atas.edit', $ata->id) }}" class="btn btn-warning float-right"><i class="fas fa-edit"></i> EDITAR ATA</a>
                         @endcan
-                            @if($ata->tipo == 'LOTE')
-                                <a href="{{ route('lotes.create', $ata->id) }}" class="btn btn-info float-right">LOTES</a>
-                            @else 
-                                <a href="{{ route('lotes.create', $ata->id) }}" class="btn btn-info float-right">ITENS</a>
-                            @endif
-                </form>
-              
+                        @if($ata->tipo == 'LOTE')
+                          <a href="{{ route('lotes.create', $ata->id) }}" class="btn btn-info float-right">LOTES</a>
+                        @else 
+                          <a href="{{ route('lotes.create', $ata->id) }}" class="btn btn-info float-right">ITENS</a>
+                               @endif
+                        </form>
               </div>
 
             </div>
