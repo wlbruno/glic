@@ -50,14 +50,14 @@
                         @foreach($lote->ItensLote as $lote_item)
                           <tr>
   				                  <th >Objeto</th>
-        									  <th>N° E-fisco</th>
+        									  <th width="125">N° E-fisco</th>
         									  <th>Fornecedor</th>
         									  <th>N° CNPJ</th>
         									  <th>Quantidade</th>
         									  <th>MAX</th>
-        									  <th>Unidade de medida</th>
-        										<th>Valor unitário</th>
-        										<th>Valor total</th>
+        									  <th width="150">Unidade de medida</th>
+        										<th width="150">Valor unitário</th>
+        										<th width="180">Valor total</th>
                             <th>Ações</th>
 				                  </tr>
                     	</thead>
@@ -66,18 +66,28 @@
                           <td>{{$lote_item->item->objetos->nome}}</td>
                           <td>{{$lote_item->item->objetos->nefisco}}</td>
                           <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
-                          <td>{{$lote_item->item->fornecedores->cnpj}}</td>
+                          <td >{{$lote_item->item->fornecedores->cnpj}}</td>
                           <td>{{$lote_item->item->quantidade}}</td>
                           <td>{{$lote_item->item->max}}</td>
                           <td>{{$lote_item->item->medida}}</td>
                           <td>R$ {{$lote_item->item->vunitario}}</td>
                           <td>{{  'R$ '.number_format($lote_item->item->vtotal, 3, ',', '.') }}</td>           
                           <td>
-                          <a href="" class="btn btn-info"><i class="fas fa-search"></i> DETALHES DO ITEM</a>    
-                           
+                             <a href="" class="btn btn-info btn-xs"> DETALHES</a>    
                               @if($atas->orgao == 'SIM')
-                                <a href="{{ route('orgao.create', [$atas->id, $lote->id, $lote_item->item->id])}}" class="btn btn-dark btn-sm" >ÓRGÃO</a>
+                                <a href="{{ route('orgao.create', [$atas->id, $lote->id, $lote_item->item->id])}}" class="btn btn-dark btn-xs" >ÓRGÃO</a>
                               @endif
+                        <!--      <div class="btn-group">
+                                <button type="button" class="btn btn-info">Ações</button>
+                                <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
+                                  <span class="sr-only">Toggle Dropdown</span>
+                                  <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-1px, 37px, 0px);">
+                                  <a href="" class="dropdown-item"> DETALHES DO ITEM</a>  
+                                  @if($atas->orgao == 'SIM')
+                                    <a class="dropdown-item"href="{{ route('orgao.create', [$atas->id, $lote->id, $lote_item->item->id])}}">ÓRGÃO</a>
+                                    @endif
+                      </div>
+                      -->
                           </td>    
               			    </tr>
                       @endforeach
