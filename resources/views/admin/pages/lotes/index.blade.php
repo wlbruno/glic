@@ -5,7 +5,7 @@
 @section('content_header')
   @if($atas->status == 'CRIACAO')
     @if($atas->tipo == 'LOTE')
-    <h1>	LOTES
+      <h1>	LOTES
     	 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal-lg">
             Criar Lote
         </button>
@@ -16,11 +16,8 @@
       <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-success">FINALIZAR ATA</a>
     </h1>
   @endif
-
   @else
-  <a href="{{ route('atas.show', $atas->id) }}" class="btn btn-dark">Voltar</a>
-  
-   
+    <a href="{{ route('atas.show', $atas->id) }}" class="btn btn-dark">Voltar</a>
   @endif
 @stop
 
@@ -32,9 +29,9 @@
 	    	<div class="card-body">
 				   <div class="card">
               <div class="card-header border-transparent">
-              @if($atas->tipo === 'LOTE')
-                <h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
-              @endif
+                @if($atas->tipo === 'LOTE')
+                  <h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
+                @endif
 							<div class="card-tools">
 				        <a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-info" ><i class="fas fa-plus">Adicionar item</i> </a>
                   @if($atas->tipo == 'LOTE')
@@ -55,6 +52,7 @@
         									  <th>N° CNPJ</th>
         									  <th>Quantidade</th>
         									  <th>MAX</th>
+                            <th width="100">Marca</th>
         									  <th width="150">Unidade de medida</th>
         										<th width="150">Valor unitário</th>
         										<th width="180">Valor total</th>
@@ -69,25 +67,25 @@
                           <td >{{$lote_item->item->fornecedores->cnpj}}</td>
                           <td>{{$lote_item->item->quantidade}}</td>
                           <td>{{$lote_item->item->max}}</td>
+                          <td>{{$lote_item->item->marca}}</td>
                           <td>{{$lote_item->item->medida}}</td>
                           <td>R$ {{$lote_item->item->vunitario}}</td>
                           <td>{{  'R$ '.number_format($lote_item->item->vtotal, 3, ',', '.') }}</td>           
                           <td>
-                             <a href="" class="btn btn-info btn-xs"> DETALHES</a>    
-                              @if($atas->orgao == 'SIM')
-                                <a href="{{ route('orgao.create', [$atas->id, $lote->id, $lote_item->item->id])}}" class="btn btn-dark btn-xs" >ÓRGÃO</a>
-                              @endif
-                        <!--      <div class="btn-group">
-                                <button type="button" class="btn btn-info">Ações</button>
-                                <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
-                                  <span class="sr-only">Toggle Dropdown</span>
-                                  <div class="dropdown-menu" role="menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-1px, 37px, 0px);">
-                                  <a href="" class="dropdown-item"> DETALHES DO ITEM</a>  
-                                  @if($atas->orgao == 'SIM')
-                                    <a class="dropdown-item"href="{{ route('orgao.create', [$atas->id, $lote->id, $lote_item->item->id])}}">ÓRGÃO</a>
-                                    @endif
-                      </div>
-                      -->
+                            <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Ações
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                              <a href="" class="dropdown-item"> Editar Objeto</a>  
+                              <a href="" class="dropdown-item"> Editar Fornecedor</a>  
+                              <a href="{{ route('item.destroy', [$atas->id, $lote_item->item->id]) }}" class="dropdown-item"> Deletar item</a>  
+                              <a href="{{ route('item.edit', [$atas->id, $lote->id, $lote_item->item->id]) }}" class="dropdown-item"> Editar item</a>  
+                                @if($atas->orgao == 'SIM')
+                                  <a class="dropdown-item"href="{{ route('orgao.create', [$atas->id, $lote->id, $lote_item->item->id])}}">ÓRGÃO</a>
+                                @endif
+                              </div>
+                            </div>
                           </td>    
               			    </tr>
                       @endforeach
