@@ -168,4 +168,22 @@ class FornecedoresController extends Controller
 
        return view('admin.pages.fornecedores.index', compact('fornecedores', 'filters'));
       }
+
+
+      /**
+      *     Editar fornecedor na view lotes.index
+      *
+      */
+      public function editViewLotes(FornecedoresStoreUpdate $request)
+      {  
+        if (!$fornecedor = $this->repository->find($request->id)) {
+            return redirect()->back();
+        }
+
+         $fornecedor->update($request->all());
+
+        return redirect()->back();
+
+      }
+
 }

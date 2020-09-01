@@ -18,7 +18,7 @@ class CreateAtasTable extends Migration
 
 
             $table->string('departamento');
-            $table->string('descricao');
+            $table->text('descricao');
             $table->string('nata')->unique();
             $table->string('npregao')->unique();
             $table->string('nprocesso')->unique();

@@ -114,6 +114,12 @@ Route::prefix('admin')
 	*/
 	Route::resource('fornecedores', 'FornecedoresController');
 	Route::any('fornecedores/search', 'FornecedoresController@search')->name('fornecedores.search');
+	/**
+	*	Routes edit fornecedor e objeto dentro da view lotes.index
+	*
+	*/
+	Route::POST('edit/fornecedor', 'FornecedoresController@editViewLotes')->name('fornecedor.edit.lotes');
+	Route::POST('edit/objeto', 'ObjetosController@editViewLotes')->name('objeto.edit.lotes');
 
 	/**
 	*	Routes Objetos |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}

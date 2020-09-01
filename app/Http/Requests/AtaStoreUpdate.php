@@ -27,7 +27,7 @@ class AtaStoreUpdate extends FormRequest
 
         return [
             'departamento' => 'required',
-            'descricao' => 'required',
+            'descricao' => 'required|min:3|max:500',
             'nata' => "required|min:3|max:15|unique:atas,nata,{$id},id",
             'nprocesso' => "required|min:3|max:15|unique:atas,nprocesso,{$id},id",
             'npregao' => "required|min:3|max:15|unique:atas,npregao,{$id},id",
@@ -39,14 +39,18 @@ class AtaStoreUpdate extends FormRequest
             'arquivo' => 'required',
         ];
     }
+
     /**
      * Custon messages error
+     * 
      */
+
     public function messages()
         {
             return [
                 'departamento.required' => 'Escolha o departamento',
                 'descricao.required' => 'A descrição é obrigatória',
+                'descricao.max' => 'A descrição não pode ser maior que 500 caracteres.',
                 'nata.required' => 'O número da ata é obrigatório',
                 'nata.unique' => 'Esse número da ata já existe no sistema',
                 'nprocesso.required' => 'O número do processo é obrigatório',

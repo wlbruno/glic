@@ -167,6 +167,24 @@ class ObjetosController extends Controller
 
        return view('admin.pages.objetos.index', compact('objetos', 'filters'));
       }
+
+
+      
+      /**
+      *     Editar fornecedor na view lotes.index
+      *
+      */
+      public function editViewLotes(ObjetoStoreUpdate $request)
+      {  
+        if (!$objeto = $this->repository->find($request->id)) {
+            return redirect()->back();
+        }
+
+         $objeto->update($request->all());
+
+        return redirect()->back();
+
+      }
   
 
 }
