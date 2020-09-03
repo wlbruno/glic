@@ -66,7 +66,7 @@
      <div class="col-md-6">
       <div class="form-group">
         <label for="vunitario">* Valor unitário</label>
-        <input type="number" class="form-control" name="vunitario" required placeholder="Digite o valor unitário" value="{{ $item->vunitario ?? old('vunitario') }}">
+        <input type="number" class="form-control" name="vunitario" required placeholder="Digite o valor " value="{{ $item->vunitario ?? old('vunitario') }}">
       </div>
     </div>
 

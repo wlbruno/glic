@@ -20,7 +20,7 @@ class AtasController extends Controller
     {
         $atasMedicamento = Ata::Where([
                                 ['departamento', 'MEDICAMENTOS'],
-                                ['status', "PUBLIC"],
+                                ['status', "PUBLICADA"],
                                  ['orgao', "NAO"],
                                 ])->paginate();
                
@@ -31,7 +31,7 @@ class AtasController extends Controller
     {
         $atasProdutos = Ata::Where([
                                 ['departamento', 'PRODUTOS MEDICOS'],
-                                ['status', "PUBLIC"],
+                                ['status', "PUBLICADA"],
                                  ['orgao', "NAO"],
                                 ])->paginate();
 
@@ -42,7 +42,7 @@ class AtasController extends Controller
     {
          $atasAquisicao = Ata::Where([
                                 ['departamento', 'AQUISIÇÕES EM GERAL'],
-                                ['status', "PUBLIC"],
+                                ['status', "PUBLICADA"],
                                  ['orgao', "NAO"],
                                 ])->paginate();
         
@@ -53,7 +53,7 @@ class AtasController extends Controller
     {
          $atasServico = Ata::Where([
                                 ['departamento', 'SERVIÇOS EM GERAL'],
-                                ['status', "PUBLIC"],
+                                ['status', "PUBLICADA"],
                                  ['orgao', "NAO"],
                                 ])->paginate();
 

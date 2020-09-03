@@ -19,8 +19,8 @@
                         <label for="tipo">* Status da ata: </label>
                           <select class="form-control" required  value="{{ $ata->status }}"  name="status">
                             <option value="" disabled="" selected="">Selecione o status da ata</option>
-                            <option value="SAVE">SALVAR</option>
-                            <option value="PUBLIC">SALVAR E PUBLICAR</option>
+                            <option value="SISTEMA">SALVAR NO SISTEMA</option>
+                            <option value="PUBLICADA"> PUBLICAR</option>
                           </select>
                         </div>
                       </div>

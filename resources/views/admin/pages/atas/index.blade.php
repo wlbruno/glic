@@ -59,7 +59,7 @@
                             <td>{{ $ata->orgao }}</td>
                             @if($ata->status == 'PUBLICADA')
                             <td><span class="badge badge-success">{{$ata->status}}</span></td>
-                            @elseif($ata->status == 'SALVA')
+                            @elseif($ata->status == 'SISTEMA')
                             <td><span class="badge badge-info">{{$ata->status}}</span></td>
                             @else
                             <td><span class="badge badge-warning">{{$ata->status}}</span></td>

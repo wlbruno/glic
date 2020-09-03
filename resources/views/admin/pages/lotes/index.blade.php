@@ -72,20 +72,18 @@
                           <td>R$ {{$lote_item->item->vunitario}}</td>
                           <td>{{  'R$ '.number_format($lote_item->item->vtotal, 3, ',', '.') }}</td>           
                           <td>
-                          <button type="button" class="btn btn-secondary btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">Ações </button>
-                            <span class="sr-only">Toggle Dropdown</span>
-                            <div class="dropdown-menu" role="menu" x-placement="bottom-start">
-                              <a href="#Modal" class="dropdown-item" >Editar Fornecedor</a>
-                              <a href="#ModalObjeto" class="dropdown-item" >Editar Objeto</a>
-                              <a href="{{ route('item.destroy', [$atas->id, $lote_item->item->id]) }}" class="dropdown-item"> Deletar item</a>  
-                              <a href="{{ route('item.edit', [$atas->id, $lote->id, $lote_item->item->id]) }}" class="dropdown-item"> Editar item</a>  
-                              <div class="dropdown-divider"></div>
-                                 @if($atas->orgao == 'SIM')
-                                  <a class="dropdown-item"href="{{ route('orgao.create', [$atas->id, $lote->id, $lote_item->item->id])}}">Adicionar orgão</a>
-                                @endif
-                      </div>
-                   
-                           
+                            <button type="button" class="btn btn-secondary btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">Ações </button>
+                              <span class="sr-only">Toggle Dropdown</span>
+                                <div class="dropdown-menu" role="menu" x-placement="bottom-start">
+                                  <a href="#Modal" class="dropdown-item" >Editar Fornecedor</a>
+                                  <a href="#ModalObjeto" class="dropdown-item" >Editar Objeto</a>
+                                  <a href="{{ route('item.destroy', [$atas->id, $lote_item->item->id]) }}" class="dropdown-item"> Deletar item</a>  
+                                  <a href="{{ route('item.edit', [$atas->id, $lote->id, $lote_item->item->id]) }}" class="dropdown-item"> Editar item</a>  
+                                    <div class="dropdown-divider"></div>
+                                      @if($atas->orgao == 'SIM')
+                                        <a class="dropdown-item"href="{{ route('orgao.create', [$atas->id, $lote->id, $lote_item->item->id])}}">Adicionar orgão</a>
+                                      @endif
+                                    </div>
                           </td>    
               			    </tr>
                       @endforeach
@@ -100,7 +98,39 @@
     </div>
   </div>
 
+  <div class="modal fade" id="modal-lg" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Criar novo lote</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+            <form role="form" action="{{ route('lotes.store', $atas->id) }}" method="POST">
+          <div class="modal-body">
+              @csrf
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label for="descricao">Descrição do lote</label>
+                        <input class="form-control" required name="descricao" placeholder="Descrição...">  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-success">Salvar</button>
+                  <button type="button" class="btn btn-danger float-right" data-dismiss="modal">Cancelar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
 
+
+@if($atas->lotes == true)
 <div id="Modal" class="modal fade bd-example-modal-lg" role="dialog">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -151,7 +181,7 @@
             <div class="col-md-12">
               <div class="form-group">
                  <label for="nefisco">* Nº E-fisco: </label>
-    <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{$lote_item->item->objetos->nefisco}}">
+                   <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{$lote_item->item->objetos->nefisco}}">
               </div>
           </div>
           <div class="col-md-12">
@@ -170,7 +200,7 @@
     </div>
   </div>
       </div>
-
+@endif
 
 @endsection
 

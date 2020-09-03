@@ -34,7 +34,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>Nº EFISCO</th>
-                        <th width="150">Ações</th>
+                        <th width="250">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,7 +45,7 @@
                            
                            
                            
-                            <td style="width: 10px;">
+                            <td>
                                 @can('edit_objetos')
                                 <a href="{{ route('objetos.edit', $objeto->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i> EDITAR</a>
                                 @endcan

@@ -87,7 +87,7 @@
         <div class="modal-dialog modal-sn">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Adicionar novo fornecedor</h4>
+              <h4 class="modal-title">Adicionar novo objeto</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
@@ -97,17 +97,16 @@
               	@csrf
                   <div class="row">
                     <div class="col-sm-12">
-                    
-                    <div class="form-group">
-					    <label for="nome">* Nome:</label>
-					      <input type="text" class="form-control" name="nome" required placeholder="Digite o nome do objeto" value="{{ $objeto->nome ?? old('nome') }}">
-					  </div>
+                   	  <div class="form-group">
+      						    <label for="nefisco">* Nº E-fisco</label>
+      						    <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO">
+      						  </div>
                     </div>
                     <div class="col-sm-12">
-                    	  <div class="form-group">
-						    <label for="nefisco">* Nº E-fisco</label>
-						    <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{ $objeto->nefisco ?? old('nefisco') }}">
-						  </div>
+                    <div class="form-group">
+        					    <label for="nome">* Nome:</label>
+                      <textarea name="nome" cols="15" rows="5" required class="form-control" placeholder="Digite o nome do objeto"></textarea>
+        					  </div>
                     </div>
                     </div>
                 
