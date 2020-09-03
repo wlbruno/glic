@@ -18,15 +18,13 @@ class CreateItemsTable extends Migration
 
             $table->bigInteger('objetos_id')->unsigned();
             $table->foreign('objetos_id')->references('id')->on('objetos');
-            
             $table->bigInteger('fornecedores_id')->unsigned();
             $table->foreign('fornecedores_id')->references('id')->on('fornecedores');
-
             $table->string('medida');
             $table->string('quantidade');
             $table->string('max');
-            $table->decimal('vunitario');
-            $table->decimal('vtotal');
+            $table->string('vunitario');
+            $table->text('vtotal');
             $table->string('orgao');
             $table->string('marca')->nullable();
 

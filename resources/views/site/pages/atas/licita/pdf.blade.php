@@ -141,8 +141,8 @@
                                                         <td>{{$item->fornecedores->cnpj}}</td>
                                                         <td>{{$item->marca}}</td>
                                                         <td>{{$item->medida}}</td>
-                                                        <td>{{$item->vunitario}}</td>
-                                                        <td>{{$item->vtotal}}</td>
+                                                        <td>{{  'R$ '.number_format($item->vunitario, 2, ',', '.') }}</td>
+                                                        <td>{{  'R$ '.number_format($item->vtotal, 2, ',', '.') }}</td>
                                                         @foreach($caronas->itens as $itemcarona)
                                                             @if($itemcarona->id == $item->id)
                                                               <td>{{$caronas->Carona_itens->getQTD($itemcarona->id)->quantidade}}</td>

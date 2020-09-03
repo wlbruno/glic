@@ -71,15 +71,15 @@
                       <thead>
                         @foreach($lote->ItensLote as $lote_item)
                           <tr>
-                            <th>Objeto</th>
-                            <th width="120">N° E-fisco</th>
-                            <th>Fornecedor</th>
+                            <th width="450">Objeto</th>
+                            <th width="200">N° E-fisco</th>
+                            <th width="450">Fornecedor</th>
                             <th width="200" >N° CNPJ</th>
                             <th>Unidade de medida</th>
                             <th>Valor unitário</th>
                             <th>Valor total</th>
                             <th>Quantidade</th>
-                            
+                            <th width="1000">Solicita</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -89,8 +89,8 @@
                             <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
                             <td>{{$lote_item->item->fornecedores->cnpj}}</td>
                             <td>{{$lote_item->item->medida}}</td>
-                            <td>{{$lote_item->item->vunitario}}</td>
-                            <td>{{$lote_item->item->vtotal}}</td>      
+                            <td>{{  'R$ '.number_format($lote_item->item->vunitario, 2, ',', '.') }}</td>  
+                            <td>{{  'R$ '.number_format($lote_item->item->vtotal, 2, ',', '.') }}</td>        
                             <td>{{$lote_item->item->max}}</td>
                             <td width="300">
                             @php $soma = 0; @endphp
@@ -104,10 +104,10 @@
                             @endforelse
                                 <input type="hidden" name="itens[]" value="{{$lote_item->item->id}}">   
                                     @if($soma > 0)
-                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$lote_item->item->max - $soma}}" placeholder="Digite a quantidade" required>
+                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$lote_item->item->max - $soma}}" placeholder="..." required>
 
                                     @else
-                                        <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$lote_item->item->max}}" placeholder="Digite a quantidade" required>
+                                        <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$lote_item->item->max}}" placeholder="..." required>
                                     @endif
                                     <div class="progress progress-xs" >
                                            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$lote_item->item->max}}" style="width: {!! (100 * $soma)/ $lote_item->item->max !!}%">

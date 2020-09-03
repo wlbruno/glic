@@ -8,5 +8,4 @@ $(document).ready(function($){
     $('.quantidade').mask('000.000', {reverse: true});
     $('.rg').mask('0.000.000');
       $('.dinheiro').mask("000.000.00", {reverse: true});
-    
 });
