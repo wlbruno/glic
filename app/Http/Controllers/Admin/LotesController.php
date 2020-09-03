@@ -74,8 +74,16 @@ class LotesController extends Controller
     	$ata = Ata::find($idAta);
         $lote = $this->repository->where('id', $idLote)->first();   
         
+        if ($lote->ItensLote->count() > 0) {
+            return redirect()
+                        ->back()
+                        ->with('error', 'Existem itens vinculados a esse lote, portanto para remover o lote é necessário deletar os itens');
+        }
+
         if (!$lote)
             return redirect()->back();
+
+       
         
         $lote->delete();
 

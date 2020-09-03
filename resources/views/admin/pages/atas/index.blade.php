@@ -66,7 +66,7 @@
                             @endif
 
                             <td style="width: 10px;">
-                               
+                         
                                 <a href="{{ route('atas.show', $ata->id) }}" class="btn btn-info"><i class="fas fa-search"></i> DETALHAR</a>    
                             </td>
                         </tr>
@@ -85,6 +85,8 @@
 
         </div>
     </div>
+
+
 @stop
 
 @section('js')
