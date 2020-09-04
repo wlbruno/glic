@@ -128,6 +128,13 @@ class ItensController extends Controller
         
         if (!$item)
         return redirect()->back();
+
+         
+        if ($item->orgaos->count() > 0) {
+            return redirect()
+                        ->back()
+                        ->with('error', 'Existem orgãos vinculados a esse item, portanto para remover o item é necessário deletar os orgãos');
+        }
     
         $item->delete();
 

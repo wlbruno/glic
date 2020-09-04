@@ -6,7 +6,7 @@
         <select class="form-control" required name="departamento" value="{{ $ata->departamento ?? old('departamento') }}">
           <option value="" disabled="" selected="">Selecione o departamento</option>
           <option value="MEDICAMENTOS">MEDICAMENTOS</option>
-          <option value="PRODUTOS MEDICOS">PRODUTOS MÉDICOS</option>
+          <option value="PRODUTOS MÉDICOS">PRODUTOS MÉDICOS</option>
           <option value="AQUISIÇÕES EM GERAL">AQUISIÇÕES EM GERAL</option>
           <option value="SERVIÇOS EM GERAL">SERVIÇOS EM GERAL</option>
         </select>
@@ -70,7 +70,7 @@
             <select class="form-control" name="orgao" required="true"  value="{{ $ata->orgao ?? old('orgao') }}">
               <option value="" disabled="" selected="">Adicionar órgãos?</option>
               <option value="SIM">SIM</option>
-              <option value="NAO">NÃO</option>
+              <option value="NÃO">NÃO</option>
             </select>
           </div>
         </div>
@@ -80,8 +80,18 @@
         <label for="vigencia">* Vigência</label>
           <select class="form-control" name="vigencia" required  value="{{ $ata->vigencia ?? old('vigencia') }}">
             <option value="" disabled="" selected="">Selecione o tempo da vigência</option>
-            <option value="6">6 messes</option>
-            <option value="12">12 messes</option>
+            <option value="01">Janeiro</option>
+            <option value="02">Fevereiro</option>
+            <option value="03">Março</option>
+            <option value="04">Abril</option>
+            <option value="05">Maio</option>
+            <option value="06">Junho</option>
+            <option value="07">Julho</option>
+            <option value="08">Agosto</option>
+            <option value="09">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
           </select>
         </div>
       </div>

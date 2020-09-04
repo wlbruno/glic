@@ -166,7 +166,8 @@ Route::prefix('admin')
 	*
 	*/
 	Route::get('atas/{idAta}/lote/{idLote}/item/{idItem}/orgao', 'OrgaoController@create')->name('orgao.create');
-	Route::post('atas/{idAta}/lote/{idLote}/item/{idItem}', 'OrgaoController@store')->name('orgao.store');
+	Route::post('atas/{idAta}/lote/{idLote}/item/{idItem}/orgao', 'OrgaoController@store')->name('orgao.store');
+	Route::get('atas/item/{idItem}/orgao/{idOrgao}', 'OrgaoController@destroy')->name('orgao.destroy');
 
 
 });

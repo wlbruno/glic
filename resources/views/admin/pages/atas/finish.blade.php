@@ -78,6 +78,7 @@
 		              	<div class="card-header border-transparent">
 		                	<h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
 							<div class="card-tools">
+							<a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-info" ><i class="fas fa-plus">Adicionar item</i> </a>
 			                    @if($atas->tipo == 'LOTE')
 		    	          		<a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-warning ">EDITAR</a>
 		                 		<a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-danger" >DELETAR</a>
@@ -152,17 +153,17 @@
            <form action="{{ route('fornecedor.edit.lotes') }}" class="form" method="POST">
           <div class="modal-body">
                @csrf
-                <input type="hidden" value="{{$lote_item->item->fornecedores->id}}" name="id">
+                <input type="hidden" value="{{$lote_item->item->fornecedores->id ?? ''}}" name="id">
             <div class="col-md-12">
               <div class="form-group">
                 <label for="fornecedor">* Nome: </label>
-                <input type="text" class="form-control" name="fornecedor"  placeholder="Digite o nome do fornecedor" value="{{$lote_item->item->fornecedores->fornecedor}}">
+                <input type="text" class="form-control" name="fornecedor"  placeholder="Digite o nome do fornecedor" value="{{$lote_item->item->fornecedores->fornecedor ?? ''}}">
               </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
               <label for="cnpj">* Nº CNPJ </label>
-              <input type="text" class="form-control cnpj" name="cnpj" required placeholder="Digite o número do CNPJ"  value="{{$lote_item->item->fornecedores->cnpj}}">
+              <input type="text" class="form-control cnpj" name="cnpj" required placeholder="Digite o número do CNPJ"  value="{{$lote_item->item->fornecedores->cnpj ?? ''}}">
             </div>
           </div>
         </div>
@@ -188,17 +189,17 @@
            <form action="{{ route('objeto.edit.lotes') }}" class="form" method="POST">
           <div class="modal-body">
                @csrf
-                <input type="hidden" value="{{$lote_item->item->objetos->id}}" name="id">
+                <input type="hidden" value="{{$lote_item->item->objetos->id ?? ''}}" name="id">
             <div class="col-md-12">
               <div class="form-group">
                  <label for="nefisco">* Nº E-fisco: </label>
-                   <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{$lote_item->item->objetos->nefisco}}">
+                   <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{$lote_item->item->objetos->nefisco ?? ''}}">
               </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
               <label for="cnpj">* Nome: </label>
-               <textarea name="nome" cols="15" rows="5" required class="form-control" placeholder="Digite o nome do objeto">{{$lote_item->item->objetos->nome}}</textarea>
+               <textarea name="nome" cols="15" rows="5" required class="form-control" placeholder="Digite o nome do objeto">{{$lote_item->item->objetos->nome ?? ''}}</textarea>
             </div>
           </div>
         </div>

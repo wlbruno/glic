@@ -36,7 +36,7 @@ class LicitaController extends Controller
         $caronas = new Carona();
         $caronas->atas_id = $request->input('atas');
         $caronas->users_id = Auth::user()->id;
-        $caronas->validade = date('Y-m-d', strtotime("+365 days", strtotime($now)));
+        $caronas->validade = date('Y-m-d', strtotime("+90 days", strtotime($now)));
         $caronas->save();
             for($i=0; $i<count($request->itens); $i++) {
                 if($request->qtd_itens[$i] > 0){

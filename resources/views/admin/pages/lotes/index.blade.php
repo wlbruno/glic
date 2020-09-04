@@ -71,7 +71,7 @@
                           <td>{{$lote_item->item->marca}}</td>
                           <td>{{$lote_item->item->medida}}</td>
                           <td>R$ {{$lote_item->item->vunitario}}</td>
-                          <td>{{  'R$ '.number_format($lote_item->item->vtotal, 2, ',', '.') }}</td>           
+                          <td>{{  'R$ '.number_format($lote_item->item->vtotal, 3 , ',',  '.') }}</td>           
                           <td>
                             <button type="button" class="btn btn-secondary btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">Ações </button>
                               <span class="sr-only">Toggle Dropdown</span>

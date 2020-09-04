@@ -4,7 +4,9 @@
 
 @section('content_header')
     <h1>Cadastrar órgão  </h1>
+    
     <h3>Saldo do item {{$itens->orgao}}</h3>
+   
 @stop
 
 @section('content')
@@ -34,10 +36,13 @@
                 <tbody>
                   @foreach($itens->orgaos as $orgao)
                     <tr>
-                  		<td>{{$orgao->users->name}}</td>
-                      <td>1234567</td>
-                      <td>123456</td>
+                  		<td>{{$orgao->users->Solicitante->orgao}}</td>
+                      <td>{{$orgao->users->Solicitante->cnpj}}</td>
+                      <td>{{$orgao->users->Solicitante->ramal}}</td>
                       <td>{{$orgao->saldo}}</td>
+                      <td>
+                      <a class="btn btn-sm btn-danger" href="{{ route('orgao.destroy', [$itens->id, $orgao->id]) }}">Remover</a>
+                      </td>
 							      </tr>       
                   @endforeach  
                 </tbody>
@@ -49,7 +54,6 @@
 	 </div>
   </div>
   
-
    <div class="modal fade" id="modal-orgao" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
@@ -78,7 +82,8 @@
                  
 				     	 <div class="form-group">
 				      		<label for="saldo">* Saldo</label>
-				        		<input type="text" class="form-control" min="0" required max="{{$itens->orgao}}" name="saldo">
+                
+				        		<input type="number" class="form-control" min="0" max="{{$itens->orgao}}" name="saldo" required>
 				     		 </div>
                     	</div>
                     </div>
@@ -92,6 +97,10 @@
           </div>
         </div>
       </div>
+
+      
+
+
 
 
 @endsection

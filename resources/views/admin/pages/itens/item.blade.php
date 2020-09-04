@@ -23,21 +23,12 @@
 
 	    		<form action="{{ route('itens.store', $atas->id) }}" class="form" method="POST">
 	    			@csrf
-	    			<div class="row">
-					  <div class="col-md-6">
 					      @if(count($atas->lotes) == 0)
-					        <div class="form-group"> 
-					          <label for="descricao">Descrição</label>
-					            <input type="text" class="form-control" name="descricao" required="">
-					        </div>
+			            <input type="hidden"  name="descricao" value="ITEM" required="">
 					      @else
 					        <input type="hidden" name="lotes_id" value="{{$lote->id}}">
 					        @endif
-					  </div>
-					</div>
-
 	    			@include('admin.pages.itens._partials.form')
-		   		
 		   		</form>
 	    	</div>
 	    </div>

@@ -137,7 +137,7 @@ class AtasController extends Controller
         if ($ata->lotes->count() > 0) {
             return redirect()
                         ->back()
-                        ->with('error', 'Existem lotes vinculados a essa ata, portanto para remover a ata é necessário deletar os lotes');
+                        ->with('error', 'Existem lotes vinculados a essa ata, portanto para remover a ata é necessário  deletar os lotes');
         }
 
         $ata->delete();

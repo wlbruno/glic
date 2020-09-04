@@ -17,13 +17,13 @@ class CreateOrgaosTable extends Migration
             $table->bigIncrements('id');
             
             $table->bigInteger('atas_id')->unsigned();
-            $table->foreign('atas_id')->references('id')->on('atas');
+            $table->foreign('atas_id')->references('id')->on('atas')->onDelete('cascade');;
 
             $table->unsignedBigInteger('itens_id');
-            $table->foreign('itens_id')->references('id')->on('itens');
+            $table->foreign('itens_id')->references('id')->on('itens')->onDelete('cascade');;
 
             $table->unsignedBigInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');;
 
             $table->string('saldo');
 

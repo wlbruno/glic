@@ -51,4 +51,18 @@ class OrgaoController extends Controller
 
         return redirect()->route('orgao.create', [$atas->id, $lotes->id, $itens->id]);
     }
+
+    public function destroy($idItem, $idOrgao)
+    {
+        $orgao = Orgao::find($idOrgao);
+
+
+        $item = Item::find($idItem);
+        $item->orgao = $item->orgao + $orgao->saldo;
+        $item->save();
+
+        $orgao->delete();
+
+        return redirect()->back();
+    }
 }
