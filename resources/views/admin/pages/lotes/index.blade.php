@@ -109,7 +109,7 @@
               <span aria-hidden="true">×</span>
             </button>
           </div>
-            <form role="form" action="{{ route('lotes.store', $atas->id) }}" method="POST">
+            <form role="form" action="{{ route('lotes.store', $atas->id) }}" method="POST" id="formID">
           <div class="modal-body">
               @csrf
                 <div class="row">
@@ -122,7 +122,7 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-success">Salvar</button>
+                  <button type="submit" class="btn btn-success formButton" id="send">Salvar</button>
                   <button type="button" class="btn btn-danger float-right" data-dismiss="modal">Cancelar</button>
                 </div>
               </form>
@@ -140,7 +140,7 @@
           <h4 class="modal-title">Editar Fornecedor</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-           <form action="{{ route('fornecedor.edit.lotes') }}" class="form" method="POST">
+           <form action="{{ route('fornecedor.edit.lotes') }}" class="form" method="POST" id="formIDforn">
           <div class="modal-body">
                @csrf
                 <input type="hidden" value="{{$lote_item->item->fornecedores->id ?? '' }}" name="id">
@@ -158,7 +158,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="submit" class="btn btn-success formButton" id="fornec">Salvar</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
        </form>       
@@ -176,7 +176,7 @@
           <h4 class="modal-title">Editar Objeto</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-           <form action="{{ route('objeto.edit.lotes') }}" class="form" method="POST">
+           <form action="{{ route('objeto.edit.lotes') }}" class="form" method="POST" id="formIDobj">
           <div class="modal-body">
                @csrf
                 <input type="hidden" value="{{$lote_item->item->objetos->id ?? '' }}" name="id">
@@ -194,7 +194,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="submit" class="btn btn-success formButton"  id="obj">Salvar</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
        </form>       
@@ -207,6 +207,8 @@
 @endsection
 
 @section('js')
+
+
 <script>
 $('a[href$="#Modal"]').on( "click", function() {
    $('#Modal').modal('show');
@@ -216,7 +218,39 @@ $('a[href$="#ModalObjeto"]').on( "click", function() {
    $('#ModalObjeto').modal('show');
 });
 
-</script>
+var formID = document.getElementById("formID");
+var send = $("#send");
+
+$(formID).submit(function(event){
+  if (formID.checkValidity()) {
+    send.attr('disabled', 'disabled');
+  }
+});
+
+
+var formIDforn = document.getElementById("formIDforn");
+var fornec = $("#fornec");
+
+$(formIDforn).submit(function(event){
+  if (formIDforn.checkValidity()) {
+    fornec.attr('disabled', 'disabled');
+  }
+});
+
+var formIDobj = document.getElementById("formIDobj");
+var obj = $("#obj");
+
+$(formIDobj).submit(function(event){
+  if (formIDobj.checkValidity()) {
+    obj.attr('disabled', 'disabled');
+  }
+});
+
+
+
+</script> 
    <script src="{{asset('js/jquery.mask.js')}}"></script>
       <script src="{{asset('js/mask.js')}}"></script>
+      
+
 @endsection

@@ -237,24 +237,26 @@ return [
         ],
 
         
-         [
+        /* [
             'text' => 'Cargos',
             'url'  => 'admin/permissions',
             'icon' => 'fas fa-lock',
             'can' => 'cargos'
         ],
+        */
          [
             'text' => 'Usuários',
             'url'  => 'admin/users',
             'icon' => 'fas fa-users',
             'can' => 'usuarios'
         ],
-         [
+        /* [
             'text' => 'Permissões',
             'url'  => 'admin/roles',
             'icon' => 'fas fa-address-card',
             'can' => 'permissao'
         ],
+        */
 
         
     ],

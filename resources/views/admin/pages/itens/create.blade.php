@@ -26,7 +26,7 @@
                   </div>
                  </div>
 
-	    		<form action="{{ route('itens.store', [$ata->id, $lote->id]) }}" class="form" method="POST">
+	    		<form action="{{ route('itens.store', [$ata->id, $lote->id]) }}" class="form" method="POST" id="formID">
 	    			@csrf
 	    			<div class="row">
 					  <div class="col-md-6">
@@ -58,7 +58,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form role="form" action="{{ route('fornecedor.lote', [$ata->id, $lote->id]) }}" method="POST">
+              <form role="form" action="{{ route('fornecedor.lote', [$ata->id, $lote->id]) }}" method="POST" id="fornec">
                 @csrf
                   <div class="row">
                     <div class="col-sm-12">
@@ -77,7 +77,7 @@
                     </div>
                 
                   <div class="card-footer">
-                  <button type="submit" class="btn btn-success">Salvar</button>
+                  <button type="submit" class="btn btn-success formButton" id="sendfornec">Salvar</button>
                   <button type="button" data-dismiss="modal" class="btn btn-danger float-right">Cancelar</button>
                 </div>
                 </form>
@@ -96,7 +96,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form role="form" action="{{ route('objeto.lote', [$ata->id, $lote->id]) }}" method="POST">
+              <form role="form" action="{{ route('objeto.lote', [$ata->id, $lote->id]) }}" method="POST" id="formIDobj">
                 @csrf
                   <div class="row">
                     <div class="col-sm-12">
@@ -115,7 +115,7 @@
                     </div>
                 
                   <div class="card-footer">
-                  <button type="submit" class="btn btn-success">Salvar</button>
+                  <button type="submit" class="btn btn-success formButton" id="sendobj">Salvar</button>
                   <button type="button" data-dismiss="modal" class="btn btn-danger float-right">Cancelar</button>
                 </div>
                 </form>
@@ -123,4 +123,47 @@
             </div>
           </div>
         </div>
+@endsection
+
+@section('js')
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+var formID = document.getElementById("formID");
+var send = $("#send");
+
+$(formID).submit(function(event){
+  if (formID.checkValidity()) {
+    send.attr('disabled', 'disabled');
+  }
+});
+
+
+
+var fornec = document.getElementById("fornec");
+var sendfornec = $("#sendfornec");
+
+$(fornec).submit(function(event){
+  if (fornec.checkValidity()) {
+    sendfornec.attr('disabled', 'disabled');
+  }
+});
+
+
+var formIDobj = document.getElementById("formIDobj");
+var sendobj = $("#sendobj");
+
+$(formIDobj).submit(function(event){
+  if (formIDobj.checkValidity()) {
+    sendobj.attr('disabled', 'disabled');
+  }
+});
+
+
+</script>
+
+
 @endsection

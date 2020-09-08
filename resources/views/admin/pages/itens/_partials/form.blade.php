@@ -77,12 +77,13 @@
 
 <div class="card-footer">
   <div class="form-group">
-    <button type="submit" class="btn btn-success">Salvar</button>
+    <button type="submit" class="btn btn-success formButton" id="send">Salvar</button>
   </div>
 </div>
 
 
 @section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="{{asset('js/select/select2.full.min.js')}}"></script>
 <script src="{{asset('js/jquery.mask.js')}}"></script>
 <script src="{{asset('js/mask.js')}}"></script>
@@ -95,5 +96,22 @@
     $('.select2').select2()
   })
 
+</script> 
+
+
+
+<script>
+
+var formID = document.getElementById("formID");
+var send = $("#send");
+
+$(formID).submit(function(event){
+  if (formID.checkValidity()) {
+    send.attr('disabled', 'disabled');
+  }
+});
+
 </script>
+
+
 @stop

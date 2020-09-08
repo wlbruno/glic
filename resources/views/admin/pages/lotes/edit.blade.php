@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
     	<div class="card-body">
-    		<form action="{{ route('lotes.update', [$ata->id, $lote->id]) }}" class="form" method="POST">
+    		<form action="{{ route('lotes.update', [$ata->id, $lote->id]) }}" class="form" method="POST" id="formID">
     			@csrf
                 @method('PUT')
 
@@ -23,7 +23,7 @@
                     </div>
                     </div>
                       <div class="card-footer">
-                  <button type="submit" class="btn btn-success">Salvar</button>
+                  <button type="submit" class="btn btn-success formButton" id="send">Salvar</button>
                   <a href="{{ route('lotes.create', $ata->id) }}" class="btn btn-danger float-right">Voltar</a>
                 </div>
 	   		</form>
@@ -31,3 +31,22 @@
     </div>
 
 @endsection
+
+
+@section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+var formID = document.getElementById("formID");
+var send = $("#send");
+
+$(formID).submit(function(event){
+  if (formID.checkValidity()) {
+    send.attr('disabled', 'disabled');
+  }
+});
+
+</script>
+
+@stop

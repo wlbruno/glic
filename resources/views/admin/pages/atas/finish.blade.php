@@ -62,11 +62,50 @@
                        @method('PUT')
                        	<input type="hidden" value="PUBLICADA" name="status">
                       	<button type="submit" class="btn btn-info ">SALVAR E PUBLICAR</button>
+						  @if($atas->tipo == 'LOTE')
+							<button type="button" class="btn btn-dark float-right" data-toggle="modal" data-target="#modal-lote">
+								Criar novo Lote
+							</button>
+					@endif
+                    </form>
                     </form>
                 </div>
             </div>
           </div>
         </div>
+
+
+		<div class="modal fade" id="modal-lote" style="display: none;" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+				<h4 class="modal-title">Criar novo lote</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">×</span>
+					</button>
+				</div>
+					<form role="form" action="{{ route('lotes.store', $atas->id) }}" method="POST" id="formID">
+				<div class="modal-body">
+					@csrf
+						<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group">
+							<label for="descricao">Descrição do lote</label>
+								<input class="form-control" required name="descricao" placeholder="Descrição...">  
+							</div>
+							</div>
+						</div>
+						</div>
+						<div class="card-footer">
+						<button type="submit" class="btn btn-success formButton" id="send">Salvar</button>
+						<button type="button" class="btn btn-danger float-right" data-dismiss="modal">Cancelar</button>
+						</div>
+					</form>
+					</div>
+				</div>
+				</div>
+			</div>
+
 
    	<!-------------------------------ATA TIPO LOTE ABAIXO ----------------------------------------->
     <div class="row">
@@ -76,7 +115,9 @@
 		    		<div class="card-body">
 					  <div class="card">
 		              	<div class="card-header border-transparent">
-		                	<h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
+						  @if($atas->tipo === 'LOTE')
+							<h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
+							@endif
 							<div class="card-tools">
 							<a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-info" ><i class="fas fa-plus">Adicionar item</i> </a>
 			                    @if($atas->tipo == 'LOTE')
@@ -150,7 +191,7 @@
           <h4 class="modal-title">Editar Fornecedor</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-           <form action="{{ route('fornecedor.edit.lotes') }}" class="form" method="POST">
+           <form action="{{ route('fornecedor.edit.lotes') }}" class="form" method="POST" id="formIDforn">
           <div class="modal-body">
                @csrf
                 <input type="hidden" value="{{$lote_item->item->fornecedores->id ?? ''}}" name="id">
@@ -168,7 +209,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="submit" class="btn btn-success formButton" id="fornec">Salvar</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
        </form>       
@@ -186,7 +227,7 @@
           <h4 class="modal-title">Editar Objeto</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-           <form action="{{ route('objeto.edit.lotes') }}" class="form" method="POST">
+           <form action="{{ route('objeto.edit.lotes') }}" class="form" method="POST" id="formIDobj">
           <div class="modal-body">
                @csrf
                 <input type="hidden" value="{{$lote_item->item->objetos->id ?? ''}}" name="id">
@@ -204,7 +245,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">Salvar</button>
+          <button type="submit" class="btn btn-success formButton" id="obj">Salvar</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
         </div>
        </form>       
@@ -226,6 +267,35 @@ $('a[href$="#Modal"]').on( "click", function() {
 $('a[href$="#ModalObjeto"]').on( "click", function() {
    $('#ModalObjeto').modal('show');
 });
+
+
+var formID = document.getElementById("formID");
+var send = $("#send");
+
+$(formID).submit(function(event){
+  if (formID.checkValidity()) {
+    send.attr('disabled', 'disabled');
+  }
+});
+
+var formIDforn = document.getElementById("formIDforn");
+var fornec = $("#fornec");
+
+$(formIDforn).submit(function(event){
+  if (formIDforn.checkValidity()) {
+    fornec.attr('disabled', 'disabled');
+  }
+});
+
+var formIDobj = document.getElementById("formIDobj");
+var obj = $("#obj");
+
+$(formIDobj).submit(function(event){
+  if (formIDobj.checkValidity()) {
+    obj.attr('disabled', 'disabled');
+  }
+});
+
 
 </script>
    <script src="{{asset('js/jquery.mask.js')}}"></script>
