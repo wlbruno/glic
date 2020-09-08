@@ -75,23 +75,24 @@
           </div>
         </div>
     
-    <div class="col-md-3">
+    <div class="col-md-
+    3">
       <div class="form-group">
         <label for="vigencia">* Vigência</label>
           <select class="form-control" name="vigencia" required  value="{{ $ata->vigencia ?? old('vigencia') }}">
-            <option value="" disabled="" selected="">Selecione o tempo da vigência</option>
-            <option value="01">Janeiro</option>
-            <option value="02">Fevereiro</option>
-            <option value="03">Março</option>
-            <option value="04">Abril</option>
-            <option value="05">Maio</option>
-            <option value="06">Junho</option>
-            <option value="07">Julho</option>
-            <option value="08">Agosto</option>
-            <option value="09">Setembro</option>
-            <option value="10">Outubro</option>
-            <option value="11">Novembro</option>
-            <option value="12">Dezembro</option>
+            <option value="" disabled="" selected="">Selecione a quantidade de meses da vigência</option>
+            <option value="01">1</option>
+            <option value="02">2</option>
+            <option value="03">3</option>
+            <option value="04">4</option>
+            <option value="05">5</option>
+            <option value="06">6</option>
+            <option value="07">7</option>
+            <option value="08">8</option>
+            <option value="09">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
           </select>
         </div>
       </div>
