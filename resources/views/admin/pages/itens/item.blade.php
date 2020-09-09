@@ -75,38 +75,38 @@
         </div>
 
             <div class="modal fade" id="modal-objeto" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-sn">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Adicionar novo objeto</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form role="form" action="{{ route('objeto.ata', $atas->id) }}" method="POST" id="formIDobg">
-              	@csrf
-                  <div class="row">
-                    <div class="col-sm-12">
-                   	  <div class="form-group">
-      						    <label for="nefisco">* Nº E-fisco</label>
-      						    <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO">
-      						  </div>
-                    </div>
-                    <div class="col-sm-12">
-                    <div class="form-group">
-        					    <label for="nome">* Nome:</label>
-                      <textarea name="nome" cols="15" rows="5" required class="form-control" placeholder="Digite o nome do objeto"></textarea>
-        					  </div>
-                    </div>
-                    </div>
-                
-                  <div class="card-footer">
-                  <button type="submit" class="btn btn-success formButton" id="sendobg">Salvar</button>
-                  <button type="button" data-dismiss="modal" class="btn btn-danger float-right">Cancelar</button>
+            <div class="modal-dialog modal-sn">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Adicionar novo objeto</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                  </button>
                 </div>
-                </form>
-                  </div>
+                <div class="modal-body">
+                  <form role="form" action="{{ route('objeto.ata', $atas->id) }}" method="POST" id="formIDobg">
+                    @csrf
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="form-group">
+                          <label for="nefisco">* Nº E-fisco</label>
+                          <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO">
+                        </div>
+                        </div>
+                        <div class="col-sm-12">
+                        <div class="form-group">
+                          <label for="nome">* Nome:</label>
+                          <textarea name="nome" cols="15" rows="5" required class="form-control" placeholder="Digite o nome do objeto"></textarea>
+                        </div>
+                        </div>
+                        </div>
+                    
+                      <div class="card-footer">
+                      <button type="submit" class="btn btn-success formButton" id="sendobg">Salvar</button>
+                      <button type="button" data-dismiss="modal" class="btn btn-danger float-right">Cancelar</button>
+                    </div>
+                    </form>
+                      </div>
             </div>
           </div>
         </div>
@@ -130,14 +130,6 @@ $(formID).submit(function(event){
 });
 
 
-var formIDobg = document.getElementById("formIDobg");
-var sendobg = $("#sendobg");
-
-$(formIDobg).submit(function(event){
-  if (formIDobg.checkValidity()) {
-    sendobg.attr('disabled', 'disabled');
-  }
-});
 
 </script> 
 @endsection

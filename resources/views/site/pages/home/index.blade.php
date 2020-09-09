@@ -6,7 +6,7 @@
 @section('content_header')
 
 <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
  </ol>
 
 
@@ -102,7 +102,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     <!-- <label for="exampleInputEmail1">Nº Ata ou Nº Processo </label> -->
-                     <input type="text"  style="width: 228px" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control nata" value="{{ $filters['filter'] ?? ''  }}"></div>
+                     <input type="text"  style="width: 228px" name="filter" placeholder="Nº Ata ou Nº Processo" required  class="form-control nata" value="{{ $filters['filter'] ?? ''  }}"></div>
             
                  
                 </div>
@@ -125,7 +125,7 @@
                 <div class="card-body">
                   <div class="form-group">
                     
-                    <input type="text" class="form-control" style="width: 228px" name="key" placeholder="Digite a chave de validação">
+                    <input type="text" class="form-control" style="width: 228px" name="key" required placeholder="Digite a chave de validação">
                   </div>
                 
                  

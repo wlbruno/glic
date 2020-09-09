@@ -46,7 +46,7 @@
 	*	Routes public	
 	*
 	*/
-	Route::get('/', 'Site\HomeController@index')->name('home.index');
+	Route::get('/home', 'Site\HomeController@index')->name('home.index');
 	Route::any('atas/search', 'Site\HomeController@searchAta')->name('atas.search.index');
 	Route::any('/search/key', 'Site\HomeController@searchKey')->name('search.key');
 	Route::get('/contato', 'Site\HomeController@Contato')->name('user.contato');	

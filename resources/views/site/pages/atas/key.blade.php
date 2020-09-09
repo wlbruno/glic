@@ -6,7 +6,7 @@
 @section('content_header')
 
 <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active" ><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" ><a href="/home">Home</a></li>
  </ol>
 
 @stop
