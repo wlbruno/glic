@@ -21,7 +21,7 @@
                   </div>
                  </div>
 
-	    		<form action="{{ route('itens.store', $atas->id) }}" class="form" method="POST">
+	    		<form action="{{ route('itens.store', $atas->id) }}" class="form" method="POST" id="formID">
 	    			@csrf
 					      @if(count($atas->lotes) == 0)
 			            <input type="hidden"  name="descricao" value="ITEM" required="">
@@ -84,7 +84,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <form role="form" action="{{ route('objeto.ata', $atas->id) }}" method="POST">
+              <form role="form" action="{{ route('objeto.ata', $atas->id) }}" method="POST" id="formIDobg">
               	@csrf
                   <div class="row">
                     <div class="col-sm-12">
@@ -102,7 +102,7 @@
                     </div>
                 
                   <div class="card-footer">
-                  <button type="submit" class="btn btn-success">Salvar</button>
+                  <button type="submit" class="btn btn-success formButton" id="sendobg">Salvar</button>
                   <button type="button" data-dismiss="modal" class="btn btn-danger float-right">Cancelar</button>
                 </div>
                 </form>
@@ -112,4 +112,32 @@
         </div>
 
     
+@endsection
+
+@section('js')
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+var formID = document.getElementById("formID");
+var send = $("#send");
+
+$(formID).submit(function(event){
+  if (formID.checkValidity()) {
+    send.attr('disabled', 'disabled');
+  }
+});
+
+
+var formIDobg = document.getElementById("formIDobg");
+var sendobg = $("#sendobg");
+
+$(formIDobg).submit(function(event){
+  if (formIDobg.checkValidity()) {
+    sendobg.attr('disabled', 'disabled');
+  }
+});
+
+</script> 
 @endsection

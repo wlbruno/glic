@@ -19,7 +19,7 @@
 
 <div class="card-footer">
   <div class="form-group">
-    <button type="submit" class="btn btn-dark">Salvar</button>
+    <button type="submit" class="btn btn-dark formButton" id="send">Salvar</button>
     <a href="{{ route('fornecedores.index') }}" class="btn btn-dark">Voltar</a>
   </div>
 </div>
@@ -27,4 +27,19 @@
 @section('js')
          <script src="{{asset('js/jquery.mask.js')}}"></script>
       <script src="{{asset('js/mask.js')}}"></script>
+
+
+<script>
+
+var formID = document.getElementById("formID");
+var send = $("#send");
+
+$(formID).submit(function(event){
+  if (formID.checkValidity()) {
+    send.attr('disabled', 'disabled');
+  }
+});
+
+</script>
+
 @stop

@@ -9,7 +9,7 @@
 @section('content')
     <div class="card">
     	<div class="card-body">
-    		<form action="{{ route('fornecedores.store') }}" class="form" method="POST">
+    		<form action="{{ route('fornecedores.store') }}" class="form" method="POST" id="formID">
     			@csrf
 
     		@include('admin.pages.fornecedores._partials.form')
@@ -17,4 +17,21 @@
     	</div>
     </div>
 
+@endsection
+
+@section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+var formID = document.getElementById("formID");
+var send = $("#send");
+
+$(formID).submit(function(event){
+  if (formID.checkValidity()) {
+    send.attr('disabled', 'disabled');
+  }
+});
+
+</script>
 @endsection
