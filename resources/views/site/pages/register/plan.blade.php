@@ -10,7 +10,7 @@
 <div id="principal" class="row">
 	@foreach($plans as $plan)
   <div class="col-sm-6">
-    <div class="card">
+    <div class="card" style="height:200px">
       <div class="card-body">
    <h5 class="card-title">{{$plan->name}}</h5>
 		    <p class="card-text">{{$plan->description}}</p>
