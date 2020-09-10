@@ -11,10 +11,18 @@
      <div class="form-group">
         <label>* Objeto</label>
           <select class="form-control select2" required name="objetos" data-select2-id="1" tabindex="-1" aria-hidden="true">
-            <option value="" disabled="" selected="">Selecione o Objeto</option>
+            
+            @if($item ?? '' == true ?? '')
+            <option value="{{ $item->objetos->id }} " selected="">{{ $item->objetos->nefisco }}</option>
             @foreach($objetos as $objeto)
               <option value="{{ $objeto->id }}">{{ $objeto->nefisco }}</option>
             @endforeach
+            @else()
+            @foreach($objetos as $objeto)
+            <option value="" disabled="" selected="">Selecione o Objeto</option>
+              <option value="{{ $objeto->id }}">{{ $objeto->nefisco }}</option>
+            @endforeach
+            @endif
           </select>
       </div>
   </div>
@@ -23,10 +31,17 @@
     <div class="form-group">
       <label>* Fornecedores</label>
         <select class="form-control select2" required name="fornecedores" data-select2-id="17" tabindex="-1" aria-hidden="true">
+         @if($item ?? '' == true ?? '')
+            <option value="{{ $item->fornecedores->id }} " selected="">{{ $item->fornecedores->cnpj }}</option>
+            @foreach($fornecedores as $fornecedor)
+            <option value="{{ $fornecedor->id }}">{{ $fornecedor->cnpj }}</option>
+          @endforeach
+            @else()
           <option value="" disabled="" selected="">Selecione o Fornecedor</option>
           @foreach($fornecedores as $fornecedor)
             <option value="{{ $fornecedor->id }}">{{ $fornecedor->cnpj }}</option>
           @endforeach
+          @endif
          </select>
       </div>
 

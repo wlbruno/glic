@@ -4,7 +4,11 @@
     <div class="form-group">
       <label for="departamento">* Departamento</label>
         <select class="form-control" required name="departamento" value="{{ $ata->departamento ?? old('departamento') }}">
+          @if($ata ?? '' == true ?? '')
+          <option value="{{ $ata->departamento ?? old('departamento') }}" selected=""> {{ $ata->departamento ?? old('departamento') }}</option>
+          @else()
           <option value="" disabled="" selected="">Selecione o departamento</option>
+          @endif
           <option value="MEDICAMENTOS">MEDICAMENTOS</option>
           <option value="PRODUTOS MÉDICOS">PRODUTOS MÉDICOS</option>
           <option value="AQUISIÇÕES EM GERAL">AQUISIÇÕES EM GERAL</option>
@@ -40,7 +44,12 @@
       <div class="form-group">
         <label for="comissao">* Comissão</label>
           <select class="form-control" required name="comissao"  value="{{ $ata->comissao ?? old('comissao') }}">
+           
+           @if($ata ?? '' == true ?? '')
+            <option value="{{ $ata->comissao ?? old('comissao') }} " selected="">{{ $ata->comissao ?? old('comissao') }}</option>
+            @else()
             <option value="" disabled="" selected="">Selecione a Comissão</option>
+            @endif
             <option value="CPLC I">CPLC I</option>
             <option value="CPLC II">CPLC II</option>
             <option value="CPLC III">CPLC III</option>
@@ -57,7 +66,11 @@
       <div class="form-group">
         <label for="tipo">* TIPO: </label>
           <select class="form-control" name="tipo" required  value="{{ $ata->tipo ?? old('tipo') }}">
+          @if($ata ?? '' == true ?? '')
+          <option value="{{ $ata->tipo ?? old('tipo') }}"  selected="">{{ $ata->tipo ?? old('tipo') }}</option>
+          @else()
             <option value="" disabled="" selected="">Selecione o tipo</option>
+            @endif
             <option value="LOTE">LOTE</option>
             <option value="ITEM">ITEM</option>
           </select>
@@ -69,6 +82,11 @@
           <label for="orgao">* ÓRGÃO:</label>
             <select class="form-control" name="orgao" required="true"  value="{{ $ata->orgao ?? old('orgao') }}">
               <option value="" disabled="" selected="">Adicionar órgãos?</option>
+              @if($ata ?? '' == true ?? '')
+            <option value="{{ $ata->orgao ?? old('orgao') }}"  selected="">{{ $ata->orgao ?? old('orgao') }}</option>
+            @else()
+            <option value="" disabled="" selected="">Adicionar órgãos?</option>
+            @endif
               <option value="SIM">SIM</option>
               <option value="NÃO">NÃO</option>
             </select>
@@ -81,6 +99,13 @@
         <label for="vigencia">* Vigência</label>
           <select class="form-control" name="vigencia" required  value="{{ $ata->vigencia ?? old('vigencia') }}">
             <option value="" disabled="" selected="">Selecione a vigência</option>
+
+            @if($ata ?? '' == true ?? '')
+            <option value="{{ $ata->vigencia ?? old('vigencia') }}"  selected="">{{ $ata->vigencia ?? old('vigencia') }}</option>
+            @else()
+            <option value="" disabled="" selected="">Selecione a vigência</option>
+            @endif
+
             <option value="01">1 mês</option>
             <option value="02">2 meses</option>
             <option value="03">3 meses</option>
@@ -118,7 +143,7 @@
       <div class="row">
         <div class="col-md-6">
           <label for="arquivo">* Arquivo</label>
-            <input type="file" class="form-control" required name="arquivo"  value="{{ $ata->arquivo ?? old('arquivo') }}">
+            <input type="file" class="form-control"  name="arquivo"  value="{{ $ata->arquivo ?? old('arquivo') }}">
         </div>
       </div>
 
