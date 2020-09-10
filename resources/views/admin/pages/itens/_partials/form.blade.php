@@ -3,14 +3,14 @@
 @section('css')
    <link rel="stylesheet" href="{{asset('css/select/select2.min.css')}}">
    <link rel="stylesheet" href="{{asset('css/select/select2-bootstrap4.min.css')}}">
-  
+   
 @endsection
 
 <div class="row">
   <div class="col-md-6">
      <div class="form-group">
         <label>* Objeto</label>
-          <select class="form-control select2 " required name="objetos" data-select2-id="1" tabindex="-1" aria-hidden="true">
+          <select class="form-control select2" required name="objetos" data-select2-id="1" tabindex="-1" aria-hidden="true">
             <option value="" disabled="" selected="">Selecione o Objeto</option>
             @foreach($objetos as $objeto)
               <option value="{{ $objeto->id }}">{{ $objeto->nefisco }}</option>
@@ -22,7 +22,7 @@
   <div class="col-md-6">
     <div class="form-group">
       <label>* Fornecedores</label>
-        <select class="form-control select2 " required name="fornecedores" data-select2-id="17" tabindex="-1" aria-hidden="true">
+        <select class="form-control select2" required name="fornecedores" data-select2-id="17" tabindex="-1" aria-hidden="true">
           <option value="" disabled="" selected="">Selecione o Fornecedor</option>
           @foreach($fornecedores as $fornecedor)
             <option value="{{ $fornecedor->id }}">{{ $fornecedor->cnpj }}</option>
