@@ -25,7 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="/" class="navbar-brand">
+      <a href="/home" class="navbar-brand">
         <img src="{{asset('/img/logo-nova.png')}}" alt="AdminLTE Logo" class="brand-image  elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light"></span>
@@ -39,7 +39,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="/" class="nav-link">Home</a>
+            <a href="/home" class="nav-link">Home</a>
           </li>
           @can('admin')
            <li class="nav-item">
@@ -74,7 +74,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
 
         @guest
-         <li class="nav-item dropdown">
+         <li class="nav-item ">
           <a href="{{route('new.plan')}}"  class="btn btn-sn btn-dark">CADASTRO</a>
            
         </li>
@@ -86,11 +86,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         @endguest
          @if(!is_null(auth()->user()))
 
-          <li class="nav-item dropdown">
+          <li class="nav-item ">
             <h4>Olá, {{auth()->user()->name}}</h4>
         </li>
-         <li class="nav-item dropdown">
-           <a href="{{url('/sair')}}" class="btn btn-sn btn-danger" style="position: absolute;  left: 10px ;">Sair</a>
+         <li class="nav-item ">
+           <a href="{{url('/sair')}}" class="btn btn-sn btn-danger"  >Sair</a>
                 
         </li>
           @endif

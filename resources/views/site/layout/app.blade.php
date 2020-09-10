@@ -25,7 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="/" class="navbar-brand">
+      <a href="/home" class="navbar-brand">
          <img src="{{asset('/img/logo-nova.png')}}" alt="AdminLTE Logo" class="brand-image  elevation-3"
              style="opacity: .8">
         
@@ -38,7 +38,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
       
         <li class="nav-item dropdown">
-           <a href="/" class="btn btn-sn btn-dark" >HOME</a>
+           <a href="/home" class="btn btn-sn btn-dark" >HOME</a>
                 
         </li>
          

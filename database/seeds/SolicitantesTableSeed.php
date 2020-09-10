@@ -13,6 +13,19 @@ class SolicitantesTableSeed extends Seeder
      */
     public function run()
     {
+
+		Solicitante::create([
+			'cnpj' => '10.572.048/0001-28',
+			'orgao' => 'SES-PE',
+			'ramal' => '81 31840985',
+			'estado' => 'PE',
+			'user_id' => 1,
+
+			'created_at' => Carbon::now()->toDateTimeString(),
+			   'updated_at' => Carbon::now()->toDateTimeString(),
+		]);
+
+
         Solicitante::create([
         		'cnpj' => '12345678912',
         		'orgao' => 'SES-SP',
