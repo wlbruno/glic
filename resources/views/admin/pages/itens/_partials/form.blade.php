@@ -13,16 +13,26 @@
           <select class="form-control select2" required name="objetos" data-select2-id="1" tabindex="-1" aria-hidden="true">
             
             @if($item ?? '' == true ?? '')
-            <option value="{{ $item->objetos->id }} " selected="">{{ $item->objetos->nefisco }}</option>
+          
+              <option value="{{ $item->objetos->id }} " selected="">{{ $item->objetos->nefisco }}</option>
             @foreach($objetos as $objeto)
+          
               <option value="{{ $objeto->id }}">{{ $objeto->nefisco }}</option>
+          
             @endforeach
+            
             @else()
-            @foreach($objetos as $objeto)
             <option value="" disabled="" selected="">Selecione o Objeto</option>
+            @foreach($objetos as $objeto)
+          
+         
+          
               <option value="{{ $objeto->id }}">{{ $objeto->nefisco }}</option>
+            
             @endforeach
+            
             @endif
+          
           </select>
       </div>
   </div>
@@ -61,7 +71,7 @@
      <div class="col-md-6">
       <div class="form-group">
         <label for="quantidade">* Quantidade</label>
-        <input type="text" class="form-control quantidade" name="quantidade" required placeholder="Digite a quantidade" value="{{ $item->quantidade ?? old('quantidade') }}">
+        <input type="text" class="form-control " name="quantidade" required placeholder="Digite a quantidade" value="{{ $item->quantidade ?? old('quantidade') }}">
       </div>
     </div>
 
@@ -81,7 +91,7 @@
      <div class="col-md-6">
       <div class="form-group">
         <label for="vunitario">* Valor unitário</label>
-        <input type="text" class="form-control" name="vunitario" required placeholder="Digite o valor " value="{{ $item->vunitario ?? old('vunitario') }}">
+        <input type="text" class="form-control " name="vunitario" required placeholder="Digite o valor " value="{{ $item->vunitario ?? old('vunitario') }}">
       </div>
     </div>
 

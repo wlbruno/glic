@@ -3,6 +3,8 @@
 @section('title', 'Lotes')
 
 @section('content_header')
+
+
   @if($atas->status == 'CRIACAO')
     @if($atas->tipo == 'LOTE')
       <h1>	LOTES
@@ -78,7 +80,7 @@
                                 <div class="dropdown-menu" role="menu" x-placement="bottom-start">
                                   <a href="#Modal" class="dropdown-item" >Editar Fornecedor</a>
                                   <a href="#ModalObjeto" class="dropdown-item" >Editar Objeto</a>
-                                  <a href="{{ route('item.destroy', [$atas->id, $lote_item->item->id]) }}" class="dropdown-item"> Deletar item</a>  
+                                  <a href="{{ route('item.destroy', [$atas->id, $lote->id, $lote_item->item->id]) }}" class="dropdown-item"> Deletar item</a>  
                                 
                                   <a href="{{ route('item.edit', [$atas->id, $lote->id, $lote_item->item->id]) }}" class="dropdown-item"> Editar item</a>  
                                     <div class="dropdown-divider"></div>

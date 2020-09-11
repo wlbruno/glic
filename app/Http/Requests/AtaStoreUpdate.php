@@ -28,9 +28,9 @@ class AtaStoreUpdate extends FormRequest
         return [
             'departamento' => 'required',
             'descricao' => 'required|min:3|max:500',
-            'nata' => "required|min:3|max:15|unique:atas,nata,{$id},id",
-            'nprocesso' => "required|min:3|max:15|unique:atas,nprocesso,{$id},id",
-            'npregao' => "required|min:3|max:15|unique:atas,npregao,{$id},id",
+            'nata' => "required|min:3|max:15",
+            'nprocesso' => "required|min:3|max:15",
+            'npregao' => "required|min:3|max:15",
             'vigencia' => 'required',
             'tipo' => 'required',
             'comissao' => 'required',

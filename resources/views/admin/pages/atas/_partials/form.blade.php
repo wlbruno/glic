@@ -81,7 +81,7 @@
         <div class="form-group">
           <label for="orgao">* ÓRGÃO:</label>
             <select class="form-control" name="orgao" required="true"  value="{{ $ata->orgao ?? old('orgao') }}">
-              <option value="" disabled="" selected="">Adicionar órgãos?</option>
+             
               @if($ata ?? '' == true ?? '')
             <option value="{{ $ata->orgao ?? old('orgao') }}"  selected="">{{ $ata->orgao ?? old('orgao') }}</option>
             @else()
