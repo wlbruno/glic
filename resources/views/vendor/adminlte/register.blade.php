@@ -22,6 +22,7 @@
 @endif
 
 @section('body')
+    
     <div class="register-box">
         <div class="register-logo">
             <a href="{{ route('home.index') }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
@@ -101,7 +102,11 @@
                                     </div>
                                 </div>
 
-
+     @if ($errors->has('ramal'))
+                        <div class="invalid-feedback">
+                            <strong>{{ $errors->first('ramal') }}</strong>
+                        </div>
+                    @endif
 
                 <div class="input-group mb-3">
                     <input type="text" name="ramal" class="form-control fone {{ $errors->has('ramal') ? 'is-invalid' : '' }}" value="{{ old('ramal') }}"
@@ -121,7 +126,7 @@
 
                  <div class="input-group mb-3">
                     <input type="text" name="orgao" class="form-control {{ $errors->has('orgao') ? 'is-invalid' : '' }}" value="{{ old('orgao') }}"
-                           placeholder="Departamento" autofocus>
+                           placeholder="Órgão" autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-building"></span>
@@ -140,7 +145,7 @@
                            placeholder="CNPJ" autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="far fa-id-card"></span>
+                            <span class="fas fa-id-card"></span>
                         </div>
                     </div>
 
@@ -167,16 +172,16 @@
                     @endif
                 </div>
                  <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                    <input type="password" name="password" class="form-control {{ $errors->has('confirm_password') ? 'is-invalid' : '' }}"
                            placeholder="Confirma Senha ">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
                         </div>
                     </div>
-                    @if ($errors->has('password'))
+                    @if ($errors->has('confirm_password'))
                         <div class="invalid-feedback">
-                            <strong>{{ $errors->first('password') }}</strong>
+                            <strong>{{ $errors->first('confirm_password') }}</strong>
                         </div>
                     @endif
                 </div>
