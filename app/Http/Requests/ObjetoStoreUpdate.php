@@ -39,7 +39,7 @@ class ObjetoStoreUpdate extends FormRequest
             return [
                 'nome.required' => 'Digite o nome do objeto',
                 'nefisco.required' => 'Digite o número do E-fisco',
-                'nefisco.unique' => 'Esse número de E-fisco já está cadastrado',
+                'nefisco.unique' => 'O número de E-fisco informado já está cadastrado',
             ];
         }
 
