@@ -172,7 +172,7 @@
                     @endif
                 </div>
                  <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control {{ $errors->has('confirm_password') ? 'is-invalid' : '' }}"
+                    <input type="password" name="confirm_password" class="form-control {{ $errors->has('confirm_password') ? 'is-invalid' : '' }}"
                            placeholder="Confirma Senha ">
                     <div class="input-group-append">
                         <div class="input-group-text">
