@@ -19,7 +19,7 @@
 
           <div class="col-lg-3 col-6">
           
-            <div class="small-box bg-info">
+            <div class="small-box bg-secondary">
               <div class="inner">
                 <h3>{{$atasmedicamentos}}</h3>
 
@@ -36,7 +36,7 @@
 
            <div class="col-lg-3 col-6">
           
-            <div class="small-box bg-info">
+            <div class="small-box bg-secondary">
               <div class="inner">
                 <h3>{{$atasprodutos}}</h3>
 
@@ -53,7 +53,7 @@
 
            <div class="col-lg-3 col-6">
           
-            <div class="small-box bg-info">
+            <div class="small-box bg-secondary">
               <div class="inner">
                 <h3>{{$atasaquisicoes}}</h3>
 
@@ -70,7 +70,7 @@
 
            <div class="col-lg-3 col-6">
           
-            <div class="small-box bg-info">
+            <div class="small-box bg-secondary">
               <div class="inner">
                 <h3>{{$atasservicos}}</h3>
 
