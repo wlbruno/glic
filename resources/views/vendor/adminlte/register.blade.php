@@ -34,7 +34,7 @@
                 {{ csrf_field() }}
 
                 <div class="input-group mb-3">
-                    <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}"
+                    <input type="text" name="name" required class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" value="{{ old('name') }}"
                            placeholder="Nome Completo" autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
@@ -50,7 +50,7 @@
                 </div>
 
                  <div class="input-group mb-3">
-                    <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" value="{{ old('email') }}"
+                    <input type="email" name="email"  required class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" value="{{ old('email') }}"
                            placeholder="E-mail">
                     <div class="input-group-append">
                         <div class="input-group-text">
@@ -65,7 +65,7 @@
                 </div>
 
                  <div class="input-group mb-3">
-                    <select class="form-control" name="estado"  autofocus>
+                    <select class="form-control" name="estado" required  autofocus>
                           <option value="" disabled="" selected="">Selecione o seu estado</option>
                         <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>
@@ -102,14 +102,10 @@
                                     </div>
                                 </div>
 
-     @if ($errors->has('ramal'))
-                        <div class="invalid-feedback">
-                            <strong>{{ $errors->first('ramal') }}</strong>
-                        </div>
-                    @endif
+                  
 
                 <div class="input-group mb-3">
-                    <input type="text" name="ramal" class="form-control fone {{ $errors->has('ramal') ? 'is-invalid' : '' }}" value="{{ old('ramal') }}"
+                    <input type="text" name="ramal" required class="form-control fone {{ $errors->has('ramal') ? 'is-invalid' : '' }}" value="{{ old('ramal') }}"
                            placeholder="Telefone" autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
@@ -125,7 +121,7 @@
                 </div>
 
                  <div class="input-group mb-3">
-                    <input type="text" name="orgao" class="form-control {{ $errors->has('orgao') ? 'is-invalid' : '' }}" value="{{ old('orgao') }}"
+                    <input type="text" name="orgao"  required class="form-control {{ $errors->has('orgao') ? 'is-invalid' : '' }}" value="{{ old('orgao') }}"
                            placeholder="Órgão" autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
@@ -141,7 +137,7 @@
                 </div>
 
                    <div class="input-group mb-3">
-                    <input type="text" name="cnpj" class="form-control cnpj {{ $errors->has('cnpj') ? 'is-invalid' : '' }}" value="{{ old('cnpj') }}"
+                    <input type="text" name="cnpj" required class="form-control cnpj {{ $errors->has('cnpj') ? 'is-invalid' : '' }}" value="{{ old('cnpj') }}"
                            placeholder="CNPJ" autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
@@ -158,7 +154,7 @@
 
 
                  <div class="input-group mb-3">
-                    <input type="password" name="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
+                    <input type="password" name="password" required class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}"
                            placeholder="Senha">
                     <div class="input-group-append">
                         <div class="input-group-text">
@@ -172,7 +168,7 @@
                     @endif
                 </div>
                  <div class="input-group mb-3">
-                    <input type="password" name="confirm_password" class="form-control {{ $errors->has('confirm_password') ? 'is-invalid' : '' }}"
+                    <input type="password" name="confirm_password" required class="form-control {{ $errors->has('confirm_password') ? 'is-invalid' : '' }}"
                            placeholder="Confirma Senha ">
                     <div class="input-group-append">
                         <div class="input-group-text">

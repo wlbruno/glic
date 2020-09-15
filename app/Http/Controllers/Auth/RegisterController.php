@@ -82,8 +82,7 @@ class RegisterController extends Controller
                 'orgao.min' => 'O departamento deve ter pelo menos 10 caracteres',
                 'orgao.max' => 'O departamento não pode ultrapassar 150 caracteres',
                 'confirm_password.same' => 'A senha e a confirmação de senha precisam ser iguais',
-        ]
-    );
+        ]);
     }
 
     /**
@@ -92,7 +91,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data, $message)
+    protected function create(array $data)
     {
         if(!$plan = session('plan')) {
             return redirect()->route('home.index');
