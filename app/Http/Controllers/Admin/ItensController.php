@@ -120,9 +120,8 @@ class ItensController extends Controller
         return view('admin.pages.itens.item', compact('atas', 'objetos', 'fornecedores'));  
     }
 
-    public function destroy($idAta, $idLote, $idItem)
+    public function destroy($idAta, $idItem)
     {
-        $lote = Lote::find($idLote);
         $ata = Ata::find($idAta);
         
         $item = $this->repository->where('id', $idItem)->first();
@@ -138,9 +137,7 @@ class ItensController extends Controller
         }
     
         $item->delete();
-        $lote->delete();
 
-
-        return redirect()->route('lotes.create', $ata->id);
+        return redirect()->back();
     }
 }

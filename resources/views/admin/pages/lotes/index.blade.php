@@ -1,46 +1,118 @@
 @extends('adminlte::page')
 
-@section('title', 'Lotes')
+@if($atas->tipo === 'ITEM')
+  @section('title', 'ITENS')
+@else
+  @section('title', 'LOTES')
+@endif
 
 @section('content_header')
 
+  @if($atas->status === 'CRIACAO' &&  $atas->tipo === 'LOTE')
+    <h1> LOTES
+      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">Criar Lote</button>  
+  
+    <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-secondary">FINALIZAR ATA</a>
+    </h1>
+  @endif 
 
-  @if($atas->status == 'CRIACAO')
-    @if($atas->tipo == 'LOTE')
-      <h1>	LOTES
-    	 <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#modal-lg">
-            Criar Lote
-        </button>
-      <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-success">FINALIZAR ATA</a>
-    </h1>
-  @else
-    <h1>  ITENS
-      <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-success">FINALIZAR ATA</a>
+  @if($atas->status === 'CRIACAO' &&  $atas->tipo === 'ITEM')
+    <h1>ITENS
+      <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-secondary">FINALIZAR ATA</a>
     </h1>
   @endif
-  @else
-    <a href="{{ route('atas.show', $atas->id) }}" class="btn btn-dark">Voltar</a>
+
+  @if($atas->status === 'PUBLICADA' &&  $atas->tipo === 'LOTE')
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
+            <li class="breadcrumb-item "><a href="{{ route('atas.index') }}">Atas</a></li>
+            <li class="breadcrumb-item active"><a href="{{ route('atas.show', $atas->id) }}">Nº Ata {{ $atas->nata }}</a></li>
+        </ol>
+      </div>
+        <hr>
+      <div class="col-md-12">
+        <div class="callout callout-warning">
+          <h5><strong>ATENÇÃO!</strong></h5>
+            <p>Essa ata já foi publicada, cuidado com as mudanças pois essa ata já pode ter sido <strong>licitada.</strong></p>
+              <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">Criar Lote</button>
+        </div>
+      </div>
+    </div>
   @endif
+
+  @if($atas->status === 'PUBLICADA' &&  $atas->tipo === 'ITEM')
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
+            <li class="breadcrumb-item "><a href="{{ route('atas.index') }}">Atas</a></li>
+            <li class="breadcrumb-item active"><a href="{{ route('atas.show', $atas->id) }}">Nº Ata {{ $atas->nata }}</a></li>
+        </ol>
+      </div>
+        <hr>
+      <div class="col-md-12">
+        <div class="callout callout-warning">
+          <h5><strong>ATENÇÃO!</strong></h5>
+            <p>Essa ata já foi publicada, cuidado com as mudanças pois essa ata já pode ter sido <strong>licitada.</strong></p>
+        </div>
+      </div>
+    </div>
+  @endif
+
+  
+  @if($atas->status === 'SISTEMA' &&  $atas->tipo === 'ITEM')
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
+            <li class="breadcrumb-item "><a href="{{ route('atas.index') }}">Atas</a></li>
+            <li class="breadcrumb-item active"><a href="{{ route('atas.show', $atas->id) }}">Nº Ata {{ $atas->nata }}</a></li>
+        </ol>
+      </div>
+        
+    </div>
+  @endif
+
+  @if($atas->status === 'SISTEMA' &&  $atas->tipo === 'LOTE')
+    <div class="row">
+      <div class="callout callout-secondary">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item "><a href="{{ route('atas.index') }}">Atas</a></li>
+          <li class="breadcrumb-item active"><a href="{{ route('atas.show', $atas->id) }}">Nº Ata {{ $atas->nata }}</a></li>
+        </ol>
+      </div>
+      <div class="col-sm-2">
+        <div class="callout callout-secondary">
+           <p> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">Criar Lote</button></p>
+        </div>
+      </div>
+    </div>
+  @endif
+
+
 @stop
 
 @section('content')
 @include('admin.includes.alerts')
-<div class="row">
-	<div class="col-sm-12">
-		@foreach($atas->lotes as $lote)
-	    <div class="card">
-	    	<div class="card-body">
-				   <div class="card">
-              <div class="card-header border-transparent">
-                @if($atas->tipo === 'LOTE')
-                  <h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
-                @endif
-							<div class="card-tools">
-				        <a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-info" ><i class="fas fa-plus">Adicionar item</i> </a>
-                  @if($atas->tipo == 'LOTE')
-                		<a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-warning "><i class="fas fa-edit"></i> Editar</a>
-                 		<a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-danger" ><i class="fas fa-trash-alt"></i>Apagar</a>
+  <div class="row">
+	  <div class="col-sm-12">
+      @foreach($atas->lotes as $lote)
+        <div class="card">
+          <div class="card-body">
+            <div class="card">
+                <div class="card-header border-transparent">
+                  @if($atas->tipo === 'LOTE')
+                    <h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
                   @endif
+                <div class="card-tools">
+                  <a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-secondary" ><i class="fas fa-plus">Adicionar item</i> </a>
+                    @if($atas->tipo == 'LOTE')
+                		  <a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-secondary "><i class="fas fa-edit"></i> Editar</a>
+                  		<a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-secondary" ><i class="fas fa-trash-alt"></i>Apagar</a>
+                    @endif
               	</div>
               </div>
 		            <div class="card-body p-0">
@@ -80,7 +152,7 @@
                                 <div class="dropdown-menu" role="menu" x-placement="bottom-start">
                                   <a href="#Modal" class="dropdown-item" >Editar Fornecedor</a>
                                   <a href="#ModalObjeto" class="dropdown-item" >Editar Objeto</a>
-                                  <a href="{{ route('item.destroy', [$atas->id, $lote->id, $lote_item->item->id]) }}" class="dropdown-item"> Deletar item</a>  
+                                  <a href="{{ route('item.destroy', [$atas->id, $lote_item->item->id]) }}" class="dropdown-item"> Deletar item</a>  
                                 
                                   <a href="{{ route('item.edit', [$atas->id, $lote->id, $lote_item->item->id]) }}" class="dropdown-item"> Editar item</a>  
                                     <div class="dropdown-divider"></div>
@@ -101,7 +173,7 @@
       @endforeach
     </div>
   </div>
-
+        <!-- MODAL CRIAR LOTE -->
   <div class="modal fade" id="modal-lg" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -133,78 +205,74 @@
         </div>
       </div>
 
-
-@if($atas->lotes == true)
-<div id="Modal" class="modal fade bd-example-modal-lg" role="dialog">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-          <h4 class="modal-title">Editar Fornecedor</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-           <form action="{{ route('fornecedor.edit.lotes') }}" class="form" method="POST" id="formIDforn">
-          <div class="modal-body">
-               @csrf
-                <input type="hidden" value="{{$lote_item->item->fornecedores->id ?? '' }}" name="id">
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="fornecedor">* Nome: </label>
-                <input type="text" class="form-control" name="fornecedor"  placeholder="Digite o nome do fornecedor" value="{{$lote_item->item->fornecedores->fornecedor ?? '' }}">
+       <!-- MODAL EDITAR FORNECEDOR -->
+      <div id="Modal" class="modal fade bd-example-modal-lg" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Editar Fornecedor</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
-          </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="cnpj">* Nº CNPJ </label>
-              <input type="text" class="form-control cnpj" name="cnpj" required placeholder="Digite o número do CNPJ"  value="{{$lote_item->item->fornecedores->cnpj ?? '' }}">
-            </div>
+                <form action="{{ route('fornecedor.edit.lotes') }}" class="form" method="POST" id="formIDforn">
+                <div class="modal-body">
+                    @csrf
+                      <input type="hidden" value="{{$lote_item->item->fornecedores->id ?? '' }}" name="id">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label for="fornecedor">* Nome: </label>
+                      <input type="text" class="form-control" name="fornecedor"  placeholder="Digite o nome do fornecedor" value="{{$lote_item->item->fornecedores->fornecedor ?? '' }}">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="cnpj">* Nº CNPJ </label>
+                    <input type="text" class="form-control cnpj" name="cnpj" required placeholder="Digite o número do CNPJ"  value="{{$lote_item->item->fornecedores->cnpj ?? '' }}">
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-success formButton" id="fornec">Salvar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+              </div>
+            </form>       
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-success formButton" id="fornec">Salvar</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        </div>
-       </form>       
-      
-    </div>
-  </div>
       </div>
 
 
-
-      <div id="ModalObjeto" class="modal fade bd-example-modal-lg" role="dialog">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-          <h4 class="modal-title">Editar Objeto</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-           <form action="{{ route('objeto.edit.lotes') }}" class="form" method="POST" id="formIDobj">
-          <div class="modal-body">
-               @csrf
-                <input type="hidden" value="{{$lote_item->item->objetos->id ?? '' }}" name="id">
-            <div class="col-md-12">
-              <div class="form-group">
-                 <label for="nefisco">* Nº E-fisco: </label>
-                   <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{$lote_item->item->objetos->nefisco ?? '' }}">
+       <!-- MODAL EDITAR OBJETO -->
+          <div id="ModalObjeto" class="modal fade bd-example-modal-lg" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                 <h4 class="modal-title">Editar Objeto</h4>
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
-          </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="cnpj">* Nome: </label>
-               <textarea name="nome" cols="15" rows="5" required class="form-control" placeholder="Digite o nome do objeto">{{$lote_item->item->objetos->nome ?? '' }}</textarea>
-            </div>
-          </div>
+              <form action="{{ route('objeto.edit.lotes') }}" class="form" method="POST" id="formIDobj">
+                <div class="modal-body">
+                    @csrf
+                      <input type="hidden" value="{{$lote_item->item->objetos->id ?? '' }}" name="id">
+                        <div class="col-md-12">
+                         <div class="form-group">
+                           <label for="nefisco">* Nº E-fisco: </label>
+                           <input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{$lote_item->item->objetos->nefisco ?? '' }}">
+                       </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label for="cnpj">* Nome: </label>
+                        <textarea name="nome" cols="15" rows="5" required class="form-control" placeholder="Digite o nome do objeto">{{$lote_item->item->objetos->nome ?? '' }}</textarea>
+                     </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-success formButton"  id="obj">Salvar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                  </div>
+                </form>       
+              </div>
+           </div>
         </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-success formButton"  id="obj">Salvar</button>
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        </div>
-       </form>       
-      
-    </div>
-  </div>
-      </div>
-@endif
 
 @endsection
 
@@ -251,8 +319,9 @@ $(formIDobj).submit(function(event){
 
 
 </script> 
-   <script src="{{asset('js/jquery.mask.js')}}"></script>
-      <script src="{{asset('js/mask.js')}}"></script>
+
+<script src="{{asset('js/jquery.mask.js')}}"></script>
+<script src="{{asset('js/mask.js')}}"></script>
       
 
 @endsection

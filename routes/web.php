@@ -159,7 +159,7 @@ Route::prefix('admin')
 	Route::POST('atas/{idAta}/item', 'ItensController@store')->name('item.item');
 	Route::get('atas/{idAta}/lote/{idlote}/item/{idItem}', 'ItensController@edit')->name('item.edit');
 	Route::POST('atas/{idAta}/lote/{idlote}/item/{idItem}', 'ItensController@update')->name('item.update');
-	Route::get('atas/{idAta}/lote/{idLote}/item/{idItem}/delete', 'ItensController@destroy')->name('item.destroy');
+	Route::get('atas/{idAta}/item/{idItem}/delete', 'ItensController@destroy')->name('item.destroy');
 
 	/**
 	*	Routes Órgao

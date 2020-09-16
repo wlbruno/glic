@@ -73,7 +73,9 @@
             <strong>Descrição: </strong>{{$caronas->atas->descricao}}   
         </p>
         <p>
-            <strong>Vigência da ARP: </strong>{{$caronas->atas->vigencia}}
+            <strong>Vigência da ARP: </strong> {{ date('d/m/Y', strtotime($caronas->atas->data_vigencia)) }}    
+
+           
         </p>
         <p>
             <strong>Tipo: </strong>{{$caronas->atas->tipo}}<br><br>

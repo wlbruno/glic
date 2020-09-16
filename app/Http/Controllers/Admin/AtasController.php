@@ -131,6 +131,16 @@ class AtasController extends Controller
                             ->where('id', $id)
                             ->first();   
 
+        if($ata->tipo === 'ITEM'){
+            $lote = $ata->lotes[0];
+
+            $lote->delete();    
+
+            $ata->delete();
+
+            return redirect()->route('atas.index');
+        }
+        
         if (!$ata)
             return redirect()->back();
 
@@ -140,6 +150,7 @@ class AtasController extends Controller
                         ->with('error', 'Existem lotes vinculados a essa ata, portanto para remover a ata é necessário  deletar os lotes');
         }
 
+        
         $ata->delete();
 
         return redirect()->route('atas.index');
