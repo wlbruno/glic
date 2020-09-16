@@ -1,100 +1,88 @@
-
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>@yield('title')</title>
 
-  <title>@yield('title')</title>
+      <!-- Font Awesome Icons -->
+      <link rel="stylesheet" href="{{ asset('adminLTE/layout/css/all.min.css') }}">
+      <!-- Theme style -->
+      <link rel="stylesheet" href="{{ asset('adminLTE/layout/css/adminlte.min.css')}}">
+      <!-- Google Font: Source Sans Pro -->
+      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  </head>
 
-  <!-- Font Awesome Icons -->
-   <link rel="stylesheet" href="{{ asset('adminLTE/layout/css/all.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('adminLTE/layout/css/adminlte.min.css')}}">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
 <body class="hold-transition layout-top-nav">
-<div class="wrapper">
+  <div class="wrapper">
+    <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+        <div class="container">
+          <a href="/home" class="navbar-brand">
+            <img src="{{asset('/img/logo-nova.png')}}" alt="AdminLTE Logo" class="brand-image  elevation-3"
+                style="opacity: .8">
+            <span class="brand-text font-weight-light"></span>
+          </a>
+          
+          <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
-    <div class="container">
-      <a href="/home" class="navbar-brand">
-        <img src="{{asset('/img/logo-nova.png')}}" alt="AdminLTE Logo" class="brand-image  elevation-3"
-             style="opacity: .8">
-        <span class="brand-text font-weight-light"></span>
-      </a>
-      
-      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="/home" class="nav-link">Home</a>
-          </li>
-          @can('admin')
-           <li class="nav-item">
-            <a href="{{ route('admin.home') }}" class="nav-link">Admin</a>
-          </li>
-          @endcan  
-         @can('orgao_orgao')
-          <li>
-            <a href="{{ route('orgao.index') }}" class="nav-link">Órgão</a>
-          </li>
-          @endcan
-          <li class="nav-item">
+          <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a href="/home" class="nav-link">Home</a>
+              </li>
+              @can('admin')
+              <li class="nav-item">
+                <a href="{{ route('admin.home') }}" class="nav-link">Admin</a>
+              </li>
+              @endcan  
+            @can('orgao_orgao')
+              <li>
+                <a href="{{ route('orgao.index') }}" class="nav-link">Órgão</a>
+              </li>
+              @endcan
+              <li class="nav-item">
             <a href="/contato" class="nav-link">Contato</a>
           </li>
-          @if(!is_null(auth()->user()))
-          <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Gerenciar</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-              <li><a href="{{ route('user.historico') }}" class="dropdown-item">Atas Solicitadas </a></li>
-              <li><a href="{{ route('user.perfil') }}" class="dropdown-item">Perfil</a></li>
-
-              <li class="dropdown-divider"></li>
-
-            </ul>
-          </li>
-          @endif
+        
          
         </ul>
       
     
       <!-- Right navbar links -->
-      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-
-        @guest
-         <li class="nav-item ">
-          <a href="{{route('new.plan')}}"  class="btn btn-sn btn-dark">CADASTRO</a>
-           
-        </li>
-        <!-- Notifications Dropdown Menu -->
-        <li class="nav-item dropdown">
-           <a href="/login" class="btn btn-sn btn-dark"  style="position: absolute;  left: 10px ;">LOGIN</a>
-                
-        </li>
-        @endguest
-         @if(!is_null(auth()->user()))
-
-          <li class="nav-item ">
-            <h4>Olá, {{auth()->user()->name}}</h4>
-        </li>
-         <li class="nav-item ">
-           <a href="{{url('/sair')}}" class="btn btn-sn btn-danger"  >Sair</a>
-                
-        </li>
-          @endif
-      </ul>
+      <ul class="navbar-nav ml-auto">
+      @guest
+      
+      <li class="nav-item dropdown">
+         <a href="/login" class="btn btn-sn btn-info"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+              
+      </li>
+      @endguest
+      </li>
+          @if(!is_null(auth()->user()))
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+        <i class="fas fa-user-alt"></i> {{auth()->user()->name}}
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <div class="dropdown-divider"></div>
+          <a href="{{ route('user.perfil') }}"class="dropdown-item">
+          <i class="far fa-id-badge"></i> Perfil
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="{{ route('user.historico') }}" class="dropdown-item">
+            <i class="fas fa-file mr-2"></i> Atas Solicitadas
+          </a>
+          <div class="dropdown-divider"></div>
+          <a href="{{url('/sair')}}"  class="dropdown-item dropdown-footer">Sair</a>
+        </div>
+      </li>
+      @endif
+    
          </div>
     </div>
   </nav>
