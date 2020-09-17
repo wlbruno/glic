@@ -17,6 +17,8 @@
 	*/
 	Route::get('ata/{id}/licita', 'Site\Licita\LicitaController@index')->name('licita.index')->middleware('auth');
 	Route::POST('ata/carona', 'Site\Licita\LicitaController@carona')->name('licita.carona');
+	Route::POST('ata/carona/lote/{id}', 'Site\Licita\LicitaController@getlotes')->name('licita.lote');
+
 	//ROUTE GERAR PDF
 	Route::get('ata/carona/{id}', 'Site\Licita\LicitaController@gerarPDF')->name('licita.pdf');
 

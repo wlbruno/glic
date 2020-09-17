@@ -11,6 +11,7 @@ use App\Models\Item;
 use App\Models\Token;
 use Illuminate\Support\Str;
 use Auth;
+use App\Models\Lote;
 
 class LicitaController extends Controller
 {
@@ -69,5 +70,19 @@ class LicitaController extends Controller
 
         $pdf = \PDF::LoadView('site.pages.atas.licita.pdf', compact('caronas'));
         return $pdf->stream();
+    }
+
+
+    public function getlotes(Request $request, $id)
+    {
+        $data = $request->all();
+
+        $lotes = Lote::find($data['lotes']);
+
+        $ata = Ata::find($id);
+        
+
+        return view('site.pages.atas.licita.lote', compact('ata', 'lotes'));
+
     }
 }
