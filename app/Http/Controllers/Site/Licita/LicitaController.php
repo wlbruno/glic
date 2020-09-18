@@ -21,7 +21,6 @@ class LicitaController extends Controller
         $caronas = Carona::select('id')->where('atas_id', $atas->id)->where('users_id', Auth::user()->id)->get()->toArray();
            if(count($caronas) > 0){
                 $itens_solicitados = Carona_item::whereIn('caronas_id', $caronas)->get();
-                
             }else { 
                 $itens_solicitados = array();
             }if(isset($atas)) {
@@ -60,6 +59,8 @@ class LicitaController extends Controller
                 $token->save();   
           
             return redirect()->route('licita.pdf', $caronas->id);
+
+           
     }
 
     
@@ -75,14 +76,21 @@ class LicitaController extends Controller
 
     public function getlotes(Request $request, $id)
     {
+        $ata = Ata::find($id);
         $data = $request->all();
 
         $lotes = Lote::find($data['lotes']);
 
-        $ata = Ata::find($id);
+        $caronas = Carona::select('id')->where('atas_id', $ata->id)->where('users_id', Auth::user()->id)->get()->toArray();
+        if(count($caronas) > 0){
+             $itens_solicitados = Carona_item::whereIn('caronas_id', $caronas)->get();
+         }else { 
+             $itens_solicitados = array();
+         }if(isset($ata)) {
+             return view('site.pages.atas.licita.lote', compact('ata', 'itens_solicitados', 'lotes'));
+         }
+             return redirect('/');
         
-
-        return view('site.pages.atas.licita.lote', compact('ata', 'lotes'));
 
     }
 }

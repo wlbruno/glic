@@ -17,8 +17,9 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card">
-      <form action="{{ route('licita.carona') }}" class="form" method="POST">
+      <form action="{{ route('licita.carona') }}" target="_blank" class="form" method="POST">
         @csrf
+        <input type="hidden" value="{{$ata->id}}" name="atas" class="form-control">
           @foreach($lotes as $lote)
             <div class="card-header border-transparent">
               <h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
@@ -28,7 +29,7 @@
                   <table class="table m-0">
                     <thead>
                       <tr>
-                         <th>Objeto</th>
+                         <th width="200">Objeto</th>
                          <th>N° E-fisco</th>
                          <th>Fornecedor</th>
                          <th>N° CNPJ</th>
@@ -48,6 +49,25 @@
                         <td>{{$itens->item->medida}}</td> 
                         <td>{{  'R$ '.number_format($itens->item->vunitario, 2, ',', '.') }}</td> 
                         <td>{{$itens->item->max}}</td> 
+                        <td>
+                        @php $soma = 0; @endphp
+                                    @forelse($itens_solicitados as $item_solicitado)
+                                      @if($item_solicitado->itens_id == $itens->item->id)
+                                        @php $soma = $soma + $item_solicitado->quantidade; @endphp
+                                    @endif
+                                    @empty
+                                  @endforelse
+                                    <input type="hidden" name="itens[]" value="{{$itens->item->id}}">   
+                                      @if($soma > 0)
+                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]" required max="{{$itens->item->max - $soma}}" placeholder="..." >
+                                      @else
+                                        <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]" required  max="{{$itens->item->max}}" placeholder="..." >
+                                      @endif
+                                        <div class="progress progress-xs" >
+                                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"  aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$itens->item->max}}" style="width: {!! (100 * $soma)/ $itens->item->max !!}%">
+                                        </div>
+                                      </div>   <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $itens->item->max) !!}%</b> da quantidade total.</span>
+                        </td>
                       </tr>
                     @endforeach
                   </tbody>
