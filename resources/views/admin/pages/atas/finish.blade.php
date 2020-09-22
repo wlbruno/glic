@@ -3,7 +3,22 @@
 @section('title', 'Finalizar ata')
 
 @section('content_header')
- 	<h1>Finalizar ata </h1>
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+		  <li class="breadcrumb-item"><a href="{{ route('atas.index') }}"><strong>LISTAGEM DE ATAS</strong></a></li>
+		   @if($atas->tipo === 'ITEM')
+          <li class="breadcrumb-item"><a href="{{ route('lotes.create', $atas->id) }}"><strong>LISTAGEM DE ITENS</strong></a></li>
+           @else
+          <li class="breadcrumb-item"><a href="{{ route('lotes.create', $atas->id) }}"><strong>LISTAGEM DE LOTES</strong></a></li>
+            @endif
+          <li class="breadcrumb-item"><strong>FINALIZAR ATA</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
 @stop
 
 @section('content')

@@ -8,8 +8,25 @@
 
 @section('content_header')
 
+  <div class="row">
+    <div class="col-md-12">
+      <ol class="breadcrumb float-sm-left">
+        <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+	      <li class="breadcrumb-item"><a href="{{ route('atas.index') }}"><strong>LISTAGEM DE ATAS</strong></a></li>
+        <li class="breadcrumb-item"><a href="{{ route('atas.show', $atas->id) }}"><strong>Nº ATA {{$atas->nata}}</strong></a></li>
+          @if($atas->tipo === 'ITEM')
+            <li class="breadcrumb-item"><strong>ITENS</strong></li>
+          @else
+            <li class="breadcrumb-item"><strong>LOTES</strong></li>
+          @endif
+        </ol>
+      </div>
+    </div>  
+  <br>
+  
   @if($atas->status === 'CRIACAO' &&  $atas->tipo === 'LOTE')
-    <h1> LOTES
+    <h1>
       <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">Criar Lote</button>  
   
     <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-secondary">FINALIZAR ATA</a>
@@ -17,21 +34,13 @@
   @endif 
 
   @if($atas->status === 'CRIACAO' &&  $atas->tipo === 'ITEM')
-    <h1>ITENS
+    <h1>
       <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-secondary">FINALIZAR ATA</a>
     </h1>
   @endif
 
   @if($atas->status === 'PUBLICADA' &&  $atas->tipo === 'LOTE')
     <div class="row">
-      <div class="col-md-12">
-        <ol class="breadcrumb float-sm-left">
-          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
-            <li class="breadcrumb-item "><a href="{{ route('atas.index') }}">Atas</a></li>
-            <li class="breadcrumb-item active"><a href="{{ route('atas.show', $atas->id) }}">Nº Ata {{ $atas->nata }}</a></li>
-        </ol>
-      </div>
-        <hr>
       <div class="col-md-12">
         <div class="callout callout-warning">
           <h5><strong>ATENÇÃO!</strong></h5>
@@ -45,14 +54,6 @@
   @if($atas->status === 'PUBLICADA' &&  $atas->tipo === 'ITEM')
     <div class="row">
       <div class="col-md-12">
-        <ol class="breadcrumb float-sm-left">
-          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
-            <li class="breadcrumb-item"><a href="{{ route('atas.index') }}">Atas</a></li>
-            <li class="breadcrumb-item active"><a href="{{ route('atas.show', $atas->id) }}">Nº Ata {{ $atas->nata }}</a></li>
-        </ol>
-      </div>
-        <hr>
-      <div class="col-md-12">
         <div class="callout callout-warning">
           <h5><strong>ATENÇÃO!</strong></h5>
             <p>Essa ata já foi publicada, cuidado com as mudanças pois essa ata já pode ter sido <strong>licitada.</strong></p>
@@ -64,26 +65,14 @@
   
   @if($atas->status === 'SISTEMA' &&  $atas->tipo === 'ITEM')
     <div class="row">
-      <div class="col-md-12">
-        <ol class="breadcrumb float-sm-left">
-          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
-            <li class="breadcrumb-item "><a href="{{ route('atas.index') }}">Atas</a></li>
-            <li class="breadcrumb-item active"><a href="{{ route('atas.show', $atas->id) }}">Nº Ata {{ $atas->nata }}</a></li>
-        </ol>
-      </div>
+      
         
     </div>
   @endif
 
   @if($atas->status === 'SISTEMA' &&  $atas->tipo === 'LOTE')
     <div class="row">
-      <div class="callout callout-secondary">
-        <ol class="breadcrumb float-sm-left">
-          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><i class="fas fa-home"></i></a></li>
-          <li class="breadcrumb-item "><a href="{{ route('atas.index') }}">Atas</a></li>
-          <li class="breadcrumb-item active"><a href="{{ route('atas.show', $atas->id) }}">Nº Ata {{ $atas->nata }}</a></li>
-        </ol>
-      </div>
+      
       <div class="col-sm-2">
         <div class="callout callout-secondary">
            <p> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">Criar Lote</button></p>

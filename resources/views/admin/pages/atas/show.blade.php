@@ -3,12 +3,18 @@
 @section('title', "Detalhes da Ata ")
 
 @section('content_header')
-  <ol class="breadcrumb float-sm-right">
-  <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Dashboard</a></li>
-        <li class="breadcrumb-item "><a href="{{ route('atas.index') }}">Atas</a></li>
-         <li class="breadcrumb-item active"><a href="{{ route('atas.show', $ata->id) }}">Nº Ata {{ $ata->nata }}</a></li>
-    </ol>
-    <h1>Detalhes da Ata  <b>{{ $ata->nata }}</b> </h1>
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+		  <li class="breadcrumb-item"><a href="{{ route('atas.index') }}"><strong>LISTAGEM DE ATAS</strong></a></li>
+            <li class="breadcrumb-item"><strong>DETALHES DA ATA</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
+    
 @stop
 
 @section('content')
@@ -38,7 +44,7 @@
                         <td>{{ $ata->nata }}</td>
                         <td>{{ $ata->npregao }}</td>
                         <td>{{ $ata->nprocesso }}</td>
-                        <td>{{ $ata->vigencia }}</td>
+  							        <td>{{ date( 'd/m/Y', strtotime($ata->data_vigencia)) }}</td>
                         <td>{{ $ata->tipo }}</td>
                         <td>{{ $ata->comissao }}</td>
                         <td>{{ $ata->orgao }}</td>

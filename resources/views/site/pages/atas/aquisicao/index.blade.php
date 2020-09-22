@@ -1,14 +1,19 @@
 @extends('site.layout.master')
 
 @section('title', 'GLIC')
-@section('titulo', 'Atas de Aquisição em geral')
+
 
 @section('content_header')
 
-<ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/home">Home</a></li>
-              <li class="breadcrumb-item active"><a href="{{ route('atas.produtos') }}">Atas Aquisição em geral</a></li>
- </ol>
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+            <li class="breadcrumb-item"><strong>ATAS AQUISIÇÃO EM GERAL</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
 
 @stop
 

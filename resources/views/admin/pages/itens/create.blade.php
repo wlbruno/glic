@@ -3,11 +3,26 @@
 @section('title', 'Cadastrar nova Item')
 
 @section('content_header')
-@if(count($ata->lotes) == 0)
-    <h1>Cadastrar novo Item </h1>
-   @else
-   <h1>Cadastrar novo item ao {{$lote->descricao}}</h1>
-   @endif
+
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+		       <li class="breadcrumb-item"><a href="{{ route('atas.index') }}"><strong>LISTAGEM DE ATAS</strong></a></li>
+            @if($ata->tipo === 'ITEM')
+            <li class="breadcrumb-item"><a href="{{ route('lotes.create', $ata->id) }}"><strong>LISTAGEM DE ITENS</strong></a></li>
+            <li class="breadcrumb-item"><strong>CADASTRAR NOVO ITEM</strong></li>
+            @else
+            <li class="breadcrumb-item"><a href="{{ route('lotes.create', $ata->id) }}"><strong>LISTAGEM DE LOTES</strong></a></li>
+            <li class="breadcrumb-item"><strong>CADASTRAR NOVO ITEM AO {{$lote->descricao}} </strong></li>
+       
+            @endif
+        </ol>
+      </div>
+    </div>
+<br>
+
 
 @stop
 

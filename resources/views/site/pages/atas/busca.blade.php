@@ -1,13 +1,17 @@
 @extends('site.layout.master')
 
 @section('title', 'GLIC')
-@section('titulo', 'Pesquisar Ata')
 
 @section('content_header')
-
-<ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active" ><a href="/home">Home</a></li>
- </ol>
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+            <li class="breadcrumb-item"><strong>ATA</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
 
 @stop
 
