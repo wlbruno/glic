@@ -5,10 +5,27 @@
 
 @section('content_header')
 
-<ol class="breadcrumb float-sm-right">
-  <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
-  <li class="breadcrumb-item active"><a href="{{ route('licita.index', $atas->id) }}">Nº Ata {{ $atas->nata }}</a></li>
- </ol>
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          @if($atas->departamento === 'MEDICAMENTOS')
+          <li class="breadcrumb-item"><a href="{{route('atas.medicamentos')}}"><strong>ATAS DE MEDICAMENTOS</strong></a></li>
+          @endif
+          @if($atas->departamento === 'PRODUTOS MÉDICOS')
+          <li class="breadcrumb-item"><a href="{{route('atas.produtos')}}"><strong>ATAS DE PRODUTOS MÉDICOS</strong></a></li>
+            @endif
+            @if($atas->departamento === 'AQUISIÇÕES EM GERAL')
+            <li class="breadcrumb-item"><a href="{{route('atas.aquisicao')}}"><strong>ATAS DE AQUISIÇÕES EM GERAL</strong></a></li>
+            @endif
+            @if($atas->departamento === 'SERVIÇOS EM GERAL')
+            <li class="breadcrumb-item"><a href="{{route('atas.servicos')}}"><strong>ATAS DE SERVIÇOS EM GERAL</strong></a></li>
+            @endif
+            <li class="breadcrumb-item"><strong>SOLICITAR ATA</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
 
 @stop
 
@@ -24,7 +41,7 @@
                   <th>Nº Ata</th>
                   <th>Nº Pregão</th>
                   <th>Nº Processo</th>
-                  <th>Vigencia</th>
+                  <th>Vigência</th>
                   <th>Tipo</th>
                   <th>Comissão</th>
                   <th>PDF</th>
