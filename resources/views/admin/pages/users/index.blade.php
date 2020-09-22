@@ -3,16 +3,17 @@
 @section('title', 'Usuários')
 
 @section('content_header')
-    <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('users.index') }}" class="active">Usuários</a></li>
-    </ol>
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+            <li class="breadcrumb-item"><strong>USUÁRIOS</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
 
-    <h1>Usuários 
-        @can('admin')
-        <a href="{{ route('users.create') }}" class="btn btn-dark">ADD</a>
-        @endcan
-    </h1>
 @stop
 
 @section('content')
@@ -20,7 +21,7 @@
         <div class="card-header">
             <form action="{{ route('users.search') }}" method="POST" class="form form-inline">
                 @csrf
-                <input type="text" name="filter" placeholder="Filtrar:" class="form-control" value="{{ $filters['filter'] ?? '' }}">
+                <input type="text" name="filter" placeholder="Filtrar:" class="form-control" value="{{ $filters['filter'] ?? '' }}">&nbsp;
                 <button type="submit" class="btn btn-dark">Filtrar</button>
             </form>
         </div>

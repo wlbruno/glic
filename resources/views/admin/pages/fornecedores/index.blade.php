@@ -3,18 +3,23 @@
 @section('title', 'Fornecedores')
 
 @section('content_header')
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('fornecedores.index') }}">Fornecedores</a></li>
-    </ol>
-</nav>
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+            <li class="breadcrumb-item"><strong>LISTAGEM DE FORNECEDORES</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
 
-    <h1>Fornecedores 
-        @can('add_fornecedores')
-        <a href="{{ route('fornecedores.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a>
-        @endcan
-    </h1>
+
+    <h1>
+        @can('add_ata')
+    <a href="{{ route('atas.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a>
+    @endcan
+ </h1>
 
 @stop
 
@@ -23,7 +28,7 @@
         <div class="card-header">
         <form action="{{ route('fornecedores.search') }}" method="POST" class="form form-inline">
             @csrf
-            <input type="text" name="filter" placeholder="Fornecedor ou Nº CNPJ" class="form-control" value="{{ $filters['filter'] ?? ''  }}">
+            <input type="text" name="filter" placeholder="Fornecedor ou Nº CNPJ" class="form-control" value="{{ $filters['filter'] ?? ''  }}">&nbsp;
             <button type="submit" class="btn btn-dark">Filtrar</button>
         </form>
         </div>

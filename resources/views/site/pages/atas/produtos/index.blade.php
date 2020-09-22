@@ -4,6 +4,7 @@
 
 @section('content_header')
 
+<<<<<<< HEAD
 
  <div class="row">
       <div class="col-md-12">
@@ -22,7 +23,7 @@
         <div class="card-header">
         <form action="{{ route('atas.search') }}" method="POST" class="form form-inline">
             @csrf
-            <input type="text" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control" value="{{ $filters['filter'] ?? ''  }}">
+            <input type="text" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control" value="{{ $filters['filter'] ?? ''  }}">&nbsp;
             <button type="submit" class="btn btn-dark">Filtrar</button>
         </form>
         </div>
