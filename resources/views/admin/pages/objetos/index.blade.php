@@ -3,12 +3,17 @@
 @section('title', 'Objetos')
 
 @section('content_header')
-<nav aria-label="breadcrumb ">
-    <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('objetos.index') }}">Objetos</a></li>
-    </ol>
-</nav>
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+            <li class="breadcrumb-item"><strong>LISTAGEM DE OBJETOS</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
+
 
     <h1>Objetos 
         @can('add_objetos')
@@ -32,9 +37,9 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
-                        <th>Nome</th>
+                        <th width="1000">NOME</th>
                         <th>Nº EFISCO</th>
-                        <th width="250">Ações</th>
+                        <th width="250"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,9 +52,9 @@
                            
                             <td>
                                 @can('edit_objetos')
-                                <a href="{{ route('objetos.edit', $objeto->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i> EDITAR</a>
+                                <a href="{{ route('objetos.edit', $objeto->id) }}" class="btn btn-dark"><i class="fas fa-edit"></i> EDITAR</a>
                                 @endcan
-                                <a href="{{ route('objetos.show', $objeto->id) }}" class="btn btn-info"><i class="fas fa-search"></i> DETALHAR</a>    
+                                <a href="{{ route('objetos.show', $objeto->id) }}" class="btn btn-dark"><i class="fas fa-search"></i> DETALHAR</a>    
                             </td>
                         </tr>
                     @endforeach    

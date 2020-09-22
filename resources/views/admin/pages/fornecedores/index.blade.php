@@ -32,9 +32,9 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
-                        <th>Nome</th>
+                        <th width="1000">NOME</th>
                         <th>CNPJ</th>
-                        <th width="250">Ações</th>
+                        <th width="250">AÇÕES</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,9 +47,9 @@
                            
                             <td>
                                 @can('edit_fornecedores')
-                                <a href="{{ route('fornecedores.edit', $fornecedor->id) }}" class="btn btn-warning"><i class="fas fa-edit"></i> EDITAR</a>
+                                <a href="{{ route('fornecedores.edit', $fornecedor->id) }}" class="btn btn-dark"><i class="fas fa-edit"></i> EDITAR</a>
                                 @endcan
-                                <a href="{{ route('fornecedores.show', $fornecedor->id) }}" class="btn btn-info"><i class="fas fa-search"></i> DETALHAR</a>    
+                                <a href="{{ route('fornecedores.show', $fornecedor->id) }}" class="btn btn-dark"><i class="fas fa-search"></i> DETALHAR</a>    
                             </td>
                         </tr>
                     @endforeach    

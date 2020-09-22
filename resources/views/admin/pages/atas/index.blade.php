@@ -3,15 +3,19 @@
 @section('title', 'Atas')
 
 @section('content_header')
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item active"><a href="/home">Site</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('atas.index') }}">Atas</a></li>
-    </ol>
-</nav>
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+            <li class="breadcrumb-item"><strong>LISTAGEM DE ATAS</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
 
-    <h1>Atas
+
+    <h1>
         @can('add_ata')
     <a href="{{ route('atas.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a>
     @endcan

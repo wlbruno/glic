@@ -39,9 +39,9 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td style="width=10px;">
-                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-warning">VER</a>
-                               <a href="{{ route('users.roles', $user->id) }}" class="btn btn-info" title="Cargos"><i class="fas fa-address-card"></i> Permissões</a>
+                                <!-- <a href="{{ route('users.edit', $user->id) }}" class="btn btn-dark">Edit</a>
+                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-dark">VER</a> -->
+                               <a href="{{ route('users.roles', $user->id) }}" class="btn btn-dark" title="Cargos"><i class="fas fa-address-card"></i> Permissões</a>
                             </td>
                         </tr>
                     @endforeach
