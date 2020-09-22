@@ -21,7 +21,7 @@
         <div class="card-header">
             <form action="{{ route('roles.search') }}" method="POST" class="form form-inline">
                 @csrf
-                <input type="text" name="filter" placeholder="Filtro" class="form-control" value="{{ $filters['filter'] ?? '' }}">
+                <input type="text" name="filter" placeholder="Filtro" class="form-control" value="{{ $filters['filter'] ?? '' }}">&nbsp;
                 <button type="submit" class="btn btn-dark">Filtrar</button>
             </form>
         </div>

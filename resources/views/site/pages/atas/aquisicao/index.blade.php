@@ -6,7 +6,7 @@
 @section('content_header')
 
 <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
               <li class="breadcrumb-item active"><a href="{{ route('atas.produtos') }}">Atas Aquisição em geral</a></li>
  </ol>
 

@@ -3,13 +3,16 @@
 @section('title', 'Atas')
 
 @section('content_header')
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item active"><a href="{{ route('admin.home') }}">Dashboard</a></li>
-        <li class="breadcrumb-item active"><a href="/home">Site</a></li>
-    </ol>
-</nav>
-    
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><strong>DASHBOARD</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
+
     <div class="row">
           <div class="col-12 col-sm-8 col-md-6">
             <div class="info-box">
@@ -22,8 +25,8 @@
           </div>
          
         </div>
-
 @stop
+
 
 @section('content')
  

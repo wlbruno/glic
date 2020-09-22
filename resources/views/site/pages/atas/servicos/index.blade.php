@@ -6,7 +6,7 @@
 @section('content_header')
 
 <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
               <li class="breadcrumb-item active"><a href="{{ route('atas.produtos') }}">Atas Serviços</a></li>
  </ol>
 
@@ -17,7 +17,7 @@
         <div class="card-header">
         <form action="{{ route('atas.search') }}" method="POST" class="form form-inline">
             @csrf
-            <input type="text" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control" value="{{ $filters['filter'] ?? ''  }}">
+            <input type="text" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control" value="{{ $filters['filter'] ?? ''  }}">&nbsp;
             <button type="submit" class="btn btn-dark">Filtrar</button>
         </form>
         </div>

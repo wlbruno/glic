@@ -6,7 +6,7 @@
 @section('content_header')
 
 <ol class="breadcrumb float-sm-right">
-     <li class="breadcrumb-item " ><a href="/">Home</a></li>
+     <li class="breadcrumb-item " ><a href="/"><i class="fas fa-home"></i></a></li>
    <li class="breadcrumb-item active" ><a href="/">Página de Contato</a></li>
 </ol>
 
@@ -40,9 +40,7 @@
                   
                   <div class="form-group">
                    <label for="cnovasenha">Mensagem</label>
-                   <div class="col-md-12">
-                              <textarea class="form-control" required rows="3" placeholder="Digite sua mensagem"></textarea>
-                            </div>
+                              <textarea class="form-control" required rows="3" placeholder="Digite sua mensagem"></textarea>  
                   </div>
                 </div>
 
