@@ -78,7 +78,7 @@
             <i class="fas fa-file mr-2"></i> Atas Solicitadas
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{{url('/sair')}}"  class="dropdown-item dropdown-footer">Sair</a>
+          <a href="{{url('/sair')}}"  class="dropdown-item dropdown-footer"><i class="fas fa-sign-out-alt"></i>Sair</a>
         </div>
       </li>
       @endif
