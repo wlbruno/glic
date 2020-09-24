@@ -27,7 +27,7 @@
   
   @if($atas->status === 'CRIACAO' &&  $atas->tipo === 'LOTE')
     <h1>
-      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">Criar Lote</button>  
+      <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">CRIAR LOTE</button>  
   
     <a href="{{ route('atas.finish', $atas->id) }}" class="btn btn-secondary">FINALIZAR ATA</a>
     </h1>
@@ -45,7 +45,7 @@
         <div class="callout callout-warning">
           <h5><strong>ATENÇÃO!</strong></h5>
             <p>Essa ata já foi publicada, cuidado com as mudanças pois essa ata já pode ter sido <strong>licitada.</strong></p>
-              <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">Criar Lote</button>
+              <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">CRIAR LOTE</button>
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@
       
       <div class="col-sm-2">
         <div class="callout callout-secondary">
-           <p> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">Criar Lote</button></p>
+           <p> <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">CRIAR LOTE</button></p>
         </div>
       </div>
     </div>

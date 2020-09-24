@@ -45,7 +45,7 @@
         
         <body>
 
-            <p id="p2">
+        <p id="p2">
                 <h3><center>CERTIDÃO DE AUTORIZAÇÃO DE ADESÃO “CARONA”</center></h3>
         </p><br><br>
         <p>
@@ -79,6 +79,7 @@
         </p>
         <p>
             <strong>Tipo: </strong>{{$caronas->atas->tipo}}<br><br>
+            </p>
         <p>
             Certificamos, nos termos do<strong>art. 22, caput, e seu § 1º, do Decreto Estadual nº. 42.530/2015</strong>, atualizado, que a presente Adesão “Carona” está devidamente <strong>AUTORIZADA</strong> perante o presente Órgão Gerenciador,
             Secretaria de Saúde do Estado de Pernambuco.
@@ -99,14 +100,15 @@
             Certidão emitida gratuitamente com base na Portaria SES/PE nº. 001/2019, de
             01/07/2019, publicada no Diário Oficial do Estado de Pernambuco, edição de  02/07/2019.
         </p>
+        
         <p id="p2">
             <strong>Código de Autenticação:{{$caronas->Token->token}} </strong>
         </p>
         <p id="p2">
-            <strong>Emitida em:{{$caronas->created_at->format('d/m/Y')}} </strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <strong>Emitida em:{{$caronas->created_at->format('d/m/Y')}} </strong>
          
             <strong>Válida até:{{ date('d/m/Y', strtotime($caronas->validade)) }}  </strong>
-        </p><br>
+        </p><br><br><br><br><br><br><br><br><br><br><br>
 
             <div class="row">
             	<div class="col-md-12">

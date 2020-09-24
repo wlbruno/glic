@@ -35,19 +35,20 @@
               <li class="nav-item">
                 <a href="/home" class="nav-link">Home</a>
               </li>
-              @can('admin')
               <li class="nav-item">
-                <a href="{{ route('admin.home') }}" class="nav-link">Admin</a>
+                <a href="/contato" class="nav-link">Contato</a>
               </li>
-              @endcan  
             @can('orgao_orgao')
               <li>
                 <a href="{{ route('orgao.index') }}" class="nav-link">Órgão</a>
               </li>
               @endcan
+            
+          @can('admin')
               <li class="nav-item">
-            <a href="/contato" class="nav-link">Contato</a>
-          </li>
+                <a href="{{ route('admin.home') }}" class="nav-link">Painel de Controle</a>
+              </li>
+              @endcan
         
          
         </ul>

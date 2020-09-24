@@ -13,7 +13,25 @@
     </div>
 <br>
 
-    <div class="row">
+
+@stop
+
+
+@section('content')
+<div class="row">
+          <div class="col-12 col-sm-8 col-md-6">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">ÁREA ADMINISTRATIVA  DA GLIC</span>
+              </div>
+            </div>
+          </div>
+
+
+<!-- 
+<div class="row">
           <div class="col-12 col-sm-8 col-md-6">
             <div class="info-box">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
@@ -40,9 +58,7 @@
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
           <div class="col-lg-3 col-6">
-            <!-- small box -->
             <div class="small-box bg-secondary">
               <div class="inner">
                 <h3>53<sup style="font-size: 20px">%</sup></h3>
@@ -55,9 +71,7 @@
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
           <div class="col-lg-3 col-6">
-            <!-- small box -->
             <div class="small-box bg-secondary">
               <div class="inner">
                 <h3>44</h3>
@@ -70,9 +84,7 @@
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
           <div class="col-lg-3 col-6">
-            <!-- small box -->
             <div class="small-box bg-secondary">
               <div class="inner">
                 <h3>65</h3>
@@ -85,15 +97,7 @@
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
         </div>
-
-@stop
-
-
-@section('content')
- 
-
 <div class="card card-success">
               <div class="card-header">
                 <h3 class="card-title">Bar Chart</h3>
@@ -109,8 +113,8 @@
                   <canvas id="barChart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 764px;" width="764" height="250" class="chartjs-render-monitor"></canvas>
                 </div>
               </div>
-              <!-- /.card-body -->
             </div>
+            -->
 @stop
 
 
