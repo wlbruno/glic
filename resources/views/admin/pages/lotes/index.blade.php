@@ -110,7 +110,7 @@
                  			<thead>
                         @foreach($lote->ItensLote as $lote_item)
                           <tr>
-  				                  <th >Objeto</th>
+  				                  <th width="500">Objeto</th>
         									  <th width="125">N° E-fisco</th>
         									  <th>Fornecedor</th>
         									  <th>N° CNPJ</th>

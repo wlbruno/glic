@@ -114,9 +114,8 @@
             	<div class="col-md-12">
               		<div class="box box-default">
                 		<div class="box-header">
-                    		<div class="box-tools pull-right">
-                        		<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                             	</button>
+                    		<div class="box-tools">
+                        		<h3>LICITANTE: {{$caronas->Itens[0]->fornecedores->fornecedor}} <strong>CNPJ:</strong> {{$caronas->Itens[0]->fornecedores->cnpj}}</h3>
                         	</div>
                     	</div>
            					<div class="box-body" style="">
@@ -127,8 +126,6 @@
                                                 <tr id="tt">
                                                     <th>ITENS</th>
                                                     <th>N° E-FISCO</th>
-                                                    <th>Empresa</th>
-                                                    <th>CNPJ</th>
                                                     <th>Marca</th>
                                                     <th>Unidade de medida</th>
                                                     <th>Valor unitário</th>
@@ -141,8 +138,6 @@
                                                     <tr>
                                                         <td>{{$item->objetos->nome}}</td>
                                                         <td>{{$item->objetos->nefisco}}</td>
-                                                        <td>{{$item->fornecedores->fornecedor}}</td>
-                                                        <td>{{$item->fornecedores->cnpj}}</td>
                                                         <td>{{$item->marca}}</td>
                                                         <td>{{$item->medida}}</td>
                                                         <td>{{  'R$ '.number_format($item->vunitario, 2, ',', '.') }}</td>

@@ -22,7 +22,7 @@ class LotesController extends Controller
         $atas = Ata::find($id);
         
         //$ata = $atas->$this->repository->where('atas_id', $atas->id)->select('descricao', 'id')->orderBy('decricao', 'ASC')->paginate();
-        //$lotes = $this->repository->where('atas_id', $atas->id)->select('descricao')->orderBy('descricao', 'ASC')->paginate();
+        $lotes = $this->repository->where('atas_id', $atas->id)->select('descricao')->orderBy('descricao', 'ASC')->paginate();
         
             return view('admin.pages.lotes.index', compact('atas', 'lotes'));
     }

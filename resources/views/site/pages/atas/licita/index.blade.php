@@ -102,7 +102,7 @@
                     <table class="table m-0">
                       <thead>
                         <tr>
-                          <th width="200">Objeto</th>
+                          <th width="300">Objeto</th>
                             <th>N° E-fisco</th>
                             <th>Fornecedor</th>
                             <th>N° CNPJ</th>

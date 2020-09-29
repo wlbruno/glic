@@ -50,7 +50,6 @@ class ItensController extends Controller
     {
         $ata = Ata::find($idAta);  
      
-        
         $itens  = new Item();
         $itens->objetos_id = $request->input('objetos');
         $itens->fornecedores_id = $request->input('fornecedores');
