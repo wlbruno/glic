@@ -5,10 +5,16 @@
 
 @section('content_header')
 
-<ol class="breadcrumb float-sm-right">
-    <li class="breadcrumb-item " ><a href="/"><i class="fas fa-home"></i></a></li>
-    <li class="breadcrumb-item active" ><a href="{{ route('user.perfil') }}">perfil</a></li>
-</ol>
+
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item active"><strong>PÁGINA DE PERFIL</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
 
 @stop
 

@@ -66,6 +66,7 @@
 
 Route::prefix('admin')
 		->namespace('admin')
+		->middleware('auth')	
 		->group(function() {
 
 
