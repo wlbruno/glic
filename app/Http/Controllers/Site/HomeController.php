@@ -74,8 +74,9 @@ class HomeController extends Controller
 
     public function searchKey(Request $request)
     {
-        $tokens = Token::Where('token', $request->key)->get();
-            return view('site.pages.atas.key', compact('tokens'));
+        $qwe = Token::Where('token', $request->key)->get();
+        $token = Token::find($qwe);
+           return view('site.pages.atas.key', compact('token'));
     }
 
     /**

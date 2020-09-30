@@ -7,7 +7,7 @@
       <div class="col-md-12">
         <ol class="breadcrumb float-sm-left">
           <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
-            <li class="breadcrumb-item"><strong>ATA</strong></li>
+            <li class="breadcrumb-item"><strong>PÁGINA DE PESQUISA</strong></li>
         </ol>
       </div>
     </div>
@@ -18,9 +18,9 @@
 @section('content')
  <div class="card">
         <div class="card-header">
-       <form action="{{ route('atas.search.index') }}" method="POST" class="form form-inline nata">
+       <form action="{{ route('atas.search.index') }}" method="POST" class="form form-inline ">
             @csrf
-            <input type="text" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control" value="{{ $filters['filter'] ?? ''  }}">&nbsp;
+            <input type="text" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control nata" value="{{ $filters['filter'] ?? ''  }}">&nbsp;
             <button type="submit" class="btn btn-dark">Filtrar</button>
         </form>
         </div>
@@ -42,7 +42,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($atas as $ata)
+                    @forelse($atas as $ata)
                         <tr>
                             <td>{{ $ata->descricao }}</td>
                             <td>{{ $ata->nata }}</td>
@@ -60,7 +60,13 @@
                             </td>
                             @endcan         
                        </tr>
-                    @endforeach    
+                       @empty
+                       <div class="alert alert-warning">
+                       <p><strong> <i class="fas fa-exclamation-circle"></i> Não existe registro </strong></p>
+                                </div>
+
+                      
+              @endforelse
                 </tbody>
             </table>
         </div>

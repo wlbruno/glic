@@ -37,23 +37,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
       
-        <li class="nav-item dropdown">
-           <a href="/home" class="btn btn-sn btn-dark" >HOME</a>
-                
-        </li>
-         
-
-
-        <li class="nav-item dropdown">
-           <a href="/login" class="btn btn-sn btn-dark" style="position: absolute;  left: 20px ;">LOGIN</a>
-                
-        </li>
-          @if(!is_null(auth()->user()))
-         <li class="nav-item dropdown">
-           <a href="{{url('/sair')}}" class="btn btn-sn btn-danger"  style="position: absolute;  left: 20px ;">Sair</a>
-                
-        </li>
-          @endif
+     @guest
+      
+      <li class="nav-item dropdown">
+         <a href="/login" class="btn btn-sn btn-info"> Entrar</a>
+              
+      </li>
+      @endguest
       </ul>
     
     </div>

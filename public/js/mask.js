@@ -1,5 +1,5 @@
 $(document).ready(function($){
-    $('.fone').mask('00 00000-0000', {reverse: true});
+    $('.fone').mask('(00)0000-0000', {reverse: true});
     $('.nata').mask('0000/0000', {reverse: true});
     $('.nefisco').mask('000000-0', {reverse: true});
     $('.cnpj').mask('00.000.000/0000-00', {reverse: true});
