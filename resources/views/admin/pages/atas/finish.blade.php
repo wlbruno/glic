@@ -5,6 +5,8 @@
 @section('content_header')
 <div class="row">
       <div class="col-md-12">
+	  <div class="card card-default">
+      <div class="card-header">
         <ol class="breadcrumb float-sm-left">
           <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
@@ -16,6 +18,8 @@
             @endif
           <li class="breadcrumb-item"><strong>FINALIZAR ATA</strong></li>
         </ol>
+		</div>
+    </div>
       </div>
     </div>
 <br>
@@ -172,8 +176,8 @@
 											<button type="button" class="btn btn-secondary btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">Ações </button>
 											<span class="sr-only">Toggle Dropdown</span>
 												<div class="dropdown-menu" role="menu" x-placement="bottom-start">
-													<a href="#Modal" class="dropdown-item" >Editar Fornecedor</a>
-													<a href="#ModalObjeto" class="dropdown-item" >Editar Objeto</a>
+													<!-- <a href="#Modal" class="dropdown-item" >Editar Fornecedor</a>
+													<a href="#ModalObjeto" class="dropdown-item" >Editar Objeto</a> -->
 													<a href="{{ route('item.destroy', [$atas->id, $lote_item->item->id]) }}" class="dropdown-item"> Deletar item</a>  
 													<a href="{{ route('item.edit', [$atas->id, $lote->id, $lote_item->item->id]) }}" class="dropdown-item"> Editar item</a>  
 														<div class="dropdown-divider"></div>

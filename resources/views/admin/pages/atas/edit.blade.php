@@ -3,8 +3,25 @@
 @section('title', "Editar a ata {$ata->nata}")
 
 @section('content_header')
-    <h1>Editar a ata  {{ $ata->nata }}</h1>
-    <a href="{{ route('atas.show', $ata->id) }}" class="btn btn-dark">Voltar</a>
+
+
+    <div class="row">
+      <div class="col-md-12">
+	  <div class="card card-default">
+      <div class="card-header">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+	        <li class="breadcrumb-item"><a href="{{ route('atas.index') }}"><strong>LISTAGEM DE ATAS</strong></a></li>
+        <li class="breadcrumb-item"><a href="{{ route('atas.show', $ata->id) }}"><strong>VISUALIZAR ATA: {{$ata->nata}}</strong></a></li>
+          <li class="breadcrumb-item"><strong>EDITAR ATA: {{ $ata->nata }}</strong></li>
+        </ol>
+		</div>
+    </div>
+      </div>
+    </div>
+<br>
+
 @stop
 
 @section('content')

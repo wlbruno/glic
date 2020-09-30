@@ -218,4 +218,21 @@ class AtasController extends Controller
           return response()->download(storage_path()."\app/".$atas->arquivo);
 
     }
+
+    
+    public function updateArquivo(Request $request, $id)
+    {
+
+        $atas = Ata::find($id);
+        $data = $request->all();
+     
+        $name = $request->arquivo->getClientOriginalName();
+        $data['arquivo'] = $request->arquivo->storeAs('pdf' , $name);
+               
+        $atas->arquivo =  $data['arquivo'];
+        $atas->save();
+
+        return redirect()->back();
+    }
+
 }

@@ -9,7 +9,7 @@
 <div class="col-md-13">
   <div class="form-group">
     <label for="nome">* Nome:</label>
-      <textarea name="nome" cols="15" rows="5" required class="form-control" placeholder="Digite o nome do objeto" value="{{ $objeto->name ?? old('nome') }}"></textarea>
+      <textarea name="nome" cols="15" rows="5" required class="form-control" placeholder="Digite o nome do objeto">{{ $objeto->nome ?? old('nome') }}</textarea>
   </div>
 </div>
 

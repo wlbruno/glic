@@ -140,6 +140,8 @@ Route::prefix('admin')
 	Route::get('atas/{id}/finalizar', 'AtasController@finish')->name('atas.finish');
 	Route::put('atas/{id}/salvar', 'AtasController@save')->name('atas.save');
 	Route::put('atas/{id}/publicar', 'AtasController@publicar')->name('atas.public');
+	//Update arquivo
+	Route::post('ata/{id}/arquivo', 'AtasController@updateArquivo')->name('update.arquivo');
 
 	
 	/**

@@ -8,10 +8,16 @@
 
 <div class="row">
       <div class="col-md-12">
-        <ol class="breadcrumb float-sm-left">
+      <div class="card card-default">
+      <div class="card-header">
+      <ol class="breadcrumb float-sm-left">
           <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item active"><strong>PÁGINA DE CONTATO</strong></li>
         </ol>
+      </div>
+    
+      </div>
+        
       </div>
     </div>
 <br>

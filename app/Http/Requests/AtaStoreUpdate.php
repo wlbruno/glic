@@ -36,7 +36,6 @@ class AtaStoreUpdate extends FormRequest
             'comissao' => 'required',
             'status' => 'required',
             'orgao' => 'required',
-            'arquivo' => 'required',
         ];
     }
 
@@ -61,7 +60,6 @@ class AtaStoreUpdate extends FormRequest
                 'tipo.required' => 'Selecione o tipo da ata',
                 'comissao.required' => 'Selecione a comissão da ata',
                 'orgao.required' => 'Selecione o campo Orgão',
-                'arquivo.required' => 'O arquivo é obrigatório',
 
             ];
         }

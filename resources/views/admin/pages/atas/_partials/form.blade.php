@@ -140,13 +140,15 @@
         </div>
       </div>
 
+      @if(!isset($ata))
       <div class="row">
         <div class="col-md-6">
           <label for="arquivo">* Arquivo</label>
-            <input type="file" class="form-control"  name="arquivo"  value="{{ $ata->arquivo ?? old('arquivo') }}">
+            <input type="file" class="form-control"  name="arquivo" required  value="{{ $ata->arquivo ?? old('arquivo') }}">
         </div>
       </div>
-
+      @endif
+  
   <div class="card-footer">
     <div class="form-group">
       <button type="submit" class="btn btn-dark formButton" id="send">Salvar</button>
