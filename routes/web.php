@@ -40,9 +40,10 @@
 	*	Routes User AUTH	
 	*
 	*/
-	Route::get('/perfil', 'Site\User\UserController@perfil')->name('user.perfil')->middleware('auth');;
+	Route::get('/perfil', 'Site\User\UserController@perfil')->name('user.perfil')->middleware('auth');
 	Route::put('perfil/update', 'Site\User\UserController@perfilUpdate')->name('perfil.update')->middleware('auth');
-	Route::get('/historico', 'Site\HomeController@historico')->name('user.historico')->middleware('auth');;
+	Route::get('/historico', 'Site\HomeController@historico')->name('user.historico')->middleware('auth');
+	
 
 	/**
 	*	Routes public	
@@ -82,7 +83,8 @@ Route::prefix('admin')
     Route::post('users/{id}/roles', 'ACL\RoleUserController@attachRolesUser')->name('users.roles.attach');
     Route::any('users/{id}/roles/create', 'ACL\RoleUserController@rolesAvailable')->name('users.roles.available');
     Route::get('users/{id}/roles', 'ACL\RoleUserController@roles')->name('users.roles');
-    Route::get('roles/{id}/users', 'ACL\RoleUserController@users')->name('roles.users');
+	Route::get('roles/{id}/users', 'ACL\RoleUserController@users')->name('roles.users');
+	
 
     /**
      * Permission x Role
@@ -102,12 +104,14 @@ Route::prefix('admin')
 	/**
      * Routes Users |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
      */
-    Route::any('users/search', 'UserController@search')->name('users.search');
-    Route::resource('users', 'UserController');
+	Route::get('/users/pendentes', 'UserController@pendentes')->name('users.pendentes');
+	Route::get('/users/permitidos', 'UserController@permitidos')->name('users.permitidos');
+	Route::any('users/search', 'UserController@search')->name('users.search');
+	Route::resource('users', 'UserController');
 	
-
+	
 	/**
-	* 	Routes Permissions |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
+	 * 	Routes Permissions |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
 	*/
 	Route::any('permissions/search', 'ACL\PermissionController@search')->name('permissions.search');
 	Route::resource('permissions', 'ACL\PermissionController');
