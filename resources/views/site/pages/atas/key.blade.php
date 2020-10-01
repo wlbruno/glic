@@ -36,9 +36,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                    @if(!isset($token))
-                        <h3>ERRO</h3>
-                        @endif
+                
                         <td>{{$token[0]->Carona->User->Solicitante->orgao}}</td>
                         <td>{{$token[0]->Carona->Atas->departamento}}</td>
                         <td>{{$token[0]->Carona->Atas->nata}}</td>

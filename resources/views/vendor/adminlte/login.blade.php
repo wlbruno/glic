@@ -30,11 +30,13 @@
 
 @section('body')
     <div class="login-box">
-        <div class="login-logo">
-            <a href="{{ route('home.index') }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
-        </div>
+        
         <div class="card">
             <div class="card-body login-card-body">
+            <div class="login-logo">
+            <a href="{{ route('home.index') }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
+            </div>
+            <hr>
                 <p class="login-box-msg">Faça login para iniciar sua sessão</p>
                 <form action="{{ $login_url }}" method="post">
                     {{ csrf_field() }}
