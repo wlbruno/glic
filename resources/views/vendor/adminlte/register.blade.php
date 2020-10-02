@@ -24,12 +24,14 @@
 @section('body')
     
     <div class="register-box">
+        <div class="card">
+            <div class="card-body register-card-body">
         <div class="register-logo">
             <a href="{{ route('home.index') }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
         </div>
-        <div class="card">
-            <div class="card-body register-card-body">
-            <p><span> {{ session('plan')->name }}</span></p>
+        <hr>
+            <p style="text-align: center
+            "><span> {{ session('plan')->name }}</span></p>
             <form action="{{ route('register') }}" method="post">
                 {{ csrf_field() }}
 

@@ -18,13 +18,14 @@
 @endif
 
 @section('body')
+        <div class="card">
+            <div class="card-body login-card-body">
     <div class="login-box">
         <div class="login-logo">
             <a href="{{ $dashboard_url }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
         </div>
-        <div class="card">
-            <div class="card-body login-card-body">
-                <p class="login-box-msg">{{ __('adminlte::adminlte.password_reset_message') }}</p>
+            <hr>
+                <p class="login-box-msg">Recuperar senha</p>
                 @if (session('status'))
                     <div class="alert alert-success">
                         {{ session('status') }}
@@ -33,7 +34,7 @@
                 <form action="{{ $password_email_url }}" method="post">
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
-                        <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" value="{{ old('email') }}" placeholder="{{ __('adminlte::adminlte.email') }}" autofocus>
+                        <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" value="{{ old('email') }}" placeholder="Digite seu Email" autofocus>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -46,7 +47,7 @@
                         @endif
                     </div>
                     <button type="submit" class="btn btn-primary btn-block btn-flat">
-                        {{ __('adminlte::adminlte.send_password_reset_link') }}
+                        Enviar link de recuperação
                     </button>
                 </form>
             </div>
