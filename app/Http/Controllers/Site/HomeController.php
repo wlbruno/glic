@@ -61,8 +61,7 @@ class HomeController extends Controller
     {
         $filters = $request->only('filter');
 
-         $atas = $this->repository
-                    ->where(function($query) use ($request) {
+         $atas = Ata::where(function($query) use ($request) {
                         if ($request->filter) {
                             $query->where('nata', $request->filter)
                            ->orWhere('nprocesso', 'LIKE', "%{$request->filter}%");

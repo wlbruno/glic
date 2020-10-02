@@ -20,9 +20,9 @@
 @section('content')
  <div class="card">
         <div class="card-header">
-        <form action="{{ route('atas.search') }}" method="POST" class="form form-inline">
+        <form action="{{ route('atas.search.index') }}" method="POST" class="form form-inline">
             @csrf
-            <input type="text" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control" value="{{ $filters['filter'] ?? ''  }}">
+            <input type="text" name="filter" placeholder="Nº Ata ou Nº Processo" class="form-control nata" value="{{ $filters['filter'] ?? ''  }}">
             <button type="submit" class="btn btn-dark">Filtrar</button>
         </form>
         </div>
@@ -80,4 +80,10 @@
         </div>
     </div>
 
+@stop
+
+
+@section('js')
+         <script src="{{asset('js/jquery.mask.js')}}"></script>
+      <script src="{{asset('js/mask.js')}}"></script>
 @stop
