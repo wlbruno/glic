@@ -43,7 +43,7 @@
                               <td>{{$carona->Atas->nata}}</td>
                               <td>{{$carona->Atas->npregao}}</td>
                               <td>{{$carona->Atas->nprocesso}}</td>
-                              <td>{{ date( 'd/m/Y', strtotime($carona->Atas->vigencia)) }}</td>
+                              <td>{{ date( 'd/m/Y', strtotime($carona->Atas->data_vigencia)) }}</td>
                               <td>{{$carona->Atas->tipo}}</td>
                               <td>{{$carona->Atas->comissao}}</td>    
                         </tr>

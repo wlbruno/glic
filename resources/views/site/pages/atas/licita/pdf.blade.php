@@ -102,7 +102,7 @@
         </p>
         
         <p id="p2">
-            <strong>Código de Autenticação:{{$caronas->Token->token}} </strong>
+            <strong>Código de Autenticação:{{$caronas->token}} </strong>
         </p>
         <p id="p2">
             <strong>Emitida em:{{$caronas->created_at->format('d/m/Y')}} </strong>

@@ -14,9 +14,10 @@ class HomeController extends Controller
 
     private $repository;
 
-    public function __construct(Ata $atas)
+    public function __construct(Ata $atas, Carona $caronas)
     {
         $this->repository = $atas;
+        $this->repository = $caronas;
     }
 
 
@@ -74,12 +75,25 @@ class HomeController extends Controller
 
     public function searchKey(Request $request)
     {
-        $data = $request->all();
+        $data = $request->input('key');
+         
+        $caronas = $this->repository
+        ->where(function($query) use ($request) {
+            if ($request->key) {
+                $query->where('token', $request->key);
+            }
+       })
+        ->get();
         
-        $token = Token::Where('token', $data)->get();
-
-        return view('site.pages.atas.key', compact('token'));
+        return view('site.pages.atas.key', compact('caronas'));
     }
+
+    // public function keyPDF($id)
+    // {
+    //     $carona = Ata::find($id);
+
+    //     return response()->download(storage_path()."\app/carona/".$carona->token);
+    // }
 
     /**
     *   Historico do User

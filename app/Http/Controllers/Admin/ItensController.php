@@ -77,10 +77,14 @@ class ItensController extends Controller
         } else{
             $item_lote->lotes_id = $request->lotes_id;
             $item_lote->save();
-        } 
+        }  
 
-      
-        return redirect()->route('lotes.create', $ata->id);
+        if($ata->tipo === 'ITEM' && isset($ata->lotes[0]->ItensLote[0]->item)){
+            return redirect()->route('lotes.create', $ata->id);
+            
+        }
+
+        return redirect()->back();
 
     }
 
@@ -101,7 +105,7 @@ class ItensController extends Controller
         $itens->orgao = $request->input('quantidade');
         $itemDB = $itens->save();
 
-   
+        
       
         return redirect()->route('lotes.create', $ata->id);
     }

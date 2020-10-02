@@ -11,6 +11,12 @@
 	*/
 	Route::get('ata/{id}/pdf', 'Admin\AtasController@pdf')->name('download.pdf');
 
+
+	/**
+	 * Route search key pdf 
+	 */
+	Route::get('carona/{id}/pdf', 'Site\HomeController@keyPDF')->name('download.pdf.hey');
+
 	/**
 	*	Routes Licita Atas
 	*
@@ -20,7 +26,7 @@
 	Route::POST('ata/carona/lote/{id}', 'Site\Licita\LicitaController@getlotes')->name('licita.lote');
 
 	//ROUTE GERAR PDF
-	Route::get('ata/carona/{id}', 'Site\Licita\LicitaController@gerarPDF')->name('licita.pdf');
+	//Route::get('ata/carona/{id}', 'Site\Licita\LicitaController@gerarPDF')->name('licita.pdf');
 
 	/**
 	*	Routes Menu Atas
@@ -103,7 +109,8 @@ Route::prefix('admin')
      * Routes Users |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
      */
     Route::any('users/search', 'UserController@search')->name('users.search');
-    Route::resource('users', 'UserController');
+	Route::resource('users', 'UserController');
+	
 	
 
 	/**
@@ -165,7 +172,7 @@ Route::prefix('admin')
 	Route::get('atas/{idAta}/lote/{idlote}/item/{idItem}', 'ItensController@edit')->name('item.edit');
 	Route::POST('atas/{idAta}/lote/{idlote}/item/{idItem}', 'ItensController@update')->name('item.update');
 	Route::get('atas/{idAta}/item/{idItem}/delete', 'ItensController@destroy')->name('item.destroy');
-
+	
 	/**
 	*	Routes Órgao
 	*

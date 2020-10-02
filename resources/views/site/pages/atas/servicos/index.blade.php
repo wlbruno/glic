@@ -49,7 +49,7 @@
                             <td>{{ $ata->nata }}</td>
                             <td>{{ $ata->npregao }}</td>
                             <td>{{ $ata->nprocesso }}</td>
-                            <td>{{ date( 'd/m/Y', strtotime($ata->vigencia)) }}</td>
+                            <td>{{ date( 'd/m/Y', strtotime($ata->data_vigencia)) }}</td>
                             <td>{{ $ata->tipo }}</td>
                             <td>{{ $ata->comissao }}</td>
                           

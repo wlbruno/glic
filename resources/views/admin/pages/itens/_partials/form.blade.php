@@ -103,6 +103,11 @@
 <div class="card-footer">
   <div class="form-group">
     <button type="submit" class="btn btn-success formButton" id="send">Salvar</button>
+    
+    @if(isset($ata->lotes) == true)
+      <a href="{{ route('lotes.create', $ata->id) }}" class="btn btn-secondary">Voltar</a>
+    @endif
+  
   </div>
 </div>
 

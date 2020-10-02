@@ -39,7 +39,7 @@
 					      @if(count($atas->lotes) == 0)
 			            <input type="hidden"  name="descricao" value="ITEM" required="">
 					      @else
-					        <input type="hidden" name="lotes_id" value="{{$lote->id}}">
+					        <input type="hidden" name="lotes_id" value="{{$lote ?? ''->id}}">
 					        @endif
 	    			@include('admin.pages.itens._partials.form')
 		   		</form>

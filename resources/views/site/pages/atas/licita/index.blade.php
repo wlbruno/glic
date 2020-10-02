@@ -53,7 +53,7 @@
                   <td>{{ $atas->nata }}</td>
                   <td>{{ $atas->npregao }}</td>
                   <td>{{ $atas->nprocesso }}</td>
-                  <td>{{ $atas->vigencia }}</td>
+                  <td>{{ date( 'd/m/Y', strtotime($atas->data_vigencia)) }}</td>
                   <td>{{ $atas->tipo }}</td>
                   <td>{{ $atas->comissao }}</td>
                   <td width="40"><a href="{{ route('download.pdf', $atas->id) }}">{{ $atas->arquivo }}</a></td>

@@ -37,6 +37,7 @@ class LicitaController extends Controller
         $caronas->atas_id = $request->input('atas');
         $caronas->users_id = Auth::user()->id;
         $caronas->validade = date('Y-m-d', strtotime("+90 days", strtotime($now)));
+        $caronas->token = Str::random(10);
         $caronas->save();
             for($i=0; $i<count($request->itens); $i++) {
                 if($request->qtd_itens[$i] > 0){
@@ -52,11 +53,7 @@ class LicitaController extends Controller
                 }
                 $itens->save();  
             }
-        }
-          $token = new Token();
-                $token->token = Str::random(30);
-                $token->caronas_id = $caronas->id;               
-                $token->save();   
+        }  
           
             return redirect()->route('licita.pdf', $caronas->id);
 
@@ -70,6 +67,7 @@ class LicitaController extends Controller
         $caronas = Carona::find($id);
 
         $pdf = \PDF::LoadView('site.pages.atas.licita.pdf', compact('caronas'));
+        $pdf->save(storage_path("app\carona\/$caronas->token"));
         return $pdf->stream();
     }
 

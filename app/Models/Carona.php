@@ -19,10 +19,6 @@ class Carona extends Model
       return $this->hasOne("App\Models\Carona_item", "caronas_id");
     }
 
-    public function Token() {
-      return $this->hasOne("App\Models\Token", "caronas_id");
-    }
-
     public function User() {
         return $this->belongsTo("App\Models\User", "users_id");
     }

@@ -20,6 +20,8 @@ class CreateCaronasTable extends Migration
 
             
             $table->date('validade');
+            
+            $table->string('token')->unique();
 
             $table->unsignedBigInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users');
