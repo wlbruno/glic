@@ -17,44 +17,33 @@
 @stop
 
 @section('content')
-    <div class="card">
-        <div class="card-header">
-            <form action="{{ route('users.search') }}" method="POST" class="form form-inline">
-                @csrf
-                <input type="text" name="filter" placeholder="Filtrar:" class="form-control" value="{{ $filters['filter'] ?? '' }}">&nbsp;
-                <button type="submit" class="btn btn-dark">Filtrar</button>
-            </form>
-        </div>
-        <div class="card-body">
-            <table class="table table-condensed">
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>E-mail</th>
-                        <th width="270">Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                        <tr>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td style="width=10px;">
-                                <!-- <a href="{{ route('users.edit', $user->id) }}" class="btn btn-dark">Edit</a>
-                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-dark">VER</a> -->
-                               <a href="{{ route('users.roles', $user->id) }}" class="btn btn-dark" title="Cargos"><i class="fas fa-address-card"></i> Permissões</a>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-        <div class="card-footer">
-            @if (isset($filters))
-                {!! $users->appends($filters)->links() !!}
-            @else
-                {!! $users->links() !!}
-            @endif
-        </div>
-    </div>
-@stop
+    <div class="row">
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-secondary">
+              <div class="inner">
+
+                <p style="text-align: center;font-size: 26px">Usuários pendentes</p>
+                <p style="text-align: center;font-size: 26px"><strong>({{$users}})</strong></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="{{ route('users.pendentes') }}" class="small-box-footer">ACESSAR &nbsp;<i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-secondary">
+              <div class="inner">
+
+                <p style="text-align: center;font-size: 26px">Usuários permitidos</p>
+                <p style="text-align: center;font-size: 26px"><strong>({{$users}})</strong></p>
+              </div>
+              <div class="icon">
+                <i class="ion ion-bag"></i>
+              </div>
+              <a href="{{ route('users.permitidos') }}" class="small-box-footer">ACESSAR &nbsp;<i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+      </div>
+@stop 

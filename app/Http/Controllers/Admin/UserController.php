@@ -25,11 +25,24 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->repository->latest()->paginate();
+        $users = $this->repository->count();
        
         return view('admin.pages.users.index', compact('users'));
     }
 
+    public function permitidos()
+    {
+        $users = $this->repository->paginate();
+       
+        return view('admin.pages.users.permitidos', compact('users'));
+    }
+
+    public function pendentes()
+    {
+        $users = $this->repository->paginate();
+       
+        return view('admin.pages.users.pendentes', compact('users'));
+    }
     /**
      * Show the form for creating a new resource.
      *
