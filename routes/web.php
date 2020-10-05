@@ -15,7 +15,7 @@
 	/**
 	 * Route search key pdf 
 	 */
-	Route::get('carona/{id}/pdf', 'Site\HomeController@keyPDF')->name('download.pdf.hey');
+	//Route::get('carona/{id}/pdf', 'Site\HomeController@keyPDF')->name('download.pdf.hey');
 
 	/**
 	*	Routes Licita Atas
@@ -26,7 +26,7 @@
 	Route::POST('ata/carona/lote/{id}', 'Site\Licita\LicitaController@getlotes')->name('licita.lote');
 
 	//ROUTE GERAR PDF
-	//Route::get('ata/carona/{id}', 'Site\Licita\LicitaController@gerarPDF')->name('licita.pdf');
+	Route::get('ata/carona/{id}', 'Site\Licita\LicitaController@gerarPDF')->name('licita.pdf');
 
 	/**
 	*	Routes Menu Atas

@@ -108,7 +108,7 @@
                             <th>N° CNPJ</th>
                             <th>Unidade de medida</th>
                             <th>Valor unitário</th>
-                            <th>Quantidade</th>
+                            <th>Disponível</th>
                               @if($atas->tipo === "ITEM")
                                 <th>Solicita</th>
                               @endif
@@ -124,25 +124,27 @@
                               <td>{{$lote_item->item->medida}}</td>
                               <td>{{  'R$ '.number_format($lote_item->item->vunitario, 2, ',', '.') }}</td>        
                               <td>{{$lote_item->item->max}}</td>
+                              
                               <td> 
                                 @if($atas->tipo === "ITEM")
                                   @php $soma = 0; @endphp
                                     @forelse($itens_solicitados as $item_solicitado)
                                       @if($item_solicitado->itens_id == $lote_item->item->id)
                                         @php $soma = $soma + $item_solicitado->quantidade; @endphp
+                                  
                                     @endif
                                     @empty
                                   @endforelse
                                     <input type="hidden" name="itens[]" value="{{$lote_item->item->id}}">   
-                                      @if($soma > 0)
-                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$lote_item->item->max - $soma}}" placeholder="..." >
+                                      @if($soma > 0 )
+                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$lote_item->item->max}}" placeholder="..." >
                                       @else
                                         <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$lote_item->item->max}}" placeholder="..." >
                                       @endif
                                         <div class="progress progress-xs" >
-                                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$lote_item->item->max}}" style="width: {!! (100 * $soma)/ $lote_item->item->max !!}%">
+                                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$lote_item->item->value}}" style="width: {!! (100 * $soma)/ $lote_item->item->value !!}%">
                                         </div>
-                                      </div>   <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $lote_item->item->max) !!}%</b> da quantidade total.</span>
+                                      </div>   <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $lote_item->item->value) !!}%</b> da quantidade total <b>{{$lote_item->item->value}}</b>.</span>
                                     @endif
                                   </td>     
                                 </tr>

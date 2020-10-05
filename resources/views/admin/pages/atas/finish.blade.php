@@ -168,7 +168,7 @@
 		                                <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
 		                                <td>{{$lote_item->item->fornecedores->cnpj}}</td>
 		                                <td>{{$lote_item->item->quantidade}}</td>
-		                                <td>{{$lote_item->item->teto}}</td>
+		                                <td>{{$lote_item->item->max}}</td>
 		                                <td>{{$lote_item->item->medida}}</td>
 		                                <td>{{$lote_item->item->vunitario}}</td>
 										<td>{{  'R$ '.number_format($lote_item->item->vtotal, 3, ',', '.') }}</td>           

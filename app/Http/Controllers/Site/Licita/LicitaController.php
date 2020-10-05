@@ -19,14 +19,17 @@ class LicitaController extends Controller
    	{ 
      $atas = Ata::find($id);
         $caronas = Carona::select('id')->where('atas_id', $atas->id)->where('users_id', Auth::user()->id)->get()->toArray();
+        
            if(count($caronas) > 0){
                 $itens_solicitados = Carona_item::whereIn('caronas_id', $caronas)->get();
+         
             }else { 
                 $itens_solicitados = array();
             }if(isset($atas)) {
+                // dd(isset($atas));
                 return view('site.pages.atas.licita.index', compact('atas', 'itens_solicitados'));
             }
-                return redirect('/');
+                return redirect()->back();
    	}
 
     public function carona(Request $request)

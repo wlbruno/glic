@@ -4,11 +4,18 @@
 @section('titulo', "Nº Ata: $ata->nata ")
 
 @section('content_header')
+ 
+ <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item active"><a href="{{ route('licita.index', $ata->id) }}"><strong>LISTAGEM DE LOTES</strong></a></li>
+            <li class="breadcrumb-item"><strong>ITENS</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
 
-<ol class="breadcrumb float-sm-right">
-  <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
-  <li class="breadcrumb-item active"><a href="{{ route('licita.index', $ata->id) }}">Nº Ata {{ $ata->nata }}</a></li>
- </ol>
 
 @stop
 
@@ -58,15 +65,15 @@
                                     @empty
                                   @endforelse
                                     <input type="hidden" name="itens[]" value="{{$itens->item->id}}">   
-                                      @if($soma > 0)
-                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]" required max="{{$itens->item->max - $soma}}" placeholder="..." >
+                                    @if($soma > 0 )
+                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$itens->item->max}}" placeholder="..." >
                                       @else
-                                        <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]" required  max="{{$itens->item->max}}" placeholder="..." >
+                                        <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$itens->item->max}}" placeholder="..." >
                                       @endif
                                         <div class="progress progress-xs" >
-                                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"  aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$itens->item->max}}" style="width: {!! (100 * $soma)/ $itens->item->max !!}%">
+                                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$itens->item->value}}" style="width: {!! (100 * $soma)/ $itens->item->value !!}%">
                                         </div>
-                                      </div>   <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $itens->item->max) !!}%</b> da quantidade total.</span>
+                                      </div>   <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $itens->item->value) !!}%</b> da quantidade total <b>{{$itens->item->value}}</b>.</span>
                         </td>
                       </tr>
                     @endforeach

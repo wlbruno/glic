@@ -107,8 +107,8 @@
                   
 
                 <div class="input-group mb-3">
-                    <input type="text" name="ramal" required class="form-control fone {{ $errors->has('ramal') ? 'is-invalid' : '' }}" value="{{ old('ramal') }}"
-                           placeholder="Telefone" autofocus>
+                    <input type="text" name="ramal" required class="form-control telefone {{ $errors->has('ramal') ? 'is-invalid' : '' }}" value="{{ old('ramal') }}"
+                    placeholder="(00) 00000000" autofocus>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-phone-square-alt"></span>

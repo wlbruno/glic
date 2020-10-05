@@ -23,6 +23,7 @@ class CreateItemsTable extends Migration
             $table->string('medida');
             $table->string('quantidade');
             $table->string('max');
+            $table->string('value');
             $table->string('vunitario');
             $table->text('vtotal');
             $table->string('orgao');

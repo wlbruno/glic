@@ -55,6 +55,7 @@ class ItensController extends Controller
         $itens->fornecedores_id = $request->input('fornecedores');
         $itens->quantidade = $request->input('quantidade') / 2;
         $itens->max = $request->input('quantidade') * 2;
+        $itens->value = $itens->max;
         $itens->medida = $request->input('medida');
         $itens->vunitario = $request->input('vunitario');
         $itens->marca = $request->input('marca');
@@ -98,6 +99,7 @@ class ItensController extends Controller
         $itens->fornecedores_id = $request->input('fornecedores');
         $itens->quantidade = $request->input('quantidade') / 2;
         $itens->max = $request->input('quantidade') * 2;
+        $itens->value = $itens->max;
         $itens->medida = $request->input('medida');
         $itens->vunitario = $request->input('vunitario');
         $itens->marca = $request->input('marca');
