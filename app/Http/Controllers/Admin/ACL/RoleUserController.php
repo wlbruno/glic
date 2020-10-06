@@ -29,6 +29,7 @@ class RoleUserController extends Controller
 
         $roles = $user->roles()->paginate();
 
+       
         return view('admin.pages.users.roles.roles', compact('user', 'roles'));
     }
 
@@ -55,12 +56,15 @@ class RoleUserController extends Controller
 
         $roles = $user->rolesAvailable($request->filter);
 
+        
+
         return view('admin.pages.users.roles.available', compact('user', 'roles', 'filters'));
     }
 
 
     public function attachRolesUser(Request $request, $idUser)
     {
+
         if (!$user = $this->user->find($idUser)) {
             return redirect()->back();
         }
@@ -70,8 +74,10 @@ class RoleUserController extends Controller
                         ->back()
                         ->with('info', 'Precisa escolher pelo menos uma permissão');
         }
-
         $user->roles()->attach($request->roles);
+        
+        $user->active = 'P';
+        $user->update();
 
         return redirect()->route('users.roles', $user->id);
     }

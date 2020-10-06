@@ -3,12 +3,20 @@
 @section('title', "Permissões disponíveis cargo {$user->name}")
 
 @section('content_header')
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('users.index') }}" class="active">Usuários</a></li>
-    </ol>
 
-    <h1>Permissões disponíveis cargo <strong>{{ $user->name }}</strong></h1>
+    <div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('users.index') }}"><strong>LISTAGEM DE USUÁRIOS</strong></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('users.roles', $user->id) }}"><strong>PERMISSÕES DO USUÁRIO {{$user->name}}</strong></a></li>
+          <li class="breadcrumb-item"><strong>PERMISSÕES DISPONÍVEIS PARA O USUÁRIO {{ $user->name }}</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
+
 
 @stop
 
@@ -32,7 +40,6 @@
                 <tbody>
                     <form action="{{ route('users.roles.attach', $user->id) }}" method="POST">
                         @csrf
-
                         @foreach ($roles as $role)
                             <tr>
                                 <td>

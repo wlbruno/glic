@@ -25,23 +25,38 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->repository->count();
-       
-        return view('admin.pages.users.index', compact('users'));
+        $users = $this->repository;
+        
+        $userComPermissao = $this->repository->where('active', "P")->count();
+        $userSemPermissao = $this->repository->where('active', "X")->count();
+        $orgao = $this->repository->where('active', "O")->count();
+
+        return view('admin.pages.users.index', compact('users', 'userComPermissao', 'userSemPermissao', 'orgao'));
     }
+
+    /**
+     * Get users permissions, not int permissions and órgão
+     */
 
     public function permitidos()
     {
-        $users = $this->repository->paginate();
+        $users = $this->repository->where('active', "P")->paginate();
        
-        return view('admin.pages.users.permitidos', compact('users'));
+        return view('admin.pages.users.config.permitidos', compact('users'));
     }
 
     public function pendentes()
     {
-        $users = $this->repository->paginate();
+        $users = $this->repository->where('active', "X")->paginate();
        
-        return view('admin.pages.users.pendentes', compact('users'));
+        return view('admin.pages.users.config.pendentes', compact('users'));
+    }
+
+    public function orgao()
+    {
+        $users = $this->repository->where('active', "O")->paginate();
+       
+        return view('admin.pages.users.config.orgao', compact('users'));
     }
     /**
      * Show the form for creating a new resource.

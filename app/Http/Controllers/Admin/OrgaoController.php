@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Ata;
 use App\Models\Lote;
 use App\Models\Item;
+use App\Models\Plan;
 use App\Models\Ata_orgao;
 
 
@@ -65,4 +66,16 @@ class OrgaoController extends Controller
 
         return redirect()->back();
     }
+    
+    /**
+     * Crud orgao
+     * 
+     */
+
+     public function novoOrgao()
+     {
+        $perfis = Plan::all();
+
+        return view('admin.pages.users.orgao.create', compact('perfis'));
+     }
 }

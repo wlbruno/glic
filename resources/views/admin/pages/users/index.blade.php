@@ -22,7 +22,7 @@
         <div class="small-box bg-secondary">
           <div class="inner">
             <p style="text-align: center;font-size: 26px">Usuários sem permissões</p>
-            <p style="text-align: center;font-size: 26px"><strong>({{$users}})</strong></p>
+            <p style="text-align: center;font-size: 26px"><strong>({{$userSemPermissao}})</strong></p>
           </div>
           <div class="icon">
             <i class="ion ion-bag"></i>
@@ -35,7 +35,7 @@
           <div class="small-box bg-secondary">
             <div class="inner">
               <p style="text-align: center;font-size: 26px">Usuários com permissões</p>
-              <p style="text-align: center;font-size: 26px"><strong>({{$users}})</strong></p>
+              <p style="text-align: center;font-size: 26px"><strong>({{$userComPermissao}})</strong></p>
             </div>
             <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -48,12 +48,12 @@
             <div class="small-box bg-secondary">
               <div class="inner">
                 <p style="text-align: center;font-size: 26px">Órgão participantes</p>
-                <p style="text-align: center;font-size: 26px"><strong>({{$users}})</strong></p>
+                <p style="text-align: center;font-size: 26px"><strong>({{$orgao}})</strong></p>
               </div>
               <div class="icon">
                   <i class="ion ion-bag"></i>
               </div>
-                <a href="{{ route('users.permitidos') }}" class="small-box-footer">ACESSAR &nbsp;<i class="fas fa-arrow-circle-right"></i></a>
+                <a href="{{ route('users.orgao') }}" class="small-box-footer">ACESSAR &nbsp;<i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
       </div>

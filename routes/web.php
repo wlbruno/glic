@@ -108,10 +108,15 @@ Route::prefix('admin')
     Route::resource('roles', 'ACL\RoleController');
 
 	/**
+     * Routes create órgão
+     */
+	Route::get('/novo/orgao', 'OrgaoController@novoOrgao')->name('new.orgao');
+	/**
      * Routes Users |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
      */
 	Route::get('/users/pendentes', 'UserController@pendentes')->name('users.pendentes');
 	Route::get('/users/permitidos', 'UserController@permitidos')->name('users.permitidos');
+	Route::get('/users/orgao', 'UserController@orgao')->name('users.orgao');
 	Route::any('users/search', 'UserController@search')->name('users.search');
 	Route::resource('users', 'UserController');
 	

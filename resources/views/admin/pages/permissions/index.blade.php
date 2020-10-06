@@ -39,6 +39,7 @@
                             <td style="width: 10px;">
                                 <a href="{{ route('permissions.edit', $permissison->id) }}" class="btn btn-info">EDITAR</a>
                                 <a href="{{ route('permissions.show', $permissison->id) }}" class="btn btn-warning">DETALHAR</a>  
+                                
                             </td>
                         </tr>
                     @endforeach    

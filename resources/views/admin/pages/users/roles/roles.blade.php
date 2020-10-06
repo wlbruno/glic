@@ -3,12 +3,20 @@
 @section('title', "Permissões do usuário {$user->name}")
 
 @section('content_header')
-    <ol class="breadcrumb float-sm-right">
-       <li class="breadcrumb-item"><a href="#">Home</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('users.index') }}" class="active">Users</a></li>
-    </ol>
+<div class="row">
+      <div class="col-md-12">
+        <ol class="breadcrumb float-sm-left">
+          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('users.index') }}"><strong>LISTAGEM DE USUÁRIOS</strong></a></li>
+          <li class="breadcrumb-item"><strong>PERMISSÕES DO USUÁRIO {{$user->name}}</strong></li>
+        </ol>
+      </div>
+    </div>
+<br>
 
-    <h1>Permissões do usuário <strong>{{ $user->name }}</strong></h1>
+
+
     @can('add_permissoes')
     <a href="{{ route('users.roles.available', $user->id) }}" class="btn btn-dark">ADD NOVA PERMISSÃO</a>
     @endcan

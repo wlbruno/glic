@@ -18,6 +18,12 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('plan_id'); 
             $table->foreign('plan_id')->references('id')->on('plans');
             $table->string('name');
+            /*
+            *   active = 'X' = User sem permissão
+            *            'P' = User com permissão
+            *            'O' = User é um órgao participante
+            */
+            $table->enum('active', ['X', 'P', 'O'])->default('X');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
