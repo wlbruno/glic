@@ -21,7 +21,6 @@ class AtasController extends Controller
         $atasMedicamento = Ata::Where([
                                 ['departamento', 'MEDICAMENTOS'],
                                 ['status', "PUBLICADA"],
-                                 ['orgao', "NAO"],
                                 ])->paginate();
                
         	return view('site.pages.atas.medicamentos.index', compact('atasMedicamento'));
@@ -32,7 +31,6 @@ class AtasController extends Controller
         $atasProdutos = Ata::Where([
                                 ['departamento', 'PRODUTOS MEDICOS'],
                                 ['status', "PUBLICADA"],
-                                 ['orgao', "NAO"],
                                 ])->paginate();
 
             return view('Site.pages.atas.produtos.index', compact('atasProdutos'));
@@ -43,7 +41,6 @@ class AtasController extends Controller
          $atasAquisicao = Ata::Where([
                                 ['departamento', 'AQUISIÇÕES EM GERAL'],
                                 ['status', "PUBLICADA"],
-                                 ['orgao', "NAO"],
                                 ])->paginate();
         
         return view('Site.pages.atas.aquisicao.index', compact('atasAquisicao'));
@@ -54,7 +51,6 @@ class AtasController extends Controller
          $atasServico = Ata::Where([
                                 ['departamento', 'SERVIÇOS EM GERAL'],
                                 ['status', "PUBLICADA"],
-                                 ['orgao', "NAO"],
                                 ])->paginate();
 
         return view('Site.pages.atas.servicos.index', compact('atasServico'));

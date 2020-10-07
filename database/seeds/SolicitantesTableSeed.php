@@ -26,7 +26,7 @@ class SolicitantesTableSeed extends Seeder
 		]);
 
 
-        Solicitante::create([
+	   /* Solicitante::create([
         		'cnpj' => '12345678912',
         		'orgao' => 'SES-SP',
         		'ramal' => '5515263485',
@@ -117,7 +117,7 @@ class SolicitantesTableSeed extends Seeder
         		'created_at' => Carbon::now()->toDateTimeString(),
            		'updated_at' => Carbon::now()->toDateTimeString(),
         	]);
-
+*/
         
     }
 }

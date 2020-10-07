@@ -22,7 +22,7 @@ class UsuariosTableSeeder extends Seeder
 	        	'created_at' => Carbon::now()->toDateTimeString(),
            		'updated_at' => Carbon::now()->toDateTimeString(),
 	        ]);
-	     User::create([
+	    /* User::create([
 	        	'plan_id' => 1,
 	        	'name' => 'Willian Bruno',
 	        	'email' => 'willianbruno.sespe@gmail.com',
@@ -120,7 +120,7 @@ class UsuariosTableSeeder extends Seeder
 
 	        	'created_at' => Carbon::now()->toDateTimeString(),
            		'updated_at' => Carbon::now()->toDateTimeString(),
-	        ]);
+	        ]); */
     	
     }
 }

@@ -14,13 +14,13 @@
     <div class="col-md-3">
         <div class="form-group">
             <label>* Nome Completo:</label>
-                <input type="text" name="name" class="form-control" required placeholder="Nome:" value="{{ $user->name ?? old('name') }}">
+                <input type="text" name="name" class="form-control" required placeholder="Nome:">
             </div>
     </div>
     <div class="col-md-3">
         <div class="form-group">
             <label>* Nome do órgão:</label>
-                <input type="text" name="name" class="form-control" required placeholder="Nome:" value="{{ $user->name ?? old('name') }}">
+                <input type="text" name="nameorgao" class="form-control" required placeholder="Nome:">
             </div>
     </div>
     <div class="col-md-3">
@@ -95,11 +95,11 @@
     <div class="col-md-3">
         <div class="form-group">
             <label>* Confirma o E-mail:</label>
-                <input type="cemail" name="email" class="form-control" required placeholder="exemplo@exemplo.com" value="{{ $user->email ?? old('email') }}">
+                <input type="cemail" name="cenail" class="form-control" required placeholder="exemplo@exemplo.com" value="{{ $user->email ?? old('email') }}">
         </div>
     </div>
 </div>
 
 <div class="form-group">
-    <button type="submit" class="btn btn-dark">Enviar</button>
+    <button type="submit" class="btn btn-dark">Salvar</button>
 </div>

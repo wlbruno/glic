@@ -7,13 +7,17 @@
 @stop
 
 @section('content')
-    <div class="card">
-        <div class="card-body">
-            <form action="{{ route('users.store') }}" class="form" method="POST">
-                @csrf
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">  
+                    <form action="{{ route('orgao.user.store') }}" class="form" method="POST"> 
+                        @csrf
 
-                @include('admin.pages.users._partials.form')
-            </form>
+                        @include('admin.pages.users._partials.form')
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+   </div>
 @endsection

@@ -111,6 +111,7 @@ Route::prefix('admin')
      * Routes create órgão
      */
 	Route::get('/novo/orgao', 'OrgaoController@novoOrgao')->name('new.orgao');
+	Route::POST('/novo/orgao', 'OrgaoController@storeOrgao')->name('orgao.user.store');
 	/**
      * Routes Users |resource =  {ROUTES: INDEX, CREATE, STORE, UPDATE, DESTROY, SHOW}
      */

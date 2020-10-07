@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Orgao;
 use App\Models\User;
 use App\Models\Ata;
 use App\Models\Lote;
 use App\Models\Item;
+use App\Models\Solicitante;
 use App\Models\Plan;
 use App\Models\Ata_orgao;
 
@@ -27,8 +29,8 @@ class OrgaoController extends Controller
     	$itens = Item::find($idItem);
         $atas = Ata::find($idAta);
         $lotes = Lote::find($idLote);
-        $users = User::all();
-    	
+        $users = User::where('active', 'O')->get();
+        
         return view('admin.pages.orgaos.create', compact('itens', 'users', 'lotes', 'atas'));
     }
 
@@ -78,4 +80,27 @@ class OrgaoController extends Controller
 
         return view('admin.pages.users.orgao.create', compact('perfis'));
      }
+
+    public function storeOrgao(Request $request)
+    {
+        $user = new User();
+        $user->plan_id = $request->input('perfil');
+        $user->name = $request->input('nameorgao');
+        $user->email = $request->input('email');
+        $user->active = 'O';
+        $user->password =  bcrypt('123456789');
+      //  $user->password = bcrypt(Str::random(10));
+        $user->save();
+
+        $solicitante = new Solicitante();
+        $solicitante->user_id = $user->id;
+        $solicitante->orgao = $request->input('name');
+        $solicitante->estado = $request->input('estado');
+        $solicitante->ramal = $request->input('telefone');
+        $solicitante->cnpj = $request->input('cnpj');
+        $solicitante->save();
+
+
+        return redirect()->route('users.index');
+    }
 }
