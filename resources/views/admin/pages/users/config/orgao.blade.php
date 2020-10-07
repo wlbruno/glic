@@ -15,7 +15,7 @@
 <br>
 
     @can('admin')
-    <a href="#" class="btn btn-dark">CRIAR NOVO ÓRGÃO</a>
+    <a href="{{ route('new.orgao') }}" class="btn btn-dark">CRIAR NOVO ÓRGÃO</a>
     @endcan
 @stop
 

@@ -1,17 +1,105 @@
 @include('admin.includes.alerts')
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>* Perfil:</label>
+                <select class="form-control" required name="perfil">
+                    <option value="" disabled="" selected="">Selecione o Perfil</option>
+                        @foreach($perfis as $perfil)
+                            <option value="{{ $perfil->id }}">{{ $perfil->name }}</option>
+                        @endforeach
+                </select>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>* Nome Completo:</label>
+                <input type="text" name="name" class="form-control" required placeholder="Nome:" value="{{ $user->name ?? old('name') }}">
+            </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>* Nome do órgão:</label>
+                <input type="text" name="name" class="form-control" required placeholder="Nome:" value="{{ $user->name ?? old('name') }}">
+            </div>
+    </div>
+    <div class="col-md-3">
+        <label for="estado">* Estado: </label>
+            <select class="form-control" name="estado" required  autofocus>
+                <option value="" disabled="" selected="">Selecione o estado</option>
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+    </div>
+</div>
+<div class="row">
+     <div class="col-md-3">
+        <div class="form-group">
+            <label>* CPF:</label>
+                <input type="text" name="cpf" class="form-control" required placeholder="Digite o CPF" value="{{ $user->email ?? old('email') }}">
+        </div>
+    </div>
+     <div class="col-md-3">
+        <div class="form-group">
+            <label>* Cargo:</label>
+                <input type="text" name="cargo" class="form-control" required placeholder="Digite o cargo" value="{{ $user->email ?? old('email') }}">
+        </div>
+    </div>
+     <div class="col-md-3">
+        <div class="form-group">
+            <label>* CNPJ:</label>
+                <input type="text" name="cnpj" class="form-control" required placeholder="Digite o CNPJ do órgão" value="{{ $user->email ?? old('email') }}">
+        </div>
+    </div>
+     <div class="col-md-3">
+        <div class="form-group">
+            <label>* Telefone:</label>
+                <input type="text" name="telefone" class="form-control" required placeholder="Digite o telefone" value="{{ $user->email ?? old('email') }}">
+        </div>
+    </div>
 
-<div class="form-group">
-    <label>* Nome:</label>
-    <input type="text" name="name" class="form-control" required placeholder="Nome:" value="{{ $user->name ?? old('name') }}">
 </div>
-<div class="form-group">
-    <label>* E-mail:</label>
-    <input type="email" name="email" class="form-control" required placeholder="Nome:" value="{{ $user->email ?? old('email') }}">
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>* E-mail:</label>
+                <input type="email" name="email" class="form-control" required placeholder="exemplo@exemplo.com" value="{{ $user->email ?? old('email') }}">
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label>* Confirma o E-mail:</label>
+                <input type="cemail" name="email" class="form-control" required placeholder="exemplo@exemplo.com" value="{{ $user->email ?? old('email') }}">
+        </div>
+    </div>
 </div>
-<div class="form-group">
-    <label>* Senha:</label>
-    <input type="password" name="password" required class="form-control" placeholder="Senha:">
-</div>
+
 <div class="form-group">
     <button type="submit" class="btn btn-dark">Enviar</button>
 </div>
