@@ -61,25 +61,25 @@
      <div class="col-md-3">
         <div class="form-group">
             <label>* CPF:</label>
-                <input type="text" name="cpf" class="form-control" required placeholder="Digite o CPF" value="{{ $user->email ?? old('email') }}">
+                <input type="text" name="cpf" class="form-control cpf" required placeholder="Digite o CPF:">
         </div>
     </div>
      <div class="col-md-3">
         <div class="form-group">
             <label>* Cargo:</label>
-                <input type="text" name="cargo" class="form-control" required placeholder="Digite o cargo" value="{{ $user->email ?? old('email') }}">
+                <input type="text" name="cargo" class="form-control" required placeholder="Digite o cargo:">
         </div>
     </div>
      <div class="col-md-3">
         <div class="form-group">
             <label>* CNPJ:</label>
-                <input type="text" name="cnpj" class="form-control" required placeholder="Digite o CNPJ do órgão" value="{{ $user->email ?? old('email') }}">
+                <input type="text" name="cnpj" class="form-control cnpj" required placeholder="Digite o CNPJ do órgão:">
         </div>
     </div>
      <div class="col-md-3">
         <div class="form-group">
             <label>* Telefone:</label>
-                <input type="text" name="telefone" class="form-control" required placeholder="Digite o telefone" value="{{ $user->email ?? old('email') }}">
+                <input type="text" name="telefone" class="form-control telefone" required placeholder="Digite o telefone:">
         </div>
     </div>
 
@@ -89,13 +89,13 @@
     <div class="col-md-3">
         <div class="form-group">
             <label>* E-mail:</label>
-                <input type="email" name="email" class="form-control" required placeholder="exemplo@exemplo.com" value="{{ $user->email ?? old('email') }}">
+                <input type="email" name="email" class="form-control" required placeholder="exemplo@exemplo.com">
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group">
             <label>* Confirma o E-mail:</label>
-                <input type="cemail" name="cenail" class="form-control" required placeholder="exemplo@exemplo.com" value="{{ $user->email ?? old('email') }}">
+                <input type="cemail" name="cenail" class="form-control" required placeholder="exemplo@exemplo.com">
         </div>
     </div>
 </div>
@@ -103,3 +103,10 @@
 <div class="form-group">
     <button type="submit" class="btn btn-dark">Salvar</button>
 </div>
+
+
+@section('js')
+  <script src="{{asset('js/jquery.mask.js')}}"></script>
+  <script src="{{asset('js/mask.js')}}"></script>
+
+  @endsection
