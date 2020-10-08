@@ -54,12 +54,13 @@ class RegisterController extends Controller
         
         return Validator::make($data, [
             'name' => 'required|min:10|max:150',
-            'email' => "required|string|email|min:10|max:150|unique:users",
+            'email' => 'required|string|email|min:10|max:150|unique:users',
             'password' => 'required|string|min:6|max:16',
             'confirm_password' => 'same:password',
             'ramal' => 'required',
-            'cnpj' => 'required',
+            'cnpj' => 'required|min:18|max:18',
             'orgao' => 'required|string|max:254',
+            'ramal' => 'required|min:13|max:15',
            
         ],
 
@@ -78,10 +79,15 @@ class RegisterController extends Controller
                 'password.max' => 'A senha não pode ultrapassar 16 caracteres',
                 'ramal.required' => 'Digite o telefone',
                 'cnpj.required' => 'Digite o CNPJ',
+                'cnpj.min' => 'O CNPJ precisa ter 14 caracteres',
+                'cnpj.max' => 'O CNPJ precisa ter 14 caracteres',
                 'orgao.required' => 'Digite o departamento',
                 'orgao.min' => 'O departamento deve ter pelo menos 10 caracteres',
                 'orgao.max' => 'O departamento não pode ultrapassar 150 caracteres',
                 'confirm_password.same' => 'A senha e a confirmação de senha precisam ser iguais',
+                'ramal.required' => 'Informe o ramal',
+                'ramal.min' => 'O telefone deve ter pelo menos 10 dígitos com DDD',
+                'ramal.max' => 'O telefone deve ter no máximo 11 dígitos com DDD',
         ]);
     }
 
