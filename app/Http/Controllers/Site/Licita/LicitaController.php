@@ -70,7 +70,6 @@ class LicitaController extends Controller
         $caronas = Carona::find($id);
 
         $pdf = \PDF::LoadView('site.pages.atas.licita.pdf', compact('caronas'));
-        $pdf->save(storage_path("app\carona\/$caronas->token"));
         return $pdf->stream();
     }
 

@@ -66,9 +66,9 @@
                                   @endforelse
                                     <input type="hidden" name="itens[]" value="{{$itens->item->id}}">   
                                     @if($soma > 0 )
-                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$itens->item->max}}" placeholder="..." >
+                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]" required max="{{$itens->item->max}}" placeholder="..." >
                                       @else
-                                        <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$itens->item->max}}" placeholder="..." >
+                                        <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]" required max="{{$itens->item->max}}" placeholder="..." >
                                       @endif
                                         <div class="progress progress-xs" >
                                           <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$itens->item->value}}" style="width: {!! (100 * $soma)/ $itens->item->value !!}%">

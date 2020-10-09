@@ -98,7 +98,6 @@
       <div class="form-group">
         <label for="vigencia">* Vigência</label>
           <select class="form-control" name="vigencia" required  value="{{ $ata->vigencia ?? old('vigencia') }}">
-            <option value="" disabled="" selected="">Selecione a vigência</option>
 
             @if($ata ?? '' == true ?? '')
             <option value="{{ $ata->vigencia ?? old('vigencia') }}"  selected="">{{ $ata->vigencia ?? old('vigencia') }}</option>

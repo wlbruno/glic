@@ -76,9 +76,11 @@ class RoleUserController extends Controller
         }
         $user->roles()->attach($request->roles);
         
-        $user->active = 'P';
-        $user->update();
-
+        if($user->active === 'X'){
+            $user->active = 'P';
+            $user->update();
+        }
+        
         return redirect()->route('users.roles', $user->id);
     }
 

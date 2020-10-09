@@ -52,8 +52,8 @@
                         @endcan
                     </tr>
                 </thead>
-                <tbody>
                     @foreach($atas as $ata)
+                <tbody>
                       <td>{{ $ata->atas->departamento }}</td>
                            <td>{{ $ata->atas->descricao }}</td>
                             <td>{{ $ata->atas->nata }}</td>
@@ -70,9 +70,9 @@
                                 <a href="{{ route('licita.index', $ata->id) }}" class="btn btn-info">Solicitar</a>    
                             </td>
                             @endcan         
+                </tbody>
                     @endforeach
                   
-                </tbody>
             </table>
         </div>
         </div>

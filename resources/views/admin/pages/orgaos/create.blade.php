@@ -36,7 +36,7 @@
                 <tbody>
                   @foreach($itens->orgaos as $orgao)
                     <tr>
-                  		<td>{{$orgao->users->Solicitante->orgao}}</td>
+                  		<td>{{$orgao->users->name}}</td>
                       <td>{{$orgao->users->Solicitante->cnpj}}</td>
                       <td>{{$orgao->users->Solicitante->ramal}}</td>
                       <td>{{$orgao->saldo}}</td>

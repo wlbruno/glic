@@ -137,9 +137,9 @@
                                   @endforelse
                                     <input type="hidden" name="itens[]" value="{{$lote_item->item->id}}">   
                                       @if($soma > 0 )
-                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$lote_item->item->max}}" placeholder="..." >
+                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]"   max="{{$lote_item->item->max}}" placeholder="..." >
                                       @else
-                                        <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]"  max="{{$lote_item->item->max}}" placeholder="..." >
+                                        <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]"   max="{{$lote_item->item->max}}" placeholder="..." >
                                       @endif
                                         <div class="progress progress-xs" >
                                           <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$lote_item->item->value}}" style="width: {!! (100 * $soma)/ $lote_item->item->value !!}%">

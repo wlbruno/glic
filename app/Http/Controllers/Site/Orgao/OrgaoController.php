@@ -16,7 +16,6 @@ class OrgaoController extends Controller
 
         $atas = Ata_Orgao::Where('users_id', '=', auth()->user()->id)->paginate();
 
-    	
         return view('site.pages.orgao.index',  compact('atas'));
     }
 }

@@ -42,11 +42,16 @@ class OrgaoController extends Controller
 
         $orgaos = $this->repository->create($request->all());
 
+        $atasaldo = Ata_orgao::where('atas_id', $atas->id)->count();
+
+        //dd($atasaldo === 0);
+
+        if($atasaldo === 0){
         $ataorgao = new Ata_orgao();
         $ataorgao->atas_id = $request->input('atas_id');
         $ataorgao->users_id = $request->input('users_id');
         $ataorgao->save();
-
+        }
 
         $itens = Item::find($idItem);
         $itens->orgao = $itens->orgao - $orgaos->saldo;
