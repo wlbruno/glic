@@ -16,7 +16,7 @@ class CreateSolicitantesTable extends Migration
         Schema::create('solicitantes', function (Blueprint $table) {
             $table->bigIncrements('id');
             
-            $table->string('cnpj')->unique();
+            $table->string('cnpj');
             $table->string('orgao');
             $table->string('ramal')->unique();
             $table->string('estado');
