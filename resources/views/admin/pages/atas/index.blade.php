@@ -17,7 +17,7 @@
 
     <h1>
         @can('add_ata')
-    <a href="{{ route('atas.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a>
+    <a href="{{ route('atas.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i>&nbsp; Adicionar ata</a>
     @endcan
  </h1>
 
