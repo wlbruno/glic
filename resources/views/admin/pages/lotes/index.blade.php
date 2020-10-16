@@ -115,7 +115,7 @@
         									  <th>Fornecedor</th>
         									  <th>N° CNPJ</th>
         									  <th>Quantidade</th>
-        									  <th>MAX</th>
+        									  <th>Saldo</th>
                             <th width="100">Marca</th>
         									  <th width="150">Unidade de medida</th>
         										<th width="150">Valor unitário</th>
@@ -129,12 +129,12 @@
                           <td>{{$lote_item->item->objetos->nefisco}}</td>
                           <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
                           <td>{{$lote_item->item->fornecedores->cnpj}}</td>
-                          <td>{{$lote_item->item->quantidade}}</td>
-                          <td>{{$lote_item->item->max}}</td>
+                          <td>{{  ' '.number_format($lote_item->item->quantidade, 2 , ',',  '.') }}</td>
+                          <td>{{  ' '.number_format($lote_item->item->max, 2 , ',',  '.') }}</td>
                           <td>{{$lote_item->item->marca}}</td>
                           <td>{{$lote_item->item->medida}}</td>
                           <td>R$ {{$lote_item->item->vunitario}}</td>
-                          <td>{{  'R$ '.number_format($lote_item->item->vtotal, 3 , ',',  '.') }}</td>           
+                          <td>{{  'R$ '.number_format($lote_item->item->vtotal, 4 , ',',  '.') }}</td>           
                           <td>
                             <button type="button" class="btn btn-secondary btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">Ações </button>
                               <span class="sr-only">Toggle Dropdown</span>

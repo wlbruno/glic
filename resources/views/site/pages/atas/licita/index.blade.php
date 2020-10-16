@@ -122,8 +122,8 @@
                               <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
                               <td>{{$lote_item->item->fornecedores->cnpj}}</td>
                               <td>{{$lote_item->item->medida}}</td>
-                              <td>{{  'R$ '.number_format($lote_item->item->vunitario, 2, ',', '.') }}</td>        
-                              <td>{{$lote_item->item->max}}</td>
+                              <td>{{  'R$ '.number_format($lote_item->item->vunitario, 4, ',', '.') }}</td>     
+                              <td>{{  ' '.number_format($lote_item->item->max, 4, ',', '.') }}</td>     
                               
                               <td> 
                                 @if($atas->tipo === "ITEM")

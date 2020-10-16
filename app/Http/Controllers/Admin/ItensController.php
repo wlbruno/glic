@@ -53,13 +53,14 @@ class ItensController extends Controller
         $itens  = new Item();
         $itens->objetos_id = $request->input('objetos');
         $itens->fornecedores_id = $request->input('fornecedores');
-        $itens->quantidade = $request->input('quantidade') / 2;
-        $itens->max = $request->input('quantidade') * 2;
+        $itens->quantidade = str_replace(',', '.', str_replace('.', '', $request->input('quantidade'))) / 2;
+        $itens->max = str_replace(',', '.', str_replace('.', '', $request->input('quantidade') )) * 2;
         $itens->value = $itens->max;
         $itens->medida = $request->input('medida');
-        $itens->vunitario = $request->input('vunitario');
+        $itens->vunitario = str_replace(',', '.', str_replace('.', '', $request->input('vunitario') ));
         $itens->marca = $request->input('marca');
-        $itens->vtotal =  $request->input('quantidade') * $request->input('vunitario');
+        $itens->vtotal =  str_replace(',', '.', str_replace('.', '', $request->input('quantidade'))) * str_replace(',', '.', str_replace('.', '', $request->input('vunitario') ));
+        
         $itens->orgao = $request->input('quantidade');
         $itemDB = $itens->save();
 

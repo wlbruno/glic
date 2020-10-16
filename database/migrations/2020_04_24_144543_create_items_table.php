@@ -25,7 +25,7 @@ class CreateItemsTable extends Migration
             $table->string('max');
             $table->string('value');
             $table->string('vunitario');
-            $table->text('vtotal');
+            $table->string('vtotal');
             $table->string('orgao');
             $table->string('marca')->nullable();
 
