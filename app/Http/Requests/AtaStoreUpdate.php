@@ -28,7 +28,7 @@ class AtaStoreUpdate extends FormRequest
         return [
             'departamento' => 'required',
             'descricao' => 'required|min:3|max:500',
-            'nata' => "required|min:3|max:15",
+            'nata' => "required|unique:atas|min:3|max:15",
             'nprocesso' => "required|min:3|max:15",
             'npregao' => "required|min:3|max:15",
             'vigencia' => 'required',
@@ -38,7 +38,7 @@ class AtaStoreUpdate extends FormRequest
             'orgao' => 'required',
         ];
     }
-
+ 
     /**
      * Custon messages error
      * 
