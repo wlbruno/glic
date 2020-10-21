@@ -125,16 +125,16 @@
                               <td>{{  'R$ '.number_format($lote_item->item->vunitario, 4, ',', '.') }}</td>     
                                 @if($atas->tipo === "ITEM")
                                   @php $soma = 0; @endphp
-                                    @forelse($itens_solicitados as $item_solicitado)
-                                      @if($item_solicitado->itens_id == $lote_item->item->id)
-                                        @php $soma = $soma + $item_solicitado->quantidade; @endphp
+                                    @forelse($itens_solicitados as $itens_solicitados)
+                                      @if($itens_solicitados->itens_id == $lote_item->item->id)
+                                        @php $soma = $soma + $itens_solicitados->quantidade; @endphp
                                   
                             
                               
                                     @endif
                                     @empty
                                   @endforelse
-                              <td>{{  ' '.number_format($lote_item->item->quantidade - $item_solicitado->quantidade, 4, ',', '.') }}</td>     
+                              <td>{{  ' '.number_format($lote_item->item->quantidade - $itens_solicitados->quantidade, 4, ',', '.') }}</td>     
                               <td> 
                                     <input type="hidden" name="itens[]" value="{{$lote_item->item->id}}">   
                                       @if($soma > 0 )
