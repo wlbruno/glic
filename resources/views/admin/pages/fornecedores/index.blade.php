@@ -16,7 +16,7 @@
 
     <h1> 
         @can('add_fornecedores')
-        <a href="{{ route('fornecedores.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a>
+        <a href="{{ route('fornecedores.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i>&nbsp; Adicionar Fornecedor</a>
         @endcan
     </h1>
 

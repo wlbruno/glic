@@ -41,7 +41,6 @@
               </div>
               @can('remover_objetos')
             <div class="card-footer">
-               
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-danger">
                   <i class="fas fa-trash"></i> DELETAR O OBJETO
                 </button>
