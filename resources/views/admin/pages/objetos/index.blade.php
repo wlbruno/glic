@@ -16,7 +16,7 @@
 
     <h1>
         @can('add_objetos')
-        <a href="{{ route('objetos.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i></a>
+        <a href="{{ route('objetos.create') }}" class="btn btn-dark"><i class="fas fa-plus-square"></i>&nbsp; Adicionar Objeto</a>
         @endcan
     </h1>
 
