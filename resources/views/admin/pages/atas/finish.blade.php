@@ -61,9 +61,17 @@
                 <table class="table table-head-fixed">
                     <thead>
                         <th> Descrição</th>
+						@if($atas->lotes->count() > 0)
+						<th>Fornecedor</th>
+						<th>CNPJ</th>
+						@endif
                     </thead>
                     <tbody>
                         <td>{{ $atas->descricao }}</td>
+						@if($atas->lotes->count() > 0)
+						<td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->fornecedor }}</td>
+						<td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->cnpj }}</td>
+						@endif
                     </tbody>
                 </table>
               </div>
@@ -149,12 +157,13 @@
                     			<thead>
                             		@foreach($lote->ItensLote as $lote_item)
                             			<tr>
-					                   		<th>Objeto</th>
-        									<th>N° E-fisco</th>
-        									<th>Fornecedor</th>
-        									<th>N° CNPJ</th>
-        									<th>Quantidade</th>
-        									<th>MAX</th>
+					                   		<th width="500" > Objeto</th>
+        									<th width="200">N° E-fisco</th>
+        									<!-- <th>Fornecedor</th>
+        									<th>N° CNPJ</th> -->
+											<th>Quantidade solicitado</th>
+        									<th>Quantidade <strong>órgão não participante</strong></th>
+        									<th>Saldo total do item</th>
         									<th>Unidade de medida</th>
         									<th>Valor unitário</th>
         									<th>Valor total</th>
@@ -165,13 +174,14 @@
                     				<tr>
 		                                <td>{{$lote_item->item->objetos->nome}}</td>
 		                                <td>{{$lote_item->item->objetos->nefisco}}</td>
-		                                <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
-		                                <td>{{$lote_item->item->fornecedores->cnpj}}</td>
-		                                <td>{{$lote_item->item->quantidade}}</td>
-		                                <td>{{$lote_item->item->max}}</td>
+		                            <!--    <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
+		                                <td>{{$lote_item->item->fornecedores->cnpj}}</td> -->
+										<td>{{$lote_item->item->orgao}}</td>
+										<td>{{  ' '.number_format($lote_item->item->quantidade, 0 , ',',  '.') }}</td>
+										<td>{{  ' '.number_format($lote_item->item->max, 0 , ',',  '.') }}</td>
 		                                <td>{{$lote_item->item->medida}}</td>
 		                                <td>{{$lote_item->item->vunitario}}</td>
-										<td>{{  'R$ '.number_format($lote_item->item->vtotal, 3, ',', '.') }}</td>           
+										<td>{{  'R$ '.number_format($lote_item->item->vtotal, 4, ',', '.') }}</td>           
 										<td>
 											<button type="button" class="btn btn-secondary btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">Ações </button>
 											<span class="sr-only">Toggle Dropdown</span>

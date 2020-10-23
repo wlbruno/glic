@@ -126,23 +126,25 @@ class AtasController extends Controller
      */
     public function destroy($id)
     {
+        
         $ata = $this->repository
                             ->with('lotes')
                             ->where('id', $id)
                             ->first();   
 
         if($ata->tipo === 'ITEM'){
-            $lote = $ata->lotes[0];
-
-            $lote->delete();    
-
-            $ata->delete();
-
-            return redirect()->route('atas.index');
+            if($ata->lotes[0]->Itenslote->count() > 0){
+                return redirect()
+                        ->back()
+                        ->with('error', 'Existem itens vinculados a essa ata, portanto para remover a ata é necessário  deletar os itens');
+            }else{
+                $lote = $ata->lotes[0];
+                  $lote->delete();
+                  $ata->delete();
+                
+                  return redirect()->route('atas.index');
+            }
         }
-        
-        if (!$ata)
-            return redirect()->back();
 
         if ($ata->lotes->count() > 0) {
             return redirect()
@@ -150,7 +152,6 @@ class AtasController extends Controller
                         ->with('error', 'Existem lotes vinculados a essa ata, portanto para remover a ata é necessário  deletar os lotes');
         }
 
-        
         $ata->delete();
 
         return redirect()->route('atas.index');

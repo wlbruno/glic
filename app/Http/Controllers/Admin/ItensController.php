@@ -129,20 +129,20 @@ class ItensController extends Controller
 
     public function destroy($idAta, $idItem)
     {
-        $ata = Ata::find($idAta);
+    $ata = Ata::find($idAta);
         
         $item = $this->repository->where('id', $idItem)->first();
         
         if (!$item)
         return redirect()->back();
 
-         
+             
         if ($item->orgaos->count() > 0) {
             return redirect()
                         ->back()
                         ->with('error', 'Existem orgãos vinculados a esse item, portanto para remover o item é necessário deletar os orgãos');
         }
-    
+        
         $item->delete();
 
         return redirect()->back();

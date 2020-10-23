@@ -24,7 +24,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card">
-      <form action="{{ route('licita.carona') }}" target="_blank" class="form" method="POST">
+      <form action="{{ route('licita.carona') }}"  class="form" method="POST">
         @csrf
         <input type="hidden" value="{{$ata->id}}" name="atas" class="form-control">
           @foreach($lotes as $lote)

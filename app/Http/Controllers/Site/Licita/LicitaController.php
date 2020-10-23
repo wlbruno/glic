@@ -26,7 +26,8 @@ class LicitaController extends Controller
             }else { 
                 $itens_solicitados = array();
             }if(isset($atas)) {
-                // dd(isset($atas));
+
+            
                 return view('site.pages.atas.licita.index', compact('atas', 'itens_solicitados'));
             }
                 return redirect()->back();
@@ -34,6 +35,8 @@ class LicitaController extends Controller
 
     public function carona(Request $request)
     {
+        //dd($request->all());
+
         $now = date('Y-m-d');
         
         $caronas = new Carona();
@@ -76,6 +79,16 @@ class LicitaController extends Controller
 
     public function getlotes(Request $request, $id)
     {
+        $regras = [
+            'atas' => 'required',
+            'lotes' => 'required',
+        ];
+        $messagens = [
+            'lotes.required' => 'Selecione pelo menos um lote para realizar a licitação'
+        ];
+
+        $request->validate($regras, $messagens);
+
         $ata = Ata::find($id);
         $data = $request->all();
 

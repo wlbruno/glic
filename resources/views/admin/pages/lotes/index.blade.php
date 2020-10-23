@@ -112,10 +112,11 @@
                           <tr>
   				                  <th width="500">Objeto</th>
         									  <th width="125">N° E-fisco</th>
-        									  <th>Fornecedor</th>
-        									  <th>N° CNPJ</th>
-        									  <th>Quantidade</th>
-        									  <th>Saldo</th>
+        									  <!-- <th>Fornecedor</th>
+        									  <th width="200" >N° CNPJ</th> -->
+                            <th>Quantidade solicitado</th>
+        									  <th>Quantidade <strong>órgão não participante</strong></th>
+        									  <th>Saldo total do item</th>
                             <th width="100">Marca</th>
         									  <th width="150">Unidade de medida</th>
         										<th width="150">Valor unitário</th>
@@ -127,10 +128,11 @@
                     		<tr>
                           <td>{{$lote_item->item->objetos->nome}}</td>
                           <td>{{$lote_item->item->objetos->nefisco}}</td>
-                          <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
-                          <td>{{$lote_item->item->fornecedores->cnpj}}</td>
-                          <td>{{  ' '.number_format($lote_item->item->quantidade, 2 , ',',  '.') }}</td>
-                          <td>{{  ' '.number_format($lote_item->item->max, 2 , ',',  '.') }}</td>
+                          <!--<td>{{$lote_item->item->fornecedores->fornecedor}}</td>
+                          <td>{{$lote_item->item->fornecedores->cnpj}}</td> -->
+                          <td>{{$lote_item->item->orgao}}</td>
+                          <td>{{  ' '.number_format($lote_item->item->quantidade, 0 , ',',  '.') }}</td>
+                          <td>{{  ' '.number_format($lote_item->item->max, 0 , ',',  '.') }}</td>
                           <td>{{$lote_item->item->marca}}</td>
                           <td>{{$lote_item->item->medida}}</td>
                           <td>R$ {{$lote_item->item->vunitario}}</td>

@@ -4,7 +4,7 @@
 @section('titulo', "Nº Ata: $atas->nata ")
 
 @section('content_header')
-
+@include('admin.includes.alerts')
 <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb float-sm-left">
@@ -63,9 +63,13 @@
               <table class="table table-head-fixed">
                 <thead>
                    <th> Descrição</th>
+                   <th>Fornecedor</th>
+						<th>CNPJ</th>
                 </thead>
                 <tbody>
                   <td>{{ $atas->descricao }}</td>
+                  <td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->fornecedor }}</td>
+						<td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->cnpj }}</td>
                 </tbody>
               </table>
             </div>
@@ -77,7 +81,7 @@
       <div class="row">
         <div class="col-md-12">
           @if($atas->tipo === 'ITEM')
-            <form action="{{ route('licita.carona') }}" target="_blank" class="form" method="POST">
+            <form action="{{ route('licita.carona') }}"  class="form" method="POST">
           @else
             <form action="{{ route('licita.lote', $atas->id) }}" class="form" method="POST">
           @endif
@@ -103,14 +107,14 @@
                       <thead>
                         <tr>
                           <th width="300">Objeto</th>
-                            <th>N° E-fisco</th>
-                            <th>Fornecedor</th>
-                            <th>N° CNPJ</th>
+                            <th width="150" >N° E-fisco</th>
+                           <!--  <th>Fornecedor</th>
+                            <th>N° CNPJ</th> -->
                             <th>Unidade de medida</th>
                             <th>Valor unitário</th>
                             <th>Disponível</th>
                               @if($atas->tipo === "ITEM")
-                                <th>Solicita</th>
+                            <th>Solicita</th>
                               @endif
                           </tr>
                         </thead>
@@ -119,11 +123,11 @@
                             <tr>
                               <td>{{$lote_item->item->objetos->nome}}</td>
                               <td>{{$lote_item->item->objetos->nefisco}}</td>
-                              <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
-                              <td>{{$lote_item->item->fornecedores->cnpj}}</td>
+                          <!--    <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
+                              <td>{{$lote_item->item->fornecedores->cnpj}}</td> -->
                               <td>{{$lote_item->item->medida}}</td>
-                              <td>{{  'R$ '.number_format($lote_item->item->vunitario, 4, ',', '.') }}</td>     
-                                @if($atas->tipo === "ITEM")
+                              <td>{{  'R$ '.number_format($lote_item->item->vunitario, 0, ',', '.') }}</td>     
+
                                   @php $soma = 0; @endphp
                                     @forelse($itens_solicitados as $item_solicitado)
                                       @if($item_solicitado->itens_id == $lote_item->item->id)
@@ -134,7 +138,12 @@
                                     @endif
                                     @empty
                                   @endforelse
-                              <td>{{  ' '.number_format($lote_item->item->quantidade - $item_solicitado->quantidade, 4, ',', '.') }}</td>     
+                                  @if(isset($itens_solicitados[0]->quantidade))
+                              <td>{{  ' '.number_format($lote_item->item->quantidade - $itens_solicitados[0]->quantidade, 0 , ',',  '.') }}</td>     
+                                  @else
+                                  <td> {{ $lote_item->item->quantidade }}</td>   
+                                  @endif
+                                @if($atas->tipo === "ITEM")
                               <td> 
                                     <input type="hidden" name="itens[]" value="{{$lote_item->item->id}}">   
                                       @if($soma > 0 )
@@ -143,9 +152,9 @@
                                         <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]"   max="{{$lote_item->item->max}}" placeholder="..." >
                                       @endif
                                         <div class="progress progress-xs" >
-                                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$lote_item->item->value}}" style="width: {!! (100 * $soma)/ $lote_item->item->value !!}%">
+                                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$lote_item->item->quantidade}}" style="width: {!! (100 * $soma)/ $lote_item->item->quantidade !!}%">
                                         </div>
-                                      </div>   <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $lote_item->item->value) !!}%</b> da quantidade total <b>{{$lote_item->item->value}}</b>.</span>
+                                      </div>   <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $lote_item->item->quantidade) !!}%</b> da quantidade total <b>{{$lote_item->item->quantidade}}</b>.</span>
                                     @endif
                                   </td>     
                                 </tr>
@@ -156,7 +165,11 @@
                   </div>
                 @endforeach
                   <div class="card-footer clearfix">
+                  @if($atas->tipo == "ITEM")
                     <button type="submit"  id="botao" disabled="disabled" class="btn btn-sm btn-info float-right">SOLICITAR</button>
+                  @else()
+                  <button type="submit"  id="botao"  class="btn btn-sm btn-info float-right">SOLICITAR</button>
+                  @endif
                   </div>
                 </div>
               </form>
@@ -170,11 +183,9 @@
 <script>
 // Mantém os inputs em cache:
 var inputs = $('input');
-
 // Chama a função de verificação quando as entradas forem modificadas
 // Usei o 'keyup', mas 'change' ou 'keydown' são também eventos úteis aqui
 inputs.on('keyup', verificarInputs);
-
 function verificarInputs() {
     var preenchidos = true;  // assumir que estão preenchidos
     inputs.each(function () {
