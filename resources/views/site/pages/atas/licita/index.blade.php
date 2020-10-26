@@ -120,6 +120,7 @@
                         </thead>
                         <tbody>
                           @foreach($lote->ItensLote as $lote_item)
+                          
                             <tr>
                               <td>{{$lote_item->item->objetos->nome}}</td>
                               <td>{{$lote_item->item->objetos->nefisco}}</td>

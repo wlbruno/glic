@@ -131,7 +131,6 @@ class AtasController extends Controller
                             ->with('lotes')
                             ->where('id', $id)
                             ->first();   
-
         if($ata->tipo === 'ITEM'){
             if($ata->lotes[0]->Itenslote->count() > 0){
                 return redirect()
