@@ -44,7 +44,7 @@
       <div class="col-md-12">
         <div class="callout callout-warning">
           <h5><strong>ATENÇÃO!</strong></h5>
-            <p>Essa ata já foi publicada, cuidado com as mudanças pois essa ata já pode ter sido <strong>licitada.</strong></p>
+            <p>Esta ata já foi publicada e pode ter sido <strong>licitada</strong>, cuidado ao fazer alterações. </p>
               <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-lg">CRIAR LOTE</button>
         </div>
       </div>
@@ -56,7 +56,7 @@
       <div class="col-md-12">
         <div class="callout callout-warning">
           <h5><strong>ATENÇÃO!</strong></h5>
-            <p>Essa ata já foi publicada, cuidado com as mudanças pois essa ata já pode ter sido <strong>licitada.</strong></p>
+            <p>Esta ata já foi publicada e pode ter sido <strong>licitada</strong>, cuidado ao fazer alterações. </p>
         </div>
       </div>
     </div>

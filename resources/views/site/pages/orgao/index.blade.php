@@ -7,7 +7,7 @@
       <div class="col-md-12">
         <ol class="breadcrumb float-sm-left">
           <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
-          <li class="breadcrumb-item"><strong>ATAS PARA ORGÃO</strong></li>
+          <li class="breadcrumb-item"><strong>ATAS PARA ÓRGÃO</strong></li>
         </ol>
       </div>
     </div>
@@ -20,7 +20,7 @@
 <div class="alert alert-warning alert-dismissible">
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                   <h5><i class="icon fas fa-info"></i> Atenção!</h5>
-                  Este sistema é destinado aos órgãos participantes das ata da Secretaria de Saúde do Estado de Pernambuco.
+                  Essa opção é destinada aos Órgãos Participantes das atas da Secretaria Estadual de Saúde do Estado de Pernambuco.
                 </div>
 
 <div class="row">

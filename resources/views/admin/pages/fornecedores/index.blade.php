@@ -8,7 +8,7 @@
         <ol class="breadcrumb float-sm-left">
           <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
-            <li class="breadcrumb-item"><strong>FORNECEDORES</strong></li>
+            <li class="breadcrumb-item"><strong>LISTAGEM DE FORNECEDORES</strong></li>
         </ol>
       </div>
     </div>
