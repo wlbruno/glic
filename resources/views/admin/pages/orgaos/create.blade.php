@@ -5,7 +5,7 @@
 @section('content_header')
     <h1>Cadastrar órgão  </h1>
     
-    <h3>Saldo do item {{$itens->orgao}}</h3>
+    <h3>Saldo do item {{$itens->saldoOP}}</h3>
    
 @stop
 
@@ -83,14 +83,14 @@
 				     	 <div class="form-group">
 				      		<label for="saldo">* Saldo</label>
                 
-				        		<input type="number" class="form-control" min="0" max="{{$itens->orgao}}" name="saldo" required>
+				        		<input type="number" class="form-control" min="0" max="{{$itens->saldoOP}}" name="saldo" required>
 				     		 </div>
                     	</div>
                     </div>
                 </div>
                   <div class="card-footer">
                   <button type="submit" class="btn btn-success">Salvar</button>
-                  <button type="cancel" class="btn btn-danger float-right">Cancelar</button>
+                  <button type="button" data-dismiss="modal" class="btn btn-danger float-right">Cancelar</button>
                 </div>
                 </form>
             </div>

@@ -20,14 +20,20 @@ class CreateItemsTable extends Migration
             $table->foreign('objetos_id')->references('id')->on('objetos');
             $table->bigInteger('fornecedores_id')->unsigned();
             $table->foreign('fornecedores_id')->references('id')->on('fornecedores');
-            $table->string('medida');
-            $table->string('quantidade');
-            $table->string('max');
-            $table->string('value');
-            $table->string('vunitario');
-            $table->string('vtotal');
-            $table->string('orgao');
-            $table->string('marca')->nullable();
+            //SALDO DO ITEM 
+            $table->string('quantidadeSES'); // quantidade solicitada pela sesPE
+            $table->string('BKsaldo');   //Backup saldo do item 
+            //ORGAO NAO PARTICIPANTE
+            $table->string('quantidadeONP'); //Valor órgão não participantes
+            $table->string('saldoONP'); //Saldo do item parar o orgao nao participante, esse saldo vai diminundo conforme for acontecendo licitação.
+            //ORGAO PARTICIPANTE
+            $table->string('quantidadeOP'); // quantidade para o orgao participante
+            $table->string('saldoOP'); //Saldo do item parar o orgao participante, esse saldo vai diminundo conforme for acontecendo licitação.
+            //
+            $table->string('vunitario'); //Valor unitario desse item 
+            $table->string('vtotal'); //valor total desse item 
+            $table->string('medida'); // unidade de medida
+            $table->string('marca')->nullable(); // marca do item, tem alguns itens que nao tem marca
 
             $table->timestamps();
         });
@@ -40,6 +46,6 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('itens');
     }
 }

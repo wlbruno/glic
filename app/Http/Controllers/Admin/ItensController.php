@@ -53,15 +53,23 @@ class ItensController extends Controller
         $itens  = new Item();
         $itens->objetos_id = $request->input('objetos');
         $itens->fornecedores_id = $request->input('fornecedores');
-        $itens->quantidade = str_replace(',', '.', str_replace('.', '', $request->input('quantidade'))) / 2;
-        $itens->max = str_replace(',', '.', str_replace('.', '', $request->input('quantidade') )) * 2;
-        $itens->value = $itens->max;
-        $itens->medida = $request->input('medida');
-        $itens->vunitario = str_replace(',', '.', str_replace('.', '', $request->input('vunitario') ));
-        $itens->marca = $request->input('marca');
-        $itens->vtotal =  str_replace(',', '.', str_replace('.', '', $request->input('quantidade'))) * str_replace(',', '.', str_replace('.', '', $request->input('vunitario') ));
+        //QUANTIDDADE E SALDO SOLICITADO
+        $itens->quantidadeSES = $request->input('quantidade');
+        $itens->BKsaldo = str_replace(',', '.', str_replace('.', '', $request->input('quantidade') )) * 2;
+        // ORGAO NAO PARTICIPANTE
+        $itens->quantidadeONP = str_replace(',', '.', str_replace('.', '', $request->input('quantidade'))) / 2;
+        $itens->saldoONP = $itens->BKsaldo;
+        //ORGAO PARTICIPANTE
+        $itens->quantidadeOP = $request->input('quantidade');
+        $itens->saldoOP = $itens->BKsaldo;
         
-        $itens->orgao = $request->input('quantidade');
+        $itens->vunitario = str_replace(',', '.', str_replace('.', '', $request->input('vunitario') ));
+        $itens->vtotal =    str_replace(',', '.', str_replace('.', '', $request->input('quantidade'))) 
+                            * str_replace(',', '.', str_replace('.', '', $request->input('vunitario') ));
+
+        $itens->medida = $request->input('medida');
+        $itens->marca = $request->input('marca');
+
         $itemDB = $itens->save();
 
         $item_lote = new Item_lote();
@@ -98,15 +106,23 @@ class ItensController extends Controller
         $itens  = Item::find($idItem);
         $itens->objetos_id = $request->input('objetos');
         $itens->fornecedores_id = $request->input('fornecedores');
-        $itens->quantidade = str_replace(',', '.', str_replace('.', '', $request->input('quantidade'))) / 2;
-        $itens->max = str_replace(',', '.', str_replace('.', '', $request->input('quantidade') )) * 2;
-        $itens->value = $itens->max;
-        $itens->medida = $request->input('medida');
-        $itens->vunitario = str_replace(',', '.', str_replace('.', '', $request->input('vunitario') ));
-        $itens->marca = $request->input('marca');
-        $itens->vtotal =  str_replace(',', '.', str_replace('.', '', $request->input('quantidade'))) * str_replace(',', '.', str_replace('.', '', $request->input('vunitario') ));
+        //QUANTIDDADE E SALDO SOLICITADO
+        $itens->quantidadeSES = $request->input('quantidade');
+        $itens->BKsaldo = str_replace(',', '.', str_replace('.', '', $request->input('quantidade') )) * 2;
+        // ORGAO NAO PARTICIPANTE
+        $itens->quantidadeONP = str_replace(',', '.', str_replace('.', '', $request->input('quantidade'))) / 2;
+        $itens->saldoONP = $itens->BKsaldo;
+        //ORGAO PARTICIPANTE
+        $itens->quantidadeOP = $request->input('quantidade');
+        $itens->saldoOP = $itens->BKsaldo;
         
-        $itens->orgao = $request->input('quantidade');
+        $itens->vunitario = str_replace(',', '.', str_replace('.', '', $request->input('vunitario') ));
+        $itens->vtotal =    str_replace(',', '.', str_replace('.', '', $request->input('quantidade'))) 
+                            * str_replace(',', '.', str_replace('.', '', $request->input('vunitario') ));
+
+        $itens->medida = $request->input('medida');
+        $itens->marca = $request->input('marca');
+
         $itemDB = $itens->save();
 
         

@@ -25,7 +25,8 @@ class CreateOrgaosTable extends Migration
             $table->unsignedBigInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');;
 
-            $table->string('saldo');
+            $table->string('quantidade'); //Quantidade do orgao participante
+            $table->string('saldo'); // saldo que vai subtraindo conforme for acontecendo licitações
 
             $table->timestamps();
         });

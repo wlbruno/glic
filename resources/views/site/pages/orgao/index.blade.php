@@ -53,6 +53,8 @@
                     </tr>
                 </thead>
                     @foreach($atas as $ata)
+                    @if($ata->atas->status === "PUBLICADA")
+                   
                 <tbody>
                       <td>{{ $ata->atas->departamento }}</td>
                            <td>{{ $ata->atas->descricao }}</td>
@@ -67,10 +69,18 @@
                           @can('licita_carona')
                             <td style="width: 10px;">
                                
-                                <a href="{{ route('licita.index', $ata->id) }}" class="btn btn-info">Solicitar</a>    
+                                <a href="{{ route('show.licita.orgao', $ata->id) }}" class="btn btn-info">Solicitar</a>    
                             </td>
                             @endcan         
                 </tbody>
+                @else 
+                <tbody>
+                  <td>
+                <p><strong>Não possui atas para você</strong></p>
+                  
+                  </td>
+                </tbody>
+                @endif
                     @endforeach
                   
             </table>

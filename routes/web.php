@@ -24,9 +24,27 @@
 	Route::get('ata/{id}/licita', 'Site\Licita\LicitaController@index')->name('licita.index')->middleware('auth');
 	Route::POST('ata/carona', 'Site\Licita\LicitaController@carona')->name('licita.carona');
 	Route::POST('ata/carona/lote/{id}', 'Site\Licita\LicitaController@getlotes')->name('licita.lote');
+	/**
+	*	Routes Licita Atas ORGAO PARTICIPANTE
+	*
+	*/
+	Route::POST('ata/carona/orgao', 'Site\Licita\OrgaoLicitaController@licita')->name('licita.carona.orgao')->middleware('auth');
 
 	//ROUTE GERAR PDF
 	Route::get('ata/carona/{id}', 'Site\Licita\LicitaController@gerarPDF')->name('licita.pdf');
+
+
+	/**
+	*	Routes licita orgao
+	*
+	*/
+	Route::prefix('orgao')
+			->namespace('Site')
+			->group(function() {
+
+				Route::get('/licita/{id}', 'Licita\OrgaoLicitaController@showAta')->name('show.licita.orgao');
+					
+			});
 
 	/**
 	*	Routes Menu Atas

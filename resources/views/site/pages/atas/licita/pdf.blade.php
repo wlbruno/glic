@@ -115,7 +115,7 @@
               		<div class="box box-default">
                 		<div class="box-header">
                     		<div class="box-tools">
-                        		<h3>LICITANTE: {{$caronas->Itens[0]->fornecedores->fornecedor}} <strong>CNPJ:</strong> {{$caronas->Itens[0]->fornecedores->cnpj}}</h3>
+                        		<h3>LICITANTE: {{$caronas->Itens[0]->fornecedores->fornecedor}} <br><strong>CNPJ:</strong> {{$caronas->Itens[0]->fornecedores->cnpj}}</h3>
                         	</div>
                     	</div>
            					<div class="box-body" style="">
@@ -129,7 +129,7 @@
                                                     <th>Marca</th>
                                                     <th>Unidade de medida</th>
                                                     <th>Valor unitário</th>
-                                                    <th>Valor total</th>
+                                             
                                                     <th>Quantidade Solicitada</th>
                                                 </tr>
                                             </thead>
@@ -141,7 +141,6 @@
                                                         <td>{{$item->marca}}</td>
                                                         <td>{{$item->medida}}</td>
                                                         <td>{{  'R$ '.number_format($item->vunitario, 2, ',', '.') }}</td>
-                                                        <td>{{  'R$ '.number_format($item->vtotal, 2, ',', '.') }}</td>
                                                         @foreach($caronas->itens as $itemcarona)
                                                             @if($itemcarona->id == $item->id)
                                                               <td>{{$caronas->Carona_itens->getQTD($itemcarona->id)->quantidade}}</td>

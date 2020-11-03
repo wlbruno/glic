@@ -40,7 +40,13 @@ class OrgaoController extends Controller
         $atas = Ata::find($idAta);
         $lotes = Lote::find($idLote);
 
-        $orgaos = $this->repository->create($request->all());
+        $orgaos = new Orgao();
+        $orgaos->itens_id = $idItem;
+        $orgaos->atas_id = $idAta;
+        $orgaos->users_id = $request->input('users_id');
+        $orgaos->quantidade = $request->input('saldo');
+        $orgaos->saldo = $orgaos->quantidade;
+        $orgaos->save();
 
         $atasaldo = Ata_orgao::where('atas_id', $atas->id)->count();
 
@@ -54,7 +60,7 @@ class OrgaoController extends Controller
         }
 
         $itens = Item::find($idItem);
-        $itens->orgao = $itens->orgao - $orgaos->saldo;
+        $itens->saldoOP = $itens->saldoOP - $orgaos->saldo;
         $itens->save();
 
         return redirect()->route('orgao.create', [$atas->id, $lotes->id, $itens->id]);
@@ -66,7 +72,7 @@ class OrgaoController extends Controller
 
 
         $item = Item::find($idItem);
-        $item->orgao = $item->orgao + $orgao->saldo;
+        $item->saldoOP = $item->saldoOP + $orgao->saldo;
         $item->save();
 
         $orgao->delete();

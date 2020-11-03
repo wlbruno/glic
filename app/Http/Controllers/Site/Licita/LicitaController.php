@@ -53,9 +53,9 @@ class LicitaController extends Controller
                     $caronaitens->quantidade = $request->qtd_itens[$i];
                     $caronaitens->save();
                     $itens = Item::find($request->itens[$i]);
-                    $itens->max = $itens->max - $request->qtd_itens[$i]; 
-                if($itens->max < $itens->quantidade){
-                    $itens->quantidade = $itens->max;
+                    $itens->saldoONP = $itens->saldoONP - $request->qtd_itens[$i]; 
+                if($itens->saldoONP < $itens->quantidadeONP){
+                    $itens->quantidadeONP = $itens->saldoONP;
                 }
                 $itens->save();  
             }

@@ -74,7 +74,7 @@
           @csrf
             <div class="card-body">
               <div class="form-group">
-                <input type="text"  style="width: 228px" name="filter" placeholder="Nº Ata ou Nº Processo" required  class="form-control nata" value="{{ $filters['filter'] ?? ''  }}"></div>
+                <input type="text"  class="form-control" style="width: 100%" name="filter" placeholder="Nº Ata ou Nº Processo" required  class="form-control nata" value="{{ $filters['filter'] ?? ''  }}"></div>
               </div>
 
             <div class="card-footer">
@@ -93,7 +93,7 @@
           @csrf
             <div class="card-body">
               <div class="form-group">
-                <input type="text" class="form-control" style="width: 228px" name="key" required placeholder="Digite a chave de validação">
+                <input type="text" class="form-control"  style="width: 100%" name="key" required placeholder="Digite a chave de validação">
             </div>
           </div>
        <div class="card-footer">

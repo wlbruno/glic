@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Orgao extends Model
 {
-    protected $fillable = ['atas_id', 'itens_id', 'users_id', 'saldo'];
+    protected $fillable = ['atas_id', 'itens_id', 'users_id', 'saldo', 'quantidade'];
 
     public function item()
     {

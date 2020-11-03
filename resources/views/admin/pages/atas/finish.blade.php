@@ -162,12 +162,17 @@
         									<!-- <th>Fornecedor</th>
         									<th>N° CNPJ</th> -->
 											<th>Quantidade solicitado</th>
-        									<th>Quantidade <strong>órgão não participante</strong></th>
-        									<th>Saldo total do item</th>
-        									<th>Unidade de medida</th>
-        									<th>Valor unitário</th>
-        									<th>Valor total</th>
-                            				<th>Ações</th>
+												@if($atas->orgao == 'SIM')
+													<th>Quantidade <strong>órgão participante</strong></th>
+													<th>Saldo <strong>órgão participante</strong></th>
+												@endif                            
+											<th>Quantidade <strong>órgão não participante</strong></th>
+											<th>Saldo<strong> órgao não participante </strong></th>
+											<th width="100">Marca</th>
+	       									<th width="150">Unidade de medida</th>
+        									<th width="150">Valor unitário</th>
+        									<th width="180">Valor total</th>
+                            				<th >Ações</th>
 				                   	 	</tr>
                     			</thead>
                     			<tbody>
@@ -176,9 +181,14 @@
 		                                <td>{{$lote_item->item->objetos->nefisco}}</td>
 		                            <!--    <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
 		                                <td>{{$lote_item->item->fornecedores->cnpj}}</td> -->
-										<td>{{$lote_item->item->orgao}}</td>
-										<td>{{  ' '.number_format($lote_item->item->quantidade, 0 , ',',  '.') }}</td>
-										<td>{{  ' '.number_format($lote_item->item->max, 0 , ',',  '.') }}</td>
+										<td>{{$lote_item->item->quantidadeSES}}</td>
+                            @if($atas->orgao == 'SIM')
+                              <td>{{$lote_item->item->quantidadeOP}}</td>
+                              <td>{{$lote_item->item->saldoOP}}</td>
+                            @endif   
+                          <td>{{  ' '.number_format($lote_item->item->quantidadeONP, 0 , ',',  '.') }}</td>
+                          <td>{{$lote_item->item->saldoONP}}</td>
+                          <td>{{$lote_item->item->marca}}</td>
 		                                <td>{{$lote_item->item->medida}}</td>
 		                                <td>{{$lote_item->item->vunitario}}</td>
 										<td>{{  'R$ '.number_format($lote_item->item->vtotal, 4, ',', '.') }}</td>           

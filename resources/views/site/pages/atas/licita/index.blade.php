@@ -139,23 +139,21 @@
                                     @endif
                                     @empty
                                   @endforelse
-                                  @if(isset($itens_solicitados[0]->quantidade))
-                              <td>{{  ' '.number_format($lote_item->item->quantidade - $itens_solicitados[0]->quantidade, 0 , ',',  '.') }}</td>     
-                                  @else
-                                  <td> {{ $lote_item->item->quantidade }}</td>   
-                                  @endif
+                        
+                              <td>{{  ' '.number_format($lote_item->item->quantidadeONP - $soma, 0 , ',',  '.') }}</td>     
+                             
                                 @if($atas->tipo === "ITEM")
                               <td> 
                                     <input type="hidden" name="itens[]" value="{{$lote_item->item->id}}">   
                                       @if($soma > 0 )
-                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]"   max="{{$lote_item->item->max}}" placeholder="..." >
+                                        <input  id="solicita"  type="number" class="form-control" min="0" name="qtd_itens[]"   max="{{$lote_item->item->quantidadeONP - $soma}}" placeholder="..." >
                                       @else
-                                        <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]"   max="{{$lote_item->item->max}}" placeholder="..." >
+                                        <input id="solicita" type="number" class="form-control" min="0" name="qtd_itens[]"   max="{{$lote_item->item->quantidadeONP - $soma}}" placeholder="..." >
                                       @endif
                                         <div class="progress progress-xs" >
-                                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{$lote_item->item->quantidade}}" style="width: {!! (100 * $soma)/ $lote_item->item->quantidade !!}%">
+                                          <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{ $lote_item->item->quantidadeONP }}" style="width: {!! number_format((100 * $soma)/ $lote_item->item->quantidadeONP) !!}%">
                                         </div>
-                                      </div>   <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $lote_item->item->quantidade) !!}%</b> da quantidade total <b>{{$lote_item->item->quantidade}}</b>.</span>
+                                      </div>   <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $lote_item->item->quantidadeONP) !!}%</b> da quantidade total <b>{{$lote_item->item->quantidadeONP}}</b>.</span>
                                     @endif
                                   </td>     
                                 </tr>

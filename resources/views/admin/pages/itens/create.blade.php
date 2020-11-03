@@ -36,7 +36,7 @@
   		   <div class="card-header border-transparent">
                
 	  <div class="card-tools">
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-fornecedor">Criar Fornasdasdecedor</button>
+          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-fornecedor">Criar Fornecedor</button>
           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-objeto">Criar Objeto</button>
                   </div>
                  </div>
