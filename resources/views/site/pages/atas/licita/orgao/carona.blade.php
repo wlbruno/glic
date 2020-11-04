@@ -129,8 +129,8 @@
                                   <td>{{$lote_item->item->fornecedores->cnpj}}</td> -->
                           <td>{{$lote_item->item->marca}}</td>
                           <td>{{$lote_item->item->medida}}</td>
-                          <td>{{  'R$ '.number_format($lote_item->item->vunitario, 0, ',', '.') }}</td>  
-                          <td> {{ $lote_item->item->orgaos[0]->saldo}}</td> 
+                          <td>{{ $lote_item->item->vunitario }}</td>  
+                          <td>{{ ''.number_format($lote_item->item->orgaos[0]->saldo, 0, ',', '.') }} </td> 
                          
 
                             @php $soma = 0; @endphp
@@ -156,7 +156,7 @@
                                         </div> 
                                          <span>Você já solicitou {{$soma}} itens. Isso significa
                                             <b>{!! number_format((100 * $soma)/ $lote_item->item->orgaos[0]->quantidade ) !!}%
-                                            </b> da quantidade total <b>{{$lote_item->item->orgaos[0]->quantidade }}</b>.
+                                            </b> da quantidade total <b>{{ ''.number_format($lote_item->item->orgaos[0]->saldo, 0, ',', '.') }} </b>.
                                          </span>
                                      @endif
                                   </td>  

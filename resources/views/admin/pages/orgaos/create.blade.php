@@ -5,7 +5,7 @@
 @section('content_header')
     <h1>Cadastrar órgão  </h1>
     
-    <h3>Saldo do item {{$itens->saldoOP}}</h3>
+    <h3>Saldo do item {{ ''.number_format($itens->saldoOP, 0, ',', '.') }}</h3>
    
 @stop
 
@@ -39,7 +39,7 @@
                   		<td>{{$orgao->users->name}}</td>
                       <td>{{$orgao->users->Solicitante->cnpj}}</td>
                       <td>{{$orgao->users->Solicitante->ramal}}</td>
-                      <td>{{$orgao->saldo}}</td>
+                      <td>{{ ''.number_format($orgao->saldo, 0, ',', '.') }} </td>
                       <td>
                       <a class="btn btn-sm btn-danger" href="{{ route('orgao.destroy', [$itens->id, $orgao->id]) }}">Remover</a>
                       </td>

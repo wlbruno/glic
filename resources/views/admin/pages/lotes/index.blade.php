@@ -111,7 +111,7 @@
                         @foreach($lote->ItensLote as $lote_item)
                           <tr>
   				                  <th width="800">Objeto</th>
-        									  <th width="125">N° E-fisco</th>
+        									  <th width="150">N° E-fisco</th>
         									  <!-- <th>Fornecedor</th>
         									  <th width="200" >N° CNPJ</th> -->
                             <th>Quantidade solicitado</th>
@@ -141,7 +141,7 @@
                               <td>{{ ''.number_format($lote_item->item->saldoOP, 0, ',', '.') }}</td>
                             @endif   
                           <td>{{  ' '.number_format($lote_item->item->quantidadeONP, 0 , ',',  '.') }}</td>
-                          <td>{{$lote_item->item->saldoONP}}</td>
+                          <td>{{ ''.number_format($lote_item->item->saldoONP, 0, ',', '.') }}</td>
                           <td>{{$lote_item->item->marca}}</td>
                           <td>{{$lote_item->item->medida}}</td>
                           <td>R$ {{$lote_item->item->vunitario}}</td>

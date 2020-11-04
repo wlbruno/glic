@@ -28,6 +28,18 @@
 
 @section('content')
 
+@if (session('success'))
+  <div class="col-md-4">
+  
+          <div class="alert alert-success alert-dismissible">
+                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                  <h5><i class="icon fas fa-check"></i> Sucesso!</h5>
+                  {{ session('success') }}
+                  <p>Para visualizar vá para listagem de lotes.</p>
+                </div>
+</div>
+    @endif
+
 <div class="row">
 	<div class="col-md-12">
 		

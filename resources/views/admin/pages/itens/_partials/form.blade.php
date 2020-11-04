@@ -63,8 +63,8 @@
   
     <div class="col-md-6">
       <div class="form-group">
-        <label for="marca">* Marca</label>
-        <input type="text" class="form-control" name="marca" required placeholder="Digite o nome da marca" value="{{ $item->marca ?? old('marca') }}">
+        <label for="marca"> Marca</label>
+        <input type="text" class="form-control" name="marca"  placeholder="Digite o nome da marca" value="{{ $item->marca ?? old('marca') }}">
       </div>
     </div>
 
