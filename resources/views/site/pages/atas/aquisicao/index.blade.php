@@ -31,7 +31,7 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
-                        <th>Descrição</th>
+                     
                         <th>Nº Ata</th>
                         <th>Nº Pregão</th>
                         <th>Nº Processo</th>
@@ -46,7 +46,7 @@
                 <tbody>
                     @foreach($atasAquisicao as $ata)
                         <tr>
-                            <td>{{ $ata->descricao }}</td>
+                          
                             <td>{{ $ata->nata }}</td>
                             <td>{{ $ata->npregao }}</td>
                             <td>{{ $ata->nprocesso }}</td>

@@ -3,26 +3,29 @@
 @section('title', 'Finalizar ata')
 
 @section('content_header')
+
 <div class="row">
-      <div class="col-md-12">
-	  <div class="card card-default">
-      <div class="card-header">
-        <ol class="breadcrumb float-sm-left">
-          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
-          <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
-		  <li class="breadcrumb-item"><a href="{{ route('atas.index') }}"><strong>LISTAGEM DE ATAS</strong></a></li>
-		   @if($atas->tipo === 'ITEM')
-          <li class="breadcrumb-item"><a href="{{ route('lotes.create', $atas->id) }}"><strong>LISTAGEM DE ITENS</strong></a></li>
-           @else
-          <li class="breadcrumb-item"><a href="{{ route('lotes.create', $atas->id) }}"><strong>LISTAGEM DE LOTES</strong></a></li>
-            @endif
-          <li class="breadcrumb-item"><strong>FINALIZAR ATA</strong></li>
-        </ol>
-		</div>
+    <div class="col-md-12">
+		<div class="card card-default">
+      		<div class="card-header">
+				<ol class="breadcrumb float-sm-left">
+					<li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+					<li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
+					<li class="breadcrumb-item"><a href="{{ route('atas.index') }}"><strong>LISTAGEM DE ATAS</strong></a></li>
+						@if($atas->tipo === 'ITEM')
+							<li class="breadcrumb-item"><a href="{{ route('lotes.create', $atas->id) }}"><strong>LISTAGEM DE ITENS</strong></a></li>
+						@else
+							<li class="breadcrumb-item"><a href="{{ route('lotes.create', $atas->id) }}"><strong>LISTAGEM DE LOTES</strong></a></li>
+						@endif
+					<li class="breadcrumb-item"><strong>FINALIZAR ATA</strong></li>
+				</ol>
+			</div>
+    	</div>
     </div>
-      </div>
-    </div>
+</div>
+
 <br>
+
 @stop
 
 @section('content')
@@ -61,17 +64,9 @@
                 <table class="table table-head-fixed">
                     <thead>
                         <th> Descrição</th>
-						@if($atas->lotes->count() > 0)
-						<th>Fornecedor</th>
-						<th>CNPJ</th>
-						@endif
                     </thead>
                     <tbody>
                         <td>{{ $atas->descricao }}</td>
-						@if($atas->lotes->count() > 0)
-						<td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->fornecedor }}</td>
-						<td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->cnpj }}</td>
-						@endif
                     </tbody>
                 </table>
               </div>
@@ -90,38 +85,36 @@
                        		<input type="hidden" value="PUBLICADA" name="status">
                       		<button type="submit" class="btn btn-secondary ">SALVAR E PUBLICAR</button>
 						 	 	@if($atas->tipo == 'LOTE')
-									<button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#modal-lote">
-										Criar novo Lote
-									</button>
+									<button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#modal-lote">CRIAR NOVO LOTE</button>
 								@endif
                     </form>
                 </div>
             </div>
         </div>
     </div>
-								<!-- CRIAR LOTE -->
+						
+				<!------------- CRIAR LOTE ------------------->
 		<div class="modal fade" id="modal-lote" style="display: none;" aria-hidden="true">
 			<div class="modal-dialog modal-lg">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h4 class="modal-title">Criar novo lote</h4>
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
+								<span aria-hidden="true">×</span>
 							</button>
 					</div>
-					
 					<form role="form" action="{{ route('lotes.store', $atas->id) }}" method="POST" id="formID">
 						<div class="modal-body">
 							@csrf
-							<div class="row">
-								<div class="col-sm-12">
-									<div class="form-group">
-										<label for="descricao">Descrição do lote</label>
-										<input class="form-control" required name="descricao" placeholder="Descrição...">  
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<label for="descricao">Descrição do lote</label>
+											<input class="form-control" required name="descricao" placeholder="Descrição...">  
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 						<div class="card-footer">
 							<button type="submit" class="btn btn-success formButton" id="send">Salvar</button>
 							<button type="button" class="btn btn-danger float-right" data-dismiss="modal">Cancelar</button>
@@ -133,66 +126,66 @@
 	</div>
 
    	<!-------------------------------lOTES / ITENS  ----------------------------------------->
-    <div class="row">
-		<div class="col-sm-12">
-			@foreach($atas->lotes as $lote)
-			   	<div class="card">
-		    		<div class="card-body">
-					    <div class="card">
-		              		<div class="card-header border-transparent">
-						  		@if($atas->tipo === 'LOTE')
-									<h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
-								@endif
-							<div class="card-tools">
-								<a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-secondary" ><i class="fas fa-plus">Adicionar item</i> </a>
-								@if($atas->tipo == 'LOTE')
-									<a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-secondary">EDITAR</a>
-									<a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-secondary" >DELETAR</a>
-								@endif
-		                 	</div>
-                        </div>
-		            <div class="card-body p-0">
-                		<div class="table-responsive">
-                  			<table class="table m-0">
-                    			<thead>
-                            		@foreach($lote->ItensLote as $lote_item)
-                            			<tr>
-					                   		<th width="500" > Objeto</th>
-        									<th width="200">N° E-fisco</th>
-        									<!-- <th>Fornecedor</th>
-        									<th>N° CNPJ</th> -->
-											<th>Quantidade solicitado</th>
+    	<div class="row">
+			<div class="col-sm-12">
+				@foreach($atas->lotes as $lote)
+			   		<div class="card">
+		    			<div class="card-body">
+					    	<div class="card">
+		              			<div class="card-header border-transparent">
+						  			@if($atas->tipo === 'LOTE')
+										<h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
+									@endif
+								<div class="card-tools">
+									<a href="{{ route('itens.create', [$atas->id, $lote->id]) }}" class="btn btn-secondary" ><i class="fas fa-plus">Adicionar item</i> </a>
+										@if($atas->tipo == 'LOTE')
+											<a href="{{ route('lotes.edit', [$atas->id, $lote->id]) }}" class="btn btn-secondary">EDITAR</a>
+											<a href="{{ route('lotes.destroy', [$atas->id, $lote->id])}}" class="btn btn-secondary" >DELETAR</a>
+										@endif
+		                 			</div>
+                        		</div>
+		            		<div class="card-body p-0">
+                				<div class="table-responsive">
+                  					<table class="table m-0">
+                    					<thead>
+                            				@foreach($lote->ItensLote as $lote_item)
+												<tr>
+													<th width="500" > Objeto</th>
+													<th width="200">N° E-fisco</th>
+													<!-- <th>Fornecedor</th>
+													<th>N° CNPJ</th> -->
+													<th>Quantidade solicitado</th>
+														@if($atas->orgao == 'SIM')
+															<th>Quantidade <strong>órgão participante</strong></th>
+															<th>Saldo <strong>órgão participante</strong></th>
+														@endif                            
+													<th>Quantidade <strong>órgão não participante</strong></th>
+													<th>Saldo<strong> órgao não participante </strong></th>
+													<th width="100">Marca</th>
+													<th width="150">Unidade de medida</th>
+													<th width="150">Valor unitário</th>
+													<th width="180">Valor total</th>
+													<th >Ações</th>
+												</tr>
+                    					</thead>
+                    				<tbody>
+										<tr>
+											<td>{{$lote_item->item->objetos->nome}}</td>
+											<td>{{$lote_item->item->objetos->nefisco}}</td>
+											<!--    <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
+											<td>{{$lote_item->item->fornecedores->cnpj}}</td> -->
+											<td>{{$lote_item->item->quantidadeSES}}</td>
 												@if($atas->orgao == 'SIM')
-													<th>Quantidade <strong>órgão participante</strong></th>
-													<th>Saldo <strong>órgão participante</strong></th>
-												@endif                            
-											<th>Quantidade <strong>órgão não participante</strong></th>
-											<th>Saldo<strong> órgao não participante </strong></th>
-											<th width="100">Marca</th>
-	       									<th width="150">Unidade de medida</th>
-        									<th width="150">Valor unitário</th>
-        									<th width="180">Valor total</th>
-                            				<th >Ações</th>
-				                   	 	</tr>
-                    			</thead>
-                    			<tbody>
-                    				<tr>
-		                                <td>{{$lote_item->item->objetos->nome}}</td>
-		                                <td>{{$lote_item->item->objetos->nefisco}}</td>
-		                            <!--    <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
-		                                <td>{{$lote_item->item->fornecedores->cnpj}}</td> -->
-										<td>{{$lote_item->item->quantidadeSES}}</td>
-                            @if($atas->orgao == 'SIM')
-                              <td>{{$lote_item->item->quantidadeOP}}</td>
-                              <td>{{$lote_item->item->saldoOP}}</td>
-                            @endif   
-                          <td>{{  ' '.number_format($lote_item->item->quantidadeONP, 0 , ',',  '.') }}</td>
-                          <td>{{$lote_item->item->saldoONP}}</td>
-                          <td>{{$lote_item->item->marca}}</td>
-		                                <td>{{$lote_item->item->medida}}</td>
-		                                <td>{{$lote_item->item->vunitario}}</td>
-										<td>{{  'R$ '.number_format($lote_item->item->vtotal, 4, ',', '.') }}</td>           
-										<td>
+													<td>{{$lote_item->item->quantidadeOP}}</td>
+													<td>{{$lote_item->item->saldoOP}}</td>
+												@endif   
+											<td>{{  ' '.number_format($lote_item->item->quantidadeONP, 0 , ',',  '.') }}</td>
+											<td>{{$lote_item->item->saldoONP}}</td>
+											<td>{{$lote_item->item->marca}}</td>
+											<td>{{$lote_item->item->medida}}</td>
+											<td>{{$lote_item->item->vunitario}}</td>
+											<td>{{  'R$ '.number_format($lote_item->item->vtotal, 4, ',', '.') }}</td>           
+											<td>
 											<button type="button" class="btn btn-secondary btn-flat dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">Ações </button>
 											<span class="sr-only">Toggle Dropdown</span>
 												<div class="dropdown-menu" role="menu" x-placement="bottom-start">
@@ -204,19 +197,19 @@
 														@if($atas->orgao == 'SIM')
 															<a class="dropdown-item"href="{{ route('orgao.create', [$atas->id, $lote->id, $lote_item->item->id])}}">Adicionar orgão</a>
 														@endif
-												</div>
-										</td>
-		               			    </tr>
-    	                      	@endforeach
-                    		</tbody>
-                  		</table>           
-                	</div>
-              	</div>
-            </div>
-    	</div>
-    </div>
- @endforeach
-</div>
+													</div>
+												</td>
+		               			   			</tr>
+    	                      			@endforeach
+                    				</tbody>
+                  				</table>           
+                			</div>
+ 	             		</div>
+    	        	</div>
+    			</div>
+    		</div>
+ 		@endforeach
+	</div>
 </div>
 
  	<!------------------------------- MODAL ----------------------------------------->
@@ -254,42 +247,40 @@
 	</div>
 </div>
 
-
-      <div id="ModalObjeto" class="modal fade bd-example-modal-lg" role="dialog">
-		  <div class="modal-dialog modal-lg">
-				<div class="modal-content">
-      				<div class="modal-header">
-          				<h4 class="modal-title">Editar Objeto</h4>
-        				<button type="button" class="close" data-dismiss="modal">&times;</button>
-        			</div>
-			   <form action="{{ route('objeto.edit.lotes') }}" class="form" method="POST" id="formIDobj">
+<div id="ModalObjeto" class="modal fade bd-example-modal-lg" role="dialog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+      		<div class="modal-header">
+        		<h4 class="modal-title">Editar Objeto</h4>
+        		<button type="button" class="close" data-dismiss="modal">&times;</button>
+        	</div>
+				<form action="{{ route('objeto.edit.lotes') }}" class="form" method="POST" id="formIDobj">
 			   	@csrf
 					<div class="modal-body">
-                	<input type="hidden" value="{{$lote_item->item->objetos->id ?? ''}}" name="id">
-			            <div class="col-md-12">
-           				   <div class="form-group">
-                 				<label for="nefisco">* Nº E-fisco: </label>
+                		<input type="hidden" value="{{$lote_item->item->objetos->id ?? ''}}" name="id">
+			        	    <div class="col-md-12">
+           					    <div class="form-group">
+                 					<label for="nefisco">* Nº E-fisco: </label>
                    					<input type="text" class="form-control nefisco" name="nefisco" required placeholder="Digite o número do EFISCO"  value="{{$lote_item->item->objetos->nefisco ?? ''}}">
-         			     </div>
-        		  </div>
-       	 	  <div class="col-md-12">
-         		   <div class="form-group">
-          			    <label for="cnpj">* Nome: </label>
-               			<textarea name="nome" cols="15" rows="5" required class="form-control" placeholder="Digite o nome do objeto">{{$lote_item->item->objetos->nome ?? ''}}</textarea>
-           			 </div>
-         		 </div>
-      		  </div>
-       		 <div class="modal-footer">
-        		 <button type="submit" class="btn btn-success formButton" id="obj">Salvar</button>
-         		 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-       		 </div>
-       </form>       
-    </div>
-  </div>
-</div>
+         			  		    </div>
+        		  			</div>
+       	 	  			<div class="col-md-12">
+         		   			<div class="form-group">
+          			    		<label for="cnpj">* Nome: </label>
+               						<textarea name="nome" cols="15" rows="5" required class="form-control" placeholder="Digite o nome do objeto">{{$lote_item->item->objetos->nome ?? ''}}</textarea>
+           			 			</div>
+         		 			</div>
+      		  			</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-success formButton" id="obj">Salvar</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+					</div>
+       			</form>       
+    		</div>
+  		</div>
+	</div>
 
 @endsection
-
 
 
 @section('js')
@@ -332,6 +323,6 @@ $(formIDobj).submit(function(event){
 
 
 </script>
-   <script src="{{asset('js/jquery.mask.js')}}"></script>
-      <script src="{{asset('js/mask.js')}}"></script>
+   	<script src="{{asset('js/jquery.mask.js')}}"></script>
+    <script src="{{asset('js/mask.js')}}"></script>
 @endsection

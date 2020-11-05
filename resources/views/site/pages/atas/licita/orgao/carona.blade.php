@@ -49,12 +49,13 @@
             </table>
               <table class="table table-head-fixed">
                 <thead>
-                    <th> Descrição</th>
+                    <th>Descrição</th>
                     <th>Fornecedor</th>
 					        	<th>CNPJ</th>
                 </thead>
                 <tbody>
                   <td>{{ $atas->descricao }}</td>
+              
                   <td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->fornecedor }}</td>
 						      <td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->cnpj }}</td>
                 </tbody>
