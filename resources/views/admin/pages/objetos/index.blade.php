@@ -23,6 +23,21 @@
 @stop
 
 @section('content')
+
+
+@if (session('success'))
+
+<div class="col-md-5">
+  <div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <h5><i class="icon fas fa-check"></i> Sucesso!</h5>
+        {{ session('success') }}
+  </div>
+</div>
+
+@endif
+
+    
  <div class="card">
         <div class="card-header">
         <form action="{{ route('objetos.search') }}" method="POST" class="form form-inline">
@@ -77,4 +92,5 @@
 @section('js')
          <script src="{{asset('js/jquery.mask.js')}}"></script>
       <script src="{{asset('js/mask.js')}}"></script>
+<script src="{{asset('js/toastr.min.js')}}"></script>
 @stop

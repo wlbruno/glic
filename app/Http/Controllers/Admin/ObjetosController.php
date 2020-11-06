@@ -51,7 +51,7 @@ class ObjetosController extends Controller
     {
         $objetos = $this->repository->create($request->all());
 
-        return redirect()->route('objetos.index');
+        return redirect()->route('objetos.index')->with('success', 'Sucesso ao criar o Objeto!');
     }
 
     /**
@@ -100,7 +100,7 @@ class ObjetosController extends Controller
 
          $objeto->update($request->all());
 
-        return redirect()->route('objetos.index');
+        return redirect()->route('objetos.index')->with('success', 'Edição realizada com sucesso!');
     }
 
     /**

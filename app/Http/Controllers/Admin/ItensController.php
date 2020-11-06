@@ -90,7 +90,7 @@ class ItensController extends Controller
         }  
 
         if($ata->tipo === 'ITEM' && isset($ata->lotes[0]->ItensLote[0]->item)){
-            return redirect()->route('lotes.create', $ata->id);
+            return redirect()->route('lotes.create', $ata->id)->with('success', 'Item criado com sucesso!');
             
         }
 

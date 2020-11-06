@@ -86,6 +86,21 @@
 
 @section('content')
 @include('admin.includes.alerts')
+
+
+@if (session('success'))
+
+<div class="col-md-5">
+  <div class="alert alert-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <h5><i class="icon fas fa-check"></i> {{ session('success') }} </h5>
+        
+  </div>
+</div>
+
+@endif
+
+
   <div class="row">
 	  <div class="col-sm-12">
       @foreach($atas->lotes as $lote)

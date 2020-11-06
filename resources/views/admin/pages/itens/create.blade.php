@@ -35,7 +35,7 @@
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                   <h5><i class="icon fas fa-check"></i> Sucesso!</h5>
                   {{ session('success') }}
-                  <p>Para visualizar vá para listagem de lotes.</p>
+                  <p>Para visualizar, vá para a listagem de lotes.</p>
                 </div>
 </div>
     @endif
