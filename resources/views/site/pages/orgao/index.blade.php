@@ -40,7 +40,7 @@
                 <thead>
                     <tr>
                         <th>Departamento</th>
-                        <th>Descrição</th>
+                      
                         <th>Nº Ata</th>
                         <th>Nº Pregão</th>
                         <th>Nº Processo</th>
@@ -54,10 +54,10 @@
                 </thead>
                     @foreach($atas as $ata)
                     @if($ata->atas->status === "PUBLICADA")
-                   
+                    
+
                 <tbody>
-                      <td>{{ $ata->atas->departamento }}</td>
-                           <td>{{ $ata->atas->descricao }}</td>
+                           <td>{{ $ata->atas->departamento }}</td>
                             <td>{{ $ata->atas->nata }}</td>
                             <td>{{ $ata->atas->npregao }}</td>
                             <td>{{ $ata->atas->nprocesso }}</td>

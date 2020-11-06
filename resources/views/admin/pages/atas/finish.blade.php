@@ -177,10 +177,10 @@
 											<td>{{$lote_item->item->quantidadeSES}}</td>
 												@if($atas->orgao == 'SIM')
 													<td>{{$lote_item->item->quantidadeOP}}</td>
-													<td>{{$lote_item->item->saldoOP}}</td>
+                           							<td>{{ ''.number_format($lote_item->item->saldoOP, 0, ',', '.') }}</td>
 												@endif   
 											<td>{{  ' '.number_format($lote_item->item->quantidadeONP, 0 , ',',  '.') }}</td>
-											<td>{{$lote_item->item->saldoONP}}</td>
+                        					<td>{{ ''.number_format($lote_item->item->saldoONP, 0, ',', '.') }}</td>
 											<td>{{$lote_item->item->marca}}</td>
 											<td>{{$lote_item->item->medida}}</td>
 											<td>{{$lote_item->item->vunitario}}</td>

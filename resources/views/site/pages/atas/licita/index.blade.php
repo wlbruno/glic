@@ -127,7 +127,7 @@
                           <!--    <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
                               <td>{{$lote_item->item->fornecedores->cnpj}}</td> -->
                               <td>{{$lote_item->item->medida}}</td>
-                              <td>{{  'R$ '.number_format($lote_item->item->vunitario, 0, ',', '.') }}</td>     
+                              <td>{{$lote_item->item->vunitario}}</td>    
 
                                   @php $soma = 0; @endphp
                                     @forelse($itens_solicitados as $item_solicitado)

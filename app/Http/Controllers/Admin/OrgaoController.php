@@ -44,7 +44,8 @@ class OrgaoController extends Controller
         $orgaos->itens_id = $idItem;
         $orgaos->atas_id = $idAta;
         $orgaos->users_id = $request->input('users_id');
-        $orgaos->quantidade = $request->input('saldo');
+        $orgaos->quantidade = str_replace(',', '.', str_replace('.', '', $request->input('saldo')));
+        
         $orgaos->saldo = $orgaos->quantidade;
         $orgaos->save();
 

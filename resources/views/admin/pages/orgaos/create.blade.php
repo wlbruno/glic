@@ -83,7 +83,7 @@
 				     	 <div class="form-group">
 				      		<label for="saldo">* Saldo</label>
                 
-				        		<input type="number" class="form-control" min="0" max="{{$itens->saldoOP}}" name="saldo" required>
+				        		<input type="text" class="form-control" min="0" max="{{$itens->saldoOP}}" name="saldo" required>
 				     		 </div>
                     	</div>
                     </div>
