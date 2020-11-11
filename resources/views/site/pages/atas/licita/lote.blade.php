@@ -113,7 +113,7 @@
                               <!--    <td>{{$lote_item->item->fornecedores->fornecedor}}</td>
                               <td>{{$lote_item->item->fornecedores->cnpj}}</td> -->
                               <td>{{$lote_item->item->medida}}</td>
-                              <td>{{  'R$ '.number_format($lote_item->item->vunitario, 0, ',', '.') }}</td>     
+                              <td>{{$lote_item->item->vunitario}}</td>
 
                                   @php $soma = 0; @endphp
                                     @forelse($itens_solicitados as $item_solicitado)
@@ -128,10 +128,10 @@
                               <td> 
                                 <input type="hidden" name="itens[]" value="{{$lote_item->item->id}}">   
                                   @if($soma > 0 )
-                                    <input  id="solicita"  type="number" required class="form-control" min="0" name="qtd_itens[]" 
+                                    <input  id="solicita"  type="text" required class="form-control" min="0" name="qtd_itens[]" 
                                       max="{{$lote_item->item->quantidadeONP - $soma}}" placeholder="..." >
                                   @else
-                                    <input id="solicita" type="number" required class="form-control" min="0" name="qtd_itens[]"  
+                                    <input id="solicita" type="text" required class="form-control" min="0" name="qtd_itens[]"  
                                      max="{{$lote_item->item->quantidadeONP - $soma}}" placeholder="..." >
                                   @endif
                                     <div class="progress progress-xs" >

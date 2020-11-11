@@ -140,7 +140,7 @@
                                                         <td>{{$item->objetos->nefisco}}</td>
                                                         <td>{{$item->marca}}</td>
                                                         <td>{{$item->medida}}</td>
-                                                        <td>{{  'R$ '.number_format($item->vunitario, 2, ',', '.') }}</td>
+                                                        <td>{{$item->vunitario}}</td>
                                                         @foreach($caronas->itens as $itemcarona)
                                                             @if($itemcarona->id == $item->id)
                                                               <td>{{$caronas->Carona_itens->getQTD($itemcarona->id)->quantidade}}</td>

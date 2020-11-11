@@ -153,7 +153,7 @@
                                         <div class="progress progress-xs" >
                                           <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="{{$soma}}" aria-valuemin="0" aria-valuemax="{{ $lote_item->item->quantidadeONP }}" style="width: {!! number_format((100 * $soma)/ $lote_item->item->quantidadeONP) !!}%">
                                         </div>
-                                      </div>   <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $lote_item->item->quantidadeONP) !!}%</b> da quantidade total <b>{{$lote_item->item->quantidadeONP}}</b>.</span>
+                                      </div>   <span >Você já solicitou {{$soma}} itens. Isso significa <b>{!! number_format((100 * $soma)/ $lote_item->item->quantidadeONP) !!}%</b> da quantidade total <b>{{  ' '.number_format($lote_item->item->quantidadeONP, 0 , ',',  '.') }}</b>.</span>
                                     @endif
                                   </td>     
                                 </tr>
