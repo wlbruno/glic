@@ -30,7 +30,7 @@
 @stop
 
 @section('content')
-    <div class="row">
+<div class="row">
       <div class="col-12">
         <div class="card">
           <div class="card-body table-responsive p-0" style="height: 300px;">
@@ -44,10 +44,9 @@
                   <th>Vigência</th>
                   <th>Tipo</th>
                   <th>Comissão</th>
-                  <th>PDF</th>
                 </tr>
-               </thead>
-               <tbody>
+              </thead>
+              <tbody>
                 <tr>
                   <td>{{ $atas->departamento }}</td>
                   <td>{{ $atas->nata }}</td>
@@ -56,27 +55,38 @@
                   <td>{{ date( 'd/m/Y', strtotime($atas->data_vigencia)) }}</td>
                   <td>{{ $atas->tipo }}</td>
                   <td>{{ $atas->comissao }}</td>
-                  <td width="40"><a href="{{ route('download.pdf', $atas->id) }}">{{ $atas->arquivo }}</a></td>
                  </tr>
+              </tbody>
+            </table>
+              <table class="table table-head-fixed">
+                <thead>
+                    <th>Descrição</th>
+                    <th>Fornecedor</th>
+					        	<th>CNPJ</th>
+                </thead>
+                <tbody>
+                  <td>{{ $atas->descricao }}</td>
+              
+                  <td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->fornecedor }}</td>
+						      <td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->cnpj }}</td>
                 </tbody>
               </table>
               <table class="table table-head-fixed">
                 <thead>
-                   <th> Descrição</th>
-                   <th>Fornecedor</th>
-						<th>CNPJ</th>
-                </thead>
-                <tbody>
-                  <td>{{ $atas->descricao }}</td>
-                  <td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->fornecedor }}</td>
-						<td>{{ $atas->lotes[0]->ItensLote[0]->item->fornecedores->cnpj }}</td>
+                  <tr>
+                    <th>PDF</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                    <td><a href="{{ route('download.pdf', $atas->id) }}">{{ $atas->arquivo }}</a></td>
+                  </tr>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
       </div>
-
 
       <div class="row">
         <div class="col-md-12">

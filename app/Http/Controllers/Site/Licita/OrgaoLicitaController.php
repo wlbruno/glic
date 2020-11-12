@@ -8,6 +8,7 @@ use App\Models\Ata;
 use App\Models\Orgao;
 use App\Models\Carona;
 use App\Models\Carona_item;
+use App\Models\Carona_orgao;
 use Auth;
 use Illuminate\Support\Str;
 use App\Models\Item;
@@ -29,7 +30,7 @@ class OrgaoLicitaController extends Controller
         $caronas = Carona::select('id')->where('atas_id', $atas->id)->where('users_id', Auth::user()->id)->get()->toArray();
         
         if(count($caronas) > 0){
-             $itens_solicitados = Carona_item::whereIn('caronas_id', $caronas)->get();
+             $itens_solicitados = Carona_orgao::whereIn('caronas_id', $caronas)->get();
       
          }else { 
              $itens_solicitados = array();
@@ -58,26 +59,29 @@ class OrgaoLicitaController extends Controller
         $caronas->save();
             for($i=0; $i<count($request->itens); $i++) {
                 if($request->qtd_itens[$i] > 0){
-                    $caronaitens = new Carona_item();
+                    $caronaitens = new Carona_orgao();
                     $caronaitens->caronas_id = $caronas->id;
                     $caronaitens->itens_id = $request->itens[$i];
                     $caronaitens->quantidade = $request->qtd_itens[$i];
                     $caronaitens->save();
                     $itens = Item::find($request->itens[$i]);
-                    $itens->saldoOP = $itens->saldoOP - $request->qtd_itens[$i]; 
-                if($itens->saldoOP < $itens->quantidadeOP){
-                    $itens->quantidadeOP = $itens->saldoOP;
+                    $itens->saldoONP = $itens->saldoONP - $request->qtd_itens[$i]; 
+                if($itens->saldoONP < $itens->quantidadeONP){
+                    $itens->quantidadeONP = $itens->saldoONP;
                 }
                 $itens->save();  
-                $orgao = Orgao::find($request->input('orgao_id'));
-                $orgao->saldo = $orgao->saldo -  $request->qtd_itens[$i]; 
-                $orgao->save();
             }
         }  
-
-        
           
-            return redirect()->route('licita.pdf', $caronas->id);
+        return redirect()->route('licita.pdf.orgao', $caronas->id);
     }
+
+    public function PDForgao($id)
+    {
+        $caronas = Carona::find($id);   
+        $pdf = \PDF::LoadView('site.pages.atas.licita.orgao.pdf', compact('caronas'));
+        return $pdf->stream();
+    }
+
 
 }

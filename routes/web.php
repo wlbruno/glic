@@ -32,6 +32,8 @@
 
 	//ROUTE GERAR PDF
 	Route::get('ata/carona/{id}', 'Site\Licita\LicitaController@gerarPDF')->name('licita.pdf');
+	//ORGAO
+	Route::get('ata/carona/{id}/orgao', 'Site\Licita\OrgaoLicitaController@PDForgao')->name('licita.pdf.orgao');
 
 
 	/**

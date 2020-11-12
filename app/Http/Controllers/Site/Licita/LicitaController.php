@@ -9,6 +9,7 @@ use App\Models\Carona;
 use App\Models\Carona_item;
 use App\Models\Item;
 use App\Models\Token;
+
 use Illuminate\Support\Str;
 use Auth;
 use App\Models\Lote;
@@ -35,7 +36,7 @@ class LicitaController extends Controller
 
     public function carona(Request $request)
     {
-        //dd($request->all());
+        
 
         $now = date('Y-m-d');
         
@@ -71,6 +72,7 @@ class LicitaController extends Controller
     public function gerarPDF($id)
     {
         $caronas = Carona::find($id);
+
 
         $pdf = \PDF::LoadView('site.pages.atas.licita.pdf', compact('caronas'));
         return $pdf->stream();

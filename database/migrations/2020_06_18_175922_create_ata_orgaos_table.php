@@ -19,8 +19,7 @@ class CreateAtaOrgaosTable extends Migration
             $table->bigInteger('atas_id')->unsigned();
             $table->foreign('atas_id')->references('id')->on('atas');
 
-   
-       
+
             $table->unsignedBigInteger('users_id');
             $table->foreign('users_id')->references('id')->on('users');
 
