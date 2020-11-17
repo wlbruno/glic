@@ -60,9 +60,9 @@ class AtasController extends Controller
         $ata = $this->repository->create($data);
 
         if($ata->tipo == 'ITEM'){
-            return redirect()->route('item.item', $ata->id);
+            return redirect()->route('item.item', $ata->id)->with('success', 'Ata criada com sucesso, crie pelo menos um item para finalizar!');
         }
-        return redirect()->route('lotes.create', $ata->id);
+        return redirect()->route('lotes.create', $ata->id)->with('success', 'Ata criada com sucesso!');
     }
 
     /**
