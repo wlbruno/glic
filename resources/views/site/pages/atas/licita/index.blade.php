@@ -8,7 +8,7 @@
 <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb float-sm-left">
-          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('home.index') }}"><i class="fas fa-home"></i></a></li>
           @if($atas->departamento === 'MEDICAMENTOS')
           <li class="breadcrumb-item"><a href="{{route('atas.medicamentos')}}"><strong>ATAS DE MEDICAMENTOS</strong></a></li>
           @endif
@@ -26,6 +26,13 @@
       </div>
     </div>
 <br>
+@if(!auth()->user())
+      <div class="callout callout-warning">
+        <h5>ATENÇÃO!</h5>
+          <p>Para solicitar ata precisa fazer login.</p>
+          <p><a href="/login"><strong>Clique aqui para fazer login</strong></a></p>
+        </div>
+@endif
 
 @stop
 
@@ -103,7 +110,7 @@
                   <h3 class="card-title"><strong>{{$lote->descricao}}</strong></h3>
                   
                         <div class="card-tools">
-                          @if($atas->tipo === "LOTE")
+                          @if(auth()->user() && $atas->tipo === "LOTE")
                             <div class="form-check">
                               <input class="form-check-input" name="lotes[]" value="{{$lote->id}}" type="checkbox">
                               <label class="form-check-label"><strong>Você desejar solicitar esse lote?</strong></label>
@@ -123,7 +130,7 @@
                             <th>Unidade de medida</th>
                             <th>Valor unitário</th>
                             <th>Disponível</th>
-                              @if($atas->tipo === "ITEM")
+                              @if(auth()->user() && $atas->tipo === "ITEM")
                             <th>Solicita</th>
                               @endif
                           </tr>
@@ -138,7 +145,7 @@
                               <td>{{$lote_item->item->fornecedores->cnpj}}</td> -->
                               <td>{{$lote_item->item->medida}}</td>
                               <td>{{$lote_item->item->vunitario}}</td>    
-
+                          
                                   @php $soma = 0; @endphp
                                     @forelse($itens_solicitados as $item_solicitado)
                                       @if($item_solicitado->itens_id == $lote_item->item->id)
@@ -151,7 +158,7 @@
                                   @endforelse
                         
                               <td>{{  ' '.number_format($lote_item->item->quantidadeONP - $soma, 0 , ',',  '.') }}</td>     
-                             
+                              @if(auth()->user())
                                 @if($atas->tipo === "ITEM")
                               <td> 
                                     <input type="hidden" name="itens[]" value="{{$lote_item->item->id}}">   
@@ -167,18 +174,22 @@
                                     @endif
                                   </td>     
                                 </tr>
+                                @endif
                               @endforeach
                         </tbody>
                       </table>
                     </div>
                   </div>
                 @endforeach
+                @if(auth()->user())
                   <div class="card-footer clearfix">
                   @if($atas->tipo == "ITEM")
                     <button type="submit"  id="botao" disabled="disabled" class="btn btn-sm btn-info float-right">SOLICITAR</button>
                   @else()
                   <button type="submit"  id="botao"  class="btn btn-sm btn-info float-right">SOLICITAR</button>
                   @endif
+                  @endif
+                  
                   </div>
                 </div>
               </form>

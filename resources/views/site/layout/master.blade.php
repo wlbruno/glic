@@ -19,7 +19,7 @@
     <!-- Navbar -->
       <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
         <div class="container">
-          <a href="/home" class="navbar-brand">
+          <a href="{{ route('home.index') }}" class="navbar-brand">
             <img src="{{asset('/img/logo-nova.png')}}" alt="AdminLTE Logo" class="brand-image  elevation-3"
                 style="opacity: .8">
             <span class="brand-text font-weight-light"></span>
@@ -33,10 +33,10 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a href="/home" class="nav-link">Home</a>
+                <a href="{{ route('home.index') }}" class="nav-link">Home</a>
               </li>
               <li class="nav-item">
-                <a href="/contato" class="nav-link">Contato</a>
+                <a href="{{ route('user.contato') }}" class="nav-link">Contato</a>
               </li>
             @can('orgao_orgao')
               <li>
@@ -59,7 +59,7 @@
       @guest
       
       <li class="nav-item dropdown">
-         <a href="/login" class="btn btn-sn btn-info"><i class="fas fa-sign-in-alt"></i> Entrar</a>
+         <a href="{{ route('login') }}" class="btn btn-sn btn-info"><i class="fas fa-sign-in-alt"></i> Entrar</a>
               
       </li>
       @endguest

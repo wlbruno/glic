@@ -6,7 +6,7 @@
 <div class="row">
   <div class="col-md-12">
   <ol class="breadcrumb float-sm-left">
-    <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+    <li class="breadcrumb-item"><a href="{{ route('home.index') }}"><i class="fas fa-home"></i></a></li>
   <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
         <li class="breadcrumb-item "><a href="{{ route('objetos.index') }}"><strong>LISTAGEM DE OBJETOS</strong></a></li>
          <li class="breadcrumb-item"><strong>OBJETO {{ $objeto->nome }}</strong></li>

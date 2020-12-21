@@ -25,7 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
-      <a href="/home" class="navbar-brand">
+      <a href="{{ route('home.index') }}" class="navbar-brand">
          <img src="{{asset('/img/logo-nova.png')}}" alt="AdminLTE Logo" class="brand-image  elevation-3"
              style="opacity: .8">
         

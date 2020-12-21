@@ -8,7 +8,7 @@
 <div class="row">
       <div class="col-md-12">
         <ol class="breadcrumb float-sm-left">
-          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('home.index') }}"><i class="fas fa-home"></i></a></li>
             <li class="breadcrumb-item"><strong>ATAS AQUISIÇÃO EM GERAL</strong></li>
         </ol>
       </div>
@@ -38,9 +38,7 @@
                         <th>Vigencia</th>
                         <th>Tipo</th>
                         <th>Comissão</th>
-                        @can('licita_carona')
                             <th width="150">Ações</th>
-                        @endcan
                     </tr>
                 </thead>
                 <tbody>
@@ -57,12 +55,10 @@
                          
 
                           
-                               @can('licita_carona')
                             <td style="width: 10px;">
                                
-                                <a href="{{ route('licita.index', $ata->id) }}" class="btn btn-info">Solicitar</a>    
-                            </td>
-                            @endcan       
+                                <a href="{{ route('licita.index', $ata->id) }}" class="btn btn-info">Detalhes</a>    
+                            </td>   
                         </tr>
                     @endforeach    
                 </tbody>

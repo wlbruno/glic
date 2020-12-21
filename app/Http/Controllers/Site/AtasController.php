@@ -29,7 +29,7 @@ class AtasController extends Controller
     public function produtos()
     {
         $atasProdutos = Ata::Where([
-                                ['departamento', 'PRODUTOS MEDICOS'],
+                                ['departamento', 'PRODUTOS MÉDICOS'],
                                 ['status', "PUBLICADA"],
                                 ])->paginate();
 

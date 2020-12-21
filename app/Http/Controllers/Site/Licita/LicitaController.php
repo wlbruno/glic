@@ -19,6 +19,12 @@ class LicitaController extends Controller
     public function index($id)
    	{ 
      $atas = Ata::find($id);
+
+     if(is_null(auth()->user())){
+        $itens_solicitados = array();
+        return view('site.pages.atas.licita.index', compact('atas', 'itens_solicitados'));
+     }
+
         $caronas = Carona::select('id')->where('atas_id', $atas->id)->where('users_id', Auth::user()->id)->get()->toArray();
         
            if(count($caronas) > 0){

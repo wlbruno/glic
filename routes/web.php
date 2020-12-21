@@ -1,5 +1,18 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+	
+	/**
+	*	Routes public	
+	*
+	*/
+	Route::get('/', 'Site\HomeController@index')->name('home.index');
+	Route::get('/contato', 'Site\HomeController@Contato')->name('user.contato');	
+	Route::any('/atas/search', 'Site\HomeController@searchAta')->name('atas.search.index');
+	Route::any('/search/key', 'Site\HomeController@searchKey')->name('search.key');
+
+	
+	
 	/**
 	* Route Órgão public
 	* 
@@ -21,7 +34,7 @@
 	*	Routes Licita Atas
 	*
 	*/
-	Route::get('ata/{id}/licita', 'Site\Licita\LicitaController@index')->name('licita.index')->middleware('auth');
+	Route::get('ata/{id}/licita', 'Site\Licita\LicitaController@index')->name('licita.index');
 	Route::POST('ata/carona', 'Site\Licita\LicitaController@carona')->name('licita.carona');
 	Route::POST('ata/carona/lote/{id}', 'Site\Licita\LicitaController@getlotes')->name('licita.lote');
 	/**
@@ -71,14 +84,7 @@
 	Route::get('/historico', 'Site\HomeController@historico')->name('user.historico')->middleware('auth');
 	
 
-	/**
-	*	Routes public	
-	*
-	*/
-	Route::get('/home', 'Site\HomeController@index')->name('home.index');
-	Route::any('atas/search', 'Site\HomeController@searchAta')->name('atas.search.index');
-	Route::any('/search/key', 'Site\HomeController@searchKey')->name('search.key');
-	Route::get('/contato', 'Site\HomeController@Contato')->name('user.contato');	
+	
 
 	/**
 	*	Routes Register	
@@ -92,7 +98,7 @@
 
 
 Route::prefix('admin')
-		->namespace('admin')
+		->namespace('Admin')
 		->middleware('auth')	
 		->group(function() {
 

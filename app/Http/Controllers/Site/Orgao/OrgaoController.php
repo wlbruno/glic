@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Site\Orgao;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Ata;
-use App\Models\Ata_Orgao;
+use App\Models\Ata_orgao;
 use Auth;
 use DB;
 

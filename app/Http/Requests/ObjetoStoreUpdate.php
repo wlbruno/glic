@@ -27,7 +27,7 @@ class ObjetoStoreUpdate extends FormRequest
 
         return [
             'nome' => 'required',
-            'nefisco' => "required|unique:objetos,nefisco,{$id},id",
+            'nefisco' => "required",
         ];
     }
 

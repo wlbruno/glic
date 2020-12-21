@@ -11,7 +11,7 @@
       <div class="card card-default">
       <div class="card-header">
       <ol class="breadcrumb float-sm-left">
-          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('home.index') }}"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item active"><strong>PÁGINA DE CONTATO</strong></li>
         </ol>
       </div>

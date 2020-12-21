@@ -10,7 +10,7 @@
 	  <div class="card card-default">
       <div class="card-header">
         <ol class="breadcrumb float-sm-left">
-          <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('home.index') }}"><i class="fas fa-home"></i></a></li>
           <li class="breadcrumb-item"><a href="{{ route('admin.home') }}"><strong>DASHBOARD</strong></a></li>
 	        <li class="breadcrumb-item"><a href="{{ route('atas.index') }}"><strong>LISTAGEM DE ATAS</strong></a></li>
         <li class="breadcrumb-item"><a href="{{ route('atas.show', $ata->id) }}"><strong>VISUALIZAR ATA: {{$ata->nata}}</strong></a></li>

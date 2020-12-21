@@ -27,7 +27,7 @@ class FornecedoresStoreUpdate extends FormRequest
 
         return [
             'fornecedor' => 'required',
-            'cnpj' => "required|unique:fornecedores,cnpj,{$id},id",
+            'cnpj' => "required",
         ];
     }
 
